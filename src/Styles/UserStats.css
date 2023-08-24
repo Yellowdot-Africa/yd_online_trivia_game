@@ -1,0 +1,224 @@
+h4 {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+.gem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.gem-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gemm {
+  color: #6a6a76;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+.gem-no {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.prize {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.prize-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prz {
+  color: #6a6a76;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.prz-no {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.rank-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player-rank {
+  color: #6a6a76;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.p-rank {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.que {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+.que-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.question {
+  color: #6a6a76;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.question-ans {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.answers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.answers-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ans {
+  color: #6a6a76;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.ans-percent {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.cancel-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.cancel-cancel-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cancel {
+  color: #6a6a76;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.cancel-percent {
+  color: #9494ba;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.money-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.money-earnings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-earnings {
+  color: #6a6a76;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.earning {
+  color: rgb(2, 134, 2);
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}

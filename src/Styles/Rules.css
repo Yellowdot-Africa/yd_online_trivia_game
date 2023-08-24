@@ -1,0 +1,26 @@
+.rules-container {
+  border: 1px solid #e8e8e8;
+  background-color: rgba(214, 214, 246, 0.2);
+  padding: 15px;
+}
+
+li {
+  color: #3e3e50;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.learn-more {
+  color: #303064 !important;
+  text-align: center !important;
+  font-family: "Inter",sans-serif !important;
+  font-size: 12px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+  text-decoration-line: underline !important;
+  display: flex;
+  justify-content: flex-end;
+}
+
