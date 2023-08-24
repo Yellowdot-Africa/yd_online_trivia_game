@@ -1,0 +1,40 @@
+.categories-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.history{
+color: rgba(48, 48, 100, 0.40);
+text-align: center;
+font-family: "Inter", sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+padding: 10px;
+
+}
+
+.football{
+color: rgba(48, 48, 100, 0.80);
+text-align: center;
+font-family: "Inter",sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+padding: 10px;
+
+}
+
+.movies{
+    color: rgba(48, 48, 100, 0.40);
+text-align: center;
+font-family: "Inter",sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+padding: 10px;
+
+}

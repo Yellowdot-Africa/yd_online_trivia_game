@@ -1,0 +1,79 @@
+.icons-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 54px 0;
+}
+
+.settings {
+  width: 41px;
+  height: 41px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+}
+.settings img {
+  width: 20.2px;
+  height: 23.5px;
+  margin: 10px;
+}
+a:focus {
+  background-color: #303064;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+  border-bottom: 2px solid #a9a9de !important;
+  /* border-color: #A9A9DE; */
+}
+
+.stats {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+}
+
+.stats img {
+  width: 24px;
+  height: 24px;
+  margin: 5px;
+}
+
+.category {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+}
+.category img {
+  width: 19px;
+  height: 19px;
+  margin: 7px;
+}
+
+.board {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+}
+.leaderboardIcon{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.board img {
+  width: 7px;
+  height: 10px;
+  margin: 2px 0 0 0;
+}
+
+.rule {
+  width: 35px;
+  height: 36px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+}
+.rule img {
+  width: 12px;
+  height: 15px;
+  margin: 10px;
+}
