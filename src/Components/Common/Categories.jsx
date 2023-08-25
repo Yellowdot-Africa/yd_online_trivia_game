@@ -1,10 +1,12 @@
 import React from "react";
 import "../../Styles/Categories.css";
-import CaretUp from "../../assets/icons/uiwup.svg";
-import CaretDown from "../../assets/icons/uiwdown.svg";
 import CustomButton from "./CustomButton";
+import { useNavigate } from "react-router-dom";
+// import LandingPage from "./LandingPage";
+import CategoryOptions from "./CategoryOptions";
 
 const Categories = () => {
+  const navigate = useNavigate();
   const buttonText = "Start Trivia";
   const buttonStyles = {
     backgroundImage:
@@ -18,12 +20,12 @@ const Categories = () => {
         <h4>CATEGORIES </h4>
       </div>
       <div className="categories-container">
-        <img src={CaretUp} alt="caretup" />
-        <p className="history">History</p>
-        <p className="football">Football</p>
-        <p className="movies">Movies</p>
-        <img src={CaretDown} alt="caretdown" />
-        <CustomButton buttonText={buttonText} style={buttonStyles} />
+        <CategoryOptions />
+        <CustomButton
+          buttonText={buttonText}
+          style={buttonStyles}
+          onClick={() => navigate("/landing-page")}
+        />
       </div>
     </>
   );

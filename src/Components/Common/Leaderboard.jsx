@@ -6,7 +6,7 @@ import Profile from "../../assets/icons/profile-fill.svg";
 import GemStone from "../../assets/icons/gemstone.svg";
 import "../../Styles/LeaderBoard.css";
 
-const Leaderboard = ()=> {
+const Leaderboard = () => {
   return (
     <>
       <div>
@@ -57,6 +57,6 @@ const Leaderboard = ()=> {
       </div>
     </>
   );
-}
+};
 
 export default Leaderboard;

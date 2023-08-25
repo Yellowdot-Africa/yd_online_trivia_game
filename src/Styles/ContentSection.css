@@ -54,7 +54,7 @@ a:focus {
   border-radius: 50px;
   border: 1px solid rgba(48, 48, 100, 0.7);
 }
-.leaderboardIcon{
+.leaderboardIcon {
   display: flex;
   flex-direction: column;
   justify-content: center;

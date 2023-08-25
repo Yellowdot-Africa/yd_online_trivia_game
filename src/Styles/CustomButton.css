@@ -1,11 +1,10 @@
-.button-cont{
+.button-cont {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
-button{
+button {
   width: 253px;
   height: 48px;
   color: #fff;
