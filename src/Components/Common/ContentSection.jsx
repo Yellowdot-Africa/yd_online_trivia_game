@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import "../../Styles/ContentSection.css";
 import SettingsIcon from "../../assets/icons/galaSettings0.png";
 import userStats from "../../assets/icons/gridiconsstats.png";
@@ -14,10 +13,6 @@ import Leaderboard from "./Leaderboard";
 import Rules from "./Rules";
 // import Faqs from './Faqs';
 
-
-
-
-
 const ContentSection = () => {
   const [index, setIndex] = useState(0);
   return (
@@ -29,27 +24,26 @@ const ContentSection = () => {
         <a className="stats" onClick={() => setIndex(1)}>
           <img src={userStats} alt="stats" />
         </a>
-        <a className="category" onClick={()=> setIndex(2)}>
+        <a className="category" onClick={() => setIndex(2)}>
           <img src={categories} alt="category" />
         </a>
-        <a className="board" onClick={()=> setIndex(3)}>
+        <a className="board" onClick={() => setIndex(3)}>
           <div className="leaderboardIcon">
-          <img src={leaderboard} alt="leaderboard" />
-          <img src={leaderBoardImg} alt="ldrboard" />
+            <img src={leaderboard} alt="leaderboard" />
+            <img src={leaderBoardImg} alt="ldrboard" />
           </div>
         </a>
-        <a className="rule" onClick={()=> setIndex(4)}>
+        <a className="rule" onClick={() => setIndex(4)}>
           <img src={rules} alt="rule" />
         </a>
       </div>
       <div>
         {index === 0 && <Settings />}
         {index === 1 && <UserStats />}
-        {index === 2 && <Categories/>}
-        {index === 3 && <Leaderboard/>}
-        {index === 4 && <Rules/>}
+        {index === 2 && <Categories />}
+        {index === 3 && <Leaderboard />}
+        {index === 4 && <Rules />}
       </div>
-     
     </>
   );
 };

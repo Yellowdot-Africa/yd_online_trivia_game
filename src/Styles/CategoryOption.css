@@ -6,6 +6,14 @@
   padding: 10px;
 }
 
+.categories-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
 .history {
   color: rgba(48, 48, 100, 0.4);
   text-align: center;

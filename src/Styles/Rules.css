@@ -15,12 +15,11 @@ li {
 .learn-more {
   color: #303064 !important;
   text-align: center !important;
-  font-family: "Inter",sans-serif !important;
+  font-family: "Inter", sans-serif !important;
   font-size: 12px !important;
   font-style: normal !important;
   font-weight: 700 !important;
   text-decoration-line: underline !important;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end !important;
 }
-

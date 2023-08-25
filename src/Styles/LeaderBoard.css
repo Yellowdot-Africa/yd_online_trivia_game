@@ -1,7 +1,7 @@
-.table-container{
-border-radius: 0px 0px 3px 3px !important;
-background: #FFF !important;
-box-shadow:0px 3px 5px 3px #E9E9E9; ;
+.table-container {
+  border-radius: 0px 0px 3px 3px !important;
+  background: #fff !important;
+  box-shadow: 0px 3px 5px 3px #e9e9e9;
 }
 
 .thead {
@@ -20,8 +20,6 @@ th {
   font-style: normal !important;
   font-weight: 700 !important;
 }
-
-
 
 tbody {
   border-color: #e9e9e9 !important;
@@ -53,8 +51,8 @@ a {
 }
 
 .more-link {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}

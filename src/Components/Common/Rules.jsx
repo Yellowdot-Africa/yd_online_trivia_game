@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "../../Styles/Rules.css";
 import CustomButton from "./CustomButton";
-// import { Link } from 'react-router-dom';
-import Faqs from "./Faqs";
-
+// import Faqs from "./Faqs";
+import { Link } from "react-router-dom";
 
 const Rules = () => {
   const buttonText = "Start Trivia";
@@ -14,7 +13,6 @@ const Rules = () => {
   };
 
   const [index, setIndex] = useState(0);
-
 
   return (
     <>
@@ -31,19 +29,15 @@ const Rules = () => {
             <li>All terms and conditions must be observed.</li>
           </ul>
         </div>
-        <a className="learn-more" onClick={() => setIndex(5)}>
+
+        <Link to="/faqs" className="learn-more">
           Learn more
-        </a>
-        {/* <Link to="/faqs" className="learn-more">
-          Learn more
-        </Link> */}
+        </Link>
       </div>
       <div className="button-cont">
         <CustomButton buttonText={buttonText} style={buttonStyle} />
       </div>
-      <div>
-      {index === 5 && <Faqs />}
-      </div>
+      <div></div>
     </>
   );
 };
