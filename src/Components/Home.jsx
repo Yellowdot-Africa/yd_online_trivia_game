@@ -1,8 +1,8 @@
 import React from "react";
 import "../Styles/Home.css";
-import TopHeader from "./Common/TopHeader";
-import Hero from "./Common/Hero";
-import ContentSection from "./Common/ContentSection";
+import TopHeader from "./Pages/TopHeader";
+import Hero from "./Pages/Hero";
+import ContentSection from "./ContentSection";
 
 const Home = () => {
   return (

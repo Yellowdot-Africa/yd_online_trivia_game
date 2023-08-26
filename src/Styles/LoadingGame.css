@@ -1,0 +1,74 @@
+.loading-game-container {
+  background-color: #3b37a9;
+  width: auto;
+  height: 100vh;
+}
+.loading-game {
+  position: absolute;
+  top: 125px;
+  left: 0;
+  padding: 30px;
+}
+
+.loading-game h4 {
+  color: #e5c853 !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 48px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+.loading-game p {
+  color: #e6e6e6 !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 16px !important;
+  font-style: italic !important;
+  font-weight: 700 !important;
+}
+
+
+.football-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px;
+}
+
+.football-img .load{
+    animation: App-logo-spin infinite 2s linear;
+
+}
+
+@keyframes App-logo-spin{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.refl-img{
+    padding: 20px;
+}
+.progress-bar {
+  background-color: #3834ab !important;
+  color: #f0f0f0 !important;
+}
+
+.progressbar {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+@media screen and (min-width: 701px) {
+  .loading-game {
+    position: absolute;
+    top: 122px;
+    right: 20px;
+    padding: 30px;
+  }
+}

@@ -1,9 +1,9 @@
 import React from "react";
 import "../../Styles/Categories.css";
-import CustomButton from "./CustomButton";
+import CustomButton from "../Common/CustomButton";
 import { useNavigate } from "react-router-dom";
 // import LandingPage from "./LandingPage";
-import CategoryOptions from "./CategoryOptions";
+import CategoryOptions from "../Common/CategoryOptions";
 
 const Categories = () => {
   const navigate = useNavigate();

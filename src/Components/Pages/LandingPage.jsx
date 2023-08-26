@@ -1,12 +1,16 @@
 import React from "react";
 import "../../Styles/LandingPage.css";
 import categories from "../../assets/icons/Group 44.svg";
-import CustomButton from "./CustomButton";
+import CustomButton from "../Common/CustomButton";
 import HandPointUp from "../../assets/icons/handup.svg";
-import CategoryOptions from "./CategoryOptions";
+import CategoryOptions from "../Common/CategoryOptions";
 import logo from "../../assets/Images/ydlogo.png";
+import { useNavigate } from "react-router-dom";
+
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+
   const buttonText = "Start Trivia";
   const buttonStyle = {
     backgroundImage:
@@ -15,7 +19,8 @@ const LandingPage = () => {
   };
   return (
     <>
-      <div className="container position-relative">
+      <div className="container positive-relative">
+        <div className="landing-container">
         <div className="landing-header">
           <img src={logo} alt="logo" />
         </div>
@@ -36,8 +41,9 @@ const LandingPage = () => {
             Pick a category to play your first game
           </p>
 
-          <CustomButton buttonText={buttonText} style={buttonStyle} />
+          <CustomButton buttonText={buttonText} style={buttonStyle}   onClick={() => navigate("/game-info")} />
         </div>
+      </div>
       </div>
     </>
   );

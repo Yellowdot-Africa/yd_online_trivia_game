@@ -1,8 +1,14 @@
+.landing-container{
+  position: absolute;
+  top: 172px;
+  left: 45px;
+}
+
 .landing-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
+  padding: 20px;
 }
 .category-img-cont {
   display: flex;
