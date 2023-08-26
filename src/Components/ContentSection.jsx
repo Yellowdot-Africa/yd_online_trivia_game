@@ -6,11 +6,11 @@ import categories from "../../assets/icons/Group 44.svg";
 import leaderboard from "../../assets/icons/Star 1.svg";
 import leaderBoardImg from "../../assets/icons/leadr.png";
 import rules from "../../assets/icons/Vector (1).svg";
-import Settings from "./Settings";
-import UserStats from "./UserStats";
-import Categories from "./Categories";
-import Leaderboard from "./Leaderboard";
-import Rules from "./Rules";
+import Settings from "./Pages/Settings";
+import UserStats from "./Pages/UserStats";
+import Categories from "./Pages/Categories";
+import Leaderboard from "./Pages/Leaderboard";
+import Rules from "./Pages/Rules";
 // import Faqs from './Faqs';
 
 const ContentSection = () => {

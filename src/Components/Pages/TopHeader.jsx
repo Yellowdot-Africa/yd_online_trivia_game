@@ -1,7 +1,7 @@
 import { React, useState } from "react";
 import Gem from "../../assets/icons/gem.svg";
 import "../../Styles/TopHeader.css";
-import ShareModal from "./ShareModal";
+import ShareModal from "../Common/ShareModal";
 // import { Link } from "react-router-dom";
 
 const TopHeader = () => {

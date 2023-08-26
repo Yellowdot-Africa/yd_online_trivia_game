@@ -1,3 +1,42 @@
 .game-container {
-  background-color: #e5c853;
+  background-color: #e5c853 !important;
+  width: auto;
+  height: 100vh;
+  padding: 20px;
+}
+
+.close-img-cont {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+}
+
+.game-info {
+  display: flex !important;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  padding: 30px;
+}
+
+.game-info h4 {
+  color: #303064 !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 48px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+.game-info p {
+  color: #303064 !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 18px !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
 }
