@@ -1,4 +1,32 @@
-/* .share-modal{
-    background: #6969A1;
+
+.fade {
+    background: #6969A1 !important;
 box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
-} */
+}
+
+
+
+.popover-header {
+    color: #D8D8DD !important;
+text-align: center;
+font-family: "Inter",sans-serif;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+background: #6969A1;
+
+
+}
+hr{
+
+color: #D8D8DD;
+}
+
+.copy{
+    color: #FAFAFA;
+font-family: "Inter",sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+
+}
