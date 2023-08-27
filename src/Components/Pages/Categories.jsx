@@ -25,6 +25,7 @@ const Categories = () => {
           buttonText={buttonText}
           style={buttonStyles}
           onClick={() => navigate("/landing-page")}
+      
         />
       </div>
     </>

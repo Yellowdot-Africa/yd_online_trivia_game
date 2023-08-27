@@ -5,6 +5,7 @@ import Faqs from "./Pages/Faqs";
 import LandingPage from "./Pages/LandingPage";
 import Gameinfo from "./Pages/Gameinfo";
 import LoadingGame from "./Pages/LoadingGame";
+import Countdown from "./Pages/Countdown";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,9 @@ const router = createBrowserRouter([
   {
     path: "/loading",
     element: <LoadingGame/>,
+  },{
+    path: "/countdown",
+    element: <Countdown/>,
   }
 ]);
 
