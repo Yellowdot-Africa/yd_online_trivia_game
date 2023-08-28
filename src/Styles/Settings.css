@@ -24,15 +24,23 @@ h4 {
 input {
   padding: 5px;
 }
-.slider {
+.slider-slider {
   appearance: none;
   -webkit-appearance: none;
-  width: 100%;
+  width: 80%;
   height: 5px;
   border-radius: 5px;
-  background-color: #e5e5e5;
+  background-color: #5555A2;
+  /* background-color: #e5e5e5; */
 }
 
+/* .slider-slider{
+  color: #5555A2;
+} */
+
+.slider-disbled{
+  background-color: #e5e5e5 ; 
+}
 ::-webkit-slider-runnable-track {
   /* background: green; */
   /* border-radius: 5px;
