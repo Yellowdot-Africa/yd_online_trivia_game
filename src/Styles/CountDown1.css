@@ -1,61 +1,60 @@
-.countdown-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-.nine{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px;
-    border: 9px solid #DFDFDF;
-    border-radius: 0px 3px 0px 0px;
-    width: 60px;
-height: 60px;
+.nine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 9px solid #dfdfdf;
+  border-radius: 0px 3px 0px 0px;
+  width: 60px;
+  height: 60px;
 }
 
-.nine p{
-    color: #6F6E9D;
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 500;
-
+.nine p {
+  color: #6f6e9d;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
 }
 
-.text-contn{
-display: flex;
-justify-content: center;
-align-items: center;
+.text-contn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.text-contn p{
-    color: #6F6E9D;
-    
-text-align: justify;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
+.text-contn p {
+  color: #6f6e9d;
+
+  text-align: justify;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
 }
 
-.names{
-    /* display: flex;
+.names {
+  /* display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; */
-    padding: 20px;
+  padding: 20px;
 }
 
-.names p{
-    color: #6F6E9D;
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-padding: 10px;
+.names p {
+  color: #6f6e9d;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
 }

@@ -13,7 +13,6 @@ const Faqs = () => {
     <>
       <div className="faq">
         <h4 className>FAQ'S</h4>
-        {/* </div> */}
         <div className="faq-container">
           <div className="faq-text">
             <div className="faq-header-cont">

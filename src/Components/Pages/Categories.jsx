@@ -2,7 +2,6 @@ import React from "react";
 import "../../Styles/Categories.css";
 import CustomButton from "../Common/CustomButton";
 import { useNavigate } from "react-router-dom";
-// import LandingPage from "./LandingPage";
 import CategoryOptions from "../Common/CategoryOptions";
 
 const Categories = () => {
@@ -25,7 +24,6 @@ const Categories = () => {
           buttonText={buttonText}
           style={buttonStyles}
           onClick={() => navigate("/landing-page")}
-      
         />
       </div>
     </>

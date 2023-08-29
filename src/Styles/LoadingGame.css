@@ -28,7 +28,6 @@
   font-weight: 700 !important;
 }
 
-
 .football-img {
   display: flex;
   flex-direction: column;
@@ -37,22 +36,21 @@
   padding: 35px;
 }
 
-.football-img .load{
-    animation: App-logo-spin infinite 2s linear;
-
+.football-img .load {
+  animation: App-logo-spin infinite 2s linear;
 }
 
-@keyframes App-logo-spin{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.refl-img{
-    padding: 20px;
+.refl-img {
+  padding: 20px;
 }
 .progress-bar {
   background-color: #3834ab !important;
@@ -62,6 +60,28 @@
 .progressbar {
   margin-top: 50px;
   padding: 10px;
+}
+
+.countdown-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.count {
+  background-color: #f0f0f0;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 10px;
+}
+
+.count .num {
+  color: #3b37a9 !important;
+  text-align: center !important;
+  font-family: "Inter", sans-serif;
+  font-size: 36px !important;
+  font-style: normal;
+  font-weight: 700;
 }
 
 @media screen and (min-width: 701px) {
