@@ -1,5 +1,12 @@
 
+.div{
+  position: absolute;
+  top: 321px;
+  left: 77px;
+  
+ 
 
+}
 
 
 .qquestion-cont {
@@ -7,6 +14,7 @@
   background: rgba(242, 242, 242, 0.9);
   box-shadow: 0px 1px 4px 0px rgba(122, 122, 122, 0.25);
   padding: 30px;
+  margin-bottom: 40px;
 }
 
 .qquestion-cont p {
@@ -22,5 +30,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-   margin: 50px;
+    padding-top: 40px;
 }

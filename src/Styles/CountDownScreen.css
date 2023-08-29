@@ -1,71 +1,66 @@
-.countdownscreen{
-  
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 20px;
+.countdownscreen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.sad{
-    width: 60px;
-height: 60px;
-border-radius: 6px;
-border: 9px solid #3E3CA7;
-background: #3E3CA7;
-
+.sad {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  border: 9px solid #3e3ca7;
+  background: #3e3ca7;
 }
 
-.names-cont{
-    /* margin: 20px; */
-    padding: 20px;
+.names-cont {
+  padding: 20px;
 }
 
-.names-cont .wrong{
-    color: #D48C8C;
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 32px;
-font-style: normal;
-font-weight: 700;
-padding: 10px;
-
-
+.names-cont .wrong {
+  color: #d48c8c;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  padding: 10px;
 }
 
-.names-cont .tilewa{
-    background-color: #D48C8C;
-    color: #EFEFEF;
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-padding: 20px;
-border-radius: 20px;
-border: 2px solid #D48C8C;
-margin: 10px;
+.names-cont .tilewa {
+  background-color: #d48c8c;
+  color: #efefef;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid #d48c8c;
+  margin: 10px;
 }
 
-.names-cont .me{
-    background-color: #8CD49C;
-    color: #EFEFEF;
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-border-radius: 20px;
-border: 2px solid #8CD49C;
-padding: 20px;
-margin: 20px;
+.names-cont .me {
+  background-color: #8cd49c;
+  color: #efefef;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 2px solid #8cd49c;
+  padding: 20px;
+  margin: 20px;
 }
 
-.names-cont p{
-    color: #6F6E9D;
-    
-text-align: center;
-font-family: "Inter",sans-serif;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
+.names-cont p {
+  color: #6f6e9d;
+
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
 }

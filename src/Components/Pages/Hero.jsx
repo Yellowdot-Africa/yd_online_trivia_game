@@ -6,7 +6,6 @@ import "../../Styles/Hero.css";
 const Hero = () => {
   return (
     <>
-      {/* <div className="container"> */}
       <div className="hero-card-container">
         <div className="hero-container align-items-center">
           <img className="image1" src={Purple} alt="img" />

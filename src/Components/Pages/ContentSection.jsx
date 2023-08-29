@@ -11,7 +11,6 @@ import UserStats from "./UserStats";
 import Categories from "./Categories";
 import Leaderboard from "./Leaderboard";
 import Rules from "./Rules";
-// import Faqs from './Faqs';
 
 const ContentSection = () => {
   const [index, setIndex] = useState(0);

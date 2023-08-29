@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../Styles/Rules.css";
 import CustomButton from "../Common/CustomButton";
-// import Faqs from "./Faqs";
 import { Link } from "react-router-dom";
 
 const Rules = () => {

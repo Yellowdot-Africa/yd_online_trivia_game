@@ -1,16 +1,16 @@
-.landing-container {
+.landing-screen-container {
   position: absolute;
   top: 172px;
   left: 45px;
 }
 
-.landing-header {
+.landing-screen-header {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
-.category-img-cont {
+.category-tab-img-cont {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,18 +21,25 @@
   width: 12.073px;
   height: 12.073px;
 }
-.category-img {
+.category-tab-img {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
-.categories-container {
+.hand-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
 }
 
-.category-texxt {
+.categories-tab-container {
+  padding: 20px;
+}
+
+.category-tab-texxt {
   font-family: "Inter", sans-serif !important;
   font-size: 14px;
   font-weight: 600;
