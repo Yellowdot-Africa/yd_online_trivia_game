@@ -2,10 +2,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 70px;
 }
 
-.nine {
+.countdown-nine {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,7 +16,7 @@
   height: 60px;
 }
 
-.nine p {
+.countdown-nine p {
   color: #6f6e9d;
   text-align: center;
   font-family: "Inter", sans-serif;
@@ -29,16 +29,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  margin-bottom: 4em;
 }
 
 .text-contn p {
   color: #6f6e9d;
-
-  text-align: justify;
+  text-align: center;
   font-family: "Inter", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .names {
@@ -46,7 +48,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center; */
-  padding: 20px;
+  /* padding: 30px; */
 }
 
 .names p {
@@ -56,5 +58,5 @@
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
-  padding: 10px;
+  padding: 25px;
 }
