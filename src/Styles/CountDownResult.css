@@ -1,0 +1,117 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.game-result-complete-cont {
+  border-radius: 11px;
+  background: rgba(242, 242, 242, 0.9);
+  box-shadow: 0px 1px 4px 0px rgba(122, 122, 122, 0.25);
+  padding: 30px;
+  width: 300px;
+}
+
+.game-result-complete-cont p {
+  color: #1d1db9;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.result {
+  margin: 25px;
+}
+
+.result p {
+  color: #353365;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.card {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
+}
+
+.correct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.correct p {
+  color: #353365;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.wrong {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.wrong p {
+  color: #353365;
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 5px;
+}
+
+.gems-gotten {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 43px;
+  border-radius: 12px;
+  background: #fbfbfb;
+  margin: 30px;
+}
+
+.gem-div {
+  display: flex;
+  padding: 5px;
+}
+
+.gems-gotten p {
+  color: #353365 !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 12px !important;
+  font-style: normal;
+  font-weight: 700 !important;
+}
+
+.gems-gotten .nums-gems {
+  color: #353365;
+  font-family: "Inter", sans-serif;
+  font-size: 24px !important;
+  font-style: normal;
+  font-weight: 700 !important;
+}
+.done {
+  color: #3636c0;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 800;
+}

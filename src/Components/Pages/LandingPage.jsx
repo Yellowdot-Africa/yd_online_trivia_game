@@ -28,13 +28,18 @@ const LandingPage = () => {
 
   const buttonText = "Start Trivia";
   const buttonStyle = {
-    backgroundImage:
-      "linear-gradient(145deg, rgba(29, 29, 185, 0.24) 0%, rgba(29, 29, 185, 0.40) 100%)",
+    backgroundImage: "rgba(86, 86, 92, 0.40)",
+    color: " #FFF",
+    textAlign: "center",
+    fontFamily: "Inter",
+    fontSize: "18px",
+    fontWeight: "800",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
+    borderRadius: "24px",
   };
   return (
     <>
-      <div className="container positive-relative">
+      <div className="container ">
         <div className="landing-container">
           <div className="landing-header">
             <img src={logo} alt="logo" />

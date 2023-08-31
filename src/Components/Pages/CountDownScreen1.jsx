@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../Styles/CountDown1.css";
+import "../../Styles/CountDownScreen1.css";
 import sadMask from "../../assets/icons/mask-sad-fill.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -11,7 +11,7 @@ const CountDown1 = () => {
     AOS.refresh();
   }, []);
 
-  const [countdown, setCountdown] = useState(9);
+  const [countdown, setCountdown] = useState(12);
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
@@ -46,7 +46,7 @@ const CountDown1 = () => {
     setShowFeedback(true);
 
     setTimeout(() => {
-      navigate("/countdownscreen");
+      navigate("/gamecomplete");
     }, 2000);
   };
 
@@ -67,7 +67,7 @@ const CountDown1 = () => {
           </div>
         </div>
         <div className="text-contn">
-          <p>What is the name of the oldest footballer alive?</p>
+          <p>What is the largest stadium in Lagos?</p>
         </div>
         {showFeedback && (
           <div className="feedback">

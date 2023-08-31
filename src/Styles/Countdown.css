@@ -1,13 +1,8 @@
-
-.div{
+.div {
   position: absolute;
   top: 321px;
   left: 77px;
-  
- 
-
 }
-
 
 .qquestion-cont {
   border-radius: 11px;
@@ -20,15 +15,30 @@
 .qquestion-cont p {
   color: #6f6e9d;
   text-align: center;
-  font-family: "Inter",sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
 }
 
-.ball{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 40px;
+.ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.swipe-down-enter {
+  animation: swipeDown 1s ease-out forwards;
+}
+
+@keyframes swipeDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

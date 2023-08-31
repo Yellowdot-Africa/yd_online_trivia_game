@@ -8,13 +8,12 @@ import "../../Styles/Gameinfo.css";
 const Gameinfo = () => {
   const navigate = useNavigate();
 
-  const buttonText = "Start";
+  const buttonText = "Begin";
   const buttonStyle = {
-    backgroundImage:
-      " linear-gradient(92.96deg, rgba(29, 29, 185, 0.6) -8.49%, #1D1DB9 130.8%)",
+    backgroundColor: " #1D1DB9",
     width: "131px",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
-    marginTop: "90%",
+    marginTop: "100%",
   };
   return (
     <>

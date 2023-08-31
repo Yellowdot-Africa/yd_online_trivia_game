@@ -23,7 +23,7 @@ const Categories = () => {
         <CustomButton
           buttonText={buttonText}
           style={buttonStyles}
-          onClick={() => navigate("/landing-page")}
+          onClick={() => navigate("/game-info")}
         />
       </div>
     </>

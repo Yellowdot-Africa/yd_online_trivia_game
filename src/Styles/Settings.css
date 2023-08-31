@@ -31,21 +31,13 @@ input {
   height: 5px;
   border-radius: 5px;
   background-color: #5555a2;
-  /* background-color: #e5e5e5; */
 }
 
-/* .slider-slider{
-  color: #5555A2;
-} */
 
 .slider-disbled {
   background-color: #e5e5e5;
 }
-::-webkit-slider-runnable-track {
-  /* background: green; */
-  /* border-radius: 5px;
-  height: 10px; */
-}
+
 
 ::-webkit-slider-thumb {
   appearance: none;

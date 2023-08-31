@@ -7,6 +7,10 @@ import Gameinfo from "./Pages/Gameinfo";
 import LoadingGame from "./Pages/LoadingGame";
 import CountDown1 from "./Pages/CountDown1";
 import Countdown from "./Pages/Countdown";
+import CountDownScreen from "./Pages/CountDownScreen";
+import CountDownScreen1 from "./Pages/CountDownScreen1";
+import GameComplete from "./Pages/GameComplete";
+import CountDownResult from "./Pages/CountDownResult";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +42,22 @@ const router = createBrowserRouter([
   {
     path: "/countdown1",
     element: <CountDown1 />,
+  },
+  {
+    path: "/countdownscreen",
+    element: <CountDownScreen />,
+  },
+  {
+    path: "/countdownscreen1",
+    element: <CountDownScreen1 />,
+  },
+  {
+    path: "/gamecomplete",
+    element: <GameComplete />,
+  },
+  {
+    path: "/countdownresult",
+    element: <CountDownResult />,
   },
 ]);
 
