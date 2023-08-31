@@ -7,9 +7,9 @@
 
 .close-img-cont {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 40px;
 }
 
 .game-info {

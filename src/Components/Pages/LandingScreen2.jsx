@@ -34,9 +34,7 @@ const LandingScreen2 = () => {
             <h4>CATEGORY </h4>
           </div>
           <div className="categories-tab-container">
-            <CategoryOptions
-             
-            />
+            <CategoryOptions />
             <div className="hand-down">
               <img src={HandPointDown} alt="handpoint" />
             </div>

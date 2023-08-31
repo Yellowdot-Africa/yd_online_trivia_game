@@ -1,28 +1,40 @@
 import React from "react";
+import "../../Styles/CountDownResult.css";
+import WrongMask from "../../assets/icons/wrongmask.svg";
+import CorrectMask from "../../assets/icons/correctmask.png";
+import Gems from "../../assets/icons/gem.svg";
 import CustomButton from "../Common/CustomButton";
+import { useNavigate } from "react-router-dom";
 
 const CountDownResult = () => {
-  const buttonText = "Done";
+  const buttonText = "Replay";
   const buttonStyles = {
-    backgroundImage:
-      "linear-gradient(145deg, rgba(29, 29, 185, 0.6) 0%, #1d1db9 100%)",
-    boxShadow: "0px 0px 2px 0px #6b6bd1",
+    borderRadius: "24px",
+    backgroundColor: "#1D1DB9",
+    boxShadow: " 0px 0px 2px 0px #6B6BD1",
   };
+
+  const navigate = useNavigate();
   return (
     <>
-      <div className="container">
+      <div className="result-container d">
+        <div className="game-result-div" data-aos="fade-up">
+          <div className="game-result-complete-cont">
+            <p>WELL DONE! GAME COMPLETE</p>
+          </div>
+        </div>
         <div className="result">
           <p>YOUR RESULTS</p>
         </div>
 
         <div className="card">
           <div className="correct">
-            <img src="" alt="" />
+            <img src={CorrectMask} alt="correct" />
             <p>12</p>
             <p>Correct</p>
           </div>
           <div className="wrong">
-            <img src="" alt="" />
+            <img src={WrongMask} alt="wrong" />
             <p>8</p>
             <p>Wrong</p>
           </div>
@@ -30,16 +42,20 @@ const CountDownResult = () => {
 
         <div className="gems-gotten">
           <p>YOU GOT GEMS!!!</p>
-          <div>
-            <img src="" alt="" />
-            <p>+8</p>
+          <div className="gem-div">
+            <img src={Gems} alt="gem" />
+            <p className="nums-gems">+8</p>
           </div>
         </div>
 
         <div className="button">
-          <CustomButton buttonText={buttonText} style={buttonStyles} />
+          <CustomButton
+            buttonText={buttonText}
+            style={buttonStyles}
+            onClick={() => navigate("/game-info")}
+          />
         </div>
-        <p>Replay</p>
+        <p className="done">Done</p>
       </div>
     </>
   );

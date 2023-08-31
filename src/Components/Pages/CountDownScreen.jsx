@@ -1,29 +1,36 @@
-import React from "react";
-import sadMask from "../../assets/icons/mask-sad-fill.svg";
+import React, { useEffect } from "react";
 import "../../Styles/CountDownScreen.css";
+import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-function CountDownScreen() {
+const CountDownScreen = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+
+    const navigationTimeout = setTimeout(() => {
+      navigate("/countdownscreen1");
+    }, 2000);
+
+    return () => {
+      clearTimeout(navigationTimeout);
+    };
+  }, []);
+
+  const navigate = useNavigate();
+
   return (
     <>
-      <div className="container">
-        <div className="countdownscreen">
-          <div className="sad">
-            <img src={sadMask} alt="sad" />
+      <div data-aos="fade-down" className="container position-relative">
+        <div className="div">
+          <div className="qquestion-cont">
+            <p>Question 2/20</p>
           </div>
-        </div>
-        <div className="text-contn">
-          <p>What is the name of the oldest footballer alive?</p>
-        </div>
-        <div className="names-cont">
-          <p className="wrong">Wrong !</p>
-          <p className="tilewa">Tilewa</p>
-          <p className="me">Me</p>
-          <p>Usman</p>
-          <p>Gift</p>
         </div>
       </div>
     </>
   );
-}
+};
 
 export default CountDownScreen;
