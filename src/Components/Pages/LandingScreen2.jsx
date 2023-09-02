@@ -38,13 +38,14 @@ const LandingScreen2 = () => {
             <div className="hand-down">
               <img src={HandPointDown} alt="handpoint" />
             </div>
-            <p className="category-tab-texxt">Start game when you are ready</p>
 
             <CustomButton
               buttonText={buttonText}
               style={buttonStyles}
               onClick={() => navigate("/game-info")}
             />
+          <p className="category-tab-texxt">Start game when you are ready</p>
+
           </div>
         </div>
       </div>

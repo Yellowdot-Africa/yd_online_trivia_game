@@ -1,13 +1,30 @@
 import React, { useState } from "react";
 import "../../Styles/Settings.css";
 import VolumeIcon from "../../assets/Icons/tabler_volume.svg";
+import MutedIcon from "../../assets/Icons/unmute.svg";
 import DropDown from "../../assets/Icons/fe_drop-down.svg";
 
 const Settings = () => {
-  const [isDisabled, setIsDisabled] = useState(false);
-  const handleDisabled = () => {
-    return setIsDisabled((prevState) => !prevState);
+  const [isMuted, setIsMuted] = useState(true);
+  const [volume, setVolume] = useState(50); 
+
+  const toggleMute = () => {
+    setIsMuted((prevMuted) => !prevMuted);
+    setVolume((prevVolume) => (prevMuted ? 50 : prevVolume)); 
   };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = parseInt(e.target.value, 10);
+    setVolume(newVolume);
+    setIsMuted(newVolume === 0);
+  };
+
+  const volumeColor = isMuted ? "#ccc" : "#5555A2"; 
+
+  const sliderStyle = {
+    background: `linear-gradient(to right, ${volumeColor} ${volume}%, #ccc ${volume}%)`,
+  };
+
   return (
     <>
       <div className="settings-header">
@@ -17,18 +34,19 @@ const Settings = () => {
         <p className="vol">Volume</p>
         <div className="vol-icon-container">
           <img
-            src={VolumeIcon}
-            className={`volume-icon ${isDisabled ? "volume-disabled" : ""}`}
+            src={isMuted ? MutedIcon : VolumeIcon}
+            className="volume-icon"
             alt="vol"
-            onClick={handleDisabled}
+            onClick={toggleMute}
           />
-          {/* <img className="volume-image" src={ isDisabled ? DisabledIcon : VolumeIcon } alt="vol" onClick={handleDisabled}/> */}
           <input
-            className={`slider-slider ${isDisabled ? "slider-disabled" : ""}`}
+            className={`slider-slider ${isMuted ? "slider-disabled" : ""}`}
             type="range"
-            min="1"
+            min="0"
             max="100"
-            disabled={isDisabled}
+            value={volume}
+            onChange={handleVolumeChange}
+            style={sliderStyle}
           />
         </div>
         <div className="lang-container">

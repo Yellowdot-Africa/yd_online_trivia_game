@@ -1,8 +1,7 @@
-.toggle {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+.container {
+  text-align: center;
 }
+
 .toggle-switch {
   position: relative;
   width: 75px;
@@ -22,6 +21,7 @@
   border: 0 solid #bbb;
   border-radius: 20px;
 }
+
 .inner {
   display: block;
   width: 200%;
@@ -40,14 +40,16 @@
   font-weight: bold;
   box-sizing: border-box;
 }
+
 .inner:before {
-  content: "";
+  content: "YES";
   padding-left: 10px;
-  background-color: #303064;
-  color: #303064;
+  background-color: #060;
+  color: #fff;
 }
+
 .inner:after {
-  content: "";
+  content: "NO";
   padding-right: 10px;
   background-color: #bbb;
   color: #fff;
@@ -58,7 +60,7 @@
   display: block;
   width: 24px;
   margin: 5px;
-  background: #f1f1f1;
+  background: #fff;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -67,12 +69,11 @@
   border-radius: 20px;
   transition: all 0.3s ease-in 0s;
 }
+
 .checkbox:checked + .label .inner {
   margin-left: 0;
 }
+
 .checkbox:checked + .label .switch {
   right: 0px;
 }
-
-
-
