@@ -73,3 +73,16 @@ hr {
   font-style: normal;
   font-weight: 500;
 }
+
+
+@media screen and (max-width:290px) {
+  button{
+    width: 100% ;
+  }
+}
+
+@media screen and (min-width:300px) {
+  button{
+    width: 100% ;
+  }
+}

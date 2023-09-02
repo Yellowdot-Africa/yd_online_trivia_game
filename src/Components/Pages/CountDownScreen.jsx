@@ -22,8 +22,8 @@ const CountDownScreen = () => {
 
   return (
     <>
-      <div data-aos="fade-down" className="container position-relative">
-        <div className="div">
+      <div data-aos="fade-down" className="container ">
+        <div className="countdown-div">
           <div className="qquestion-cont">
             <p>Question 2/20</p>
           </div>

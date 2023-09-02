@@ -1,7 +1,15 @@
+.count-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .div {
-  position: absolute;
-  top: 321px;
-  left: 77px;
+ 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .qquestion-cont {
@@ -21,24 +29,6 @@
   font-weight: 700;
 }
 
-.ball {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-}
 
-.swipe-down-enter {
-  animation: swipeDown 1s ease-out forwards;
-}
 
-@keyframes swipeDown {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
+

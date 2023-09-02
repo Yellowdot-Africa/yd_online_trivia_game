@@ -1,7 +1,35 @@
+
+
+
 .faq {
   padding: 25px;
-  position: absolute;
-  top: 70px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.faq-close-cont{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.faq-close-cont h4{
+  color: #9494BA !important;
+text-align: center !important;
+font-family: "Inter",sans-serif;
+font-size: 24px !important;
+font-style: normal;
+font-weight: 700 !important;
+
+}
+
+.faq-close-img-cont  {
+  display: flex ;
+  justify-content: flex-end ;
+  align-items: center;
+  padding: 40px 
 }
 
 .faq-container {

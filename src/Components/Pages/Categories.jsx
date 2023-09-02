@@ -11,6 +11,7 @@ const Categories = () => {
     backgroundImage:
       "linear-gradient(145deg, rgba(29, 29, 185, 0.6) 0%, #1d1db9 100%)",
     boxShadow: "0px 0px 2px 0px #6b6bd1",
+    width:"222px",
   };
 
   return (

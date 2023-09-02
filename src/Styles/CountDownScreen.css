@@ -1,7 +1,8 @@
-.div {
-  position: absolute;
-  top: 321px;
-  left: 77px;
+.countdown-div {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .qquestion-cont {
