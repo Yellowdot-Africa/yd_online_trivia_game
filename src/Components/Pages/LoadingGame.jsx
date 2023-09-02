@@ -54,7 +54,7 @@ const LoadingGame = () => {
 
   return (
     <div className="loading-game-container">
-      <div className="position-relative">
+      <div className="">
         <div className="container loading-game">
           <h4>Football Trivia</h4>
           <p>{startCountdown ? "Starting..." : "Is starting..."}</p>

@@ -1,8 +1,9 @@
 .game-container {
   background-color: #e5c853 !important;
-  width: auto;
+  display: flex;
+  justify-content: center;
   height: 100vh;
-  padding: 20px;
+  padding: 3em;
 }
 
 .close-img-cont {
@@ -17,9 +18,6 @@
   flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
-  position: absolute;
-  top: 200px;
-  left: 0;
   padding: 30px;
 }
 
@@ -40,3 +38,5 @@
   font-style: normal !important;
   font-weight: 700 !important;
 }
+
+

@@ -12,6 +12,7 @@ const CountDownResult = () => {
     borderRadius: "24px",
     backgroundColor: "#1D1DB9",
     boxShadow: " 0px 0px 2px 0px #6B6BD1",
+    width: "222px",
   };
 
   const navigate = useNavigate();
@@ -55,7 +56,9 @@ const CountDownResult = () => {
             onClick={() => navigate("/game-info")}
           />
         </div>
-        <p className="done">Done</p>
+        <p className="done"
+        onClick={() => navigate("/game-info")}
+        >Done</p>
       </div>
     </>
   );

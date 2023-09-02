@@ -1,13 +1,13 @@
 .loading-game-container {
   background-color: #3b37a9;
-  width: auto;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3em;
+
 }
 .loading-game {
-  position: absolute;
-  top: 125px;
-  left: 0;
-  padding: 30px;
+ height: 50vh;
 }
 
 .loading-game h4 {
@@ -33,7 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 35px;
+  padding: 15px;
 }
 
 .football-img .load {
@@ -84,11 +84,4 @@
   font-weight: 700;
 }
 
-@media screen and (min-width: 701px) {
-  .loading-game {
-    position: absolute;
-    top: 122px;
-    right: 20px;
-    padding: 30px;
-  }
-}
+

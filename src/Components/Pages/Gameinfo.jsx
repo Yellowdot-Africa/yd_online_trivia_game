@@ -18,7 +18,7 @@ const Gameinfo = () => {
   return (
     <>
       <div className="game-container">
-        <div className="position-relative">
+        <div className="">
           <div className="close-img-cont">
             <img
               className="close-img"

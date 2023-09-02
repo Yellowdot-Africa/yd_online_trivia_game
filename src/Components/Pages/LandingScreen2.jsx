@@ -18,7 +18,7 @@ const LandingScreen2 = () => {
 
   return (
     <>
-      <div className="container positive-relative">
+      <div className="container ">
         <div className="landing-screen-container">
           <div className="landing-screen-header">
             <img src={logo2} alt="logo" />

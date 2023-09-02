@@ -9,6 +9,7 @@ const Rules = () => {
     backgroundImage:
       "linear-gradient(145deg, rgba(29, 29, 185, 0.24) 0%, rgba(29, 29, 185, 0.40) 100%)",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
+    width:"70vw",
   };
 
   const [index, setIndex] = useState(0);
@@ -30,7 +31,7 @@ const Rules = () => {
         </div>
 
         <Link to="/faqs" className="learn-more">
-          Learn more
+          FAQ'S
         </Link>
       </div>
       <div className="button-cont">

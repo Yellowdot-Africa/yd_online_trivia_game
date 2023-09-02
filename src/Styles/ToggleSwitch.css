@@ -10,9 +10,11 @@
   text-align: left;
   top: 8px;
 }
+
 .checkbox {
   display: none;
 }
+
 .label {
   display: block;
   overflow: hidden;
@@ -26,6 +28,7 @@
   margin-left: -100%;
   transition: margin 0.3s ease-in 0s;
 }
+
 .inner:before,
 .inner:after {
   float: left;
@@ -38,23 +41,24 @@
   box-sizing: border-box;
 }
 .inner:before {
-  content: "YES";
+  content: "";
   padding-left: 10px;
-  background-color: #060;
-  color: #fff;
+  background-color: #303064;
+  color: #303064;
 }
 .inner:after {
-  content: "NO";
+  content: "";
   padding-right: 10px;
   background-color: #bbb;
   color: #fff;
   text-align: right;
 }
+
 .switch {
   display: block;
   width: 24px;
   margin: 5px;
-  background: #fff;
+  background: #f1f1f1;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -69,3 +73,6 @@
 .checkbox:checked + .label .switch {
   right: 0px;
 }
+
+
+
