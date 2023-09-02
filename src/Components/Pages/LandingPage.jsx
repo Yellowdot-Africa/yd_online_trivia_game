@@ -1,34 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../Styles/LandingPage.css";
 import categories from "../../assets/icons/Group 44.svg";
 import CustomButton from "../Common/CustomButton";
 import HandPointUp from "../../assets/icons/handup.svg";
 import CategoryOptions from "../Common/CategoryOptions";
 import logo from "../../assets/Images/ydlogo.png";
-import LandingScreen2 from "./LandingScreen2";
 
 const LandingPage = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setData(<LandingScreen2 />);
-      setIsLoading(false);
-    }, 5000);
-  }, []);
-
-  if (isLoading) {
-    return (
-      <div className="spinner">
-        <LandingScreen2 />
-      </div>
-    );
-  }
-
   const buttonText = "Start Trivia";
   const buttonStyle = {
-    backgroundImage: "rgba(86, 86, 92, 0.40)",
+    backgroundColor: "rgba(86, 86, 92, 0.40)",
     color: " #FFF",
     textAlign: "center",
     fontFamily: "Inter",
@@ -36,7 +17,9 @@ const LandingPage = () => {
     fontWeight: "800",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
     borderRadius: "24px",
+    width: "222px",
   };
+
   return (
     <>
       <div className="container ">

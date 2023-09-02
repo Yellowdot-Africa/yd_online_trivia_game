@@ -65,6 +65,13 @@
   text-align: left;
 }
 
+.dark-blue{
+  color:#303064;
+}
+
+.grey{
+ color:#9B9B9B ; 
+}
 .show {
   color: #5c5c5c !important;
   font-family: "Inter", sans-serif !important;

@@ -11,11 +11,16 @@ import CountDownScreen from "./Pages/CountDownScreen";
 import CountDownScreen1 from "./Pages/CountDownScreen1";
 import GameComplete from "./Pages/GameComplete";
 import CountDownResult from "./Pages/CountDownResult";
+import LandingScreen2 from "./Pages/LandingScreen2";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+  },
+  {
+    path: "/landingscreen2",
+    element: <LandingScreen2 />,
   },
   {
     path: "/home",
