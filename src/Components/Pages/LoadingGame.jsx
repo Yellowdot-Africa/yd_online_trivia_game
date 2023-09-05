@@ -44,13 +44,15 @@ const LoadingGame = () => {
             navigate("/countdown");
           }
         }
-      }, 1000);
+      }, 2000);
 
       return () => {
         clearInterval(countdownInterval);
       };
     }
   }, [countdown, navigate, startCountdown]);
+
+  const numElements = [3, 2, 1];
 
   return (
     <div className="loading-game-container">
@@ -75,11 +77,11 @@ const LoadingGame = () => {
               <ProgressBar bgcolor={"#3834AB"} completed={completed} />
             ) : (
               <div className="countdown-cont">
-                {startCountdown && (
-                  <div className="count">
-                    <p className="num">{countdown}</p>
+                {numElements.map((numElement, index) => (
+                  <div className="count" key={index}>
+                    <p className="num">{countdown === numElement ? numElement : ""}</p>
                   </div>
-                )}
+                ))}
               </div>
             )}
           </div>
@@ -90,3 +92,8 @@ const LoadingGame = () => {
 };
 
 export default LoadingGame;
+
+
+
+
+
