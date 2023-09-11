@@ -40,6 +40,15 @@
 .categories-tab-container {
   padding: 20px;
 }
+.category-option{
+  color: rgba(48, 48, 100, 0.80);
+text-align: center;
+font-family: "Inter",sans-serif;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+
+}
 
 .category-tab-texxt {
   font-family: "Inter", sans-serif !important;

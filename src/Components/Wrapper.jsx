@@ -12,10 +12,20 @@ import CountDownScreen1 from "./Pages/CountDownScreen1";
 import GameComplete from "./Pages/GameComplete";
 import CountDownResult from "./Pages/CountDownResult";
 import LandingScreen2 from "./Pages/LandingScreen2";
+import SignIn from "./Pages/SignIn";
+import CreateUser from "./Pages/CreateUser";
 
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <CreateUser />,
+  },
+  {
+    path: "/signin",
+    element: <SignIn />,
+  },
+  {
+    path: "/landingpage",
     element: <LandingPage />,
   },
   {
