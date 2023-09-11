@@ -1,0 +1,68 @@
+.container .bgg-img{
+  display: none;
+}
+.create-user-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .create-user-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+  }
+  .reg-form{
+    width: 40vw;
+  }
+  
+  .form-select{
+      color: #CDCDCD;
+      font-family: "Inter",sans-serif;
+      font-size: 18px;
+      font-style: normal;
+  }
+  
+  .form-control::placeholder{
+      color: #CDCDCD;
+      font-family: "Inter",sans-serif;
+      font-size: 18px;
+      font-style: normal;
+  }
+  .account{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+  }
+  .account p {
+    color: #acacc1;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+   padding: 10px;
+  }
+  
+  .sign{
+    color: #acacc1 !important;
+    text-align: center;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+   /* padding: 20px; */
+   text-decoration: none !important;
+  }
+
+/* 
+  @media screen and (min-width:700px){
+    /* .container img{
+      display: block; */
+    /* }
+  }  */

@@ -6,7 +6,7 @@
   padding: 10px;
 }
 
-.history {
+.category-cont p {
   color: rgba(48, 48, 100, 0.4);
   text-align: center;
   font-family: "Inter", sans-serif;
@@ -27,6 +27,16 @@
 }
 
 .movies {
+  color: rgba(48, 48, 100, 0.4);
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 10px;
+}
+
+.loading{
   color: rgba(48, 48, 100, 0.4);
   text-align: center;
   font-family: "Inter", sans-serif;

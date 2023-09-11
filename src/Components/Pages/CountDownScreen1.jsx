@@ -4,8 +4,10 @@ import sadMask from "../../assets/icons/mask-sad-fill.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; 
 
-const CountDown1 = () => {
+
+const CountDownScreen1 = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -15,6 +17,8 @@ const CountDown1 = () => {
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const token = sessionStorage.getItem("token");
+  console.log("token", token);
 
   const navigate = useNavigate();
 
@@ -33,6 +37,100 @@ const CountDown1 = () => {
   }, [countdown]);
 
   const correctAnswer = "Me";
+
+  useEffect(() => {
+    const fetchQuestions = async () => {
+      try {
+        
+        const newQuestion = {
+          "questionID": 1,
+          "questionText": "what is the first book in the bible?",
+          "categoryID": 4,
+          "level": 5,
+          "language": "English",
+          "answers": [
+            {
+              "answerID": 1,
+              "answerText": "yes",
+              "isCorrectAnswer": true,
+              "score": 5
+            }
+          ]
+        };
+        await axios.post(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/AddQuestion",
+          newQuestion,
+          {
+            headers: {
+              "Accept": "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+
+        const updatedQuestion = {
+          "id": 1, 
+          "questionText": "what is the first book in the bible?",
+          "categoryID": 4,
+          "level": 5,
+          "language": "English",
+          "answers": [
+            {
+              "answerID": 1,
+              "answerText": "yes",
+              "isCorrectAnswer": true,
+              "score": 5
+            }
+          ]
+        };
+        await axios.put(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/UpdateQuestion",
+          updatedQuestion,
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+
+        const categoryId = 4; 
+        const allQuestionsResponse = await axios.get(
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestions?categoryId=${categoryId}`,
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+        const allQuestions = allQuestionsResponse.data;
+
+        const userId = 8012345678; 
+        const unattemptedQuestionsResponse = await axios.get(
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser?userId=${userId}&categoryId=${categoryId}`,
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+        const unattemptedQuestions = unattemptedQuestionsResponse.data;
+
+        console.log("All Questions:", allQuestions);
+        console.log("Unattempted Questions:", unattemptedQuestions);
+      } catch (error) {
+        console.error("API Error:", error);
+      }
+    };
+
+    fetchQuestions();
+  }, []);
 
   const handleAnswerSelect = (answer) => {
     if (showFeedback) {
@@ -141,4 +239,6 @@ const CountDown1 = () => {
   );
 };
 
-export default CountDown1;
+export default CountDownScreen1;
+
+
