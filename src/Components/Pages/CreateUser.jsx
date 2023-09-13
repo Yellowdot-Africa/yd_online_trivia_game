@@ -1,101 +1,11 @@
-// import React from "react";
-// import "../../Styles/CreateUser.css";
-// import Form from "react-bootstrap/Form";
-// import InputGroup from 'react-bootstrap/InputGroup';
-// import { useNavigate } from "react-router-dom";
-// import logo from "../../assets/Images/ydlogo.png";
-// import { Link } from "react-router-dom";
-// import CustomButton from "../Common/CustomButton";
-
-
-// const CreateUser = () => {
-//     const navigate = useNavigate();
-//     const buttonText = "Sign Up";
-//     const buttonStyles = {
-//         backgroundImage:
-//           "linear-gradient(145deg, rgba(29, 29, 185, 0.6) 0%, #1d1db9 100%)",
-//         boxShadow: "0px 0px 2px 0px #6b6bd1",
-//         width: "222px",
-//         margin:"20px",
-//       };
-
-//   return (
-//     <>
-//         <div className="container">
-//         <div className="create-user-container">
-//           <div className="create-user-header">
-//             <img src={logo} alt="logo" />
-//           </div>
-//       <div className="reg-form">
-//         <InputGroup className="mb-3">
-//           <Form.Control
-//             placeholder="Firstname"
-//             aria-label="Firstname"
-//           />
-//         </InputGroup>
-
-//         <InputGroup className="mb-3">
-//           <Form.Control
-//             placeholder="Lastname"
-//             aria-label="Lastname"
-//           />
-//         </InputGroup>
-
-//         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-//           <Form.Label></Form.Label>
-//           <Form.Control type="email" placeholder="name@example.com" />
-//         </Form.Group>
-//         <Form.Label htmlFor="inputNumber"></Form.Label>
-
-//         <Form.Control
-//           type="number"
-//           placeholder="+234"
-//           id="inputNumber"
-        
-//         />
-//         <Form.Label htmlFor="inputPassword"></Form.Label>
-//         <Form.Control
-//           type="password"
-//           placeholder="Password"
-//           id="inputPassword"
-        
-//         />
-
-//       </div>
-//       <CustomButton
-//             buttonText={buttonText}
-//             style={buttonStyles}
-            
-//           />
-        
-//       <div className="account">
-//       <p>Already have an account?</p>
-//       <Link to="/signin" className="sign">
-//          Sign in
-//         </Link>
-//         </div>
-//       </div>
-//       </div>
-
-     
-//     </>
-//   );
-// };
-
-// export default CreateUser;
-
-
 import React, { useState, useEffect } from "react";
 import "../../Styles/CreateUser.css";
-import yellow from "../../assets/Images/Ellipse 30.png";
-import purple from "../../assets/Images/Ellipse 23.png";
-import red from "../../assets/Images/Ellipse 24.svg";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Images/ydlogo.png";
-import { Link } from "react-router-dom";
 import CustomButton from "../Common/CustomButton";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const CreateUser = () => {
@@ -108,84 +18,213 @@ const CreateUser = () => {
     width: "222px",
     margin: "20px",
   };
+  const token = sessionStorage.getItem("token");
 
-  const [userData, setUserData] = useState({
+  const [registrationData, setRegistrationData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    phoneNumber: "",
+    msisdn: "",
     password: "",
   });
 
-  const [user, setUser] = useState(null);
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [allUsers, setAllUsers] = useState([]);
+  const [userRole, setUserRole] = useState("normal");
+  const [specificUser, setSpecificUser] = useState([]);
 
+  useEffect(() => {
+    fetchAllUsers();
+  }, []);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setUserData({ ...userData, [name]: value });
+  const fetchAllUsers = async () => {
+    try {
+      const response = await axios.get(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUsers",
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setAllUsers(response.data);
+    } catch (error) {
+      console.error("Error fetching all users:", error);
+    }
   };
 
-  const createUser = async () => {
+  const handleUserRegistration = async () => {
     try {
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/CreateUser",
-        userData
+        registrationData,
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
-      setLoading(false);
 
-      console.log("Created User:", response.data);
+      console.log("User registration successful:", response.data);
+
+      fetchAllUsers();
+
+      navigate("/signin");
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
-      console.error("Error creating user:", error.response.data);
+      console.error("Error registering user:", error);
     }
   };
 
-  const getUser = async () => {
+  const getSpecificUser = async (userId) => {
     try {
       const response = await axios.get(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUser"
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUser?userID=${userId}`,
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
-      setLoading(false);
+      getSpecificUser();
 
-      setUser(response.data);
+      console.log("Specific user data:", response.data);
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
-      console.error("Error fetching user:", error);
+      console.error("Error fetching specific user:", error);
     }
   };
 
-  const getUsers = async () => {
-    setLoading(true);
+  const updateUserPassword = async (userId, newPassword) => {
     try {
-      const response = await axios.get(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUsers"
+      const response = await axios.put(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/UpdatePassword?userID=${userId}`,
+        { newPassword },
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
       );
 
-      setUsers(response.data);
+      console.log("Password updated:", response.data);
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
-      console.error("Error fetching users:", error);
-    } finally {
-      setLoading(false);
+      console.error("Error updating password:", error);
     }
   };
 
-  useEffect(() => {
-    getUsers(); 
-  }, []);
+  const deleteUser = async (userId) => {
+    try {
+      const response = await axios.delete(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DeleteUser?userID=${userId}`,
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("User deleted:", response.data);
+    } catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
+
+  const deactivateUser = async (userId) => {
+    try {
+      const response = await axios.put(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DeactivateUser?userID=${userId}`,
+        {},
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("User deactivated:", response.data);
+    } catch (error) {
+      console.error("Error deactivating user:", error);
+    }
+  };
+
+  const reactivateUser = async (userId) => {
+    try {
+      const response = await axios.put(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/ActivateUser?userID=${userId}`,
+        {},
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("User reactivated:", response.data);
+    } catch (error) {
+      console.error("Error reactivating user:", error);
+    }
+  };
+
+  const makeUserAdmin = async (userId) => {
+    try {
+      const response = await axios.put(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/UpgradeToAdmin?userID=${userId}`,
+        {},
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("User upgraded to admin:", response.data);
+
+      setUserRole("admin");
+    } catch (error) {
+      console.error("Error upgrading user to admin:", error);
+    }
+  };
+
+  const downgradeAdmin = async (userId) => {
+    try {
+      const response = await axios.put(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DowngradeToUser?userID=${userId}`,
+        {},
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("Admin downgraded to user:", response.data.data);
+
+      setUserRole("normal");
+    } catch (error) {
+      console.error("Error downgrading admin to user:", error);
+    }
+  };
 
   return (
     <>
       <div className="container">
-        <img className="bgg-img" src={yellow} alt="" />
-        <img className="bgg-img" src={purple} alt="" />
-        <img className="bgg-img" src={red} alt="" />
         <div className="create-user-container">
           <div className="create-user-header">
             <img src={logo} alt="logo" />
@@ -193,59 +232,82 @@ const CreateUser = () => {
           <div className="reg-form">
             <InputGroup className="mb-3">
               <Form.Control
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={userData.firstName}
-                onChange={handleInputChange}
+                placeholder="Firstname"
+                aria-label="Firstname"
+                onChange={(e) =>
+                  setRegistrationData({
+                    ...registrationData,
+                    firstName: e.target.value,
+                  })
+                }
+                value={registrationData.firstName}
               />
             </InputGroup>
 
             <InputGroup className="mb-3">
               <Form.Control
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={userData.lastName}
-                onChange={handleInputChange}
+                placeholder="Lastname"
+                aria-label="Lastname"
+                onChange={(e) =>
+                  setRegistrationData({
+                    ...registrationData,
+                    lastName: e.target.value,
+                  })
+                }
+                value={registrationData.lastName}
               />
             </InputGroup>
 
-            <Form.Group className="mb-3" controlId="email">
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label></Form.Label>
               <Form.Control
                 type="email"
-                name="email"
-                placeholder="Email"
-                value={userData.email}
-                onChange={handleInputChange}
+                placeholder="name@example.com"
+                onChange={(e) =>
+                  setRegistrationData({
+                    ...registrationData,
+                    email: e.target.value,
+                  })
+                }
+                value={registrationData.email}
               />
             </Form.Group>
 
-            <InputGroup className="mb-3">
-              <Form.Control
-                type="tel"
-                name="phoneNumber"
-                placeholder="Phone Number"
-                value={userData.phoneNumber}
-                onChange={handleInputChange}
-              />
-            </InputGroup>
+            <Form.Label htmlFor="msisdn"></Form.Label>
+            <Form.Control
+              type="number"
+              placeholder="msisdn"
+              id="msisdn"
+              onChange={(e) =>
+                setRegistrationData({
+                  ...registrationData,
+                  phoneNumber: e.target.value,
+                })
+              }
+              value={registrationData.phoneNumber}
+            />
 
-            <Form.Group className="mb-3" controlId="password">
-              <Form.Control
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={userData.password}
-                onChange={handleInputChange}
-              />
-            </Form.Group>
+            <Form.Label htmlFor="inputPassword"></Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              id="inputPassword"
+              onChange={(e) =>
+                setRegistrationData({
+                  ...registrationData,
+                  password: e.target.value,
+                })
+              }
+              value={registrationData.password}
+            />
           </div>
           <CustomButton
-            buttonText={buttonText}
+            onClick={handleUserRegistration}
             style={buttonStyles}
-            onClick={createUser}
+            buttonText={buttonText}
+            disabled={!registrationData.email || !registrationData.password}
           />
+          {/*  */}
           <div className="account">
             <p>Already have an account?</p>
             <Link to="/signin" className="sign">
@@ -254,32 +316,8 @@ const CreateUser = () => {
           </div>
         </div>
       </div>
-      <div>
-        {user && (
-          <div>
-            <h3>User Data</h3>
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-          </div>
-        )}
-
-        <div>
-          <h3>List of Users</h3>
-          {loading ? (
-            <p className="loading">Loading...</p>
-          ) :  error ? (
-            <p className="loading">Error fetching users: {error}</p>
-          ) :(
-            <ul>
-              {users.map((user) => (
-                <li key={user.id}>{user.firstName} {user.lastName}</li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
     </>
   );
 };
 
 export default CreateUser;
-
