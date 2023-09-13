@@ -11,13 +11,16 @@ const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [gameId, setGameId] = useState(0);
+
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
     const fetchLeaderboardData = async () => {
       try {
+        // const gameId = 0;
         const response = await axios.get(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard",
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameId=${gameId}`,
           {
             headers: {
               Accept: "*/*",
@@ -37,8 +40,10 @@ const Leaderboard = () => {
     };
 
     fetchLeaderboardData();
-  }, []);
-
+  }, [token, gameId]);
+  const changeGameId = () => {
+    setGameId(1);
+  };
   return (
     <>
       <div>
