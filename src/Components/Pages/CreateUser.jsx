@@ -31,6 +31,9 @@ const CreateUser = () => {
   const [allUsers, setAllUsers] = useState([]);
   const [userRole, setUserRole] = useState("normal");
   const [specificUser, setSpecificUser] = useState([]);
+  const [registrationError, setRegistrationError] = useState(null);
+  const [success, setSuccess] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchAllUsers();
@@ -38,6 +41,7 @@ const CreateUser = () => {
 
   const fetchAllUsers = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUsers",
         {
@@ -51,12 +55,15 @@ const CreateUser = () => {
 
       setAllUsers(response.data);
     } catch (error) {
-      console.error("Error fetching all users:", error);
+      setRegistrationError("Error fetching all users: " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleUserRegistration = async () => {
     try {
+      setLoading(true);
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/CreateUser",
         registrationData,
@@ -68,19 +75,22 @@ const CreateUser = () => {
           },
         }
       );
-
+      setSuccess("User registration successful:", response.data);
       console.log("User registration successful:", response.data);
 
       fetchAllUsers();
 
       navigate("/signin");
     } catch (error) {
-      console.error("Error registering user:", error);
+      setRegistrationError("Error registering user: " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const getSpecificUser = async (userId) => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUser?userID=${userId}`,
         {
@@ -92,15 +102,19 @@ const CreateUser = () => {
         }
       );
       getSpecificUser();
+      setSpecificUser(response.data);
 
       console.log("Specific user data:", response.data);
     } catch (error) {
-      console.error("Error fetching specific user:", error);
+      setRegistrationError("Error specific users: " + error.message);
+    } finally {
+      setLoading(false);
     }
   };
 
   const updateUserPassword = async (userId, newPassword) => {
     try {
+      setLoading(true);
       const response = await axios.put(
         `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/UpdatePassword?userID=${userId}`,
         { newPassword },
@@ -281,7 +295,7 @@ const CreateUser = () => {
               onChange={(e) =>
                 setRegistrationData({
                   ...registrationData,
-                  phoneNumber: e.target.value,
+                  msisdn: e.target.value,
                 })
               }
               value={registrationData.phoneNumber}
@@ -307,8 +321,15 @@ const CreateUser = () => {
             buttonText={buttonText}
             disabled={!registrationData.email || !registrationData.password}
           />
-          {/*  */}
-          <div className="account">
+           
+          {loading ? (
+            <p className="loading">Loading...</p>
+          ) : registrationError ? (
+            <p className="error">Error: {registrationError}</p>
+          ) : (
+           <div></div>
+          )}
+           <div className="account">
             <p>Already have an account?</p>
             <Link to="/signin" className="sign">
               Sign in

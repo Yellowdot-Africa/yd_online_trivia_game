@@ -60,6 +60,14 @@
    text-decoration: none !important;
   }
 
+  .error{
+  color: #9494ba ;
+  text-align: center  ;
+  font-family: "Inter", sans-serif ;
+  font-size: 10px ;
+  font-style: normal;
+  font-weight: 500 
+  }
 /* 
   @media screen and (min-width:700px){
     /* .container img{
