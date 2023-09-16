@@ -30,6 +30,8 @@ const Settings = () => {
   const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [status,setStatus]=useState(false)
+
   const token = sessionStorage.getItem("token");
   console.log("token", token);
 
@@ -46,15 +48,23 @@ const Settings = () => {
             },
           }
         );
-        console.log("API Response:", response);
+        if(response.data.statusCode === "999"){
+          setGameSettings(response.data);
+          setStatus(true);
+          setLoading(false);
+        }else if(response.data.statusCode === "301"){
+          setGameSettings(response.data);
+          setStatus(false);
+          setLoading(false);
+        } else{
 
-        setGameSettings(response.data);
+        }
 
-        setLoading(false);
       } catch (error) {
-        setError(error.message);
+        setGameSettings("Unauthorized User");
         setLoading(false);
-        console.error("Error fetching game settings:", error);
+        setError("Unauthorized User");
+
       }
     };
 
@@ -122,19 +132,20 @@ const Settings = () => {
             <div className="default-card">
               <p className="default">
                 Default
-                <img src={DropDown} alt="dropdown" />
               </p>
+              <div className="select-container">
               <select className="language-select">
                 {languages.map((language) => (
                   <option
                     className="lang-options"
-                    key={language.id}
-                    value={language.id}
+                    key={language}
+                    value={language}
                   >
-                    {language.name}
+                    {language}
                   </option>
                 ))}
               </select>
+              </div>
             </div>
           </div>
         </div>

@@ -85,6 +85,9 @@ input {
   display: flex;
   align-items: center;
 }
+.select-container{
+  
+}
 
 .language-select{
   color: #9494ba !important;
@@ -103,3 +106,4 @@ input {
   font-style: normal;
   font-weight: 700 !important;
 }
+
