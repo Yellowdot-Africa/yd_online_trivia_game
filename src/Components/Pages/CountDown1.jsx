@@ -15,8 +15,6 @@ import QuestionScreen7 from "./QuestionBank/QuestionScreen7";
 import QuestionScreen8 from "./QuestionBank/QuestionScreen8";
 import QuestionScreen9 from "./QuestionBank/QuestionScreen9";
 import QuestionScreen10 from "./QuestionBank/QuestionScreen10";
-import QuestionScreen11 from "./QuestionBank/QuestionScreen11";
-import QuestionScreen12 from "./QuestionBank/QuestionScreen12";
 
 const CountDown1 = () => {
   useEffect(() => {
@@ -27,17 +25,20 @@ const CountDown1 = () => {
   const [countdown, setCountdown] = useState(9);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); 
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
+  const [answers, setAnswers] = useState([]);
+
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
+  console.log("token", token);
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
         const categoryId = 1;
         const response = await axios.get(
-          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestions?categoryId=${categoryId}`,
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser?categoryID=1&gameID=1&language=english`,
           {
             headers: {
               Accept: "*/*",
@@ -60,12 +61,21 @@ const CountDown1 = () => {
   }, [token]);
 
   const handleAnswerSelect = (answer) => {
-    
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex(currentQuestionIndex + 1);
-    } else {
-      
-    }
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCorrectAnswer = answer === currentQuestion.correctAnswer;
+
+    setIsCorrect(isCorrectAnswer);
+    setShowFeedback(true);
+
+    setTimeout(() => {
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+      } else {
+        navigate("/gamecomplete");
+      }
+
+      setShowFeedback(false);
+    }, 2000);
   };
 
   return (
@@ -90,11 +100,15 @@ const CountDown1 = () => {
               <QuestionScreen1
                 question={questions[currentQuestionIndex]}
                 onAnswerSelect={handleAnswerSelect}
+                isCorrect={isCorrect}
+                showFeedback={showFeedback}
               />
             ) : currentQuestionIndex === 1 ? (
               <QuestionScreen2
                 question={questions[currentQuestionIndex]}
                 onAnswerSelect={handleAnswerSelect}
+                isCorrect={isCorrect}
+                showFeedback={showFeedback}
               />
             ) : currentQuestionIndex === 2 ? (
               <QuestionScreen3
@@ -136,16 +150,6 @@ const CountDown1 = () => {
                 question={questions[currentQuestionIndex]}
                 onAnswerSelect={handleAnswerSelect}
               />
-            ) : currentQuestionIndex === 10 ? (
-              <QuestionScreen11
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 11 ? (
-              <QuestionScreen12
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
             ) : (
               <p>No questions available.</p>
             )
@@ -153,16 +157,6 @@ const CountDown1 = () => {
             <p>No questions available.</p>
           )}
         </div>
-
-        {showFeedback && (
-          <div className="feedback">
-            {isCorrect ? (
-              <p className="correct-feedback">Correct!</p>
-            ) : (
-              <p className="wrong-feedback">Wrong!</p>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );

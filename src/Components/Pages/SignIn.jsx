@@ -44,29 +44,31 @@ const SignIn = () => {
           username: phoneNumber,
           password: password,
         },
-      
-        
-       
       );
-      console.log(response.status);
+      console.log(response);
       if (response.status === 200) {
         sessionStorage.setItem("token",response.data.jwt);
-
+        console.error(response.data)
         navigate("/landingpage");
-
       }else{
         setInfoText("An error occurred. Please try again later.");
-
       }
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setInfoText("Incorrect username or password.");
-      } else {
-        setInfoText("An error occurred. Please try again later.");
+      if(error.response.data.statusCode=="300"){
+        setInfoText(error.response.data.message);
+      }else{
+        setInfoText("Oops!!! Something Went Wrong");
       }
-    } finally {
-      setIsLoading(false);
-    }
+     
+      // if (error.response && error.response.statusCode === "300") {
+      //   setInfoText(error.response.message);
+      //   console.error(response.data)
+      // } else {
+      //   setInfoText(error.response.message);
+      //   // console.error(response.data)
+
+      // }
+    } 
   };
 
   const handlePhoneNumberChange = (event) => {
@@ -109,7 +111,7 @@ const SignIn = () => {
             <Form.Label htmlFor="inputNumber"></Form.Label>
             <Form.Control
               type="number"
-              placeholder="+234"
+              // placeholder="+234"
               id="inputNumber"
               value={phoneNumber}
               onChange={handlePhoneNumberChange}

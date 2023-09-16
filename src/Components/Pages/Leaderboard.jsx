@@ -12,33 +12,39 @@ const Leaderboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [gameId, setGameId] = useState(0);
+  const [status,setStatus]=useState(false)
 
   const token = sessionStorage.getItem("token");
 
-  useEffect(() => {
-    const fetchLeaderboardData = async () => {
-      try {
-        // const gameId = 0;
-        const response = await axios.get(
-          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameId=${gameId}`,
-          {
-            headers: {
-              Accept: "*/*",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        console.log(response.data);
-        setLeaderboardData(response.data.status);
+  const fetchLeaderboardData = async () => {
+    try {
+      const response = await axios.get(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=1`,     
+           {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if(response.data.statusCode==="999"){
+        setLeaderboardData(response.data.data);
+        setStatus(true);
         setLoading(false);
-      } catch (error) {
-        setError(error.message);
+      }else if(response.data.statusCode==="400"){
+        setLeaderboardData(response.data.data);
+        setStatus(false)
         setLoading(false);
-        console.error("Error fetching leaderboard data:", error);
       }
-    };
+  
+    } catch (error) {
+      setLeaderboardData("No Data Available");
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchLeaderboardData();
   }, [token, gameId]);
   const changeGameId = () => {
@@ -70,13 +76,25 @@ const Leaderboard = () => {
               </tr>
             </thead>
             <tbody>
-              {leaderboardData.map((item, index) => (
-                <tr key={item.userId}>
-                  <td>{index + 1}</td>
-                  <td>{item.userName}</td>
-                  <td>{item.gems}</td>
-                </tr>
-              ))}
+              {
+                  status?(
+                    leaderboardData.map((item, index) => (
+                      <tr key={item.userId}>
+                        <td>{index + 1}</td>
+                        <td>{item.name}</td>
+                        <td>{item.msisdn}</td>
+                      </tr>
+                    ))
+                    
+                  ):(
+                      "No Leaderboard found"
+                  )
+              
+              
+             
+              
+              
+              }
             </tbody>
           </Table>
         )}
