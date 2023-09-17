@@ -21,7 +21,7 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
       <div className="result-container d">
         <div className="game-result-div" data-aos="fade-up">
           <div className="game-result-complete-cont">
-            <p>WELL DONE! GAME COMPLETE</p>
+            <p>WELL DONE! GAME COMPLETED</p>
           </div>
         </div>
         <div className="result">

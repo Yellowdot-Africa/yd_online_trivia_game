@@ -5,10 +5,10 @@ import logo from "../../assets/Images/ydlogo.png";
 import HandPointUp from "../../assets/icons/handup.svg";
 import HandPointDown from "../../assets/icons/handdown.svg";
 import CustomButton from "../Common/CustomButton";
-import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import * as Yup from "yup";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -16,8 +16,9 @@ const SignIn = () => {
   const buttonText = "Start Trivia";
   const [selectedPlan, setSelectedPlan] = useState("Choose plan");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState(""); 
-  const [infoText, setInfoText] = useState("fill in appropriate info");
+  const [password, setPassword] = useState("");
+  const [errorText, setErrorText] = useState(null); 
+  const [infoText, setInfoText] = useState("fill in appropriate info"); 
   const [handImage, setHandImage] = useState(HandPointUp);
   const [buttonStyle, setButtonStyle] = useState({
     backgroundColor: "rgba(86, 86, 92, 0.40)",
@@ -30,7 +31,16 @@ const SignIn = () => {
     borderRadius: "24px",
     width: "222px",
   });
-  const [isLoading, setIsLoading] = useState(false); 
+  const [isLoading, setIsLoading] = useState(false);
+
+  const validationSchema = Yup.object().shape({
+    msisdn: Yup.string()
+      .required("MSISDN is required")
+      .matches(/^\d+$/, "MSISDN must be a valid number"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters long"),
+  });
 
   const handlePlanSelect = (event) => {
     setSelectedPlan(event.target.value);
@@ -38,38 +48,51 @@ const SignIn = () => {
 
   const handleSignIn = async () => {
     try {
+      await validationSchema.validate(
+        { msisdn: phoneNumber, password },
+        { abortEarly: false }
+      );
+
       setIsLoading(true);
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/Login",
         {
           username: phoneNumber,
           password: password,
-        },
+        }
       );
       console.log(response);
       if (response.status === 200) {
-        sessionStorage.setItem("token",response.data.jwt);
-        console.error(response.data)
+        sessionStorage.setItem("token", response.data.jwt);
+        console.error(response.data);
         navigate("/landingpage");
-      }else{
+      } else {
         setInfoText("An error occurred. Please try again later.");
       }
     } catch (error) {
-      setIsLoading(false); 
-      if (error.response && error.response.data && error.response.data.statusCode === "300") {
-
-        setInfoText(error.response.data.message);
-      }else{
-        setInfoText("Oops!!! Something Went Wrong");
+      setIsLoading(false);
+      if (error instanceof Yup.ValidationError) {
+        const validationErrors = {};
+        error.inner.forEach((err) => {
+          validationErrors[err.path] = err.message;
+        });
+        setErrorText(validationErrors.msisdn || validationErrors.password);
+      } else if (
+        error.response &&
+        error.response.data &&
+        error.response.data.statusCode === "300"
+      ) {
+        setErrorText(error.response.data.message);
+      } else {
+        setErrorText("An error occurred. Please try again later.");
       }
-     
-    
-    } 
+    }
   };
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
     setInfoText("nice !");
+    setErrorText(null); 
     setHandImage(HandPointDown);
     setButtonStyle({
       backgroundColor: "#1D1DB9",
@@ -97,19 +120,16 @@ const SignIn = () => {
           </div>
           <div className="form">
             <div className="select-box">
-            <Form.Select
-              aria-label="Default"
-              value={selectedPlan}
-              onChange={handlePlanSelect}
-              
-            >
-              <option > Choose plan</option>
-              <option  value="50 Naira plan">50 Naira plan</option>
-            </Form.Select>
-
-           
+              <Form.Select
+                aria-label="Default"
+                value={selectedPlan}
+                onChange={handlePlanSelect}
+              >
+                <option> Choose plan</option>
+                <option value="50 Naira plan">50 Naira plan</option>
+              </Form.Select>
             </div>
-           
+
             <Form.Label htmlFor="inputNumber"></Form.Label>
             <Form.Control
               type="number"
@@ -117,6 +137,7 @@ const SignIn = () => {
               id="inputNumber"
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
+              isInvalid={!!errorText}
             />
             <Form.Label htmlFor="inputPassword"></Form.Label>
             <Form.Control
@@ -125,9 +146,11 @@ const SignIn = () => {
               id="inputPassword"
               value={password}
               onChange={handlePasswordChange}
+              isInvalid={!!errorText}
             />
           </div>
-          <p className="fill-info">{infoText}</p>
+          {infoText && <p className="fill-info">{infoText}</p>}
+          {errorText && <p className="fill-info">{errorText}</p>}
           <img src={handImage} alt="handpoint" />
           <CustomButton
             buttonText={buttonText}
@@ -136,11 +159,11 @@ const SignIn = () => {
             disabled={isLoading}
           />
           <div className="account">
-      <p>Don't have an account?</p>
-      <Link to="/" className="create">
-         Sign up
-        </Link>
-        </div>
+            <p>Don't have an account?</p>
+            <Link to="/" className="create">
+              Sign up
+            </Link>
+          </div>
           {isLoading && <div className="loading">Loading...</div>}
         </div>
       </div>

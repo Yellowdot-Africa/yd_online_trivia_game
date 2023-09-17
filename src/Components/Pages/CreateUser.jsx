@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../../Styles/CreateUser.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -7,6 +7,7 @@ import logo from "../../assets/Images/ydlogo.png";
 import CustomButton from "../Common/CustomButton";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import * as Yup from "yup";
 
 const CreateUser = () => {
   const navigate = useNavigate();
@@ -28,43 +29,29 @@ const CreateUser = () => {
     password: "",
   });
 
-  const [allUsers, setAllUsers] = useState([]);
-  const [userRole, setUserRole] = useState("normal");
-  const [specificUser, setSpecificUser] = useState([]);
-  const [registrationError, setRegistrationError] = useState(null);
+  const [registrationError, setRegistrationError] = useState({});
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
-
-  // useEffect(() => {
-  //   fetchAllUsers();
-  // }, []);
-
-  const fetchAllUsers = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUsers",
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setAllUsers(response.data);
-    } catch (error) {
-      setRegistrationError("Error fetching all users: " + error.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const validationSchema = Yup.object().shape({
+    firstName: Yup.string().required("First Name is required"),
+    lastName: Yup.string().required("Last Name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    msisdn: Yup.string()
+      .required("MSISDN is required")
+      .matches(/^\d+$/, "MSISDN must be a valid number"),
+    password: Yup.string()
+      .required("Password is required")
+      .min(8, "Password must be at least 8 characters long"),
+  });
 
   const handleUserRegistration = async () => {
     try {
+      await validationSchema.validate(registrationData, { abortEarly: false });
+
       setLoading(true);
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/CreateUser",
@@ -78,178 +65,31 @@ const CreateUser = () => {
         }
       );
 
-      fetchAllUsers();
-
       setSuccess("User registration successful:", response.data);
-      setShowSuccessMessage(true); 
+      setShowSuccessMessage(true);
       console.log("User registration successful:", response.data);
-
 
       setTimeout(() => {
         navigate("/signin");
       }, 5000);
-      
-
-      // navigate("/signin");
     } catch (error) {
-      if (error.response && error.response.status === 401) {
-        setRegistrationError("Authentication failed. Please check your credentials.");
-      }else{
-        setRegistrationError("Error registering user: " + 'internal server error');
-
-    // setRegistrationError("Error registering user: " + error.message);
+      if (error instanceof Yup.ValidationError) {
+        const validationErrors = {};
+        error.inner.forEach((err) => {
+          validationErrors[err.path] = err.message;
+        });
+        setRegistrationError(validationErrors);
+      } else if (error.response && error.response.status === 401) {
+        setRegistrationError(
+          "Authentication failed. Please check your credentials."
+        );
+      } else {
+        setRegistrationError(
+          "Error registering user: " + "internal server error"
+        );
       }
-  } 
-  finally {
-      setLoading(false);
-    }
-  };
-
-  const getSpecificUser = async (userId) => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUser?userID=${userId}`,
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      getSpecificUser();
-      setSpecificUser(response.data);
-
-      console.log("Specific user data:", response.data);
-    } catch (error) {
-      setRegistrationError("Error specific users: " + error.message);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const updateUserPassword = async (userId, newPassword) => {
-    try {
-      setLoading(true);
-      const response = await axios.put(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/UpdatePassword?userID=${userId}`,
-        { newPassword },
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("Password updated:", response.data);
-    } catch (error) {
-      console.error("Error updating password:", error);
-    }
-  };
-
-  const deleteUser = async (userId) => {
-    try {
-      const response = await axios.delete(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DeleteUser?userID=${userId}`,
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("User deleted:", response.data);
-    } catch (error) {
-      console.error("Error deleting user:", error);
-    }
-  };
-
-  const deactivateUser = async (userId) => {
-    try {
-      const response = await axios.put(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DeactivateUser?userID=${userId}`,
-        {},
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("User deactivated:", response.data);
-    } catch (error) {
-      console.error("Error deactivating user:", error);
-    }
-  };
-
-  const reactivateUser = async (userId) => {
-    try {
-      const response = await axios.put(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/ActivateUser?userID=${userId}`,
-        {},
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("User reactivated:", response.data);
-    } catch (error) {
-      console.error("Error reactivating user:", error);
-    }
-  };
-
-  const makeUserAdmin = async (userId) => {
-    try {
-      const response = await axios.put(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/UpgradeToAdmin?userID=${userId}`,
-        {},
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("User upgraded to admin:", response.data);
-
-      setUserRole("admin");
-    } catch (error) {
-      console.error("Error upgrading user to admin:", error);
-    }
-  };
-
-  const downgradeAdmin = async (userId) => {
-    try {
-      const response = await axios.put(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/DowngradeToUser?userID=${userId}`,
-        {},
-        {
-          headers: {
-            Accept: "*/*",
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      console.log("Admin downgraded to user:", response.data.data);
-
-      setUserRole("normal");
-    } catch (error) {
-      console.error("Error downgrading admin to user:", error);
     }
   };
 
@@ -263,8 +103,8 @@ const CreateUser = () => {
           <div className="reg-form">
             <InputGroup className="mb-3">
               <Form.Control
-                placeholder="Firstname"
-                aria-label="Firstname"
+                placeholder="First Name"
+                aria-label="First Name"
                 onChange={(e) =>
                   setRegistrationData({
                     ...registrationData,
@@ -272,13 +112,17 @@ const CreateUser = () => {
                   })
                 }
                 value={registrationData.firstName}
+                isInvalid={!!registrationError.firstName}
               />
+              <Form.Control.Feedback type="invalid">
+                {registrationError.firstName}
+              </Form.Control.Feedback>
             </InputGroup>
 
             <InputGroup className="mb-3">
               <Form.Control
-                placeholder="Lastname"
-                aria-label="Lastname"
+                placeholder="Last Name"
+                aria-label="Last Name"
                 onChange={(e) =>
                   setRegistrationData({
                     ...registrationData,
@@ -286,11 +130,14 @@ const CreateUser = () => {
                   })
                 }
                 value={registrationData.lastName}
+                isInvalid={!!registrationError.lastName}
               />
+              <Form.Control.Feedback type="invalid">
+                {registrationError.lastName}
+              </Form.Control.Feedback>
             </InputGroup>
 
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-              <Form.Label></Form.Label>
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
@@ -301,13 +148,17 @@ const CreateUser = () => {
                   })
                 }
                 value={registrationData.email}
+                isInvalid={!!registrationError.email}
               />
+              <Form.Control.Feedback type="invalid">
+                {registrationError.email}
+              </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Label htmlFor="msisdn"></Form.Label>
             <Form.Control
               type="number"
-              placeholder="msisdn"
+              placeholder="MSISDN"
               id="msisdn"
               onChange={(e) =>
                 setRegistrationData({
@@ -315,8 +166,12 @@ const CreateUser = () => {
                   msisdn: e.target.value,
                 })
               }
-              value={registrationData.phoneNumber}
+              value={registrationData.msisdn}
+              isInvalid={!!registrationError.msisdn}
             />
+            <Form.Control.Feedback type="invalid">
+              {registrationError.msisdn}
+            </Form.Control.Feedback>
 
             <Form.Label htmlFor="inputPassword"></Form.Label>
             <Form.Control
@@ -330,25 +185,35 @@ const CreateUser = () => {
                 })
               }
               value={registrationData.password}
+              isInvalid={!!registrationError.password}
             />
+            <Form.Control.Feedback type="invalid">
+              {registrationError.password}
+            </Form.Control.Feedback>
           </div>
           <CustomButton
             onClick={handleUserRegistration}
             style={buttonStyles}
             buttonText={buttonText}
-            disabled={!registrationData.email || !registrationData.password}
+            disabled={
+              !registrationData.email ||
+              !registrationData.password ||
+              !registrationData.firstName ||
+              !registrationData.lastName ||
+              !registrationData.msisdn
+            }
           />
-           
+
           {loading ? (
             <p className="loading">Loading...</p>
-          ) : registrationError ? (
-            <p className="error">Error: {registrationError}</p>
-            ) : showSuccessMessage ? (
-              <p className="success">Registration Successful! Redirecting to Sign In...</p>
+          ) : showSuccessMessage ? (
+            <p className="success">
+              Registration Successful! Redirecting to Sign In...
+            </p>
           ) : (
-           <div></div>
+            <div></div>
           )}
-           <div className="account">
+          <div className="account">
             <p>Already have an account?</p>
             <Link to="/signin" className="sign">
               Sign in
