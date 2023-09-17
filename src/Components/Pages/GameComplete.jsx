@@ -25,7 +25,7 @@ const GameComplete = () => {
       <div data-aos="fade-down" className="container position-relative">
         <div className="game-div">
           <div className="game-complete-cont">
-            <p>WELL DONE! GAME COMPLETE</p>
+            <p>WELL DONE! GAME COMPLETED</p>
           </div>
         </div>
       </div>
