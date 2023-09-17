@@ -14,6 +14,7 @@ import CountDownResult from "./Pages/CountDownResult";
 import LandingScreen2 from "./Pages/LandingScreen2";
 import SignIn from "./Pages/SignIn";
 import CreateUser from "./Pages/CreateUser";
+import QuestionScreen2 from "./Pages/QuestionBank/QuestionScreen2";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,6 @@ const router = createBrowserRouter([
     path: "/home",
     element: <Home />,
   },
- 
 
   {
     path: "/faqs",
@@ -59,6 +59,7 @@ const router = createBrowserRouter([
     path: "/countdown1",
     element: <CountDown1 />,
   },
+
   {
     path: "/countdownscreen",
     element: <CountDownScreen />,
