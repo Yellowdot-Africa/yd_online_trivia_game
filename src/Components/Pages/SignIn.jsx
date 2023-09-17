@@ -5,6 +5,7 @@ import logo from "../../assets/Images/ydlogo.png";
 import HandPointUp from "../../assets/icons/handup.svg";
 import HandPointDown from "../../assets/icons/handdown.svg";
 import CustomButton from "../Common/CustomButton";
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -100,18 +101,24 @@ const SignIn = () => {
             <img src={logo} alt="logo" />
           </div>
           <div className="form">
+            <div className="select-box">
             <Form.Select
-              aria-label="Default select example"
+              aria-label="Default"
               value={selectedPlan}
               onChange={handlePlanSelect}
+              
             >
-              <option>Choose plan</option>
-              <option value="50 Naira plan">50 Naira plan</option>
+              <option > Choose plan</option>
+              <option  value="50 Naira plan">50 Naira plan</option>
             </Form.Select>
+
+           
+            </div>
+           
             <Form.Label htmlFor="inputNumber"></Form.Label>
             <Form.Control
               type="number"
-              // placeholder="+234"
+              placeholder="msisdn"
               id="inputNumber"
               value={phoneNumber}
               onChange={handlePhoneNumberChange}
@@ -139,7 +146,7 @@ const SignIn = () => {
          Sign up
         </Link>
         </div>
-          {isLoading && <div>Loading...</div>}
+          {isLoading && <div className="loading">Loading...</div>}
         </div>
       </div>
     </>

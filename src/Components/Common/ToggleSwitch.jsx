@@ -1,32 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../Styles/ToggleSwitch.css";
 
-const ToggleSwitch = ({ label }) => {
-  const [isChecked, setIsChecked] = useState(false);
-
-  const handleToggleChange = () => {
-    setIsChecked(!isChecked);
-  };
-
+function ToggleSwitch({ showBalance, onToggle }) {
   return (
-    <div className="container">
-      {label}{" "}
-      <div className="toggle-switch">
-        <input
-          type="checkbox"
-          className="checkbox"
-          name={label}
-          id={label}
-          checked={isChecked}
-          onChange={handleToggleChange}
-        />
-        <label className="label" htmlFor={label}>
-          <span className="inner" />
-          <span className="switch" />
-        </label>
-      </div>
-    </div>
+    <label className="toggle-switch">
+      <input type="checkbox" checked={showBalance} onChange={onToggle} />
+      <span className="switch" />
+    </label>
   );
-};
+}
 
 export default ToggleSwitch;

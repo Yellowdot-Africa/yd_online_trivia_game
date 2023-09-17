@@ -31,7 +31,7 @@ const HistoryModal = ({ closeModal }) => {
             )}
           </p>
           <div className="toggle">
-            <ToggleSwitch checked={showBalance} onChange={handleToggle} />
+            <ToggleSwitch showBalance={showBalance} onToggle={handleToggle} />
             <p className="show">Show balance</p>
           </div>
           <hr />
@@ -41,7 +41,8 @@ const HistoryModal = ({ closeModal }) => {
           </div>{" "}
           <hr />
           <div className="deposit-cont">
-            <p>Deposit</p> <img src={deposit} alt="deposit" />
+            <p className="deposit">Deposit</p>{" "}
+            <img src={deposit} alt="deposit" />
           </div>{" "}
           <hr />
           <p>

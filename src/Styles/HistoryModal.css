@@ -56,28 +56,34 @@
 }
 
 .modal-amount {
-  color: #303064 !important;
   font-family: "Inter", sans-serif !important;
-  font-size: 32px !important;
   font-weight: 700;
   line-height: 34px;
   letter-spacing: 0em;
   text-align: left;
 }
 
-.dark-blue{
-  color:#303064;
+.dark-blue {
+  color: #303064;
+  font-size: 30px;
 }
 
-.grey{
- color:#9B9B9B ; 
+.grey {
+  color: #9b9b9b;
+  font-size: 30px;
+}
+
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .show {
-  color: #5c5c5c !important;
+  color: #9b9b9b;
   font-family: "Inter", sans-serif !important;
-  font-size: 16px !important;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400 !important;
-  text-align: justify;
 }
 
 .withdraw-cont {
@@ -87,6 +93,7 @@
 }
 
 .withdraw {
+  color: #303064 !important;
   font-family: "Inter", sans-serif !important;
   font-size: 12px !important;
   font-weight: 700 !important ;
@@ -99,4 +106,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.deposit {
+  color: #303064 !important;
+  font-family: "Inter", sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important ;
+  line-height: 13px;
+  letter-spacing: 0em;
+  text-align: left;
 }
