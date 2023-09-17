@@ -34,6 +34,8 @@ const CreateUser = () => {
   const [registrationError, setRegistrationError] = useState(null);
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
 
   // useEffect(() => {
   //   fetchAllUsers();
@@ -75,12 +77,20 @@ const CreateUser = () => {
           },
         }
       );
-      setSuccess("User registration successful:", response.data);
-      console.log("User registration successful:", response.data);
 
       fetchAllUsers();
 
-      navigate("/signin");
+      setSuccess("User registration successful:", response.data);
+      setShowSuccessMessage(true); 
+      console.log("User registration successful:", response.data);
+
+
+      setTimeout(() => {
+        navigate("/signin");
+      }, 5000);
+      
+
+      // navigate("/signin");
     } catch (error) {
       if (error.response && error.response.status === 401) {
         setRegistrationError("Authentication failed. Please check your credentials.");
@@ -333,6 +343,8 @@ const CreateUser = () => {
             <p className="loading">Loading...</p>
           ) : registrationError ? (
             <p className="error">Error: {registrationError}</p>
+            ) : showSuccessMessage ? (
+              <p className="success">Registration Successful! Redirecting to Sign In...</p>
           ) : (
            <div></div>
           )}

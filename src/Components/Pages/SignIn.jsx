@@ -55,20 +55,15 @@ const SignIn = () => {
         setInfoText("An error occurred. Please try again later.");
       }
     } catch (error) {
-      if(error.response.data.statusCode=="300"){
+      setIsLoading(false); 
+      if (error.response && error.response.data && error.response.data.statusCode === "300") {
+
         setInfoText(error.response.data.message);
       }else{
         setInfoText("Oops!!! Something Went Wrong");
       }
      
-      // if (error.response && error.response.statusCode === "300") {
-      //   setInfoText(error.response.message);
-      //   console.error(response.data)
-      // } else {
-      //   setInfoText(error.response.message);
-      //   // console.error(response.data)
-
-      // }
+    
     } 
   };
 
