@@ -6,7 +6,7 @@ import Gems from "../../assets/icons/gem.svg";
 import CustomButton from "../Common/CustomButton";
 import { useNavigate } from "react-router-dom";
 
-const CountDownResult = () => {
+const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
   const buttonText = "Replay";
   const buttonStyles = {
     borderRadius: "24px",
@@ -31,12 +31,16 @@ const CountDownResult = () => {
         <div className="card">
           <div className="correct">
             <img src={CorrectMask} alt="correct" />
-            <p>12</p>
+            {/* <p>12</p> */}
+            <p>{correctAnswers}</p>
+
             <p>Correct</p>
           </div>
           <div className="wrong">
             <img src={WrongMask} alt="wrong" />
-            <p>8</p>
+            <p>{wrongAnswers}</p>
+
+            {/* <p>8</p> */}
             <p>Wrong</p>
           </div>
         </div>
@@ -45,7 +49,9 @@ const CountDownResult = () => {
           <p>YOU GOT GEMS!!!</p>
           <div className="gem-div">
             <img src={Gems} alt="gem" />
-            <p className="nums-gems">+8</p>
+            <p className="nums-gems">+{gemsEarned}</p>
+
+            {/* <p className="nums-gems">+8</p> */}
           </div>
         </div>
 

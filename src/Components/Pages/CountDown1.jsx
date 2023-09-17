@@ -67,6 +67,9 @@ const CountDown1 = () => {
     setIsCorrect(isCorrectAnswer);
     setShowFeedback(true);
 
+
+  
+
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);

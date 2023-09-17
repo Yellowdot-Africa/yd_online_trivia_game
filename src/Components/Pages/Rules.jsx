@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import "../../Styles/Rules.css";
 import CustomButton from "../Common/CustomButton";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 const Rules = () => {
+  const navigate = useNavigate();
+
   const buttonText = "Start Trivia";
   const buttonStyle = {
     backgroundImage:
@@ -35,7 +39,11 @@ const Rules = () => {
         </Link>
       </div>
       <div className="button-cont">
-        <CustomButton buttonText={buttonText} style={buttonStyle} />
+        <CustomButton buttonText={buttonText} 
+        style={buttonStyle}
+        onClick={() => navigate("/game-info")}
+
+        />
       </div>
       <div></div>
     </>

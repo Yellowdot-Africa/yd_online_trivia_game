@@ -21,7 +21,28 @@
     font-family: "Inter",sans-serif;
     font-size: 18px;
     font-style: normal;
+    width: 100%;
 }
+/* .select-box{
+  width: 580px;
+  position: relative;
+}
+.select-box select{
+  height: 42px;
+  padding: 10px 15px;
+  line-height: 22px;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select-box::after{
+content: "";
+position: absolute;
+right: 10px;
+top: 50%;
+margin-top: -5px;
+} */
 
 .form-control::placeholder{
     color: #CDCDCD;
@@ -50,4 +71,14 @@
   font-weight: 600;
   text-decoration: none !important;
  padding: 5px;
+}
+
+
+@media (min-width: 768px) {
+  .form-select {
+    width: 100px;
+  }
+  option{
+    width: 300px;
+  }
 }

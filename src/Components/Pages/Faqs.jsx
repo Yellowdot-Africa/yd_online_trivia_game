@@ -74,7 +74,11 @@ const Faqs = () => {
         </div>
 
         <div className="button-cont">
-          <CustomButton buttonText={buttonText} style={buttonStyle} />
+          <CustomButton buttonText={buttonText}
+           style={buttonStyle} 
+           onClick={() => navigate("/game-info")}
+
+           />
         </div>
       </div>
 

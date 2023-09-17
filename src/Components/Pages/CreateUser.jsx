@@ -35,9 +35,9 @@ const CreateUser = () => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    fetchAllUsers();
-  }, []);
+  // useEffect(() => {
+  //   fetchAllUsers();
+  // }, []);
 
   const fetchAllUsers = async () => {
     try {
@@ -82,8 +82,15 @@ const CreateUser = () => {
 
       navigate("/signin");
     } catch (error) {
-      setRegistrationError("Error registering user: " + error.message);
-    } finally {
+      if (error.response && error.response.status === 401) {
+        setRegistrationError("Authentication failed. Please check your credentials.");
+      }else{
+        setRegistrationError("Error registering user: " + 'internal server error');
+
+    // setRegistrationError("Error registering user: " + error.message);
+      }
+  } 
+  finally {
       setLoading(false);
     }
   };
