@@ -95,6 +95,7 @@ const LandingScreen2 = () => {
               <p className="loading">Error fetching game categories: {error}</p>
             ) : (
               <>
+              <div className="categories-containerr">
                 <img src={CaretUp} alt="caretup" />
 
                 {categoriesData.map((category) => (
@@ -103,6 +104,7 @@ const LandingScreen2 = () => {
                   </div>
                 ))}
                 <img src={CaretDown} alt="caretdown" />
+                </div>
               </>
             )}
             {showHandPoint && (

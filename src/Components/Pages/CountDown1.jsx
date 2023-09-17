@@ -27,11 +27,10 @@ const CountDown1 = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([]);
+  const [selectedAnswers, setSelectedAnswers] = useState([]);
 
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
-  console.log("token", token);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -50,7 +49,6 @@ const CountDown1 = () => {
 
         const allQuestions = response.data.data;
         setQuestions(allQuestions);
-        console.log("All Questions:", allQuestions);
       } catch (error) {
         console.error("API Error:", error);
         setQuestions([]);
@@ -60,25 +58,58 @@ const CountDown1 = () => {
     fetchQuestions();
   }, [token]);
 
-  const handleAnswerSelect = (answer) => {
-    const currentQuestion = questions[currentQuestionIndex];
-    const isCorrectAnswer = answer === currentQuestion.correctAnswer;
+  const handleAnswerSelect = (answerText, isAnswerCorrect) => {
+    setSelectedAnswers((prevAnswers) => [
+      ...prevAnswers,
+      { questionIndex: currentQuestionIndex, answerText, isAnswerCorrect },
+    ]);
 
-    setIsCorrect(isCorrectAnswer);
+    setIsCorrect(isAnswerCorrect);
     setShowFeedback(true);
-
-
-  
 
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
       } else {
-        navigate("/gamecomplete");
+        submitAnswersToApi(selectedAnswers);
       }
 
       setShowFeedback(false);
     }, 2000);
+  };
+
+  const submitAnswersToApi = async (answers) => {
+    try {
+      const response = await axios.post(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer",
+        // {
+        //   answers: answers, // Send the array of selected answers to the API
+        // },
+        {
+          gameID: 1,
+          answers: [
+            {
+              questionID: 0,
+              selectedAnswerID: 0,
+            },
+          ],
+        },
+
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      console.log("API response:", response.data);
+
+      navigate("/gamecomplete");
+    } catch (error) {
+      console.error("Error submitting answers:", error);
+    }
   };
 
   return (

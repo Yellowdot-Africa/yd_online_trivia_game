@@ -83,14 +83,14 @@ const Categories = () => {
         <p className="loading">Error fetching game categories: {error}</p>
       ) : (
         <div className="categories-container">
-          <img src={CaretUp} alt="caretup" />
+          <img className="caret" src={CaretUp} alt="caretup" />
 
           {categories?.map((category) => (
             <div key={category.id} className="category-cont">
               <p>{category.name}</p>
             </div>
           ))}
-          <img src={CaretDown} alt="caretdown" />
+          <img className="caret" src={CaretDown} alt="caretdown" />
 
           <CustomButton
             buttonText={buttonText}
