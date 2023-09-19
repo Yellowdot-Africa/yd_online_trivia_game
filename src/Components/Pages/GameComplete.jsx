@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../../Styles/GameComplete.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -10,7 +10,13 @@ const GameComplete = () => {
     AOS.refresh();
 
     const navigationTimeout = setTimeout(() => {
-      navigate("/countdownresult");
+      navigate("/countdownresult", {
+        state: {
+          correctAnswers,
+          wrongAnswers,
+          gemsEarned,
+        },
+      });
     }, 2000);
 
     return () => {
@@ -19,6 +25,9 @@ const GameComplete = () => {
   }, []);
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { correctAnswers, wrongAnswers, gemsEarned } = location.state || {};
 
   return (
     <>

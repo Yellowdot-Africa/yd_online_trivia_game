@@ -4,9 +4,9 @@ import WrongMask from "../../assets/icons/wrongmask.svg";
 import CorrectMask from "../../assets/icons/correctmask.png";
 import Gems from "../../assets/icons/gem.svg";
 import CustomButton from "../Common/CustomButton";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
-const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
+const CountDownResult = () => {
   const buttonText = "Replay";
   const buttonStyles = {
     borderRadius: "24px",
@@ -16,6 +16,11 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
   };
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { correctAnswers, wrongAnswers, gemsEarned } = location.state || {};
+  console.log(location);
+
   return (
     <>
       <div className="result-container d">
@@ -31,7 +36,6 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
         <div className="card">
           <div className="correct">
             <img src={CorrectMask} alt="correct" />
-            {/* <p>12</p> */}
             <p>{correctAnswers}</p>
 
             <p>Correct</p>
@@ -40,7 +44,6 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
             <img src={WrongMask} alt="wrong" />
             <p>{wrongAnswers}</p>
 
-            {/* <p>8</p> */}
             <p>Wrong</p>
           </div>
         </div>
@@ -49,9 +52,7 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
           <p>YOU GOT GEMS!!!</p>
           <div className="gem-div">
             <img src={Gems} alt="gem" />
-            <p className="nums-gems">+{gemsEarned}</p>
-
-            {/* <p className="nums-gems">+8</p> */}
+            <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
           </div>
         </div>
 
@@ -62,9 +63,9 @@ const CountDownResult = ({ correctAnswers, wrongAnswers, gemsEarned }) => {
             onClick={() => navigate("/game-info")}
           />
         </div>
-        <p className="done"
-        onClick={() => navigate("/game-info")}
-        >Done</p>
+        <p className="done" onClick={() => navigate("/game-info")}>
+          Done
+        </p>
       </div>
     </>
   );

@@ -11,7 +11,6 @@ import * as Yup from "yup";
 
 const CreateUser = () => {
   const navigate = useNavigate();
-  const buttonText = "Sign Up";
   const buttonStyles = {
     backgroundImage:
       "linear-gradient(145deg, rgba(29, 29, 185, 0.6) 0%, #1d1db9 100%)",
@@ -194,7 +193,7 @@ const CreateUser = () => {
           <CustomButton
             onClick={handleUserRegistration}
             style={buttonStyles}
-            buttonText={buttonText}
+            buttonText={"Sign Up"}
             disabled={
               !registrationData.email ||
               !registrationData.password ||

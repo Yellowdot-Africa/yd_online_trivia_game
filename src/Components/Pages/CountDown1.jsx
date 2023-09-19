@@ -4,17 +4,8 @@ import sadMask from "../../assets/icons/mask-sad-fill.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useNavigate } from "react-router-dom";
+import QuestionScreen from "./QuestionBank/QuestionScreen";
 import axios from "axios";
-import QuestionScreen1 from "./QuestionBank/QuestionScreen1";
-import QuestionScreen2 from "./QuestionBank/QuestionScreen2";
-import QuestionScreen3 from "./QuestionBank/QuestionScreen3";
-import QuestionScreen4 from "./QuestionBank/QuestionScreen4";
-import QuestionScreen5 from "./QuestionBank/QuestionScreen5";
-import QuestionScreen6 from "./QuestionBank/QuestionScreen6";
-import QuestionScreen7 from "./QuestionBank/QuestionScreen7";
-import QuestionScreen8 from "./QuestionBank/QuestionScreen8";
-import QuestionScreen9 from "./QuestionBank/QuestionScreen9";
-import QuestionScreen10 from "./QuestionBank/QuestionScreen10";
 
 const CountDown1 = () => {
   useEffect(() => {
@@ -22,12 +13,15 @@ const CountDown1 = () => {
     AOS.refresh();
   }, []);
 
-  const [countdown, setCountdown] = useState(9);
+  const [countdown, setCountdown] = useState(1);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState([]);
+  const [noOfCorrect, setNoOfCorrect] = useState(0);
+  const [noOfWrong, setNoOfWrong] = useState(0);
+  const [isAnswerDisabled, setIsAnswerDisabled] = useState(false);
 
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
@@ -49,6 +43,7 @@ const CountDown1 = () => {
 
         const allQuestions = response.data.data;
         setQuestions(allQuestions);
+        setCountdown(allQuestions.length);
       } catch (error) {
         console.error("API Error:", error);
         setQuestions([]);
@@ -59,12 +54,21 @@ const CountDown1 = () => {
   }, [token]);
 
   const handleAnswerSelect = (answerText, isAnswerCorrect) => {
+    if (isAnswerDisabled) return;
+    setIsAnswerDisabled(true);
+
     setSelectedAnswers((prevAnswers) => [
       ...prevAnswers,
       { questionIndex: currentQuestionIndex, answerText, isAnswerCorrect },
     ]);
 
     setIsCorrect(isAnswerCorrect);
+    console.log("isAnswerCorrect", isAnswerCorrect);
+    if (isAnswerCorrect) {
+      setNoOfCorrect((e) => e + 1);
+    } else {
+      setNoOfWrong((e) => e + 1);
+    }
     setShowFeedback(true);
 
     setTimeout(() => {
@@ -75,26 +79,30 @@ const CountDown1 = () => {
       }
 
       setShowFeedback(false);
-    }, 2000);
+      setIsAnswerDisabled(false);
+    }, 800);
+
+    // if (isAnswerCorrect) {
+    //   setNoOfCorrect(noOfCorrect + 1);
+    // } else {
+    //   setNoOfWrong(noOfWrong + 1);
+    // }
   };
+  // console.log("NoOfCorr", noOfCorrect, "NoOfWro", noOfWrong);
 
   const submitAnswersToApi = async (answers) => {
     try {
+      const answersToSend = answers.map((selectedAnswer) => ({
+        questionID: questions[selectedAnswer.questionIndex].id,
+        selectedAnswerID: 0,
+      }));
+
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer",
-        // {
-        //   answers: answers, // Send the array of selected answers to the API
-        // },
         {
           gameID: 1,
-          answers: [
-            {
-              questionID: 0,
-              selectedAnswerID: 0,
-            },
-          ],
+          answers: answersToSend,
         },
-
         {
           headers: {
             Accept: "*/*",
@@ -106,7 +114,13 @@ const CountDown1 = () => {
 
       console.log("API response:", response.data);
 
-      navigate("/gamecomplete");
+      navigate("/gamecomplete", {
+        state: {
+          correctAnswers: noOfCorrect,
+          wrongAnswers: noOfWrong,
+          gemsEarned: 0,
+        },
+      });
     } catch (error) {
       console.error("Error submitting answers:", error);
     }
@@ -130,63 +144,13 @@ const CountDown1 = () => {
         </div>
         <div className="text-contn">
           {currentQuestionIndex < questions.length ? (
-            currentQuestionIndex === 0 ? (
-              <QuestionScreen1
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-                isCorrect={isCorrect}
-                showFeedback={showFeedback}
-              />
-            ) : currentQuestionIndex === 1 ? (
-              <QuestionScreen2
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-                isCorrect={isCorrect}
-                showFeedback={showFeedback}
-              />
-            ) : currentQuestionIndex === 2 ? (
-              <QuestionScreen3
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 3 ? (
-              <QuestionScreen4
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 4 ? (
-              <QuestionScreen5
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 5 ? (
-              <QuestionScreen6
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 6 ? (
-              <QuestionScreen7
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 7 ? (
-              <QuestionScreen8
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 8 ? (
-              <QuestionScreen9
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : currentQuestionIndex === 9 ? (
-              <QuestionScreen10
-                question={questions[currentQuestionIndex]}
-                onAnswerSelect={handleAnswerSelect}
-              />
-            ) : (
-              <p>No questions available.</p>
-            )
+            <QuestionScreen
+              question={questions[currentQuestionIndex]}
+              onAnswerSelect={handleAnswerSelect}
+              isCorrect={isCorrect}
+              showFeedback={showFeedback}
+              isAnswerDisabled={isAnswerDisabled}
+            />
           ) : (
             <p>No questions available.</p>
           )}

@@ -1,29 +1,24 @@
 import React, { useState } from "react";
 import "../../../Styles/QuestionScreen1.css";
-import { useNavigate } from "react-router-dom";
 
-const QuestionScreen2 = ({ question, onAnswerSelect }) => {
+const QuestionScreen = ({
+  question,
+  onAnswerSelect,
+  isCorrect,
+  showFeedback,
+  isAnswerDisabled,
+}) => {
   const [selectedAnswer, setSelectedAnswer] = useState("");
-  const [isCorrect, setIsCorrect] = useState(null);
-  const [showFeedback, setShowFeedback] = useState(false);
 
-  const handleAnswerClick = (answerText) => {
+  const handleAnswerClick = (answerText, isAnswerCorrect) => {
+    if (isAnswerDisabled) return;
     setSelectedAnswer(answerText);
-
-    const selectedAnswerObject = question.answers.find(
-      (answer) => answer.answerText === answerText
-    );
-
-    const isAnswerCorrect = selectedAnswerObject?.isCorrectAnswer;
-    setIsCorrect(isAnswerCorrect);
     onAnswerSelect(answerText, isAnswerCorrect);
-    setShowFeedback(true);
   };
 
   return (
     <div>
       <p>{question.question}</p>
-
       <div className="answer-options">
         {showFeedback && (
           <div className="feedback">
@@ -46,7 +41,9 @@ const QuestionScreen2 = ({ question, onAnswerSelect }) => {
                   : "wrong"
                 : ""
             }`}
-            onClick={() => handleAnswerClick(answer.answerText)}
+            onClick={() =>
+              handleAnswerClick(answer.answerText, answer.isCorrectAnswer)
+            }
           >
             {answer.answerText}
           </div>
@@ -56,4 +53,4 @@ const QuestionScreen2 = ({ question, onAnswerSelect }) => {
   );
 };
 
-export default QuestionScreen2;
+export default QuestionScreen;
