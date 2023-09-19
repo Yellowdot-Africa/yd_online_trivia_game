@@ -13,7 +13,6 @@ import * as Yup from "yup";
 const SignIn = () => {
   const navigate = useNavigate();
 
-  const buttonText = "Start Trivia";
   const [selectedPlan, setSelectedPlan] = useState("Choose plan");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
@@ -39,7 +38,7 @@ const SignIn = () => {
       .matches(/^\d+$/, "MSISDN must be a valid number"),
     password: Yup.string()
       .required("Password is required")
-      .min(8, "Password must be at least 8 characters long"),
+      .min(8, "Password must be at least 6 characters long"),
   });
 
   const handlePlanSelect = (event) => {
@@ -153,7 +152,7 @@ const SignIn = () => {
           {errorText && <p className="fill-info">{errorText}</p>}
           <img src={handImage} alt="handpoint" />
           <CustomButton
-            buttonText={buttonText}
+            buttonText={"Start Trivia"}
             style={buttonStyle}
             onClick={handleSignIn}
             disabled={isLoading}

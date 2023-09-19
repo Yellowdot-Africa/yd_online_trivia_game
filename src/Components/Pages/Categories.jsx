@@ -24,6 +24,12 @@ const Categories = () => {
   console.log("token", token);
 
   useEffect(() => {
+    fetchGameCategories();
+    fetchCategory();
+    createCategory();
+
+  }, []);
+
     const fetchGameCategories = async () => {
       try {
         const response = await axios.get(
@@ -46,32 +52,110 @@ const Categories = () => {
       }
     };
 
-    fetchGameCategories();
+   
+    const createCategory = async () => {
+      try {
+        const response = await axios.get(
+       "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/CreateCategory",
+         
+       {
+        id: 1,
+        "name": "History",
+        description:"Quiz questions in this category are strictly for history",
+        
 
-    // const fetchCategory = async () => {
-    //   try {
-    //     const response = await axios.get(
-    //       "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategory",
-    //       {
-    //         headers: {
-    //           "Accept": "*/*",
-    //           "Content-Type": "application/json",
-    //           "Authorization": `Bearer ${token}`,
-    //         },
-    //       }
-    //     );
+       },
+       
+       {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
 
-    //     setCategory(response.data.data);
+        setCategories([...categories, response.data.data]);
 
-    //     setLoading(false);
-    //   } catch (error) {
-    //     setError(error.message);
-    //     setLoading(false);
-    //   }
-    // };
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
 
-    // fetchCategory();
-  }, []);
+    const fetchCategory = async () => {
+      try {
+        const response = await axios.get(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategory",
+          {
+            headers: {
+              "Accept": "*/*",
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`,
+            },
+          }
+        );
+
+        setCategory(response.data.data);
+
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+
+    const updateCategory = async (categoryId, updatedData) => {
+      try {
+        const response = await axios.put(
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/UpdateCategory?categoryID=${categoryId}`,
+          updatedData, 
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+  
+        const updatedCategories = categories.map((category) =>
+          category.id === categoryId ? response.data.data : category
+        );
+        setCategories(updatedCategories);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+  
+    const deleteCategory = async (categoryId) => {
+      try {
+        await axios.delete(
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/DeleteCategory?categoryID=${categoryId}`,
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+  
+        const updatedCategories = categories.filter(
+          (category) => category.id !== categoryId
+        );
+        setCategories(updatedCategories);
+        setLoading(false);
+      } catch (error) {
+        setError(error.message);
+        setLoading(false);
+      }
+    };
+   
+ 
   console.log("categories", categories);
 
   return (

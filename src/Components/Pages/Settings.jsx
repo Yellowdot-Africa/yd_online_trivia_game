@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "../../Styles/Settings.css";
 import VolumeIcon from "../../assets/Icons/tabler_volume.svg";
 import MutedIcon from "../../assets/Icons/unmute.svg";
-import DropDown from "../../assets/Icons/fe_drop-down.svg";
 import axios from "axios";
 
 const Settings = () => {
@@ -27,6 +26,10 @@ const Settings = () => {
   };
 
   const [gameSettings, setGameSettings] = useState([]);
+  const [gameSetting, setGameSetting] = useState(null);
+
+  const [selectedGameSettingID, setSelectedGameSettingID] = useState(1); 
+
   const [languages, setLanguages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -35,7 +38,9 @@ const Settings = () => {
   const token = sessionStorage.getItem("token");
   console.log("token", token);
 
-  useEffect(() => {
+ 
+
+
     const fetchGameSettings = async () => {
       try {
         const response = await axios.get(
@@ -68,10 +73,97 @@ const Settings = () => {
       }
     };
 
-    fetchGameSettings();
-  }, []);
+    useEffect(() => {
+
+      fetchGameSettings();
+    }, []);
 
   console.log("gameSettings", gameSettings);
+
+
+  const getGameSetting = async (gameSettingID) => {
+    try {
+      const response = await axios.get(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameSettings/GetGameSetting?gameSettingID=${gameSettingID}`,
+        {
+          headers: {
+            Accept: "*/*",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setGameSetting(response.data);
+    } catch (error) {
+      setError(error.message);
+      console.error(`Error fetching game setting with ID ${gameSettingID}:`, error);
+    }
+  };
+
+  useEffect(() => {
+
+    getGameSetting();
+  }, []);
+
+  const saveGameSetting = async () => {
+    try {
+      const requestData = {
+        
+          "gameID": 1,
+          "questionsPerDay": 10,
+          "resetScorePerDay": false
+        
+      };
+
+      const response = await axios.post(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameSettings/SaveGameSetting",
+        requestData,
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setGameSetting(response.data);
+    } catch (error) {
+      setError(error.message);
+      console.error("Error saving game setting:", error);
+    }
+  };
+
+  useEffect(() => {
+
+    saveGameSetting();
+  }, []);
+
+
+
+  const deleteGameSetting = async (gameSettingID) => {
+    try {
+      await axios.delete(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameSettings/DeleteGameSetting?gameSettingID=${gameSettingID}`,
+        {
+          headers: {
+            Accept: "*/*",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setGameSetting(null);
+    } catch (error) {
+      setError(error.message);
+      console.error(`Error deleting game setting with ID ${gameSettingID}:`, error);
+    }
+  };
+
+  useEffect(() => {
+
+    deleteGameSetting();
+  }, []);
 
   const fetchLanguages = async () => {
     try {

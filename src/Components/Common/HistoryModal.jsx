@@ -96,7 +96,7 @@ const HistoryModal = ({ closeModal }) => {
 
   useEffect(() => {
     addTransactionHistory();
-    // addUnitsToWallet();
+    addUnitsToWallet();
   }, []);
 
   return (
