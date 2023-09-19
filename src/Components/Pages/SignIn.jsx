@@ -38,7 +38,7 @@ const SignIn = () => {
       .matches(/^\d+$/, "MSISDN must be a valid number"),
     password: Yup.string()
       .required("Password is required")
-      .min(8, "Password must be at least 6 characters long"),
+      .min(6, "Password must be at least 6 characters long"),
   });
 
   const handlePlanSelect = (event) => {
@@ -63,6 +63,7 @@ const SignIn = () => {
       console.log(response);
       if (response.status === 200) {
         sessionStorage.setItem("token", response.data.jwt);
+        sessionStorage.setItem("userId", response.data.userID)
         console.error(response.data);
         navigate("/landingpage");
       } else {
