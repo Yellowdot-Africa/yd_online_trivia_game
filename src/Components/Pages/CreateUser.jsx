@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import logo from "../../assets/Images/ydlogo.png";
 import CustomButton from "../Common/CustomButton";
 import { Link } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import * as Yup from "yup";
 
@@ -44,7 +45,7 @@ const CreateUser = () => {
       .matches(/^\d+$/, "MSISDN must be a valid number"),
     password: Yup.string()
       .required("Password is required")
-      .min(8, "Password must be at least 8 characters long"),
+      .min(6, "Password must be at least 6 characters long"),
   });
 
   const handleUserRegistration = async () => {
@@ -69,7 +70,7 @@ const CreateUser = () => {
       console.log("User registration successful:", response.data);
 
       setTimeout(() => {
-        navigate("/signin");
+        navigate("/");
       }, 5000);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -204,7 +205,9 @@ const CreateUser = () => {
           />
 
           {loading ? (
-            <p className="loading">Loading...</p>
+            <Spinner animation="border" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
           ) : showSuccessMessage ? (
             <p className="success">
               Registration Successful! Redirecting to Sign In...
@@ -214,7 +217,7 @@ const CreateUser = () => {
           )}
           <div className="account">
             <p>Already have an account?</p>
-            <Link to="/signin" className="sign">
+            <Link to="/" className="sign">
               Sign in
             </Link>
           </div>

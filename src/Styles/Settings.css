@@ -107,3 +107,9 @@ input {
   font-weight: 700 !important;
 }
 
+.loading{
+display: flex;
+justify-content: center !important;
+align-items: center;
+}
+

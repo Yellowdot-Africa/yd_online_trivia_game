@@ -7,6 +7,7 @@ import HandPointDown from "../../assets/icons/handdown.svg";
 import CustomButton from "../Common/CustomButton";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import * as Yup from "yup";
 
@@ -16,8 +17,8 @@ const SignIn = () => {
   const [selectedPlan, setSelectedPlan] = useState("Choose plan");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
-  const [errorText, setErrorText] = useState(null); 
-  const [infoText, setInfoText] = useState("fill in appropriate info"); 
+  const [errorText, setErrorText] = useState(null);
+  const [infoText, setInfoText] = useState("fill in appropriate info");
   const [handImage, setHandImage] = useState(HandPointUp);
   const [buttonStyle, setButtonStyle] = useState({
     backgroundColor: "rgba(86, 86, 92, 0.40)",
@@ -63,7 +64,7 @@ const SignIn = () => {
       console.log(response);
       if (response.status === 200) {
         sessionStorage.setItem("token", response.data.jwt);
-        sessionStorage.setItem("userId", response.data.userID)
+        sessionStorage.setItem("userId", response.data.userID);
         console.error(response.data);
         navigate("/landingpage");
       } else {
@@ -92,7 +93,7 @@ const SignIn = () => {
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
     setInfoText("nice !");
-    setErrorText(null); 
+    setErrorText(null);
     setHandImage(HandPointDown);
     setButtonStyle({
       backgroundColor: "#1D1DB9",
@@ -160,11 +161,18 @@ const SignIn = () => {
           />
           <div className="account">
             <p>Don't have an account?</p>
-            <Link to="/" className="create">
+            <Link to="/createuser" className="create">
               Sign up
             </Link>
           </div>
-          {isLoading && <div className="loading">Loading...</div>}
+          {isLoading && (
+            <div className="loading">
+              {" "}
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            </div>
+          )}
         </div>
       </div>
     </>
