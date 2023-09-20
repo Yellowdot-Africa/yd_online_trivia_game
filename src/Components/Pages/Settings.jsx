@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../../Styles/Settings.css";
 import VolumeIcon from "../../assets/Icons/tabler_volume.svg";
 import MutedIcon from "../../assets/Icons/unmute.svg";
+import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
 const Settings = () => {
@@ -196,7 +197,12 @@ const Settings = () => {
         <h4>SETTINGS</h4> <hr />
       </div>
       {loading ? (
-        <p className="loading">Loading...</p>
+       
+        <Spinner className="loading" animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+       
+       
       ) : error ? (
         <p className="loading">Error fetching game settings: {error}</p>
       ) : (

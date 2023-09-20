@@ -25,7 +25,7 @@ const Countdown = () => {
       <div data-aos="fade-down" className="count-container ">
         <div className="div">
           <div className="qquestion-cont">
-            <p>Question 1/20</p>
+            <p>Questions</p>
           </div>
         </div>
       </div>

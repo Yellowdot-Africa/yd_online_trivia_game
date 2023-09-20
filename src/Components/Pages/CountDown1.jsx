@@ -13,7 +13,7 @@ const CountDown1 = () => {
     AOS.refresh();
   }, []);
 
-  const [countdown, setCountdown] = useState(1);
+  const [countdown, setCountdown] = useState(9);
   const [showFeedback, setShowFeedback] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -25,6 +25,31 @@ const CountDown1 = () => {
 
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
+  const startCountdown = () => {
+    if (countdown > 0) {
+      setCountdown(countdown - 1);
+    } else {
+      setShowFeedback(false);
+      setIsAnswerDisabled(false);
+
+      if (currentQuestionIndex < questions.length - 1) {
+        setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setCountdown(9); 
+      } else {
+        submitAnswersToApi(selectedAnswers);
+      }
+    }
+  };
+
+  useEffect(() => {
+    if (countdown > 0 && !isAnswerDisabled) {
+      const countdownTimer = setInterval(startCountdown, 1000);
+
+      return () => {
+        clearInterval(countdownTimer);
+      };
+    }
+  }, [countdown, currentQuestionIndex, isAnswerDisabled]);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -70,10 +95,11 @@ const CountDown1 = () => {
       setNoOfWrong((e) => e + 1);
     }
     setShowFeedback(true);
-
+    setCountdown(0);
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
         setCurrentQuestionIndex(currentQuestionIndex + 1);
+        setCountdown(9);
       } else {
         submitAnswersToApi(selectedAnswers);
       }
@@ -138,12 +164,12 @@ const CountDown1 = () => {
                 <img src={sadMask} alt="Wrong" />
               )
             ) : (
-              <p>{countdown}</p>
+              <p style={{ borderColor: "purple" }}>{countdown}</p>
             )}
           </div>
         </div>
         <div className="text-contn">
-          {currentQuestionIndex < questions.length ? (
+          {questions.length > 0 ? (currentQuestionIndex < questions.length ? (
             <QuestionScreen
               question={questions[currentQuestionIndex]}
               onAnswerSelect={handleAnswerSelect}
@@ -153,6 +179,9 @@ const CountDown1 = () => {
             />
           ) : (
             <p>No questions available.</p>
+            )
+        ) : (
+          <p>Loading questions...</p>
           )}
         </div>
       </div>
@@ -161,3 +190,4 @@ const CountDown1 = () => {
 };
 
 export default CountDown1;
+
