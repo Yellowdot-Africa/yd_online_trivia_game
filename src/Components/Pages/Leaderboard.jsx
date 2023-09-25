@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef} from "react";
 import Table from "react-bootstrap/Table";
 import Caret from "../../assets/icons/uiwdown.svg";
 import Trophy from "../../assets/icons/trophy.svg";
@@ -15,6 +15,9 @@ const Leaderboard = () => {
   const [status,setStatus]=useState(false)
 
   const token = sessionStorage.getItem("token");
+  const pageSize = 10; 
+  const [currentPage, setCurrentPage] = useState(1);
+
 
   const fetchLeaderboardData = async () => {
     try {
@@ -46,10 +49,29 @@ const Leaderboard = () => {
 
   useEffect(() => {
     fetchLeaderboardData();
-  }, [token, gameId]);
+  }, [token, gameId, currentPage]);
   const changeGameId = () => {
     setGameId(1);
   };
+
+  const loadMoreButtonRef = useRef(null);
+
+  const handleLoadMore = () => {
+    if (loadMoreButtonRef.current) {
+      const rect = loadMoreButtonRef.current.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        setCurrentPage(currentPage + 1);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleLoadMore);
+    return () => {
+      window.removeEventListener("scroll", handleLoadMore);
+    };
+  }, []);
+
   return (
     <>
       <div>
@@ -99,7 +121,12 @@ const Leaderboard = () => {
           </Table>
         )}
         <div className="more-link">
-          <a href="#">
+          <a href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            setCurrentPage(currentPage + 1);
+          }}
+          ref={loadMoreButtonRef}>
             More <img className="img" src={Caret} alt="" />
           </a>
         </div>

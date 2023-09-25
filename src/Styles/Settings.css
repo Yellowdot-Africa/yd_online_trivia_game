@@ -84,6 +84,7 @@ input {
   font-weight: 700;
   display: flex;
   align-items: center;
+  padding: 10px;
 }
 .select-container{
   
