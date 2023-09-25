@@ -29,15 +29,13 @@
 }
 
 
-.loading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 100vh; /* Optional: This centers content vertically in the viewport */
-}
 
-.loading-spinner {
-  margin-bottom: 16px; /* Optional: Adds space between spinner and text */
+
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px; 
+  color: rgba(48, 48, 100, 0.4);
+
 }

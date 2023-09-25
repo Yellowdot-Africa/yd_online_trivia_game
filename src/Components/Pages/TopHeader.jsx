@@ -3,6 +3,8 @@ import Gem from "../../assets/icons/gem.svg";
 import "../../Styles/TopHeader.css";
 import ShareModal from "../Common/ShareModal";
 import HistoryModal from "../../Components/Common/HistoryModal";
+import { useLocation } from "react-router-dom";
+
 
 const TopHeader = () => {
   const [showModal, setShowModal] = useState(false);
@@ -24,6 +26,9 @@ const TopHeader = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const location = useLocation();
+
+  const {  gemsEarned,correctAnswers } = location.state || {};
 
   return (
     <>
@@ -37,7 +42,10 @@ const TopHeader = () => {
               {isModalOpen && <HistoryModal closeModal={closeModal} />}
             </div>
             <span className="d-flex justify-content-center align-items-center">
-              <img className="imgs p-2" src={Gem} alt="gem-img" />0
+              <img className="imgs p-2" src={Gem} alt="gem-img" />
+              0
+              <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
+
             </span>
             <div className="share-cont p-2">
               <p className="share" onClick={handleShowModal}>

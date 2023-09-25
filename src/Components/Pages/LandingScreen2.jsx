@@ -7,6 +7,7 @@ import CaretUp from "../../assets/icons/uiwup.svg";
 import CaretDown from "../../assets/icons/uiwdown.svg";
 import CustomButton from "../Common/CustomButton";
 import categories from "../../assets/icons/Group 44.svg";
+import Spinner from "react-bootstrap/Spinner";
 import closeIcon from "../../assets/icons/close.png";
 import axios from "axios";
 
@@ -90,7 +91,12 @@ const LandingScreen2 = () => {
           </div>
           <div className="categories-tab-container">
             {loading ? (
-              <p className="loading">Loading...</p>
+              <div className="loading-spinner-container">
+
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+              </div>
             ) : error ? (
               <p className="loading">Error fetching game categories: {error}</p>
             ) : (
