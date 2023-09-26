@@ -1,11 +1,19 @@
 import React, { useState } from "react";
 import CustomButton from "./CustomButton";
 import "../../Styles/Share.css";
-import ShareSocialButtons from "./ShareSocialButtons";
+import {
+  FacebookShareButton,
+  LinkedinShareButton,
+  TwitterShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  LinkedinIcon,
+} from "react-share";
 import ShareIcon from "../../assets/icons/material-symbols_share.svg";
 import copy from "../../assets/icons/material-symbols_link.svg";
 
 const ShareModal = ({ handleCloseModal }) => {
+  const currentPageUrl = window.location.href;
   const [copied, setCopied] = useState(false);
   const [showShareButtons, setShowShareButtons] = useState(false);
 
@@ -37,7 +45,9 @@ const ShareModal = ({ handleCloseModal }) => {
   };
 
   return (
-    <div className="modal-container">
+    // <div className="modal-container">
+    <div className={`modal-container ${showShareButtons ? "blur-background" : ""}`}>
+
       <div className="modal-content-container">
         <div className="modal-text-info">
           <p>Share options</p>
@@ -53,16 +63,28 @@ const ShareModal = ({ handleCloseModal }) => {
             style={buttonStyle}
             ImageSrc={ImageSrc}
             onClick={() => setShowShareButtons(!showShareButtons)}
-
           />
 
           {showShareButtons && (
-            <div>
-              <ShareSocialButtons />
+            <div className="d-flex justify-content-center align-items-center mx-auto ">
+              <FacebookShareButton
+                url={currentPageUrl}
+                quote="please share this post"
+                hashtag="ydot-trivia"
+              >
+                <FacebookIcon />
+              </FacebookShareButton>
+              <TwitterShareButton url={currentPageUrl}>
+                <TwitterIcon />
+              </TwitterShareButton>
+
+              <LinkedinShareButton url={currentPageUrl}>
+                <LinkedinIcon />
+              </LinkedinShareButton>
             </div>
           )}
 
-          <div className="copy">
+          <div className="copy my-5">
             {copied ? (
               <p className="copy">Link Copied!</p>
             ) : (
