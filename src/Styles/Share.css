@@ -18,12 +18,18 @@
   background: #fff;
   padding: 20px;
   width: 80%;
-  height: 15em;
+  height: 20em;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.blur-background {
+  backdrop-filter: blur(5px); 
+  -webkit-backdrop-filter: blur(5px); 
+}
+
 
 hr {
   color: #d8d8dd !important;

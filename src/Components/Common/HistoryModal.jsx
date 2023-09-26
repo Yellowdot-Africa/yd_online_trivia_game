@@ -3,15 +3,24 @@ import "../../Styles/HistoryModal.css";
 import withdraw from "../../assets/icons/money-withdrawal.svg";
 import deposit from "../../assets/icons/baseline-payment.svg";
 import CaretDown from "../../assets/icons/uiwdown.svg";
+import Deposit from "../Common/Deposit";
 import ToggleSwitch from "../Common/ToggleSwitch";
+import AOS from "aos";
+
 import axios from "axios";
 
 const HistoryModal = ({ closeModal }) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  });
+
   const [showBalance, setShowBalance] = useState(false);
   const [addUnitsStatus, setAddUnitsStatus] = useState(null);
   const [addUnitsError, setAddUnitsError] = useState("");
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [historyClicked, setHistoryClicked] = useState(false);
+  const [showDeposit, setShowDeposit] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const token = sessionStorage.getItem("token");
@@ -19,6 +28,11 @@ const HistoryModal = ({ closeModal }) => {
 
   const toggleHistory = () => {
     setHistoryClicked((prevState) => !prevState);
+    setShowDeposit(false);
+  };
+
+  const toggleDeposit = () => {
+    setShowDeposit((prevShowDeposit) => !prevShowDeposit);
   };
 
   const handleToggle = () => {
@@ -71,11 +85,11 @@ const HistoryModal = ({ closeModal }) => {
         </div>
 
         <div className="modal-details">
-          <p className="modal-amount">
+          <p className="modal-amount" >
             {showBalance ? (
-              <span className="dark-blue">N 8,000.00</span>
+              <span className="dark-blue" data-aos="zoom-out">N 8,000.00</span>
             ) : (
-              <span className="grey">N X,XXX.XX</span>
+              <span className="grey" data-aos="zoom-in">N X,XXX.XX</span>
             )}
           </p>
           <div className="toggle">
@@ -84,25 +98,34 @@ const HistoryModal = ({ closeModal }) => {
           </div>
           <hr />
           <div className="withdraw-cont">
-            <p className="withdraw">Withdraw</p>
+            <p
+              className="withdraw"
+              
+              onClick={toggleDeposit}
+            >
+              Withdraw
+            </p>
             <img src={withdraw} alt="withdraw" />
           </div>
           <hr />
           <div className="deposit-cont">
-            <p className="deposit">Deposit</p>
+            <p className="deposit" onClick={toggleDeposit}>
+              Deposit
+            </p>
             <img src={deposit} alt="deposit" />
           </div>
           <hr />
           <p
-            onClick={(toggleHistory) => {
+            onClick={() => {
+              toggleHistory();
               addTransactionHistory();
-              setHistoryClicked(true);
+              // setHistoryClicked(true);
             }}
             className={`history-button ${historyClicked ? "open" : ""}`}
           >
             History <img src={CaretDown} alt="caretdwn" />
           </p>
-
+          {showDeposit && <Deposit />}
           {historyClicked && (
             <div>
               {transactionHistory.length > 0 ? (
@@ -131,7 +154,6 @@ const HistoryModal = ({ closeModal }) => {
               ) : (
                 <div>No transaction history available.</div>
               )}
-                  
             </div>
           )}
         </div>
