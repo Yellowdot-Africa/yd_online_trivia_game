@@ -28,7 +28,9 @@ const HistoryModal = ({ closeModal }) => {
 
   const toggleHistory = () => {
     setHistoryClicked((prevState) => !prevState);
-    setShowDeposit(false);
+    // setShowDeposit(false);
+    setShowDeposit(!showDeposit);
+
   };
 
   const toggleDeposit = () => {
@@ -119,13 +121,12 @@ const HistoryModal = ({ closeModal }) => {
             onClick={() => {
               toggleHistory();
               addTransactionHistory();
-              // setHistoryClicked(true);
             }}
             className={`history-button ${historyClicked ? "open" : ""}`}
           >
             History <img src={CaretDown} alt="caretdwn" />
           </p>
-          {showDeposit && <Deposit />}
+          {showDeposit && <Deposit closeModal={toggleDeposit} />}
           {historyClicked && (
             <div>
               {transactionHistory.length > 0 ? (
