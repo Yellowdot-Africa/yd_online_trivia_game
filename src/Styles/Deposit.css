@@ -1,25 +1,25 @@
-.dep-container {
+.deposit-modal-container {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 20px;
 }
-.dep-dep{
+.deposit-modal{
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
-.dep-container h3 {
+.deposit-modal-container h3 {
   color: #242424;
   font-family: "Inter", sans-serif;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
 }
-.dep-container hr{
+.deposit-modal-container hr{
     border: 3px solid #E7E7E7;
     color: #E7E7E7 !important;
     width: 100%;
@@ -27,7 +27,7 @@
 
 
 }
-.dep-container p{
+.deposit-modal-container p{
     color: #242424;
     font-family: "Inter",sans-serif;
     font-size: 16px;
@@ -37,13 +37,13 @@
 
 }
 
-.dep-container input{
+.deposit-modal-container input{
     border: 2px solid #303064;
     border-radius: 10px;
     margin: 20px;
     width: 75%;
 }
-.dep-container input::placeholder{
+.deposit-modal-container input::placeholder{
     color: #CDCDCD;
 
 }
