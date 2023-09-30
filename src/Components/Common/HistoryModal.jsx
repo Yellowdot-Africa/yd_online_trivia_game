@@ -126,7 +126,8 @@ const HistoryModal = ({ closeModal }) => {
           >
             History <img src={CaretDown} alt="caretdwn" />
           </p>
-          {showDeposit && <Deposit closeModal={toggleDeposit} />}
+          {!historyClicked && showDeposit && <Deposit closeModal={toggleDeposit} />}
+
           {historyClicked && (
             <div>
               {transactionHistory.length > 0 ? (

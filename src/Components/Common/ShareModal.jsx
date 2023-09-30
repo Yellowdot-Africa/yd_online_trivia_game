@@ -30,7 +30,8 @@ const ShareModal = ({ handleCloseModal }) => {
   };
 
   const copyLinkToClipboard = () => {
-    const linkToCopy = "http//www.ydot-trivia.com";
+    const linkToCopy = window.location.href;
+
     navigator.clipboard
       .writeText(linkToCopy)
       .then(() => {

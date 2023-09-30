@@ -35,11 +35,11 @@ const Faqs = () => {
               <h4 className="faq-header">FAQ'S</h4>
             </div>
             <ul>
-              <li>Answer two questions to enter for the daily draw </li>
-              <li>
+              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li>All terms and conditions must be observed.</li>
+              <li className="rules-list">All terms and conditions must be observed.</li>
             </ul>
           </div>
           <div className="reward-text">
@@ -47,11 +47,11 @@ const Faqs = () => {
               <h4>Reward claims</h4>
             </div>
             <ul>
-              <li>Answer two questions to enter for the daily draw </li>
-              <li>
+              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li>All terms and conditions must be observed.</li>
+              <li className="rules-list">All terms and conditions must be observed.</li>
             </ul>
           </div>
           <div className="reward-support-text">
@@ -59,11 +59,11 @@ const Faqs = () => {
               <h4>Reward/ Support</h4>
             </div>
             <ul>
-              <li>Answer two questions to enter for the daily draw </li>
-              <li>
+              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li>All terms and conditions must be observed.</li>
+              <li className="rules-list">All terms and conditions must be observed.</li>
             </ul>
           </div>
           <div>

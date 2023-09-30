@@ -33,13 +33,17 @@ const CountDown1 = () => {
       setIsAnswerDisabled(false);
 
       if (currentQuestionIndex < questions.length - 1) {
+        console.log("Incrementing currentQuestionIndex");
+
         setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setCountdown(9); 
+        setCountdown(10); 
       } else {
         submitAnswersToApi(selectedAnswers);
       }
     }
   };
+
+ 
 
   useEffect(() => {
     if (countdown > 0 && !isAnswerDisabled) {
@@ -67,6 +71,8 @@ const CountDown1 = () => {
         );
 
         const allQuestions = response.data.data;
+        console.log("Received questions:", allQuestions);
+
         setQuestions(allQuestions);
         setCountdown(allQuestions.length);
       } catch (error) {
@@ -89,19 +95,30 @@ const CountDown1 = () => {
 
     setIsCorrect(isAnswerCorrect);
     console.log("isAnswerCorrect", isAnswerCorrect);
+    // if (isAnswerCorrect) {
+    //   setNoOfCorrect((e) => e + 1);
+    // } else {
+    //   setNoOfWrong((e) => e + 1);
+    // }
+
     if (isAnswerCorrect) {
-      setNoOfCorrect((e) => e + 1);
+      setNoOfCorrect((prevCorrect) => prevCorrect + 1);
     } else {
-      setNoOfWrong((e) => e + 1);
+      setNoOfWrong((prevWrong) => prevWrong + 1);
     }
+    
     setShowFeedback(true);
     setCountdown(0);
     setTimeout(() => {
       if (currentQuestionIndex < questions.length - 1) {
+        console.log("Current Question Index:", currentQuestionIndex);
+        console.log("Rendering Question ID:", questions[currentQuestionIndex]?.id);
+
         setCurrentQuestionIndex(currentQuestionIndex + 1);
         setCountdown(9);
       } else {
         submitAnswersToApi(selectedAnswers);
+
       }
 
       setShowFeedback(false);
@@ -139,6 +156,7 @@ const CountDown1 = () => {
       );
 
       console.log("API response:", response.data);
+      console.log("API Response for Questions:", response.data);
 
       navigate("/gamecomplete", {
         state: {
