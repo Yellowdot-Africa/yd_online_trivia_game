@@ -25,12 +25,12 @@ const Rules = () => {
       </div>
       <div className="rules-container">
         <div className="rules-text">
-          <ul>
-            <li>Answer two questions to enter for the daily draw </li>
-            <li>
+          <ul className="rules">
+            <li className="rules-list">Answer two questions to enter for the daily draw </li>
+            <li className="rules-list">
               Pick from options in each question to move to the next level
             </li>
-            <li>All terms and conditions must be observed.</li>
+            <li className="rules-list">All terms and conditions must be observed.</li>
           </ul>
         </div>
 

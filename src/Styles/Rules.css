@@ -4,12 +4,13 @@
   padding: 15px;
 }
 
-li {
+ .rules-list {
   color: #3e3e50;
   font-family: "Inter", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
+  list-style: disc;
 }
 
 .learn-more {

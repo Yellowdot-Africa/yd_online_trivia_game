@@ -11,3 +11,10 @@ button {
   border: none;
   border-radius: 24px !important;
 }
+
+
+.custom-spinner{
+  display: flex !important;
+  justify-content:center !important;
+  align-items: center !important;
+}
