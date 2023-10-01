@@ -33,10 +33,8 @@ const QuestionScreen = ({
           <div
             key={answer.id}
             className={`answer-option ${
-              selectedAnswer === answer.answerText
-                ? isCorrect === null
-                  ? "selected"
-                  : isCorrect
+              showFeedback && selectedAnswer === answer.answerText
+                ? isCorrect
                   ? "correct"
                   : "wrong"
                 : ""

@@ -32,8 +32,6 @@ const SignIn = () => {
     width: "222px",
   });
   const [isLoading, setIsLoading] = useState(false);
- 
- 
 
   const validationSchema = Yup.object().shape({
     msisdn: Yup.string()
@@ -156,16 +154,15 @@ const SignIn = () => {
           {infoText && <p className="fill-info">{infoText}</p>}
           {errorText && <p className="fill-info">{errorText}</p>}
           <img src={handImage} alt="handpoint" />
-          
+
           <CustomButton
             buttonText={"Start Trivia"}
             style={buttonStyle}
             onClick={handleSignIn}
             disabled={isLoading}
-            loading={isLoading} 
-
+            loading={isLoading}
           />
-           {/* {isLoading && (
+          {/* {isLoading && (
     <div className="loading">
     
    <Spinner animation="border" role="status">
@@ -174,14 +171,13 @@ const SignIn = () => {
      
     </div>
  )} */}
-      
+
           <div className="account">
             <p>Don't have an account?</p>
             <Link to="/createuser" className="create">
               Sign up
             </Link>
           </div>
-         
         </div>
       </div>
     </>

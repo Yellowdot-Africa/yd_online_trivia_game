@@ -12,15 +12,14 @@ const Faqs = () => {
     backgroundImage:
       "linear-gradient(145deg, rgba(29, 29, 185, 0.24) 0%, rgba(29, 29, 185, 0.40) 100%)",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
-    width:"222px",
+    width: "222px",
   };
   return (
     <>
-
       <div className="faq">
         <div className="faq-close-cont">
-        <h4 className>FAQ'S</h4>
-        <div className="faq-close-img-cont">
+          <h4 className>FAQ'S</h4>
+          <div className="faq-close-img-cont">
             <img
               className="close-img"
               src={closeIcon}
@@ -28,18 +27,22 @@ const Faqs = () => {
               onClick={() => navigate("/home")}
             />
           </div>
-          </div>
+        </div>
         <div className="faq-container">
           <div className="faq-text">
             <div className="faq-header-cont">
               <h4 className="faq-header">FAQ'S</h4>
             </div>
             <ul>
-              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
+                Answer two questions to enter for the daily draw{" "}
+              </li>
               <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li className="rules-list">All terms and conditions must be observed.</li>
+              <li className="rules-list">
+                All terms and conditions must be observed.
+              </li>
             </ul>
           </div>
           <div className="reward-text">
@@ -47,11 +50,15 @@ const Faqs = () => {
               <h4>Reward claims</h4>
             </div>
             <ul>
-              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
+                Answer two questions to enter for the daily draw{" "}
+              </li>
               <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li className="rules-list">All terms and conditions must be observed.</li>
+              <li className="rules-list">
+                All terms and conditions must be observed.
+              </li>
             </ul>
           </div>
           <div className="reward-support-text">
@@ -59,11 +66,15 @@ const Faqs = () => {
               <h4>Reward/ Support</h4>
             </div>
             <ul>
-              <li className="rules-list">Answer two questions to enter for the daily draw </li>
+              <li className="rules-list">
+                Answer two questions to enter for the daily draw{" "}
+              </li>
               <li className="rules-list">
                 Pick from options in each question to move to the next level
               </li>
-              <li className="rules-list">All terms and conditions must be observed.</li>
+              <li className="rules-list">
+                All terms and conditions must be observed.
+              </li>
             </ul>
           </div>
           <div>
@@ -74,14 +85,13 @@ const Faqs = () => {
         </div>
 
         <div className="button-cont">
-          <CustomButton buttonText={buttonText}
-           style={buttonStyle} 
-           onClick={() => navigate("/game-info")}
-
-           />
+          <CustomButton
+            buttonText={buttonText}
+            style={buttonStyle}
+            onClick={() => navigate("/game-info")}
+          />
         </div>
       </div>
-
     </>
   );
 };

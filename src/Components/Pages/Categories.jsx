@@ -26,7 +26,6 @@ const Categories = () => {
 
   useEffect(() => {
     fetchGameCategories();
-    
   }, []);
 
   const fetchGameCategories = async () => {
@@ -51,21 +50,17 @@ const Categories = () => {
     }
   };
 
-
   console.log("categories", categories);
 
   return (
     <div>
       <h4>CATEGORIES</h4>
       {loading ? (
-            <div className="loading-spinner-container">
-
+        <div className="loading-spinner-container">
           <Spinner animation="border" role="status">
             <span className="visually-hidden">Loading...</span>
           </Spinner>
-          </div>
-
-
+        </div>
       ) : error ? (
         <p className="loading">Error fetching game categories: {error}</p>
       ) : categories.length === 0 ? (
@@ -91,5 +86,3 @@ const Categories = () => {
 };
 
 export default Categories;
-
-

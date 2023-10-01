@@ -79,7 +79,9 @@ const LoadingGame = () => {
               <div className="countdown-cont">
                 {numElements.map((numElement, index) => (
                   <div className="count" key={index}>
-                    <p className="num">{countdown === numElement ? numElement : ""}</p>
+                    <p className="num">
+                      {countdown === numElement ? numElement : ""}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -92,8 +94,3 @@ const LoadingGame = () => {
 };
 
 export default LoadingGame;
-
-
-
-
-

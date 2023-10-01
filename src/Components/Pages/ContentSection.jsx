@@ -23,27 +23,24 @@ const ContentSection = () => {
           onClick={() => setIndex(0)}
           style={{
             backgroundColor: index === 0 ? "rgba(48, 48, 100, 1)" : "",
-
           }}
         >
           <img src={SettingsIcon} alt="settings" />
-        </a> 
+        </a>
         <a
           className="stats"
           onClick={() => setIndex(1)}
           style={{
             backgroundColor: index === 1 ? "rgba(48, 48, 100, 1)" : "",
-          
           }}
         >
           <img src={userStats} alt="stats" />
-        </a> 
+        </a>
         <a
           className="category"
           onClick={() => setIndex(2)}
           style={{
             backgroundColor: index === 2 ? "rgba(48, 48, 100, 1)" : "",
-
           }}
         >
           <img src={categories} alt="category" />
@@ -53,7 +50,6 @@ const ContentSection = () => {
           onClick={() => setIndex(3)}
           style={{
             backgroundColor: index === 3 ? "rgba(48, 48, 100, 1)" : "",
-
           }}
         >
           <div className="leaderboardIcon">
@@ -66,7 +62,6 @@ const ContentSection = () => {
           onClick={() => setIndex(4)}
           style={{
             backgroundColor: index === 4 ? "rgba(48, 48, 100, 1)" : "",
-
           }}
         >
           <img src={rules} alt="rule" />

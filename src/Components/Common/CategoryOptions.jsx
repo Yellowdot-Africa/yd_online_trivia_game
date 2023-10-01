@@ -18,5 +18,3 @@ const CategoryOptions = () => {
 };
 
 export default CategoryOptions;
-
-

@@ -18,9 +18,9 @@
   background: #fff;
   padding: 20px;
   width: 80%;
-  height: 20em;
+  /* height: 20em; */
   position: absolute;
-  top: 50%;
+  top: 300px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -49,6 +49,14 @@ hr {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+.react-share__ShareButton{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin: 5px;
 }
 
 .copy {
@@ -85,6 +93,8 @@ hr {
   button{
     width: 100% ;
   }
+
+ 
 }
 
 @media screen and (min-width:300px) {

@@ -5,9 +5,11 @@ import {
   FacebookShareButton,
   LinkedinShareButton,
   TwitterShareButton,
+  WhatsappShareButton,
   FacebookIcon,
   TwitterIcon,
   LinkedinIcon,
+  WhatsappIcon,
 } from "react-share";
 import ShareIcon from "../../assets/icons/material-symbols_share.svg";
 import copy from "../../assets/icons/material-symbols_link.svg";
@@ -47,8 +49,9 @@ const ShareModal = ({ handleCloseModal }) => {
 
   return (
     // <div className="modal-container">
-    <div className={`modal-container ${showShareButtons ? "blur-background" : ""}`}>
-
+    <div
+      className={`modal-container ${showShareButtons ? "blur-background" : ""}`}
+    >
       <div className="modal-content-container">
         <div className="modal-text-info">
           <p>Share options</p>
@@ -73,15 +76,22 @@ const ShareModal = ({ handleCloseModal }) => {
                 quote="please share this post"
                 hashtag="ydot-trivia"
               >
-                <FacebookIcon />
+                <FacebookIcon round={true} />
               </FacebookShareButton>
               <TwitterShareButton url={currentPageUrl}>
-                <TwitterIcon />
+                <TwitterIcon round={true} />
               </TwitterShareButton>
 
               <LinkedinShareButton url={currentPageUrl}>
-                <LinkedinIcon />
+                <LinkedinIcon round={true} />
               </LinkedinShareButton>
+              <WhatsappShareButton
+                url={currentPageUrl}
+                quote={"please share this post"}
+                hashtag={"ydot-trivia"}
+              >
+                <WhatsappIcon round={true} />
+              </WhatsappShareButton>
             </div>
           )}
 

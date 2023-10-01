@@ -4,7 +4,6 @@ import CustomButton from "../Common/CustomButton";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
 const Rules = () => {
   const navigate = useNavigate();
 
@@ -13,7 +12,7 @@ const Rules = () => {
     backgroundImage:
       "linear-gradient(145deg, rgba(29, 29, 185, 0.24) 0%, rgba(29, 29, 185, 0.40) 100%)",
     boxShadow: "0px 0px 2px 0px #6B6BD1",
-    width:"70vw",
+    width: "70vw",
   };
 
   const [index, setIndex] = useState(0);
@@ -26,11 +25,15 @@ const Rules = () => {
       <div className="rules-container">
         <div className="rules-text">
           <ul className="rules">
-            <li className="rules-list">Answer two questions to enter for the daily draw </li>
+            <li className="rules-list">
+              Answer two questions to enter for the daily draw{" "}
+            </li>
             <li className="rules-list">
               Pick from options in each question to move to the next level
             </li>
-            <li className="rules-list">All terms and conditions must be observed.</li>
+            <li className="rules-list">
+              All terms and conditions must be observed.
+            </li>
           </ul>
         </div>
 
@@ -39,10 +42,10 @@ const Rules = () => {
         </Link>
       </div>
       <div className="button-cont">
-        <CustomButton buttonText={buttonText} 
-        style={buttonStyle}
-        onClick={() => navigate("/game-info")}
-
+        <CustomButton
+          buttonText={buttonText}
+          style={buttonStyle}
+          onClick={() => navigate("/game-info")}
         />
       </div>
       <div></div>
