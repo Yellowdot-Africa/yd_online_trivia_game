@@ -23,26 +23,6 @@
     font-style: normal;
     width: 100%;
 }
-/* .select-box{
-  width: 580px;
-  position: relative;
-}
-.select-box select{
-  height: 42px;
-  padding: 10px 15px;
-  line-height: 22px;
-  width: 100%;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-.select-box::after{
-content: "";
-position: absolute;
-right: 10px;
-top: 50%;
-margin-top: -5px;
-} */
 
 .form-control::placeholder{
     color: #CDCDCD;
@@ -81,4 +61,12 @@ margin-top: -5px;
   option{
     width: 300px;
   }
+}
+
+@media screen and (max-width:290px) {
+  .account{
+    padding: 0% !important;
+  }
+
+ 
 }

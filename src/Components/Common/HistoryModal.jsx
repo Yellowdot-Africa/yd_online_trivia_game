@@ -30,7 +30,6 @@ const HistoryModal = ({ closeModal }) => {
     setHistoryClicked((prevState) => !prevState);
     // setShowDeposit(false);
     setShowDeposit(!showDeposit);
-
   };
 
   const toggleDeposit = () => {
@@ -87,11 +86,15 @@ const HistoryModal = ({ closeModal }) => {
         </div>
 
         <div className="modal-details">
-          <p className="modal-amount" >
+          <p className="modal-amount">
             {showBalance ? (
-              <span className="dark-blue" data-aos="zoom-out">N 8,000.00</span>
+              <span className="dark-blue" data-aos="zoom-out">
+                N 8,000.00
+              </span>
             ) : (
-              <span className="grey" data-aos="zoom-in">N X,XXX.XX</span>
+              <span className="grey" data-aos="zoom-in">
+                N X,XXX.XX
+              </span>
             )}
           </p>
           <div className="toggle">
@@ -100,11 +103,7 @@ const HistoryModal = ({ closeModal }) => {
           </div>
           <hr />
           <div className="withdraw-cont">
-            <p
-              className="withdraw"
-              
-              onClick={toggleDeposit}
-            >
+            <p className="withdraw" onClick={toggleDeposit}>
               Withdraw
             </p>
             <img src={withdraw} alt="withdraw" />
@@ -126,7 +125,9 @@ const HistoryModal = ({ closeModal }) => {
           >
             History <img src={CaretDown} alt="caretdwn" />
           </p>
-          {!historyClicked && showDeposit && <Deposit closeModal={toggleDeposit} />}
+          {!historyClicked && showDeposit && (
+            <Deposit closeModal={toggleDeposit} />
+          )}
 
           {historyClicked && (
             <div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Table from "react-bootstrap/Table";
 import Caret from "../../assets/icons/uiwdown.svg";
 import Trophy from "../../assets/icons/trophy.svg";
@@ -12,18 +12,17 @@ const Leaderboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [gameId, setGameId] = useState(0);
-  const [status,setStatus]=useState(false)
+  const [status, setStatus] = useState(false);
 
   const token = sessionStorage.getItem("token");
-  const pageSize = 10; 
+  const pageSize = 10;
   const [currentPage, setCurrentPage] = useState(1);
-
 
   const fetchLeaderboardData = async () => {
     try {
       const response = await axios.get(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=1`,     
-           {
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=1`,
+        {
           headers: {
             Accept: "*/*",
             "Content-Type": "application/json",
@@ -31,16 +30,15 @@ const Leaderboard = () => {
           },
         }
       );
-      if(response.data.statusCode==="999"){
+      if (response.data.statusCode === "999") {
         setLeaderboardData(response.data.data);
         setStatus(true);
         setLoading(false);
-      }else if(response.data.statusCode==="400"){
+      } else if (response.data.statusCode === "400") {
         setLeaderboardData(response.data.data);
-        setStatus(false)
+        setStatus(false);
         setLoading(false);
       }
-  
     } catch (error) {
       setLeaderboardData("No Data Available");
       setLoading(false);
@@ -98,35 +96,27 @@ const Leaderboard = () => {
               </tr>
             </thead>
             <tbody>
-              {
-                  status?(
-                    leaderboardData.map((item, index) => (
-                      <tr key={item.userId}>
-                        <td>{index + 1}</td>
-                        <td>{item.name}</td>
-                        <td>{item.msisdn}</td>
-                      </tr>
-                    ))
-                    
-                  ):(
-                      "No Leaderboard found"
-                  )
-              
-              
-             
-              
-              
-              }
+              {status
+                ? leaderboardData.map((item, index) => (
+                    <tr key={item.userId}>
+                      <td>{index + 1}</td>
+                      <td>{item.name}</td>
+                      <td>{item.msisdn}</td>
+                    </tr>
+                  ))
+                : "No Leaderboard found"}
             </tbody>
           </Table>
         )}
         <div className="more-link">
-          <a href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            setCurrentPage(currentPage + 1);
-          }}
-          ref={loadMoreButtonRef}>
+          <a
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              setCurrentPage(currentPage + 1);
+            }}
+            ref={loadMoreButtonRef}
+          >
             More <img className="img" src={Caret} alt="" />
           </a>
         </div>

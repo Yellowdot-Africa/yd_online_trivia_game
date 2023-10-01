@@ -92,24 +92,23 @@ const LandingScreen2 = () => {
           <div className="categories-tab-container">
             {loading ? (
               <div className="loading-spinner-container">
-
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
+                <Spinner animation="border" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </Spinner>
               </div>
             ) : error ? (
               <p className="loading">Error fetching game categories: {error}</p>
             ) : (
               <>
-              <div className="categories-containerr">
-                <img src={CaretUp} alt="caretup" />
+                <div className="categories-containerr">
+                  <img src={CaretUp} alt="caretup" />
 
-                {categoriesData.map((category) => (
-                  <div className="category-option" key={category.id}>
-                    {category.name}
-                  </div>
-                ))}
-                <img src={CaretDown} alt="caretdown" />
+                  {categoriesData.map((category) => (
+                    <div className="category-option" key={category.id}>
+                      {category.name}
+                    </div>
+                  ))}
+                  <img src={CaretDown} alt="caretdown" />
                 </div>
               </>
             )}

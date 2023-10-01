@@ -32,7 +32,6 @@ const LandingPage = () => {
 
   useEffect(() => {
     fetchCategories();
-    
   }, []);
 
   const fetchCategories = async () => {

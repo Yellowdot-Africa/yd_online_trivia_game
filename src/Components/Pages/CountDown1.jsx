@@ -25,25 +25,53 @@ const CountDown1 = () => {
 
   const navigate = useNavigate();
   const token = sessionStorage.getItem("token");
+
   const startCountdown = () => {
     if (countdown > 0) {
       setCountdown(countdown - 1);
-    } else {
-      setShowFeedback(false);
-      setIsAnswerDisabled(false);
-
-      if (currentQuestionIndex < questions.length - 1) {
-        console.log("Incrementing currentQuestionIndex");
-
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setCountdown(10); 
-      } else {
-        submitAnswersToApi(selectedAnswers);
-      }
     }
   };
 
- 
+  const handleNextQuestion = () => {
+    setShowFeedback(false);
+    setIsAnswerDisabled(false);
+
+    const currentQuestion = questions[currentQuestionIndex];
+    const isCurrentQuestionUnanswered =
+      !isQuestionAttempted(currentQuestionIndex);
+
+    if (isCurrentQuestionUnanswered) {
+      setSelectedAnswers((prevAnswers) => [
+        ...prevAnswers,
+        {
+          questionIndex: currentQuestionIndex,
+          answerText: "Unanswered",
+          isAnswerCorrect: false,
+        },
+      ]);
+
+      setNoOfWrong((prevWrong) => prevWrong + 1);
+    }
+
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+      setCountdown(10);
+    } else {
+      submitAnswersToApi(selectedAnswers);
+    }
+  };
+
+  useEffect(() => {
+    if (countdown === 0) {
+      handleNextQuestion();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (countdown === 0 && !isAnswerDisabled) {
+      handleNextQuestion();
+    }
+  }, [countdown, isAnswerDisabled]);
 
   useEffect(() => {
     if (countdown > 0 && !isAnswerDisabled) {
@@ -94,51 +122,34 @@ const CountDown1 = () => {
     ]);
 
     setIsCorrect(isAnswerCorrect);
-    console.log("isAnswerCorrect", isAnswerCorrect);
-    // if (isAnswerCorrect) {
-    //   setNoOfCorrect((e) => e + 1);
-    // } else {
-    //   setNoOfWrong((e) => e + 1);
-    // }
 
     if (isAnswerCorrect) {
       setNoOfCorrect((prevCorrect) => prevCorrect + 1);
     } else {
       setNoOfWrong((prevWrong) => prevWrong + 1);
     }
-    
+
     setShowFeedback(true);
     setCountdown(0);
+
     setTimeout(() => {
-      if (currentQuestionIndex < questions.length - 1) {
-        console.log("Current Question Index:", currentQuestionIndex);
-        console.log("Rendering Question ID:", questions[currentQuestionIndex]?.id);
-
-        setCurrentQuestionIndex(currentQuestionIndex + 1);
-        setCountdown(9);
-      } else {
-        submitAnswersToApi(selectedAnswers);
-
-      }
-
-      setShowFeedback(false);
-      setIsAnswerDisabled(false);
+      handleNextQuestion();
     }, 800);
-
-    // if (isAnswerCorrect) {
-    //   setNoOfCorrect(noOfCorrect + 1);
-    // } else {
-    //   setNoOfWrong(noOfWrong + 1);
-    // }
   };
-  // console.log("NoOfCorr", noOfCorrect, "NoOfWro", noOfWrong);
+  const isQuestionAttempted = (questionIndex) => {
+    return selectedAnswers.some(
+      (answer) => answer.questionIndex === questionIndex
+    );
+  };
 
   const submitAnswersToApi = async (answers) => {
     try {
-      const answersToSend = answers.map((selectedAnswer) => ({
-        questionID: questions[selectedAnswer.questionIndex].id,
-        selectedAnswerID: 0,
-      }));
+      const answersToSend = answers
+        .filter((answer) => answer.answerText !== "Unanswered")
+        .map((selectedAnswer) => ({
+          questionID: questions[selectedAnswer.questionIndex].id,
+          selectedAnswerID: 0,
+        }));
 
       const response = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer",
@@ -161,7 +172,7 @@ const CountDown1 = () => {
       navigate("/gamecomplete", {
         state: {
           correctAnswers: noOfCorrect,
-          wrongAnswers: noOfWrong,
+          wrongAnswers: noOfWrong + (questions.length - selectedAnswers.length),
           gemsEarned: 0,
         },
       });
@@ -182,24 +193,25 @@ const CountDown1 = () => {
                 <img src={sadMask} alt="Wrong" />
               )
             ) : (
-              <p style={{ borderColor: "purple" }}>{countdown}</p>
+              <p>{countdown}</p>
             )}
           </div>
         </div>
         <div className="text-contn">
-          {questions.length > 0 ? (currentQuestionIndex < questions.length ? (
-            <QuestionScreen
-              question={questions[currentQuestionIndex]}
-              onAnswerSelect={handleAnswerSelect}
-              isCorrect={isCorrect}
-              showFeedback={showFeedback}
-              isAnswerDisabled={isAnswerDisabled}
-            />
-          ) : (
-            <p>No questions available.</p>
+          {questions.length > 0 ? (
+            currentQuestionIndex < questions.length ? (
+              <QuestionScreen
+                question={questions[currentQuestionIndex]}
+                onAnswerSelect={handleAnswerSelect}
+                isCorrect={isCorrect}
+                showFeedback={showFeedback}
+                isAnswerDisabled={isAnswerDisabled}
+              />
+            ) : (
+              <p>No questions available.</p>
             )
-        ) : (
-          <p>Loading questions...</p>
+          ) : (
+            <p>Loading questions...</p>
           )}
         </div>
       </div>
@@ -208,4 +220,3 @@ const CountDown1 = () => {
 };
 
 export default CountDown1;
-

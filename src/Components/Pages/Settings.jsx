@@ -5,7 +5,7 @@ import MutedIcon from "../../assets/Icons/unmute.svg";
 import DropDown from "../../assets/Icons/fe_drop-down.svg";
 import MusicFile from "../../assets/MP3/Asake-Amapiano.mp3";
 
-const Settings = () => {
+const Settings = ({ showShareButtons }) => {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(50);
@@ -36,7 +36,8 @@ const Settings = () => {
         <h4>SETTINGS</h4> <hr />
       </div>
 
-      <div className="vol-container">
+      {/* <div className="vol-container"> */}
+      <div className={`vol-container ${showShareButtons ? "blur" : ""}`}>
         <audio ref={audioRef} controls src={MusicFile}></audio>
 
         <p className="vol">Volume</p>

@@ -32,7 +32,7 @@ const TopHeader = () => {
   };
   const location = useLocation();
 
-  const {  gemsEarned,correctAnswers } = location.state || {};
+  const { gemsEarned, correctAnswers } = location.state || {};
 
   return (
     <>
@@ -40,16 +40,16 @@ const TopHeader = () => {
         <div className=" container-head">
           <div className="top-header">
             <div className="">
-              <p className="amount" onClick={openModal} >
+              <p className="amount" onClick={openModal}>
                 N1000.00
-              </p> 
-              {isModalOpen && <HistoryModal data-aos="zoom-out-up" closeModal={closeModal} />}
+              </p>
+              {isModalOpen && (
+                <HistoryModal data-aos="zoom-out-up" closeModal={closeModal} />
+              )}
             </div>
             <span className="d-flex justify-content-center align-items-center">
-              <img className="imgs p-2" src={Gem} alt="gem-img" />
-              0
+              <img className="imgs p-2" src={Gem} alt="gem-img" />0
               <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
-
             </span>
             <div className="share-cont p-2">
               <p className="share" onClick={handleShowModal}>
@@ -65,7 +65,3 @@ const TopHeader = () => {
 };
 
 export default TopHeader;
-
-
-
-

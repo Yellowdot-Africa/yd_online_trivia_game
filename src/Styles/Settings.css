@@ -6,6 +6,19 @@ h4 {
   font-style: normal;
   font-weight: 700 !important;
 }
+.vol-container audio{
+margin: 10px;
+}
+
+.blur-background {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.blur{
+  filter: blur(5px);
+}
+
 
 .vol {
   color: #a3a3a3;
@@ -14,6 +27,7 @@ h4 {
   font-style: normal;
   font-weight: 700;
   text-align: left !important;
+  padding: 10px;
 }
 
 .vol-icon-container {
@@ -31,6 +45,7 @@ input {
   height: 5px;
   border-radius: 5px;
   background-color: #5555a2;
+  margin: 15px;
 }
 
 
@@ -112,3 +127,12 @@ justify-content: center !important;
 align-items: center;
 }
 
+@media screen and (max-width:290px) {
+  .vol-container audio{
+    width: 85% ;
+    margin: 10px;
+ 
+  }
+
+ 
+}
