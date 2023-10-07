@@ -13,7 +13,9 @@ const QuestionScreen = ({
   const handleAnswerClick = (answerText, isAnswerCorrect) => {
     if (isAnswerDisabled) return;
     setSelectedAnswer(answerText);
-    onAnswerSelect(answerText, isAnswerCorrect);
+    const selectedFeedback = selectedAnswer ? (isAnswerCorrect ? "Correct!" : "Wrong!") : "Wrong!";
+
+    onAnswerSelect(answerText, isAnswerCorrect || false, selectedFeedback);
   };
 
   return (

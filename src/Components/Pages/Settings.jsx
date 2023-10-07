@@ -38,7 +38,7 @@ const Settings = ({ showShareButtons }) => {
 
       {/* <div className="vol-container"> */}
       <div className={`vol-container ${showShareButtons ? "blur" : ""}`}>
-        <audio ref={audioRef} controls src={MusicFile}></audio>
+        {/* <audio ref={audioRef} controls src={MusicFile}></audio> */}
 
         <p className="vol">Volume</p>
         <div className="vol-icon-container">

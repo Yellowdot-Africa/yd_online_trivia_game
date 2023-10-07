@@ -48,13 +48,13 @@ const CountDownResult = () => {
           </div>
         </div>
 
-        <div className="gems-gotten">
+        {/* <div className="gems-gotten">
           <p>YOU GOT GEMS!!!</p>
           <div className="gem-div">
             <img src={Gems} alt="gem" />
             <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="button">
           <CustomButton

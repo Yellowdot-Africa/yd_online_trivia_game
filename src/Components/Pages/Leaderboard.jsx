@@ -18,6 +18,17 @@ const Leaderboard = () => {
   const pageSize = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
+  const maskMsisdn = (msisdn) => {
+    if (typeof msisdn !== "string") {
+      return "Invalid MSISDN";
+    }
+
+    const maskedPart = "xxx ".repeat(msisdn.length / 4);
+    const lastThreeDigits = msisdn.slice(-3);
+
+    return maskedPart.trim() + lastThreeDigits;
+  };
+
   const fetchLeaderboardData = async () => {
     try {
       const response = await axios.get(
@@ -91,7 +102,7 @@ const Leaderboard = () => {
                   User <img src={Profile} alt="profile" />
                 </th>
                 <th>
-                  User <img src={GemStone} alt="gems" />
+                  MSISDN <img src={GemStone} alt="gems" />
                 </th>
               </tr>
             </thead>
@@ -101,7 +112,8 @@ const Leaderboard = () => {
                     <tr key={item.userId}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
-                      <td>{item.msisdn}</td>
+                      {/* <td>{item.msisdn}</td> */}
+                      <td>{maskMsisdn(item.msisdn)}</td>
                     </tr>
                   ))
                 : "No Leaderboard found"}

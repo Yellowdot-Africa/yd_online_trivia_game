@@ -21,6 +21,7 @@ const Categories = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null); 
   const token = sessionStorage.getItem("token");
   console.log("token", token);
 
@@ -52,6 +53,10 @@ const Categories = () => {
 
   console.log("categories", categories);
 
+   const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div>
       <h4>CATEGORIES</h4>
@@ -68,11 +73,20 @@ const Categories = () => {
       ) : (
         <div className="categories-container">
           <img className="caret" src={CaretUp} alt="caretup" />
-          {categories.map((category) => (
-            <div key={category.id} className="category-cont">
-              <p>{category.name}</p>
-            </div>
-          ))}
+          <div className="category-options">
+              {categories.map((category) => (
+                <div
+                  className={`option ${
+                    selectedCategory === category ? "selected" : ""
+                  }`}
+                  key={category.id}
+                  onClick={() => handleCategorySelect(category)}
+                >
+                  {category.name}
+                </div>
+                 ))}
+        
+             </div>
           <img className="caret" src={CaretDown} alt="caretdown" />
           <CustomButton
             buttonText={buttonText}

@@ -24,6 +24,7 @@ const LandingScreen2 = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -64,6 +65,10 @@ const LandingScreen2 = () => {
     }
   };
 
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <>
       <div className="container">
@@ -87,7 +92,7 @@ const LandingScreen2 = () => {
           </div>
 
           <div className="h4">
-            <h4>CATEGORY </h4>
+            <h4>CATEGORIES </h4>
           </div>
           <div className="categories-tab-container">
             {loading ? (
@@ -102,12 +107,18 @@ const LandingScreen2 = () => {
               <>
                 <div className="categories-containerr">
                   <img src={CaretUp} alt="caretup" />
-
                   {categoriesData.map((category) => (
-                    <div className="category-option" key={category.id}>
-                      {category.name}
-                    </div>
+                <div
+                  className={`option ${
+                    selectedCategory === category ? "selected" : ""
+                  }`}
+                  key={category.id}
+                  onClick={() => handleCategorySelect(category)}
+                >
+                  {category.name}
+                </div>
                   ))}
+                 
                   <img src={CaretDown} alt="caretdown" />
                 </div>
               </>
