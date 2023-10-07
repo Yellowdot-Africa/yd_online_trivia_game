@@ -5,6 +5,10 @@ import CustomButton from "../Common/CustomButton";
 import CaretUp from "../../assets/icons/uiwup.svg";
 import CaretDown from "../../assets/icons/uiwdown.svg";
 import HandPointUp from "../../assets/icons/handup.svg";
+import DesktopImg1 from "../../assets/Images/Ellipse1.png";
+import DesktopImg2 from "../../assets/Images/Ellipse2.png";
+import DesktopImg3 from "../../assets/Images/Ellipse3.svg";
+import logoDesktop from "../../assets/Images/YellowDotTrivia.png";
 import logo from "../../assets/Images/ydlogo.png";
 import { useNavigate } from "react-router-dom";
 import closeIcon from "../../assets/icons/close.png";
@@ -28,6 +32,7 @@ const LandingPage = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -62,64 +67,80 @@ const LandingPage = () => {
     }
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate("/landingScreen2");
-    }, 5000);
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+  };
 
-    return () => clearTimeout(timer);
-  }, [navigate]);
+  useEffect(() => {
+      const timer = setTimeout(() => {
+        navigate("/landingScreen2");
+      }, 5000);
+
+      return () => clearTimeout(timer);
+    }, [navigate]);
 
   return (
-    <>
-      <div className="container">
-        <div className="close-img-cont">
-          <img
-            className="close-img"
-            src={closeIcon}
-            alt="close"
-            onClick={() => navigate("/home")}
-          />
+    <div className="container">
+      <div className="landing-desktop-images">
+        <img className="img1" src={DesktopImg1} alt="Desktop-Image-1" />
+        <img className="img2" src={DesktopImg2} alt="Desktop-Image-2" />
+        <img className="img3" src={DesktopImg3} alt="Desktop-Image-3" />
+      </div>
+      <div className="close-img-cont">
+        <img
+          className="close-img"
+          src={closeIcon}
+          alt="close"
+          onClick={() => navigate("/home")}
+        />
+      </div>
+      <div className="landing-container">
+        <div className="landing-header">
+          <img className="mobile-logo" src={logo} alt="logo" />
+          <img className="desktop-logo" src={logoDesktop} alt="logo-desktop" />
         </div>
-        <div className="landing-container">
-          <div className="landing-header">
-            <img src={logo} alt="logo" />
-          </div>
 
-          <div className="category-img">
-            <div className="category-img-cont">
-              <img src={categories} alt="category" />
-            </div>
+        <div className="category-img">
+          <div className="category-img-cont">
+            <img src={categories} alt="category" />
           </div>
+        </div>
 
-          <div className="h4">
-            <h4>CATEGORY</h4>
-          </div>
+        <div className="h4">
+          <h4>CATEGORIES</h4>
+        </div>
 
-          {loading ? (
-            <p className="loading">Loading...</p>
-          ) : error ? (
-            <p className="loading">Error fetching game categories: {error}</p>
-          ) : (
-            <div className="categories-container">
-              <img src={CaretUp} alt="caretup" />
+        {loading ? (
+          <p className="loading">Loading...</p>
+        ) : error ? (
+          <p className="loading">Error fetching game categories: {error}</p>
+        ) : (
+          <div className="categories-container">
+            <img src={CaretUp} alt="caretup" />
+            <div className="category-options">
               {categoriesData.map((category) => (
-                <div className="options" key={category.id}>
+                <div
+                  className={`option ${
+                    selectedCategory === category ? "selected" : ""
+                  }`}
+                  key={category.id}
+                  onClick={() => handleCategorySelect(category)}
+                >
                   {category.name}
                 </div>
               ))}
-              <img src={CaretDown} alt="caretdown" />
-              <p className="category-texxt">
-                Pick a category to play your first game
-              </p>
-              <img src={HandPointUp} alt="handpoint" />
-
-              <CustomButton buttonText={buttonText} style={buttonStyle} />
             </div>
-          )}
-        </div>
+            <img src={CaretDown} alt="caretdown" />
+            <p className="category-texxt">
+              Pick a category to play your first game
+            </p>
+            <img src={HandPointUp} alt="handpoint" />
+
+            <CustomButton buttonText={buttonText} style={buttonStyle} />
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 };
 

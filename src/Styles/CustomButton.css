@@ -3,6 +3,12 @@
   justify-content: center;
   align-items: center;
 }
+.custom-button {
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  cursor: pointer;
+}
 
 button {
   width: 253px;
@@ -17,4 +23,6 @@ button {
   display: flex !important;
   justify-content:center !important;
   align-items: center !important;
+  margin-right: 10px;
 }
+

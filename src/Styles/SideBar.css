@@ -1,0 +1,82 @@
+.side-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 242px;
+  height: 100vh;
+  border-right: 0.3px solid black;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.25);
+}
+
+.side-bar {
+  padding: 20px;
+}
+
+.side-bar ul {
+  list-style: none;
+}
+
+.side-bar li {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.side-bar li:hover {
+  background-color: #d9d9d9;
+}
+
+.side-bar a {
+  text-decoration: none !important;
+}
+
+.side-bar .spann {
+  margin-left: 12px;
+  color: #000;
+  font-family: "Inter, sans-seriff";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+}
+
+.center img {
+  width: 50%;
+}
+
+.center p {
+  color: #000;
+  font-family: "Inter, sans-serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 5px;
+  text-align: center;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 25px;
+}
+
+.bottom:hover {
+  background-color: #d9d9d9;
+}
+
+.logout {
+  padding: 10px;
+}

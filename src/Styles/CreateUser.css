@@ -1,6 +1,4 @@
-.container .bgg-img{
-  display: none;
-}
+
 .create-user-container {
     display: flex;
     flex-direction: column;
@@ -15,6 +13,14 @@
     align-items: center;
     padding: 30px;
   }
+  .create-user-header .mobile-logo{
+    width: 165px;
+
+  }
+
+  .create-user-header .desktop-logo{
+    display: none;
+  }
   .reg-form{
     width: 70vw;
   }
@@ -26,13 +32,26 @@
       font-style: normal;
       width: 100%;
   }
+  .form-control:focus {
+    outline:none !important;
+    box-shadow: none !important;
+    border: 2px solid #303064 !important;
+
+  }
+
+
+  .form-control{
+    border-radius: 8px !important;
+  }
   
   .form-control::placeholder{
       color: #CDCDCD;
       font-family: "Inter",sans-serif;
-      font-size: 18px;
+      font-size: 16px;
       font-style: normal;
+
   }
+ 
   .account{
     display: flex;
     justify-content: center;
@@ -78,9 +97,120 @@
   font-style: normal;
   font-weight: 500 
   }
-/* 
-  @media screen and (min-width:700px){
-    /* .container img{
-      display: block; */
-    /* }
-  }  */
+
+
+
+  /* @media (min-width: 767px) and (max-width:980px) {
+    .reg-form{
+      width: 35vw;
+  }
+  .create-user-header .desktop-logo{
+    width: 265px;
+    display: block;
+    padding: 20px;
+  }
+  .create-user-header .mobile-logo{
+    display: none;
+  }
+
+} */
+
+@media (min-width: 767px){
+  .reg-form{
+    width: 25vw;
+}
+.create-user-header .desktop-logo{
+  width: 265px;
+  display: block;
+  padding: 20px;
+}
+.create-user-header .mobile-logo{
+  display: none;
+}
+
+}
+
+@media (min-width: 912px)and (max-width:950px){
+  .reg-form{
+    width: 25vw;
+}
+.create-user-header .desktop-logo{
+  width: 265px;
+  display: block;
+  padding: 20px;
+}
+.create-user-header .mobile-logo{
+  display: none;
+}
+.desktop-images {
+  display: block;
+  position: relative;
+}
+.desktop-images .img1{
+  width: 277px;
+  height: 197px;
+  position: absolute;
+  top:350px ;
+  left: 480px;
+}
+
+.desktop-images .img2{
+  width: 277px;
+  height: 197px;
+  position: absolute;
+  top:770px ;
+  right: 500px;
+}
+.desktop-images .img3{
+  width: 277px;
+  height: 197px;
+  position: absolute;
+  top:760px ;
+  right: 10px;
+}
+
+}
+
+/* @media (min-width: 1023px) and (max-width:1200px) {
+  .reg-form{
+    width: 35vw;
+}
+.create-user-header .desktop-logo{
+  width: 265px;
+  display: block;
+  padding: 20px;
+}
+.create-user-header .mobile-logo{
+  display: none;
+}
+}
+
+@media (min-width: 1203px) and (max-width:1390px) {
+  .form{
+    width: 35vw;
+}
+
+.create-user-header .desktop-logo{
+  width: 265px;
+  display: block;
+  padding: 20px;
+}
+.create-user-header .mobile-logo{
+  display: none;
+}
+}
+
+@media (min-width: 1401px) {
+  .form{
+    width: 25vw;
+}
+
+.create-user-header .desktop-logo{
+  width: 265px;
+  display: block;
+  padding: 20px;
+}
+.create-user-header .mobile-logo{
+  display: none;
+}
+} */

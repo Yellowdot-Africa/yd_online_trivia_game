@@ -1,12 +1,18 @@
+
+
+
 import React, { useState } from "react";
 import "../../Styles/CreateUser.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useNavigate } from "react-router-dom";
+import logoDesktop from "../../assets/Images/YellowDotTrivia.png";
 import logo from "../../assets/Images/ydlogo.png";
 import CustomButton from "../Common/CustomButton";
+import DesktopImg1 from "../../assets/Images/Ellipse1.png";
+import DesktopImg2 from "../../assets/Images/Ellipse2.png";
+import DesktopImg3 from "../../assets/Images/Ellipse3.svg";
 import { Link } from "react-router-dom";
-import Spinner from "react-bootstrap/Spinner";
 import axios from "axios";
 import * as Yup from "yup";
 
@@ -47,7 +53,6 @@ const CreateUser = () => {
       .required("Password is required")
       .min(6, "Password must be at least 6 characters long"),
   });
-
   const handleUserRegistration = async () => {
     try {
       await validationSchema.validate(registrationData, { abortEarly: false });
@@ -72,6 +77,9 @@ const CreateUser = () => {
       setTimeout(() => {
         navigate("/");
       }, 5000);
+
+      console.log("registrationData:", registrationData);
+    console.log("registrationError:", registrationError);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
@@ -96,21 +104,33 @@ const CreateUser = () => {
   return (
     <>
       <div className="container">
+        <div className="desktop-images">
+          <img className="img1" src={DesktopImg1} alt="Desktop-Image-1" />
+          <img className="img2" src={DesktopImg2} alt="Desktop-Image-2" />
+          <img className="img3" src={DesktopImg3} alt="Desktop-Image-3" />
+        </div>
         <div className="create-user-container">
           <div className="create-user-header">
-            <img src={logo} alt="logo" />
+            <img className="mobile-logo" src={logo} alt="logo" />
+            <img
+              className="desktop-logo"
+              src={logoDesktop}
+              alt="logo-desktop"
+            />
           </div>
           <div className="reg-form">
             <InputGroup className="mb-3">
               <Form.Control
                 placeholder="First Name"
                 aria-label="First Name"
-                onChange={(e) =>
+                onChange={(e) =>{
                   setRegistrationData({
                     ...registrationData,
                     firstName: e.target.value,
                   })
-                }
+
+  }}
+
                 value={registrationData.firstName}
                 isInvalid={!!registrationError.firstName}
               />
@@ -137,7 +157,10 @@ const CreateUser = () => {
               </Form.Control.Feedback>
             </InputGroup>
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group
+              className="mb-3"
+              controlId="exampleForm.ControlInput1"
+            >
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
@@ -155,7 +178,7 @@ const CreateUser = () => {
               </Form.Control.Feedback>
             </Form.Group>
 
-            <Form.Label htmlFor="msisdn"></Form.Label>
+            {/* <Form.Label htmlFor="msisdn"></Form.Label> */}
             <Form.Control
               type="number"
               placeholder="MSISDN"
@@ -191,24 +214,25 @@ const CreateUser = () => {
               {registrationError.password}
             </Form.Control.Feedback>
           </div>
-          <CustomButton
-            onClick={handleUserRegistration}
-            style={buttonStyles}
-            buttonText={"Sign Up"}
-            disabled={
-              !registrationData.email ||
-              !registrationData.password ||
-              !registrationData.firstName ||
-              !registrationData.lastName ||
-              !registrationData.msisdn
-            }
-          />
-
-          {loading ? (
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          ) : showSuccessMessage ? (
+          <div className="button-wrapper">
+            <CustomButton
+              onClick={handleUserRegistration}
+              style={buttonStyles}
+              buttonText={"Sign Up"}
+              disabled={
+                !registrationData.email ||
+                !registrationData.password ||
+                !registrationData.firstName ||
+                !registrationData.lastName ||
+                !registrationData.msisdn
+              }
+              loading={loading}
+            />
+          </div>
+          {registrationError && registrationError.message && (
+            <p className="error">{registrationError.message}</p>
+          )}
+          {showSuccessMessage ? (
             <p className="success">
               Registration Successful! Redirecting to Sign In...
             </p>
@@ -223,8 +247,11 @@ const CreateUser = () => {
           </div>
         </div>
       </div>
+    
     </>
   );
 };
 
 export default CreateUser;
+
+

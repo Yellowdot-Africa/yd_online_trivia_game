@@ -1,7 +1,7 @@
 import Wrapper from "./Components/Wrapper";
 import "./App.css";
 
-function App() {
+const App = ()=> {
   return (
     <>
       <div className="app-container">

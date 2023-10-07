@@ -6,12 +6,23 @@ const CustomButton = ({
   ImageSrc = null,
   onClick,
   loading,
+  disabled,
 }) => {
   return (
     <>
       <div className=" mb-2 p-3">
-        <button type="submit" style={style} onClick={onClick}>
+        <button
+          className="custom-button"
+          type="submit"
+          style={style}
+          onClick={onClick}
+          // disabled={disabled || loading}
+
+        >
+
+          <div className="button-content">
           {ImageSrc}
+
           {loading ? (
             <div className="d-flex align-items-center justify-content-center ">
               <div
@@ -23,6 +34,8 @@ const CustomButton = ({
           ) : (
             buttonText
           )}
+                </div>
+
         </button>
       </div>
     </>

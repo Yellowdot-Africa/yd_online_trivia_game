@@ -16,42 +16,42 @@ const UserStats = () => {
       </div>
 
       <div className="user-stats-container">
-        <div className="gem">
+        {/* <div className="gem">
           <div className="gem-cont">
             <img src={Gem} alt="gem" />
             <p className="gemm">Total Gems gotten</p>
           </div>
           <p className="gem-no">0</p>
-        </div>
+        </div> */}
 
-        <div className="prize">
+        {/* <div className="prize">
           <div className="prize-cont">
             <img src={Prize} alt="prize" />
             <p className="prz">Prizes won</p>
           </div>
           <p className="prz-no">12</p>
-        </div>
+        </div> */}
 
         <div className="rank">
           <div className="rank-cont">
             <img src={Rank} alt="rank" />
-            <p className="player-rank"> Player rank</p>
+            <p className="player-rank"> Player Rank</p>
           </div>
           <p className="p-rank"> Beginner</p>
         </div>
 
-        <div className="que">
+        {/* <div className="que">
           <div className="que-cont">
             <img src={Question} alt="que" />
             <p className="question">Current answer</p>
           </div>
           <p className="question-ans">146</p>
-        </div>
+        </div> */}
 
         <div className="answers">
           <div className="answers-cont">
             <img src={Answers} alt="ans" />
-            <p className="ans">Right answers</p>
+            <p className="ans">Right Answers</p>
           </div>
           <p className="ans-percent">75%</p>
         </div>
@@ -59,18 +59,18 @@ const UserStats = () => {
         <div className="cancel-cont">
           <div className="cancel-cancel-cont">
             <img src={Cancel} alt="cancel" />
-            <p className="cancel">Wrong answers</p>
+            <p className="cancel">Wrong Answers</p>
           </div>
           <p className="cancel-percent">25%</p>
         </div>
 
-        <div className="money-cont">
+        {/* <div className="money-cont">
           <div className="money-earnings">
             <img src={Money} alt="money" />
             <p className="total-earnings">Total earnings</p>
           </div>
           <p className="earning">N200,000.00</p>
-        </div>
+        </div> */}
       </div>
     </>
   );

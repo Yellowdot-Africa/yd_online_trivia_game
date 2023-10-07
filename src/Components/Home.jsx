@@ -6,13 +6,16 @@ import ContentSection from "./Pages/ContentSection";
 
 const Home = () => {
   return (
-    <div className="Home-wrapper">
+    <>
+    <div className="home-wrapper">
       <TopHeader />
       <div className="container">
         <Hero />
         <ContentSection />
+        
       </div>
     </div>
+    </>
   );
 };
 
