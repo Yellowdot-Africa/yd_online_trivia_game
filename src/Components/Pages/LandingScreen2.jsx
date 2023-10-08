@@ -24,7 +24,7 @@ const LandingScreen2 = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const token = sessionStorage.getItem("token");
 
   useEffect(() => {
@@ -65,8 +65,8 @@ const LandingScreen2 = () => {
     }
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const handleCategorySelect = (index) => {
+    setSelectedCategoryIndex(index);
   };
 
   return (
@@ -106,20 +106,41 @@ const LandingScreen2 = () => {
             ) : (
               <>
                 <div className="categories-containerr">
-                  <img src={CaretUp} alt="caretup" />
-                  {categoriesData.map((category) => (
-                <div
-                  className={`option ${
-                    selectedCategory === category ? "selected" : ""
-                  }`}
-                  key={category.id}
-                  onClick={() => handleCategorySelect(category)}
-                >
-                  {category.name}
-                </div>
+                  <img
+                    className="caret up"
+                    src={CaretUp}
+                    alt="caretup"
+                    onClick={() => {
+                      const newIndex =
+                        selectedCategoryIndex > 0
+                          ? selectedCategoryIndex - 1
+                          : categoriesData.length - 1;
+                      handleCategorySelect(newIndex);
+                    }}
+                  />
+                  {categoriesData.map((category, index) => (
+                    <div
+                      className={`option ${
+                        selectedCategoryIndex === index ? "selected" : ""
+                      }`}
+                      key={category.id}
+                      onClick={() => handleCategorySelect(index)}
+                    >
+                      {category.name}
+                    </div>
                   ))}
-                 
-                  <img src={CaretDown} alt="caretdown" />
+                  <img
+                    className="caret down"
+                    src={CaretDown}
+                    alt="caretdown"
+                    onClick={() => {
+                      const newIndex =
+                        selectedCategoryIndex < categoriesData.length - 1
+                          ? selectedCategoryIndex + 1
+                          : 0;
+                      handleCategorySelect(newIndex);
+                    }}
+                  />{" "}
                 </div>
               </>
             )}

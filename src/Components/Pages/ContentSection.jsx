@@ -17,40 +17,28 @@ const ContentSection = () => {
 
   return (
     <>
-      <div className="icons-cont ">
+      <div className="icons-cont">
         <a
-          className="settings"
+          className={`settings ${index === 0 ? "selected" : ""}`}
           onClick={() => setIndex(0)}
-          style={{
-            backgroundColor: index === 0 ? "rgba(48, 48, 100, 1)" : "",
-          }}
         >
           <img src={SettingsIcon} alt="settings" />
         </a>
         <a
-          className="stats"
+          className={`stats ${index === 1 ? "selected" : ""}`}
           onClick={() => setIndex(1)}
-          style={{
-            backgroundColor: index === 1 ? "rgba(48, 48, 100, 1)" : "",
-          }}
         >
           <img src={userStats} alt="stats" />
         </a>
         <a
-          className="category"
+          className={`category ${index === 2 ? "selected" : ""}`}
           onClick={() => setIndex(2)}
-          style={{
-            backgroundColor: index === 2 ? "rgba(48, 48, 100, 1)" : "",
-          }}
         >
           <img src={categories} alt="category" />
         </a>
         <a
-          className="board"
+          className={`board ${index === 3 ? "selected" : ""}`}
           onClick={() => setIndex(3)}
-          style={{
-            backgroundColor: index === 3 ? "rgba(48, 48, 100, 1)" : "",
-          }}
         >
           <div className="leaderboardIcon">
             <img src={leaderboard} alt="leaderboard" />
@@ -58,11 +46,8 @@ const ContentSection = () => {
           </div>
         </a>
         <a
-          className="rule"
+          className={`rule ${index === 4 ? "selected" : ""}`}
           onClick={() => setIndex(4)}
-          style={{
-            backgroundColor: index === 4 ? "rgba(48, 48, 100, 1)" : "",
-          }}
         >
           <img src={rules} alt="rule" />
         </a>

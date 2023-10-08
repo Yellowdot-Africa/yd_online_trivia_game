@@ -63,7 +63,7 @@ const CountDownResult = () => {
             onClick={() => navigate("/game-info")}
           />
         </div>
-        <p className="done" onClick={() => navigate("/game-info")}>
+        <p className="done" onClick={() => navigate("/home")}>
           Done
         </p>
       </div>

@@ -6,6 +6,7 @@ const QuestionScreen = ({
   onAnswerSelect,
   isCorrect,
   showFeedback,
+  // selectedAnswer,
   isAnswerDisabled,
 }) => {
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -13,9 +14,14 @@ const QuestionScreen = ({
   const handleAnswerClick = (answerText, isAnswerCorrect) => {
     if (isAnswerDisabled) return;
     setSelectedAnswer(answerText);
-    const selectedFeedback = selectedAnswer ? (isAnswerCorrect ? "Correct!" : "Wrong!") : "Wrong!";
-
+    const selectedFeedback = selectedAnswer
+      ? isAnswerCorrect
+        ? "Correct!"
+        : "Wrong!"
+      : "Wrong!";
     onAnswerSelect(answerText, isAnswerCorrect || false, selectedFeedback);
+
+    setSelectedAnswer(answerText);
   };
 
   return (
@@ -35,10 +41,12 @@ const QuestionScreen = ({
           <div
             key={answer.id}
             className={`answer-option ${
+              selectedAnswer === answer.answerText ? "selected-answer" : ""
+            } ${
               showFeedback && selectedAnswer === answer.answerText
                 ? isCorrect
-                  ? "correct"
-                  : "wrong"
+                  ? "correct "
+                  : "wrong "
                 : ""
             }`}
             onClick={() =>
@@ -52,5 +60,4 @@ const QuestionScreen = ({
     </div>
   );
 };
-
 export default QuestionScreen;

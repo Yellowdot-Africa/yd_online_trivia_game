@@ -17,25 +17,22 @@ const CustomButton = ({
           style={style}
           onClick={onClick}
           // disabled={disabled || loading}
-
         >
-
           <div className="button-content">
-          {ImageSrc}
+            {ImageSrc}
 
-          {loading ? (
-            <div className="d-flex align-items-center justify-content-center ">
-              <div
-                className="spinner-border ms-auto custom-spinner"
-                role="status"
-                aria-hidden="true"
-              ></div>
-            </div>
-          ) : (
-            buttonText
-          )}
-                </div>
-
+            {loading ? (
+              <div className="d-flex align-items-center justify-content-center ">
+                <div
+                  className="spinner-border ms-auto custom-spinner"
+                  role="status"
+                  aria-hidden="true"
+                ></div>
+              </div>
+            ) : (
+              buttonText
+            )}
+          </div>
         </button>
       </div>
     </>

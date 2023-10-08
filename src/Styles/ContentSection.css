@@ -1,94 +1,61 @@
+.board {
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border: 1px solid rgba(48, 48, 100, 0.7);
+  position: relative;
+}
+
+.board .leaderboardIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.board img {
+  width: 20px !important;
+  height: 10px !important;
+  margin: 2px 0 0 0 !important;
+}
+
 .icons-cont {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 54px 0;
 }
- 
-.settings {
-  width: 41px;
-  height: 41px;
-  border-radius: 50px;
-  border: 1px solid rgba(48, 48, 100, 0.7);
-}
-.settings img {
-  width: 20.2px;
-  height: 23.5px;
-  margin: 10px;
-}
 
-.settings:hover::after {
-  width: 50px;
-}
-.settings::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  background-color: #303064;
-  position: absolute;
-  display: block;
-  left: 0;
-  bottom: -10px;
-  margin: auto;
-  transition: 0.5s ease-in-out;
-  
-}
-
-.stats {
+.icons-cont a {
   width: 35px;
   height: 35px;
   border-radius: 50px;
   border: 1px solid rgba(48, 48, 100, 0.7);
+  position: relative;
 }
 
-.stats img {
-  width: 24px;
-  height: 24px;
-  margin: 5px;
-}
-
-.stats:hover::after {
-  width: 50px;
-}
-
-.category {
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
-  border: 1px solid rgba(48, 48, 100, 0.7);
-}
-.category img {
-  width: 19px;
-  height: 19px;
+.icons-cont a img {
+  width: 20px;
+  height: 20px;
   margin: 7px;
 }
 
-.board {
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
-  border: 1px solid rgba(48, 48, 100, 0.7);
-}
-.leaderboardIcon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.board img {
-  width: 7px;
-  height: 10px;
-  margin: 2px 0 0 0;
+.icons-cont a.selected {
+  background-color: rgba(48, 48, 100, 1);
 }
 
-.rule {
-  width: 35px;
-  height: 36px;
-  border-radius: 50px;
-  border: 1px solid rgba(48, 48, 100, 0.7);
+.icons-cont a.selected::after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background-color: #a9a9de;
+  position: absolute;
+  bottom: -9px;
+  left: 0;
 }
-.rule img {
-  width: 12px;
-  height: 15px;
-  margin: 10px;
+
+.icons-cont a:hover {
+  transform: scale(1.1);
+  width: 41px;
+  height: 41px;
 }

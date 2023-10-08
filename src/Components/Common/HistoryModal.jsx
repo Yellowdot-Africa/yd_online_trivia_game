@@ -4,6 +4,7 @@ import withdraw from "../../assets/icons/money-withdrawal.svg";
 import deposit from "../../assets/icons/baseline-payment.svg";
 import CaretDown from "../../assets/icons/uiwdown.svg";
 import Deposit from "../Common/Deposit";
+import Withdrawal from "../Common/Withdrawal";
 import ToggleSwitch from "../Common/ToggleSwitch";
 import AOS from "aos";
 
@@ -21,6 +22,7 @@ const HistoryModal = ({ closeModal }) => {
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [historyClicked, setHistoryClicked] = useState(false);
   const [showDeposit, setShowDeposit] = useState(false);
+  const [showWithdrawal, setShowWithdrawal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const token = sessionStorage.getItem("token");
@@ -30,12 +32,16 @@ const HistoryModal = ({ closeModal }) => {
     setHistoryClicked((prevState) => !prevState);
     // setShowDeposit(false);
     setShowDeposit(!showDeposit);
+    setShowWithdrawal(!showWithdrawal);
   };
 
   const toggleDeposit = () => {
     setShowDeposit((prevShowDeposit) => !prevShowDeposit);
   };
 
+  const toggleWithdrawal = () => {
+    setShowWithdrawal((prevShowWithdrawal) => !prevShowWithdrawal);
+  };
   const handleToggle = () => {
     setShowBalance(!showBalance);
   };
@@ -103,7 +109,7 @@ const HistoryModal = ({ closeModal }) => {
           </div>
           <hr />
           <div className="withdraw-cont">
-            <p className="withdraw" onClick={toggleDeposit}>
+            <p className="withdraw" onClick={toggleWithdrawal}>
               Withdraw
             </p>
             <img src={withdraw} alt="withdraw" />
@@ -128,7 +134,9 @@ const HistoryModal = ({ closeModal }) => {
           {!historyClicked && showDeposit && (
             <Deposit closeModal={toggleDeposit} />
           )}
-
+          {!historyClicked && showWithdrawal && (
+            <Withdrawal closeModal={toggleWithdrawal} />
+          )}
           {historyClicked && (
             <div>
               {transactionHistory.length > 0 ? (
