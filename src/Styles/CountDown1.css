@@ -5,15 +5,26 @@
   padding: 70px;
 }
 
+@keyframes countdown-border {
+  0% {
+    border-image-source: linear-gradient(to right, #dfdfdf, #dfdfdf);
+  }
+  100% {
+    border-image-source: linear-gradient(to right, #3e3ca7, #dfdfdf);
+  }
+}
+
 .countdown-nine {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
-  border: 9px solid #dfdfdf;
-  border-radius: 0px 3px 0px 0px;
+  border-radius: 6px !important;
+  border: 9px solid transparent;
   width: 60px;
   height: 60px;
+  border-image-slice: 1;
+  animation: countdown-border 10s linear infinite;
+  border-image-slice: 1;
 }
 
 .countdown-nine img {

@@ -109,10 +109,9 @@ const Leaderboard = () => {
             <tbody>
               {status
                 ? leaderboardData.map((item, index) => (
-                    <tr key={item.userId}>
+                    <tr key={`${item.userId}-${index}`}>
                       <td>{index + 1}</td>
                       <td>{item.name}</td>
-                      {/* <td>{item.msisdn}</td> */}
                       <td>{maskMsisdn(item.msisdn)}</td>
                     </tr>
                   ))

@@ -14,10 +14,7 @@ import CountDownResult from "./Pages/CountDownResult";
 import LandingScreen2 from "./Pages/LandingScreen2";
 import SignIn from "./Pages/SignIn";
 import CreateUser from "./Pages/CreateUser";
-import Dashboard from "../Components/Admin/Dashboard";
-
-
-
+// import Dashboard from "../Components/Admin/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -81,20 +78,9 @@ const router = createBrowserRouter([
     path: "/countdownresult",
     element: <CountDownResult />,
   },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
   // {
-  //   path: "/mainpage",
-  //   element: <MainPage />,
-  // }, {
-  //   path: "/content",
-  //   element: <ContentPage />,
-  // },
-  // {
-  //   path: "/user",
-  //   element: <UserPage />,
+  //   path: "/dashboard",
+  //   element: <Dashboard />,
   // },
 ]);
 

@@ -21,9 +21,8 @@ const Categories = () => {
   const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const token = sessionStorage.getItem("token");
-  console.log("token", token);
 
   useEffect(() => {
     fetchGameCategories();
@@ -51,10 +50,8 @@ const Categories = () => {
     }
   };
 
-  console.log("categories", categories);
-
-   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const handleCategorySelect = (index) => {
+    setSelectedCategoryIndex(index);
   };
 
   return (
@@ -72,22 +69,43 @@ const Categories = () => {
         <p>No categories available.</p>
       ) : (
         <div className="categories-container">
-          <img className="caret" src={CaretUp} alt="caretup" />
+          <img
+            className="caret up"
+            src={CaretUp}
+            alt="caretup"
+            onClick={() => {
+              const newIndex =
+                selectedCategoryIndex > 0
+                  ? selectedCategoryIndex - 1
+                  : categories.length - 1;
+              handleCategorySelect(newIndex);
+            }}
+          />
           <div className="category-options">
-              {categories.map((category) => (
-                <div
-                  className={`option ${
-                    selectedCategory === category ? "selected" : ""
-                  }`}
-                  key={category.id}
-                  onClick={() => handleCategorySelect(category)}
-                >
-                  {category.name}
-                </div>
-                 ))}
-        
-             </div>
-          <img className="caret" src={CaretDown} alt="caretdown" />
+            {categories.map((category, index) => (
+              <div
+                className={`option ${
+                  selectedCategoryIndex === index ? "selected" : ""
+                }`}
+                key={category.id}
+                onClick={() => handleCategorySelect(index)}
+              >
+                {category.name}
+              </div>
+            ))}
+          </div>
+          <img
+            className="caret down"
+            src={CaretDown}
+            alt="caretdown"
+            onClick={() => {
+              const newIndex =
+                selectedCategoryIndex < categories.length - 1
+                  ? selectedCategoryIndex + 1
+                  : 0;
+              handleCategorySelect(newIndex);
+            }}
+          />
           <CustomButton
             buttonText={buttonText}
             style={buttonStyles}

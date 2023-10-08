@@ -32,9 +32,9 @@ const LandingPage = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const token = sessionStorage.getItem("token");
-
+  console.log(token, "token");
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -67,17 +67,17 @@ const LandingPage = () => {
     }
   };
 
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+  const handleCategorySelect = (index) => {
+    setSelectedCategoryIndex(index);
   };
 
   useEffect(() => {
-      const timer = setTimeout(() => {
-        navigate("/landingScreen2");
-      }, 5000);
+    const timer = setTimeout(() => {
+      navigate("/landingScreen2");
+    }, 5000);
 
-      return () => clearTimeout(timer);
-    }, [navigate]);
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div className="container">
@@ -116,21 +116,43 @@ const LandingPage = () => {
           <p className="loading">Error fetching game categories: {error}</p>
         ) : (
           <div className="categories-container">
-            <img src={CaretUp} alt="caretup" />
+            <img
+              className="caret up"
+              src={CaretUp}
+              alt="caretup"
+              onClick={() => {
+                const newIndex =
+                  selectedCategoryIndex > 0
+                    ? selectedCategoryIndex - 1
+                    : categoriesData.length - 1;
+                handleCategorySelect(newIndex);
+              }}
+            />
             <div className="category-options">
-              {categoriesData.map((category) => (
+              {categoriesData.map((category, index) => (
                 <div
                   className={`option ${
-                    selectedCategory === category ? "selected" : ""
+                    selectedCategoryIndex === index ? "selected" : ""
                   }`}
                   key={category.id}
-                  onClick={() => handleCategorySelect(category)}
+                  onClick={() => handleCategorySelect(index)}
                 >
                   {category.name}
                 </div>
               ))}
             </div>
-            <img src={CaretDown} alt="caretdown" />
+            <img
+              className="caret down"
+              src={CaretDown}
+              alt="caretdown"
+              onClick={() => {
+                const newIndex =
+                  selectedCategoryIndex < categoriesData.length - 1
+                    ? selectedCategoryIndex + 1
+                    : 0;
+                handleCategorySelect(newIndex);
+              }}
+            />
             <p className="category-texxt">
               Pick a category to play your first game
             </p>

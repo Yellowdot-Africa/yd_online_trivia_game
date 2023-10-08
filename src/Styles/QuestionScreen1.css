@@ -41,6 +41,10 @@
     color: #8cd49c !important;
 
   }
-  
+.selected-answer {
+  background-color: #8D8CD4;
+  color: white; 
+}
+
  
   

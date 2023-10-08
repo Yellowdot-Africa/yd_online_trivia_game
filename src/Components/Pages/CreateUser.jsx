@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import "../../Styles/CreateUser.css";
 import Form from "react-bootstrap/Form";
@@ -53,6 +50,7 @@ const CreateUser = () => {
       .required("Password is required")
       .min(6, "Password must be at least 6 characters long"),
   });
+
   const handleUserRegistration = async () => {
     try {
       await validationSchema.validate(registrationData, { abortEarly: false });
@@ -79,7 +77,7 @@ const CreateUser = () => {
       }, 5000);
 
       console.log("registrationData:", registrationData);
-    console.log("registrationError:", registrationError);
+      console.log("registrationError:", registrationError);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
@@ -123,14 +121,12 @@ const CreateUser = () => {
               <Form.Control
                 placeholder="First Name"
                 aria-label="First Name"
-                onChange={(e) =>{
+                onChange={(e) => {
                   setRegistrationData({
                     ...registrationData,
                     firstName: e.target.value,
-                  })
-
-  }}
-
+                  });
+                }}
                 value={registrationData.firstName}
                 isInvalid={!!registrationError.firstName}
               />
@@ -157,10 +153,7 @@ const CreateUser = () => {
               </Form.Control.Feedback>
             </InputGroup>
 
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlInput1"
-            >
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Control
                 type="email"
                 placeholder="name@example.com"
@@ -247,11 +240,8 @@ const CreateUser = () => {
           </div>
         </div>
       </div>
-    
     </>
   );
 };
 
 export default CreateUser;
-
-

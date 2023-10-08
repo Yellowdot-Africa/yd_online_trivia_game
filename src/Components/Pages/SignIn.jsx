@@ -17,7 +17,6 @@ import axios from "axios";
 import * as Yup from "yup";
 
 const SignIn = () => {
-
   const navigate = useNavigate();
 
   const [selectedPlan, setSelectedPlan] = useState("Choose plan");
@@ -75,7 +74,6 @@ const SignIn = () => {
         sessionStorage.setItem("token", response.data.jwt);
         sessionStorage.setItem("userId", response.data.userID);
         console.error(response.data);
-       
 
         navigate("/landingpage");
       } else {
@@ -103,7 +101,6 @@ const SignIn = () => {
         setInfoText(null);
       }
     }
-    
   };
 
   const handlePhoneNumberChange = (event) => {
