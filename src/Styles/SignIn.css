@@ -41,7 +41,9 @@
   box-shadow: none !important;
 
 }
-
+.form-control{
+  line-height: 0% !important;
+}
 .form-control::placeholder{
     color: #CDCDCD;
     font-family: "Inter",sans-serif;
