@@ -182,7 +182,7 @@ const SignIn = () => {
               isInvalid={!!errorText}
               className="password-input"
             />
-            {errorText && !isLoading ? null : (
+            {/* {errorText && !isLoading ? null : (
               <img
                 src={eyeImageSrc}
                 alt="Toggle Password"
@@ -192,7 +192,7 @@ const SignIn = () => {
                   setEyeImageSrc(showPassword ? eyeHidden : eye);
                 }}
               />
-            )}
+            )} */}
           </div>
           {infoText && <p className="fill-info">{infoText}</p>}
           {errorText && <p className="fill-info">{errorText}</p>}
