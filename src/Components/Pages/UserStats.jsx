@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../Styles/UserStats.css";
 import Gem from "../../assets/Icons/gem.svg";
 import Prize from "../../assets/Icons/mdi_prize.svg";
@@ -7,8 +7,48 @@ import Question from "../../assets/Icons/fluent-mdl2_survey-questions.svg";
 import Answers from "../../assets/Icons/grommet-icons_status-good.svg";
 import Cancel from "../../assets/Icons/ic_outline-cancel.svg";
 import Money from "../../assets/Icons/ph_money-duotone.svg";
+import axios from "axios";
 
 const UserStats = () => {
+  // const [userRank, setUserRank] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const token = sessionStorage.getItem("token");
+  const userRank = sessionStorage.getItem("userRank");
+
+  useEffect(() => {
+    const fetchUserRank = async () => {
+      try {
+        const userId = sessionStorage.getItem("userId");
+        console.log("userId from sessionStorage:", userId);
+
+        const response = await axios.get(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=1",
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        console.log("Leaderboard Data from API:", response.data);
+
+        if (response.data.statusCode === "999") {
+          const leaderboardData = response.data.data;
+          setUserData(leaderboardData);
+          leaderboardData.sort((a, b) => b.score - a.score);
+
+          const user = leaderboardData.find((item) => item.msisdn === userId);
+          console.log("User Data from Leaderboard:", user);
+        }
+      } catch (error) {
+        console.error("Error fetching user rank:", error);
+      }
+    };
+
+    fetchUserRank();
+  }, []);
+
   return (
     <>
       <div className="user-stats-header">
@@ -37,7 +77,12 @@ const UserStats = () => {
             <img src={Rank} alt="rank" />
             <p className="player-rank"> Player Rank</p>
           </div>
-          <p className="p-rank"> Beginner</p>
+          <p className="p-rank">
+            {userRank !== null ? `Rank ${userRank}` : "Rank Not Available"}
+            {/* {userRank} */}
+            {/* {userRank ? `Rank ${userRank}` : "Rank Not Available"}  */}
+            {/* {user && <p>User Rank: {user.rank}</p>} */}
+          </p>
         </div>
 
         {/* <div className="que">

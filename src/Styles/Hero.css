@@ -23,7 +23,7 @@
 p {
   color: #fefafa;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 36px;
   font-style: normal;
   font-weight: 700;
@@ -33,7 +33,7 @@ p {
 .text {
   color: #fefafa;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 13px;
   font-style: normal;
   font-weight: 700;
@@ -61,7 +61,7 @@ p {
 .book {
   color: #7c7c8b;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -71,7 +71,7 @@ p {
 .para-text-div {
   color: #7c7c8b;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -80,7 +80,7 @@ p {
 .money {
   color: #7c7c8b;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px;
   font-style: normal;
   font-weight: 700;

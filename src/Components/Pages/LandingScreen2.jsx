@@ -21,9 +21,12 @@ const LandingScreen2 = () => {
   };
 
   const [showHandPoint, setShowHandPoint] = useState(true);
+  // const [categories, setCategories] = useState([]);
+
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const token = sessionStorage.getItem("token");
 
@@ -65,9 +68,11 @@ const LandingScreen2 = () => {
     }
   };
 
-  const handleCategorySelect = (index) => {
+  const handleCategorySelect = (index, category) => {
     setSelectedCategoryIndex(index);
+    setSelectedCategory(category);
   };
+  console.log("selectedCategory", selectedCategory);
 
   return (
     <>
@@ -124,7 +129,7 @@ const LandingScreen2 = () => {
                         selectedCategoryIndex === index ? "selected" : ""
                       }`}
                       key={category.id}
-                      onClick={() => handleCategorySelect(index)}
+                      onClick={() => handleCategorySelect(index, category)}
                     >
                       {category.name}
                     </div>
@@ -153,7 +158,13 @@ const LandingScreen2 = () => {
             <CustomButton
               buttonText={buttonText}
               style={buttonStyles}
-              onClick={() => navigate("/game-info")}
+              onClick={() =>
+                navigate("/game-info", {
+                  state: {
+                    category: selectedCategory,
+                  },
+                })
+              }
             />
             <p className="category-tab-texxt">
               Start the game when you are ready

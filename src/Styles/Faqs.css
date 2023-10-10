@@ -15,7 +15,7 @@
 .faq-close-cont h4 {
   color: #9494ba !important;
   text-align: center !important;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px !important;
   font-style: normal;
   font-weight: 700 !important;
@@ -42,7 +42,7 @@
 
 .faq-header {
   color: #9494ba !important;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -63,7 +63,7 @@
 .learn-more {
   color: #303064;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 700;

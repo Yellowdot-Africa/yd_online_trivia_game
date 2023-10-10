@@ -9,7 +9,7 @@
 .category-cont p {
   color: rgba(48, 48, 100, 0.4);
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -21,7 +21,7 @@
 .loading{
   color: rgba(48, 48, 100, 0.4);
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -45,7 +45,7 @@
   padding: 5px;
   color: rgba(48, 48, 100, 0.40);
 text-align: center;
-font-family: "Inter,sans-serif";
+font-family: "Inter" !important;
 font-size: 18px;
 font-style: normal;
 font-weight: 600;
@@ -55,7 +55,7 @@ font-weight: 600;
 .option.selected {
   color: rgba(48, 48, 100, 0.80);
   text-align: center;
-  font-family: "Inter, sans-serif";
+  font-family: "Inter"!important;
   font-size: 32px;
   font-style: normal;
   font-weight: 700;

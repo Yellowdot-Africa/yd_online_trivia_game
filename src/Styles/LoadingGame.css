@@ -36,22 +36,12 @@
   padding: 15%;
 }
 
-.football-img .load {
-  animation: App-logo-spin infinite 2s linear;
+.football-img img{
+  width: 100%;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
-.refl-img {
-  padding: 20px;
-}
 .progress-bar {
   background-color: #3834ab !important;
   color: #f0f0f0 !important;
@@ -78,7 +68,7 @@
 .count .num {
   color: #3b37a9 !important;
   text-align: center !important;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 36px !important;
   font-style: normal;
   font-weight: 700;

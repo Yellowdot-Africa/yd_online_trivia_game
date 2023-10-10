@@ -17,7 +17,7 @@
 .game-result-complete-cont p {
   color: #1d1db9;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -30,7 +30,7 @@
 .result p {
   color: #353365;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -53,7 +53,7 @@
 
 .correct p {
   color: #353365;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -69,7 +69,7 @@
 
 .wrong p {
   color: #353365;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -94,7 +94,7 @@
 
 .gems-gotten p {
   color: #353365 !important;
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter" !important;
   font-size: 12px !important;
   font-style: normal;
   font-weight: 700 !important;
@@ -102,7 +102,7 @@
 
 .gems-gotten .nums-gems {
   color: #353365;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px !important;
   font-style: normal;
   font-weight: 700 !important;
@@ -110,7 +110,7 @@
 .done {
   color: #3636c0;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 18px;
   font-style: normal;
   font-weight: 800;

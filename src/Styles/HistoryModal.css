@@ -26,7 +26,7 @@
 
 .modal-content p {
   color: #9d9d9d;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
@@ -56,7 +56,7 @@
 }
 
 .modal-amount {
-  font-family: "Inter", sans-serif !important;
+  font-family: "Inter" !important;
   font-weight: 700;
   line-height: 34px;
   letter-spacing: 0em;

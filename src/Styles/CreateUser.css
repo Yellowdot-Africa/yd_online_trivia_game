@@ -27,7 +27,7 @@
   
   .form-select{
       color: #CDCDCD;
-      font-family: "Inter",sans-serif;
+      font-family: "Inter";
       font-size: 18px;
       font-style: normal;
       width: 100%;
@@ -46,7 +46,7 @@
   
   .form-control::placeholder{
       color: #CDCDCD;
-      font-family: "Inter",sans-serif;
+      font-family: "Inter";
       font-size: 16px;
       font-style: normal;
 
@@ -62,7 +62,7 @@
   .account p {
     color: #acacc1;
     text-align: center;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -72,7 +72,7 @@
   .sign{
     color: #acacc1 !important;
     text-align: center;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -83,7 +83,7 @@
   .error{
   color: #9494ba ;
   text-align: center  ;
-  font-family: "Inter", sans-serif ;
+  font-family: "Inter" ;
   font-size: 10px ;
   font-style: normal;
   font-weight: 500 
@@ -92,7 +92,7 @@
   .success{
     color: #9494ba ;
   text-align: center  ;
-  font-family: "Inter", sans-serif ;
+  font-family: "Inter";
   font-size: 10px ;
   font-style: normal;
   font-weight: 500 
