@@ -73,7 +73,7 @@ const SignIn = () => {
         }
       );
       setIsLoading(false);
-      console.log(response);
+      // console.log(response);
       if (response.status === 200) {
         sessionStorage.setItem("token", response.data.jwt);
         sessionStorage.setItem("userId", response.data.userID);

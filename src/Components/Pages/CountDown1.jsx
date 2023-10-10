@@ -99,7 +99,7 @@ const CountDown1 = () => {
         );
 
         const allQuestions = response.data.data;
-        console.log("Received questions:", allQuestions);
+        // console.log("Received questions:", allQuestions);
 
         setQuestions(allQuestions);
         setCountdown(allQuestions.length);
@@ -167,8 +167,8 @@ const CountDown1 = () => {
         }
       );
 
-      console.log("API response:", response.data);
-      console.log("API Response for Questions:", response.data);
+      // console.log("API response:", response.data);
+      // console.log("API Response for Questions:", response.data);
 
       navigate("/gamecomplete", {
         state: {

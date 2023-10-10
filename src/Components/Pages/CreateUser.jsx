@@ -70,14 +70,14 @@ const CreateUser = () => {
 
       setSuccess("User registration successful:", response.data);
       setShowSuccessMessage(true);
-      console.log("User registration successful:", response.data);
+      // console.log("User registration successful:", response.data);
 
       setTimeout(() => {
         navigate("/");
       }, 5000);
 
-      console.log("registrationData:", registrationData);
-      console.log("registrationError:", registrationError);
+      // console.log("registrationData:", registrationData);
+      // console.log("registrationError:", registrationError);
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const validationErrors = {};
