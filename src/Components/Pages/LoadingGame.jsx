@@ -15,7 +15,7 @@ const LoadingGame = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { category } = location?.state;
-  console.log("category:", category);
+  // console.log("category:", category);
 
   useEffect(() => {
     const progressInterval = setInterval(() => {

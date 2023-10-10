@@ -23,7 +23,7 @@ const Gameinfo = ({ gameId }) => {
   const location = useLocation();
   const { category } = location?.state;
 
-  console.log("gameInfo", category);
+  // console.log("gameInfo", category);
 
   return (
     <>

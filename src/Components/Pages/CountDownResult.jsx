@@ -19,7 +19,7 @@ const CountDownResult = () => {
   const location = useLocation();
 
   const { correctAnswers, wrongAnswers, gemsEarned } = location.state || {};
-  console.log(location);
+  // console.log(location);
 
   return (
     <>

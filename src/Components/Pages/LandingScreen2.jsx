@@ -72,7 +72,7 @@ const LandingScreen2 = () => {
     setSelectedCategoryIndex(index);
     setSelectedCategory(category);
   };
-  console.log("selectedCategory", selectedCategory);
+  // console.log("selectedCategory", selectedCategory);
 
   return (
     <>

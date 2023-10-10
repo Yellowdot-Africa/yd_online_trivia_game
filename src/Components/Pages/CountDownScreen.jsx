@@ -1,36 +1,36 @@
-// import React, { useEffect } from "react";
-// import "../../Styles/CountDownScreen.css";
-// import { useNavigate } from "react-router-dom";
-// import AOS from "aos";
-// import "aos/dist/aos.css";
+import React, { useEffect } from "react";
+import "../../Styles/CountDownScreen.css";
+import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-// const CountDownScreen = () => {
-//   useEffect(() => {
-//     AOS.init();
-//     AOS.refresh();
+const CountDownScreen = () => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
 
-//     const navigationTimeout = setTimeout(() => {
-//       navigate("/countdownscreen1");
-//     }, 2000);
+    const navigationTimeout = setTimeout(() => {
+      navigate("/countdownscreen1");
+    }, 2000);
 
-//     return () => {
-//       clearTimeout(navigationTimeout);
-//     };
-//   }, []);
+    return () => {
+      clearTimeout(navigationTimeout);
+    };
+  }, []);
 
-//   const navigate = useNavigate();
+  const navigate = useNavigate();
 
-//   return (
-//     <>
-//       <div data-aos="fade-down" className="container ">
-//         <div className="countdown-div">
-//           <div className="qquestion-cont">
-//             <p>Question 2/20</p>
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
+  return (
+    <>
+      <div data-aos="fade-down" className="container ">
+        <div className="countdown-div">
+          <div className="qquestion-cont">
+            <p>Question 2/20</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-// export default CountDownScreen;
+export default CountDownScreen;
