@@ -15,7 +15,7 @@ const Leaderboard = () => {
   const [gameId, setGameId] = useState(0);
   const [status, setStatus] = useState(false);
 
-  // const token = sessionStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
 
   // console.log(userId )
   const pageSize = 10;
