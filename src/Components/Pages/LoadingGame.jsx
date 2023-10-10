@@ -3,7 +3,7 @@ import "../../Styles/LoadingGame.css";
 import Reflection from "../../assets/Images/refle.svg";
 import football from "../../assets/Images/football.svg";
 import ProgressBar from "../../Components/Common/ProgressBar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LoadingGame = () => {
   const [loading, setLoading] = useState(true);
@@ -13,6 +13,9 @@ const LoadingGame = () => {
   const [startCountdown, setStartCountdown] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const { category } = location?.state;
+  console.log("category:", category);
 
   useEffect(() => {
     const progressInterval = setInterval(() => {
@@ -41,7 +44,11 @@ const LoadingGame = () => {
           if (countdown === 1) {
             setCountdown(3);
             setStartCountdown(false);
-            navigate("/countdown");
+            navigate("/countdown", {
+              state: {
+                category,
+              },
+            });
           }
         }
       }, 2000);
@@ -58,19 +65,32 @@ const LoadingGame = () => {
     <div className="loading-game-container">
       <div className="">
         <div className="container loading-game">
-          <h4>Football Trivia</h4>
-          <p>{startCountdown ? "Starting..." : "Is starting..."}</p>
-          {loading && (
-            <div className="football-img">
-              <img className="load" src={football} alt="football" />
-              <img className="refl-img" src={Reflection} alt="ref" />
-            </div>
-          )}
-          {startCountdown && (
-            <div className="football-img">
-              <img className="load" src={football} alt="football" />
-              <img className="refl-img" src={Reflection} alt="ref" />
-            </div>
+          {category ? (
+            <>
+              <h4>{category.name}</h4>
+
+              <p>{startCountdown ? "Starting..." : "Is starting..."}</p>
+              {loading && (
+                <div className="football-img">
+                  <img
+                    src={`data:image/png;base64, ${category.logo}`}
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              )}
+              {startCountdown && (
+                <div className="football-img">
+                  <img
+                    src={`data:image/png;base64, ${category.logo}`}
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              )}
+            </>
+          ) : (
+            <p> No category data available</p>
           )}
           <div className="progressbar">
             {slider ? (

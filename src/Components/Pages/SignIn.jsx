@@ -27,6 +27,10 @@ const SignIn = () => {
   const [errorText, setErrorText] = useState(null);
   const [infoText, setInfoText] = useState("fill in appropriate info");
   const [handImage, setHandImage] = useState(HandPointUp);
+  const [userRank, setUserRank] = useState("");
+  // const [users, setUsers] = useState([]);
+  // const [user, setUser] = useState(null);
+
   const [buttonStyle, setButtonStyle] = useState({
     backgroundColor: "rgba(86, 86, 92, 0.40)",
     color: "#FFF",
@@ -171,28 +175,30 @@ const SignIn = () => {
               onChange={handlePhoneNumberChange}
               isInvalid={!!errorText}
             />
-            <Form.Label htmlFor="inputPassword"></Form.Label>
-            <Form.Control
-              type={showPassword ? "text" : "password"}
-              // type="password"
-              placeholder="Password"
-              id="inputPassword"
-              value={password}
-              onChange={handlePasswordChange}
-              isInvalid={!!errorText}
-              className="password-input"
-            />
-            {/* {errorText && !isLoading ? null : (
-              <img
-                src={eyeImageSrc}
-                alt="Toggle Password"
-                className="eye-icon"
-                onClick={() => {
-                  setShowPassword(!showPassword);
-                  setEyeImageSrc(showPassword ? eyeHidden : eye);
-                }}
+            <div className="rel">
+              <Form.Label htmlFor="inputPassword"></Form.Label>
+              <Form.Control
+                type={showPassword ? "text" : "password"}
+                // type="password"
+                placeholder="Password"
+                id="inputPassword"
+                value={password}
+                onChange={handlePasswordChange}
+                isInvalid={!!errorText}
+                className="password-input"
               />
-            )} */}
+              {errorText && !isLoading ? null : (
+                <img
+                  src={eyeImageSrc}
+                  alt="Toggle Password"
+                  className="eye-icon"
+                  onClick={() => {
+                    setShowPassword(!showPassword);
+                    setEyeImageSrc(showPassword ? eyeHidden : eye);
+                  }}
+                />
+              )}
+            </div>
           </div>
           {infoText && <p className="fill-info">{infoText}</p>}
           {errorText && <p className="fill-info">{errorText}</p>}

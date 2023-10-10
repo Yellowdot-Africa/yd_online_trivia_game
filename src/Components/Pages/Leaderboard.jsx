@@ -9,12 +9,15 @@ import axios from "axios";
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
+  // const [userRank, setUserRank] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [gameId, setGameId] = useState(0);
   const [status, setStatus] = useState(false);
 
-  const token = sessionStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
+
+  // console.log(userId )
   const pageSize = 10;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -23,8 +26,8 @@ const Leaderboard = () => {
       return "Invalid MSISDN";
     }
 
-    const maskedPart = "xxx ".repeat(msisdn.length / 4);
-    const lastThreeDigits = msisdn.slice(-3);
+    const maskedPart = "xxx ".repeat(msisdn.length / 3);
+    const lastThreeDigits = msisdn.slice(-2);
 
     return maskedPart.trim() + lastThreeDigits;
   };
@@ -43,6 +46,14 @@ const Leaderboard = () => {
       );
       if (response.data.statusCode === "999") {
         setLeaderboardData(response.data.data);
+        // const userEntry = leaderboardData.find(
+        //   (item) => item.msisdn === "08027003684"
+        // );
+        // if (userEntry) {
+        //   const rank = leaderboardData.indexOf(userEntry) + 1;
+        //   setUserRank(rank);
+        // }
+
         setStatus(true);
         setLoading(false);
       } else if (response.data.statusCode === "400") {
@@ -59,6 +70,7 @@ const Leaderboard = () => {
   useEffect(() => {
     fetchLeaderboardData();
   }, [token, gameId, currentPage]);
+
   const changeGameId = () => {
     setGameId(1);
   };

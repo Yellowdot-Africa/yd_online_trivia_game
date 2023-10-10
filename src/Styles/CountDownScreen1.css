@@ -42,7 +42,7 @@
 .text-contn p {
   color: #6f6e9d;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px;
   font-style: normal;
   font-weight: 700;
@@ -52,7 +52,7 @@
 .names .selection {
   color: #6f6e9d;
   text-align: center;
-  font-family: "Inter", sans-serif;
+  font-family: "Inter";
   font-size: 24px;
   font-style: normal;
   font-weight: 600;

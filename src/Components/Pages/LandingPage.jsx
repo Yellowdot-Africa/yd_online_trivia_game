@@ -32,9 +32,9 @@ const LandingPage = () => {
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const token = sessionStorage.getItem("token");
-  console.log(token, "token");
   useEffect(() => {
     fetchCategories();
   }, []);
@@ -69,12 +69,14 @@ const LandingPage = () => {
 
   const handleCategorySelect = (index) => {
     setSelectedCategoryIndex(index);
+    setSelectedCategory(category);
+
   };
 
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate("/landingScreen2");
-    }, 5000);
+    }, 10000);
 
     return () => clearTimeout(timer);
   }, [navigate]);
