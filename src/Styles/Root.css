@@ -1,0 +1,123 @@
+#sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  width: 242px;
+  height: 100vh;
+  /* border-right: 0.1px solid black; */
+  float: left;
+  background: #fff;
+  box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+  padding: 20px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none !important ;
+}
+
+nav li:hover {
+  border-radius: 15px;
+  background: var(--p2b, #ffec83);
+  /* width: 138px; */
+  /* height: 20px; */
+}
+
+nav a {
+  text-decoration: none !important;
+}
+
+nav .spann {
+  margin-left: 12px;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--N4, #1f1f1f);
+}
+
+.spann:hover {
+  font-weight: 700 !important;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px;
+}
+
+.center img {
+  width: 60%;
+}
+
+.center .greetings {
+  padding: 8px;
+  text-align: center;
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.center .name {
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.center a {
+  color: var(--N4, #1f1f1f);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration-line: underline;
+  padding: 10px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 25px;
+}
+
+.bottom:hover {
+  background-color: #d9d9d9;
+}
+
+.logout-img {
+  padding: 10px;
+}
+.logout {
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#detail {
+  margin-left: 260px;
+  padding: 20px;
+}

@@ -1,0 +1,69 @@
+.user-search{
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+
+}
+.all-user-box{
+    border: 1px solid black;
+    border-radius: 21px; 
+    width: 612px;
+    height: 682px;
+    padding: 20px;
+}
+
+.search-box{
+   
+    margin-left: 20px;
+    border: 1px solid black;
+    border-radius: 21px;
+    width: 405px;
+    height: 354px;
+    padding: 20px;
+}
+.cate{
+    /* padding: 20px; */
+   
+}
+.btn{
+width: 269px;
+height: 50px;
+margin-top: 20px;
+border: none;
+display: flex;
+align-items: center;
+justify-content: space-between;
+border-radius: 16px;
+background: var(--p1a, #303064);
+padding: 20px;
+}
+
+.btn .icon{
+border-radius: 12px;
+background: var(--N1, #FFF);
+display: flex;
+justify-content: center;
+align-items: center; 
+width: 32px;
+height: 32px;
+}
+.icon img{
+    width: 18px;
+    height: 18px;
+}
+.btn p{
+    color: var(--N1, #FFF);
+font-family: "Inter";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.players{
+    border: 1px solid black;
+    border-radius: 21px;
+    width: 420px;
+    height: 282px;
+    padding: 20px;
+    margin: 20px;
+}
