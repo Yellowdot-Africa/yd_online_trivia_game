@@ -1,41 +1,40 @@
-import React from 'react';
+import React from "react";
 import "../Styles/Table.css";
 
-const Table = ({ data }) => {
-
-    // const tableData = [
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    //     { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    
-        
-    //   ];
-  
+const Table = ({ data, columns }) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>MSIDN</th>
-          <th>Price point</th>
-          <th>Category</th>
-          <th>Winning</th>
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, index) => (
-          <tr key={index} className="table-row" >
-            <td>{row.column1}</td>
-            <td>{row.column2}</td>
-            <td>{row.column3}</td>
-            <td>{row.column4}</td>
+    <div className="table-container">
+      <table>
+        <thead>
+          <tr>
+            {columns?.map((column) => (
+              <th key={column.key}>{column.header}</th>
+            ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {console.log("data:", data)}
+
+          {data && Array.isArray(data) ? (
+            data.map((row, rowIndex) => (
+              <tr key={rowIndex}>
+                {console.log("columns:", columns)}
+
+                {columns && Array.isArray(columns)
+                  ? columns.map((column) => (
+                      <td key={column.key}>{row[column.key]}</td>
+                    ))
+                  : null}
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={columns.length}>No data available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
   );
 };
 

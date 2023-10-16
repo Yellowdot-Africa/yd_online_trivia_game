@@ -1,8 +1,6 @@
-
-
 .gen-stats {
   display: flex;
-  width: 100%; 
+  width: 100%;
   max-width: 1000px;
 }
 
@@ -58,8 +56,8 @@
   background-color: var(--p1b, #8b8bff);
 }
 .button-box {
-  display: flex; 
-   flex-direction: column; 
+  display: flex;
+  flex-direction: column;
   margin-left: 20px;
 }
 
@@ -86,11 +84,11 @@
   height: 40px;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   border: none;
 }
 
-.icons img{
+.icons img {
   width: 20px;
   height: 20px;
 }
@@ -109,7 +107,6 @@
   font-size: 18px !important;
   font-family: "Inter";
   font-weight: 400;
-
 }
 
 .que-btn {
@@ -135,41 +132,41 @@
   margin-top: 20px;
 }
 
-.performance{
+.performance {
   color: #000;
-font-family:"Inter";
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-padding: 10px;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 10px;
 }
 .winners {
   width: 720px;
-  height: 282px;
+  height: 382px;
   margin: 20px;
   border-radius: 21px;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.winners-details{
+.winners-details {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 30px;
 }
 
-.winners-details .win{
-  color: var(--N4, #1F1F1F);
+.winners-details .win {
+  color: var(--N4, #1f1f1f);
   font-family: "Inter";
   font-size: 20px;
   font-weight: 500;
 }
 
-.winners-details .date{
-color: var(--p1a, #303064);
-text-align: right;
-font-family: "Inter";
-font-size: 16px;
-font-weight: 700;
-text-decoration-line: underline;
+.winners-details .date {
+  color: var(--p1a, #303064);
+  text-align: right;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration-line: underline;
 }

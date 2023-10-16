@@ -1,21 +1,80 @@
-.categories{
-display: flex; 
-   
+.categories {
+  display: flex;
 }
 
-.category-que-box{
-   
-    width: 1512px;
-    height: 382px;
-    padding: 20px;
-    border-radius: 21px;
-border: 1px solid rgba(0, 0, 0, 0.10);
-box-shadow: 1px -1px 0px 0px rgba(0, 0, 0, 0.10);
+.category-que-box {
+  width: 752px;
+  height: 382px;
+  padding: 20px;
+  border-radius: 21px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px -1px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
-.inputs{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* padding: 20px; */
+.category-que-text {
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.inputs-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 20px; */
+}
+select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: var(--p1b, #8b8bff);
+  width: 230px;
+  height: 25px;
+  color: var(--N1, #fff) !important;
+  outline: none;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.input {
+  color: var(--N3, #6a6a76);
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+  border-radius: 19.5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 230px;
+  height: 39px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--N3, #6a6a76);
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container .searc-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 15px;
+}
+
+.performanc {
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+  padding: 20px;
 }

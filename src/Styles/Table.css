@@ -1,15 +1,24 @@
-thead tr th{
-color: var(--N4, #1F1F1F);
-font-family: "Inter";
-font-size: 12px;
-font-weight: 400 ;
-padding:0 20px ;
+table {
+  width: 100%;
+  border-spacing: 0;
 }
 
-tbody tr td{
-font-family: "Inter";
-color: var(--N4, #1F1F1F);
-font-size: 16px;
-font-weight: 400;
-padding: 2px 50px;
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-weight: 400;
+}
+
+th {
+  font-size: 12px;
+}
+td {
+  font-size: 16px;
+}
+
+.table-container {
+  margin-bottom: 20px;
 }

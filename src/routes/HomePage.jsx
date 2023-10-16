@@ -6,7 +6,7 @@ import BarChart from "../Components/BarChart";
 import PieChart from "../Components/PieChart";
 import Button from "../Components/Button";
 import { UserData } from "../utils/Data";
-import Table from "../utils/Table";
+import Table from "../utils/Table.jsx";
 
 import "../Styles/HomePage.css";
 
@@ -30,20 +30,29 @@ const HomePage = () => {
     ],
   });
 
- 
+  const columns = [
+    { key: "msidn", header: "MSIDN" },
+    { key: "pricepoint", header: "Price point" },
+    { key: "category", header: "Category" },
+    { key: "winning", header: "Winning" },
+
+  ];
+
+  console.log(columns);
+
 
   const tableData = [
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
-    { column1: '+2348176855712', column2: '200', column3: 'Music', column4: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712',pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
 
     
   ];
-
+  console.log(tableData);
   return (
     <>
       <div className="container">
@@ -84,7 +93,7 @@ const HomePage = () => {
               <p className="win">Winners</p>
               <p className="date">Date select</p>
             </div>
-          <Table data={tableData} />
+          <Table data={tableData} columns={columns}/>
 
           </div>
         </div>

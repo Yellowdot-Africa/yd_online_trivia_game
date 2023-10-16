@@ -3,64 +3,46 @@ import "../Styles/ContentPage.css";
 import Button from "../Components/Button";
 import PieChart from "../Components/PieChart";
 import Table from "../utils/Table";
+import Search from "../Assets/Icons/search.svg";
 
 const ContentPage = () => {
-  const tableData = [
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
-    {
-      column1: "+2348176855712",
-      column2: "200",
-      column3: "Music",
-      column4: "20,000",
-    },
+
+  const columns = [
+    { key: "msidn", header: "MSIDN" },
+    { key: "pricepoint", header: "Price point" },
+    { key: "category", header: "Category" },
+    { key: "winning", header: "Winning" },
+
   ];
+
+
+
+  const tableData = [
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712',pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+    { msidn: '+2348176855712', pricepoint: '200', category: 'Music', winning: "20,000" },
+
+    
+  ];
+
   return (
     <>
       <div className="container">
         <div className="categories">
           <div className="category-que-box">
-            <p>Categories and Questions</p>
-            <div className="inputs">
+            <p className="category-que-text">Categories and Questions</p>
+            <div className="inputs-container">
               <select name="" id="">
                 <option value="">Categories</option>
               </select>
-              <input type="text" placeholder="Search" />
-              <img src="" alt="" />
+              <div className="input-container"> 
+              <input className="input" type="text" placeholder="Search" />
+              <img className="searc-icon" src={Search} alt="search" />
+              </div>
             </div>
             <p>Questions</p>
           </div>
@@ -79,7 +61,7 @@ const ContentPage = () => {
               <p className="win">Category Winners</p>
               <p className="date">Date select</p>
             </div>
-            <Table data={tableData} />
+            <Table data={tableData} columns={columns} />
           </div>
         </div>
       </div>

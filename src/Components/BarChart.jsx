@@ -1,18 +1,15 @@
 import React from "react";
-import {Bar} from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 // import {Chart as ChartJs} from "chart.js/auto";
 // import ApexCharts from 'apexcharts'
 import { Chart as ChartJs } from "chart.js/auto";
 
-
-
-
-const BarChart = ({chartData})=>{
+const BarChart = ({ chartData }) => {
   const chartOptions = {
     scales: {
       x: {
         grid: {
-          display: false, 
+          display: false,
         },
       },
       y: {
@@ -22,18 +19,11 @@ const BarChart = ({chartData})=>{
       },
     },
   };
-  
-      return (
-        <>
-          <Bar
-            data={chartData}
-            options={chartOptions}
-           
-            
-          />
-        </>
-      )
-    }
-  export default BarChart;
- 
 
+  return (
+    <>
+      <Bar data={chartData} options={chartOptions} />
+    </>
+  );
+};
+export default BarChart;
