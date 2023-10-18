@@ -21,7 +21,6 @@ const LandingScreen2 = () => {
   };
 
   const [showHandPoint, setShowHandPoint] = useState(true);
-  // const [categories, setCategories] = useState([]);
 
   const [categoriesData, setCategoriesData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -40,6 +39,7 @@ const LandingScreen2 = () => {
       clearTimeout(timer);
     };
   }, []);
+
   const fetchCategories = async () => {
     try {
       const response = await axios.get(
@@ -72,7 +72,6 @@ const LandingScreen2 = () => {
     setSelectedCategoryIndex(index);
     setSelectedCategory(category);
   };
-  // console.log("selectedCategory", selectedCategory);
 
   return (
     <>
@@ -91,7 +90,7 @@ const LandingScreen2 = () => {
           </div>
 
           <div className="category-tab-img">
-            <div className=" category-tab-img-cont">
+            <div className="category-tab-img-cont">
               <img src={categories} alt="category" />
             </div>
           </div>
@@ -120,9 +119,10 @@ const LandingScreen2 = () => {
                         selectedCategoryIndex > 0
                           ? selectedCategoryIndex - 1
                           : categoriesData.length - 1;
-                      handleCategorySelect(newIndex);
+                      handleCategorySelect(newIndex, categoriesData[newIndex]);
                     }}
                   />
+
                   {categoriesData.map((category, index) => (
                     <div
                       className={`option ${
@@ -134,6 +134,7 @@ const LandingScreen2 = () => {
                       {category.name}
                     </div>
                   ))}
+
                   <img
                     className="caret down"
                     src={CaretDown}
@@ -143,12 +144,13 @@ const LandingScreen2 = () => {
                         selectedCategoryIndex < categoriesData.length - 1
                           ? selectedCategoryIndex + 1
                           : 0;
-                      handleCategorySelect(newIndex);
+                      handleCategorySelect(newIndex, categoriesData[newIndex]);
                     }}
-                  />{" "}
+                  />
                 </div>
               </>
             )}
+
             {showHandPoint && (
               <div className="hand-down">
                 <img src={HandPointDown} alt="handpoint" />
@@ -166,6 +168,7 @@ const LandingScreen2 = () => {
                 })
               }
             />
+
             <p className="category-tab-texxt">
               Start the game when you are ready
             </p>

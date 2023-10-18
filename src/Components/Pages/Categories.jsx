@@ -18,7 +18,6 @@ const Categories = () => {
   };
 
   const [categories, setCategories] = useState([]);
-  const [category, setCategory] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
@@ -80,7 +79,7 @@ const Categories = () => {
                 selectedCategoryIndex > 0
                   ? selectedCategoryIndex - 1
                   : categories.length - 1;
-              handleCategorySelect(newIndex);
+              handleCategorySelect(newIndex, categories[newIndex]);
             }}
           />
           <div className="category-options">
@@ -105,7 +104,7 @@ const Categories = () => {
                 selectedCategoryIndex < categories.length - 1
                   ? selectedCategoryIndex + 1
                   : 0;
-              handleCategorySelect(newIndex);
+              handleCategorySelect(newIndex, categories[newIndex]);
             }}
           />
           <CustomButton
