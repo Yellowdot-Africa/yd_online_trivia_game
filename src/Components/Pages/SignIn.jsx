@@ -155,17 +155,6 @@ const SignIn = () => {
             />
           </div>
           <div className="form">
-            {/* <div className="select-box">
-              <Form.Select
-                aria-label="Default"
-                value={selectedPlan}
-                onChange={handlePlanSelect}
-              >
-                <option> Choose plan</option>
-                <option value="50 Naira plan">50 Naira plan</option>
-              </Form.Select>
-            </div> */}
-
             <Form.Label htmlFor="inputNumber"></Form.Label>
             <Form.Control
               type="number"
@@ -179,7 +168,6 @@ const SignIn = () => {
               <Form.Label htmlFor="inputPassword"></Form.Label>
               <Form.Control
                 type={showPassword ? "text" : "password"}
-                // type="password"
                 placeholder="Password"
                 id="inputPassword"
                 value={password}

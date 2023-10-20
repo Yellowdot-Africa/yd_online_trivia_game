@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import "../../Styles/CountDown1.css";
 import sadMask from "../../assets/icons/mask-sad-fill.svg";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import QuestionScreen from "./QuestionBank/QuestionScreen";
 import axios from "axios";
+import Popups from "../Popups";
 
 const CountDown1 = () => {
   useEffect(() => {
@@ -22,9 +23,25 @@ const CountDown1 = () => {
   const [noOfCorrect, setNoOfCorrect] = useState(0);
   const [noOfWrong, setNoOfWrong] = useState(0);
   const [isAnswerDisabled, setIsAnswerDisabled] = useState(false);
+  const [loadingQuestions, setLoadingQuestions] = useState(true);
+  const [showInsufficientFundsPopup, setShowInsufficientFundsPopup] =
+    useState(false);
+  const [insufficientFundsMessage, setInsufficientFundsMessage] = useState("");
 
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const category = location?.state?.category;
+
+  const location = useLocation();
+  const { state } = location;
+  const { correctAnswers, wrongAnswers, gemsEarned, category } = state || {};
+  
+
   const token = sessionStorage.getItem("token");
+
+  console.log("gameInfo", category);
+
+  console.log(category);
 
   const startCountdown = () => {
     if (countdown > 0) {
@@ -99,13 +116,14 @@ const CountDown1 = () => {
         );
 
         const allQuestions = response.data.data;
-        // console.log("Received questions:", allQuestions);
 
         setQuestions(allQuestions);
         setCountdown(allQuestions.length);
+        setLoadingQuestions(false);
       } catch (error) {
         console.error("API Error:", error);
         setQuestions([]);
+        setLoadingQuestions(false);
       }
     };
 
@@ -137,6 +155,7 @@ const CountDown1 = () => {
       }, 800);
     }, countdownDelay);
   };
+
   const isQuestionAttempted = (questionIndex) => {
     return selectedAnswers.some(
       (answer) => answer.questionIndex === questionIndex
@@ -167,19 +186,31 @@ const CountDown1 = () => {
         }
       );
 
-      // console.log("API response:", response.data);
-      // console.log("API Response for Questions:", response.data);
-
       navigate("/gamecomplete", {
         state: {
           correctAnswers: noOfCorrect,
           wrongAnswers: noOfWrong + (questions.length - selectedAnswers.length),
           gemsEarned: 0,
+          category,
         },
       });
     } catch (error) {
       console.error("Error submitting answers:", error);
+      if (error.response.status === 400) {
+        setInsufficientFundsMessage(
+          error.response.data.message ||
+            "Insufficient Wallet Balance. Please top up your wallet to continue."
+        );
+        setShowInsufficientFundsPopup(true);
+      } else if (error.response.status === 400) {
+        setInsufficientFundsMessage("Bad request. Please check your input.");
+        setShowInsufficientFundsPopup(true);
+      }
     }
+  };
+
+  const closeInsufficientFundsPopup = () => {
+    setShowInsufficientFundsPopup(false);
   };
 
   return (
@@ -193,7 +224,7 @@ const CountDown1 = () => {
               ) : (
                 <img src={sadMask} alt="Wrong" />
               )
-            ) : (
+            ) : loadingQuestions ? null : (
               <p>{countdown}</p>
             )}
           </div>
@@ -212,11 +243,17 @@ const CountDown1 = () => {
             ) : (
               <p>No questions available.</p>
             )
-          ) : (
+          ) : loadingQuestions ? (
             <p>Loading questions...</p>
-          )}
+          ) : null}
         </div>
       </div>
+      {showInsufficientFundsPopup && (
+        <Popups
+          message={insufficientFundsMessage}
+          onClose={closeInsufficientFundsPopup}
+        />
+      )}
     </div>
   );
 };

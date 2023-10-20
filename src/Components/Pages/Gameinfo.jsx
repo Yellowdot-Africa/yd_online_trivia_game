@@ -21,9 +21,10 @@ const Gameinfo = ({ gameId }) => {
   };
   const navigate = useNavigate();
   const location = useLocation();
-  const { category } = location?.state;
+  const category = location?.state?.category;
 
-  // console.log("gameInfo", category);
+  console.log("gameInfo", category);
+  console.log(category);
 
   return (
     <>
@@ -46,18 +47,18 @@ const Gameinfo = ({ gameId }) => {
             ) : (
               <p>Loading game information...</p>
             )}
-
             <CustomButton
               buttonText={buttonText}
               style={buttonStyle}
               onClick={() =>
                 navigate("/loading", {
                   state: {
-                    category,
+                    category:category,
                   },
                 })
               }
             />
+
           </div>
         </div>
       </div>

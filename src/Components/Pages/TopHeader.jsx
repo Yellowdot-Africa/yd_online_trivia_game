@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from "react";
-import Gem from "../../assets/icons/gem.svg";
+// import Gem from "../../assets/icons/gem.svg";
 import "../../Styles/TopHeader.css";
 import ShareModal from "../Common/ShareModal";
 import HistoryModal from "../../Components/Common/HistoryModal";

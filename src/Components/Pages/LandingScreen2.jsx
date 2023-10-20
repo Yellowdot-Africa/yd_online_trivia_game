@@ -157,17 +157,19 @@ const LandingScreen2 = () => {
               </div>
             )}
 
-            <CustomButton
-              buttonText={buttonText}
-              style={buttonStyles}
-              onClick={() =>
-                navigate("/game-info", {
-                  state: {
-                    category: selectedCategory,
-                  },
-                })
-              }
-            />
+            {!loading && (
+              <CustomButton
+                buttonText={buttonText}
+                style={buttonStyles}
+                onClick={() =>
+                  navigate("/game-info", {
+                    state: {
+                      category: selectedCategory,
+                    },
+                  })
+                }
+              />
+            )}
 
             <p className="category-tab-texxt">
               Start the game when you are ready

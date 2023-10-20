@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../../Styles/LoadingGame.css";
-import Reflection from "../../assets/Images/refle.svg";
-import football from "../../assets/Images/football.svg";
 import ProgressBar from "../../Components/Common/ProgressBar";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -15,7 +13,7 @@ const LoadingGame = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { category } = location?.state;
-  // console.log("category:", category);
+  console.log("category:", category);
 
   useEffect(() => {
     const progressInterval = setInterval(() => {

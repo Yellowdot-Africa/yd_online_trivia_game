@@ -4,11 +4,14 @@ import CaretUp from "../../assets/icons/uiwup.svg";
 import CaretDown from "../../assets/icons/uiwdown.svg";
 import CustomButton from "../Common/CustomButton";
 import Spinner from "react-bootstrap/Spinner";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
 const Categories = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const category = location?.state?.category;
+
   const buttonText = "Start Trivia";
   const buttonStyles = {
     backgroundImage:

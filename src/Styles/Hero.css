@@ -25,9 +25,7 @@ p {
   text-align: center;
   font-family: "Inter";
   font-size: 36px;
-  font-style: normal;
   font-weight: 700;
-  line-height: 1;
 }
 
 .text {
@@ -85,4 +83,10 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+@media screen and (max-width: 285px) {
+  .money{
+    font-size: 18px;
+  }
 }

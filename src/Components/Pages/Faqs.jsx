@@ -88,7 +88,7 @@ const Faqs = () => {
           <CustomButton
             buttonText={buttonText}
             style={buttonStyle}
-            onClick={() => navigate("/game-info")}
+            // onClick={() => navigate("/game-info")}
           />
         </div>
       </div>

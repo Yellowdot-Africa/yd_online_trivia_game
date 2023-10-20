@@ -9,13 +9,15 @@ import axios from "axios";
 
 const Leaderboard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
-  // const [userRank, setUserRank] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [gameId, setGameId] = useState(0);
+  // const [gameId, setGameId] = useState(0);
+  const [gameId, setGameId] = useState(1); 
+
   const [status, setStatus] = useState(false);
 
   const token = sessionStorage.getItem("token");
+  // console.log(token, "token");
 
   // console.log(userId )
   const pageSize = 10;
@@ -32,10 +34,17 @@ const Leaderboard = () => {
     return maskedPart.trim() + lastThreeDigits;
   };
 
+  const handleGameChange = (event) => {
+    setGameId(event.target.value); 
+  };
+
   const fetchLeaderboardData = async () => {
+   
     try {
+ 
       const response = await axios.get(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=1`,
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=${gameId}`,
+
         {
           headers: {
             Accept: "*/*",
@@ -46,13 +55,6 @@ const Leaderboard = () => {
       );
       if (response.data.statusCode === "999") {
         setLeaderboardData(response.data.data);
-        // const userEntry = leaderboardData.find(
-        //   (item) => item.msisdn === "08027003684"
-        // );
-        // if (userEntry) {
-        //   const rank = leaderboardData.indexOf(userEntry) + 1;
-        //   setUserRank(rank);
-        // }
 
         setStatus(true);
         setLoading(false);
