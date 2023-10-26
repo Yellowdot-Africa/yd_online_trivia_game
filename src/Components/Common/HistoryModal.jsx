@@ -37,9 +37,7 @@ const HistoryModal = ({ closeModal }) => {
     navigate("/countdown");
   };
 
- 
-  // console.log(handleGoBackToHomepage);
-  const toggleHistory = () => {
+   const toggleHistory = () => {
     setHistoryClicked((prevState) => !prevState);
     setDepositModalOpen(false);
     setWithdrawalModalOpen(false);
