@@ -16,6 +16,7 @@ import eyeHidden from "../../assets/icons/eye-slash.svg";
 import axios from "axios";
 import * as Yup from "yup";
 
+
 const SignIn = () => {
   const navigate = useNavigate();
 
@@ -80,6 +81,8 @@ const SignIn = () => {
         console.error(response.data);
 
         navigate("/landingpage");
+        await createOrRenewToken();
+
       } else {
         setInfoText("An error occurred. Please try again later.");
         setErrorText(null);
@@ -106,6 +109,36 @@ const SignIn = () => {
       }
     }
   };
+
+
+const createOrRenewToken = async () => {
+  try {
+    const storedToken = sessionStorage.getItem("token");
+    const currentTime = new Date();
+
+    if (!storedToken || currentTime >= new Date(storedToken.expiry)) {
+      const loginResponse = await axios.post(
+        "https://api.ydplatform.com/api/Login",
+        {
+          ServiceID: 1012,
+          Password: "24edf6485d9f4c2d8d57548c44075389",
+        }
+      );
+
+      const newToken = loginResponse.data;
+      const newExpiry = new Date();
+      newExpiry.setHours(newExpiry.getHours() + 24); 
+
+      sessionStorage.setItem("token", {
+        token: newToken,
+        expiry: newExpiry,
+      });
+    }
+  } catch (error) {
+    console.error("Token creation/renewal error:", error);
+  }
+};
+
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -213,3 +246,6 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+
+

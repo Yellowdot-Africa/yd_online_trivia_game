@@ -9,10 +9,14 @@ const Popups = ({ message, onClose }) => {
     <div className="popup">
       <div className="popup-content">
         <p className="message">{message}</p>
-        <button onClick={() => navigate("/home")}>Home Page</button>
+        <button onClick={() => navigate("/wallet")}>Fund Wallet</button>
       </div>
     </div>
   );
 };
 
 export default Popups;
+
+
+
+

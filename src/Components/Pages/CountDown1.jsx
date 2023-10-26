@@ -29,7 +29,6 @@ const CountDown1 = () => {
   const [insufficientFundsMessage, setInsufficientFundsMessage] = useState("");
 
   const navigate = useNavigate();
-  // const location = useLocation();
   // const category = location?.state?.category;
 
   const location = useLocation();
@@ -39,9 +38,9 @@ const CountDown1 = () => {
 
   const token = sessionStorage.getItem("token");
 
-  console.log("gameInfo", category);
+  // console.log("gameInfo", category);
 
-  console.log(category);
+  // console.log(category);
 
   const startCountdown = () => {
     if (countdown > 0) {

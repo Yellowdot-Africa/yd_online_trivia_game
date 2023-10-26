@@ -2,15 +2,14 @@
   background-color: #e5c853 !important;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 100vh;
-  padding: 10%;
 }
 
 .close-img-cont {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px;
 }
 
 .game-info {
@@ -38,5 +37,4 @@
   font-style: normal !important;
   font-weight: 700 !important;
 }
-
 

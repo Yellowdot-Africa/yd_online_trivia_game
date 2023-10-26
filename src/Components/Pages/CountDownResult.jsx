@@ -20,8 +20,9 @@ const CountDownResult = () => {
   const location = useLocation();
   const { state } = location;
   const { correctAnswers, wrongAnswers, gemsEarned, category } = state || {};
-  console.log("gameInfo", category);
+  // console.log("gameInfo", category);
 
+ 
   return (
     <>
       <div className="result-container">
@@ -46,14 +47,14 @@ const CountDownResult = () => {
             <p>Wrong</p>
           </div>
         </div>
-
+{/* 
         <div className="gems-gotten">
           <p>YOU GOT GEMS!!!</p>
           <div className="gem-div">
             <img src={Gems} alt="gem" />
             <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="button">
           <CustomButton

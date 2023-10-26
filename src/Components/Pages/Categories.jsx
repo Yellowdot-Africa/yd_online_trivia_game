@@ -46,6 +46,11 @@ const Categories = () => {
 
       setCategories(response.data.data);
 
+      if (response.data.data.length > 0) {
+        setSelectedCategoryIndex(0);
+        setSelectedCategory(response.data.data[0]);
+      }
+
       setLoading(false);
     } catch (error) {
       setError(error.message);
@@ -121,7 +126,6 @@ const Categories = () => {
               })
             }
           />
-          {/* <div></div> */}
         </div>
       )}
     </div>

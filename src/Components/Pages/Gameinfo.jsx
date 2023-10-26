@@ -67,3 +67,5 @@ const Gameinfo = ({ gameId }) => {
 };
 
 export default Gameinfo;
+
+

@@ -1,0 +1,49 @@
+.withdrawal-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .withdrawal-modal{
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+  }
+  .withdrawal-modal-container h3 {
+    color: #242424;
+    font-family: "Inter";
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .withdrawal-modal-container hr{
+      border: 3px solid #E7E7E7;
+      color: #E7E7E7 !important;
+      width: 100%;
+      opacity: none !important;
+  
+  
+  }
+  .withdrawal-modal-container p{
+      color: #242424;
+      font-family: "Inter";
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      
+  
+  }
+  
+  .withdrawal-modal-container input{
+      border: 2px solid #303064;
+      border-radius: 10px;
+      margin: 20px;
+      width: 75%;
+  }
+  .withdrawal-modal-container input::placeholder{
+      color: #CDCDCD;
+  
+  }

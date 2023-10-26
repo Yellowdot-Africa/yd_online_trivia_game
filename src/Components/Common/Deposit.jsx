@@ -1,9 +1,18 @@
 import React, { useState } from "react";
-import "../../Styles/Deposit.css";
+import axios from "axios";
 import CustomButton from "./CustomButton";
+import "../../Styles/Deposit.css";
 
 const Deposit = ({ closeModal }) => {
   const [inputValue, setInputValue] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [depositResponse, setDepositResponse] = useState(null);
+  const [amount, setAmount] = useState("");
+  const [token, setToken] = useState("");
+  const [msisdn, setMsisdn] = useState("");
+  const [fullName, setFullName] = useState(""); 
+  const [email, setEmail] = useState("");
+  // const [transactionID, setTransactionID] = useState("");
 
   const buttonStyle = {
     borderRadius: "23px",
@@ -18,6 +27,52 @@ const Deposit = ({ closeModal }) => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+  };
+
+  const handleDeposit = async () => {
+    setLoading(true);
+
+    try {
+      const response = await axios.post(
+        "https://api.ydplatform.com/api/BankCollectionInLine",
+
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        },
+        {
+          ServiceID: 1012,
+          TokenID: token,
+          MSISDN: msisdn,
+          Amount: amount,
+          FullName: fullName,
+          Email: email,
+          TransactionID: "20231013032635",
+          RedirectURL: "http://onlinetriviaweb.ydplatform.com:2123/",
+          LogoURL:
+            "http://yellowdotafrica.com/wp-content/uploads/2018/09/logo.png",
+        }
+      );
+
+      if (response.status === 200) {
+        setDepositResponse(response.data);
+
+        console.log("Deposit successful!");
+      } else {
+        setDepositResponse({ error: "Deposit failed" });
+
+        console.error("Deposit failed.");
+      }
+    } catch (error) {
+      setDepositResponse({ error: "Deposit error" });
+
+      console.error("Deposit error:", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -36,12 +91,29 @@ const Deposit = ({ closeModal }) => {
             value={inputValue}
             onChange={handleInputChange}
           />
-
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Email adress" />
+          {/* <input
+            type="text"
+            placeholder="Enter MSISDN"
+            value={msisdn}
+            onChange={(e) => setMsisdn(e.target.value)}
+          /> */}
           <CustomButton
-            buttonText={"Continue"}
+            buttonText={loading ? "Processing..." : "Deposit"}
             style={buttonStyle}
-            onClick={closeModal}
+            onClick={handleDeposit}
+            disabled={loading || !inputValue}
           />
+          {depositResponse && (
+            <div className="deposit-response">
+              {depositResponse.error ? (
+                <p className="error-message">{depositResponse.error}</p>
+              ) : (
+                <p className="success-message">Deposit successful!</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>

@@ -47,3 +47,12 @@
     color: #CDCDCD;
 
 }
+
+.error-message{
+    color: red !important;
+}
+
+.success-message{
+    color: green !important;
+}
+

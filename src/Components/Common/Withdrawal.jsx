@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../../Styles/Deposit.css";
+import "../../Styles/Withdrawal.css";
 import CustomButton from "./CustomButton";
 
 const Withdrawal = ({ closeModal }) => {
@@ -22,12 +22,12 @@ const Withdrawal = ({ closeModal }) => {
 
   return (
     <>
-      <div className="deposit-modal">
-        <div className="deposit-modal-container">
-          <h3>Withdral</h3>
+      <div className="withdrawal-modal">
+        <div className="withdrawal-modal-container">
+          <h3>Withdrawal</h3>
           <hr />
           <p>
-            Dear user, Please note that all transactions are conducted with our
+            Dear user, Kindly note that all transactions are conducted with our
             payment partners using a valid debit card
           </p>
           <input

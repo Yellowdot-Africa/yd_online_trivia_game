@@ -55,6 +55,12 @@ const LandingScreen2 = () => {
 
       if (Array.isArray(response.data.data)) {
         setCategoriesData(response.data.data);
+
+        if (response.data.data.length > 0) {
+          setSelectedCategoryIndex(0);
+          setSelectedCategory(response.data.data[0]);
+        }
+
         setLoading(false);
       } else {
         console.error("Invalid response format:", response);

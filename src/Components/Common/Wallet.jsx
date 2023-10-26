@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import axios from "axios";
 
-const HistoryModal = ({ closeModal }) => {
+const Wallet = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -38,7 +38,6 @@ const HistoryModal = ({ closeModal }) => {
   };
 
  
-  // console.log(handleGoBackToHomepage);
   const toggleHistory = () => {
     setHistoryClicked((prevState) => !prevState);
     setDepositModalOpen(false);
@@ -101,10 +100,10 @@ const HistoryModal = ({ closeModal }) => {
       <div className="modal-content">
         <div className="modal-text">
           <p className="">Current balance</p>
-
-          <span className="close" onClick={closeModal}>
-            &times;
-          </span>
+          <button className="clos-home" onClick={handleGoBackToQuestions}>
+            Questions
+          </button>
+      
         </div>
 
         <div className="modal-details">
@@ -199,4 +198,4 @@ const HistoryModal = ({ closeModal }) => {
   );
 };
 
-export default HistoryModal;
+export default Wallet;
