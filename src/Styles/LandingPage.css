@@ -35,6 +35,10 @@
   width: 12.073px;
   height: 12.073px;
 }
+
+.close-img{
+  padding: 20px;
+}
 .category-img {
   display: flex;
   justify-content: center;

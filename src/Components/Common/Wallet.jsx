@@ -28,16 +28,10 @@ const Wallet = () => {
 
   const navigate = useNavigate();
 
-
-
-  
-  
-  
   const handleGoBackToQuestions = () => {
     navigate("/countdown");
   };
 
- 
   const toggleHistory = () => {
     setHistoryClicked((prevState) => !prevState);
     setDepositModalOpen(false);
@@ -103,7 +97,6 @@ const Wallet = () => {
           <button className="clos-home" onClick={handleGoBackToQuestions}>
             Questions
           </button>
-      
         </div>
 
         <div className="modal-details">

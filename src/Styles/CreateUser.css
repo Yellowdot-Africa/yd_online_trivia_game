@@ -100,20 +100,6 @@
 
 
 
-  /* @media (min-width: 767px) and (max-width:980px) {
-    .reg-form{
-      width: 35vw;
-  }
-  .create-user-header .desktop-logo{
-    width: 265px;
-    display: block;
-    padding: 20px;
-  }
-  .create-user-header .mobile-logo{
-    display: none;
-  }
-
-} */
 
 @media (min-width: 767px){
   .reg-form{
@@ -171,46 +157,3 @@
 
 }
 
-/* @media (min-width: 1023px) and (max-width:1200px) {
-  .reg-form{
-    width: 35vw;
-}
-.create-user-header .desktop-logo{
-  width: 265px;
-  display: block;
-  padding: 20px;
-}
-.create-user-header .mobile-logo{
-  display: none;
-}
-}
-
-@media (min-width: 1203px) and (max-width:1390px) {
-  .form{
-    width: 35vw;
-}
-
-.create-user-header .desktop-logo{
-  width: 265px;
-  display: block;
-  padding: 20px;
-}
-.create-user-header .mobile-logo{
-  display: none;
-}
-}
-
-@media (min-width: 1401px) {
-  .form{
-    width: 25vw;
-}
-
-.create-user-header .desktop-logo{
-  width: 265px;
-  display: block;
-  padding: 20px;
-}
-.create-user-header .mobile-logo{
-  display: none;
-}
-} */

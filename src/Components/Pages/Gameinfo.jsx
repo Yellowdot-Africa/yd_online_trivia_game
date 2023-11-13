@@ -12,6 +12,8 @@ const Gameinfo = ({ gameId }) => {
 
   const token = sessionStorage.getItem("token");
 
+  // console.log("gameInfo", category);
+  // console.log(category);
   const buttonText = "Begin";
   const buttonStyle = {
     backgroundColor: " #1D1DB9",
@@ -23,8 +25,6 @@ const Gameinfo = ({ gameId }) => {
   const location = useLocation();
   const category = location?.state?.category;
 
-  console.log("gameInfo", category);
-  console.log(category);
 
   return (
     <>
