@@ -19,26 +19,36 @@
   margin: 2px 0 0 0 !important;
 }
 
+
 .icons-cont {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin: 54px 0;
+
+
 }
 
 .icons-cont a {
-  width: 35px;
-  height: 35px;
-  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
   border: 1px solid rgba(48, 48, 100, 0.7);
-  position: relative;
+  border-radius: 50px; 
+  padding: 5px; 
 }
 
-.icons-cont a img {
+.icons-cont img {
+  max-width: 100%; 
   width: 20px;
   height: 20px;
-  margin: 7px;
+  margin: 5px; 
+
+
 }
+
 
 .icons-cont a.selected {
   background-color: rgba(48, 48, 100, 1);

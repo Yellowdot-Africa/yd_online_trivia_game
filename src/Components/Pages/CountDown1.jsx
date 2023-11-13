@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect, memo} from "react";
 import "../../Styles/CountDown1.css";
 import sadMask from "../../assets/icons/mask-sad-fill.svg";
 import AOS from "aos";
@@ -37,16 +37,16 @@ const CountDown1 = () => {
   
 
   const token = sessionStorage.getItem("token");
-
-  // console.log("gameInfo", category);
+// console.log("token", token)
+  console.log("gameInfo", category);
 
   // console.log(category);
 
-  const startCountdown = () => {
+  const startCountdown = React.useCallback(() => {
     if (countdown > 0) {
       setCountdown(countdown - 1);
     }
-  };
+  },[countdown]);
 
   const handleNextQuestion = () => {
     setShowFeedback(false);

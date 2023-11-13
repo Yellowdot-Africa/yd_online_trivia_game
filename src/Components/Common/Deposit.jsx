@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import axios from "axios";
 import CustomButton from "./CustomButton";
 import "../../Styles/Deposit.css";
@@ -24,7 +24,7 @@ const Deposit = ({ closeModal }) => {
     width: "222px",
     backgroundColor: inputValue ? " #1D1DB9" : "#939393",
   };
-
+// console.log( "token",token)
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
@@ -43,6 +43,7 @@ const Deposit = ({ closeModal }) => {
             Authorization: `Bearer ${token}`,
           },
         },
+       
         {
           ServiceID: 1012,
           TokenID: token,
@@ -91,14 +92,14 @@ const Deposit = ({ closeModal }) => {
             value={inputValue}
             onChange={handleInputChange}
           />
-          <input type="text" placeholder="Full Name" />
-          <input type="text" placeholder="Email adress" />
-          {/* <input
+          <input type="text" placeholder="Full Name" value={fullName} onChange={(e)=> setFullName(e.target.value)} />
+          <input type="text" placeholder="Email adress"  value={email} onChange={(e)=> setEmail(e.target.value)}/>
+          <input
             type="text"
             placeholder="Enter MSISDN"
             value={msisdn}
             onChange={(e) => setMsisdn(e.target.value)}
-          /> */}
+          />
           <CustomButton
             buttonText={loading ? "Processing..." : "Deposit"}
             style={buttonStyle}
@@ -121,3 +122,7 @@ const Deposit = ({ closeModal }) => {
 };
 
 export default Deposit;
+
+
+
+

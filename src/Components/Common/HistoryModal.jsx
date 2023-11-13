@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import "../../Styles/HistoryModal.css";
 import withdraw from "../../assets/icons/money-withdrawal.svg";
 import deposit from "../../assets/icons/baseline-payment.svg";

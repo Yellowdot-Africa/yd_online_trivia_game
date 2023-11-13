@@ -1,0 +1,27 @@
+.tool-tip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tool-tip {
+  visibility: hidden;
+  width: 80px;
+  background-color: rgba(48, 48, 100, 1);
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: -100%;
+  left: 100%;
+  margin-left: -55px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tool-tip-container:hover .tool-tip {
+  visibility: visible;
+  opacity: 1;
+}

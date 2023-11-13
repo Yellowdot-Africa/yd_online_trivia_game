@@ -42,7 +42,7 @@ const LoadingGame = () => {
           if (countdown === 1) {
             setCountdown(3);
             setStartCountdown(false);
-            navigate("/countdown", {
+            navigate("/countdown1", {
               state: {
                 category,
               },
@@ -72,8 +72,8 @@ const LoadingGame = () => {
                 <div className="football-img">
                   <img
                     src={`data:image/png;base64, ${category.logo}`}
-                    alt=""
-                    srcset=""
+                    alt="img"
+                    
                   />
                 </div>
               )}
@@ -81,8 +81,8 @@ const LoadingGame = () => {
                 <div className="football-img">
                   <img
                     src={`data:image/png;base64, ${category.logo}`}
-                    alt=""
-                    srcset=""
+                    alt="img"
+                    
                   />
                 </div>
               )}

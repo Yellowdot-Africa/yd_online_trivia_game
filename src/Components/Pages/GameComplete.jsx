@@ -15,6 +15,7 @@ const GameComplete = () => {
           correctAnswers,
           wrongAnswers,
           gemsEarned,
+          category,
         },
       });
     }, 2000);
