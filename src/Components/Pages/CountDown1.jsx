@@ -37,10 +37,7 @@ const CountDown1 = () => {
   
 
   const token = sessionStorage.getItem("token");
-// console.log("token", token)
-  // console.log("gameInfo", category);
 
-  // console.log(category);
 
   const startCountdown = React.useCallback(() => {
     if (countdown > 0) {
