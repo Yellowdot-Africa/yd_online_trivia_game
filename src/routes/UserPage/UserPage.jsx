@@ -1,14 +1,15 @@
-import React from "react";
-import "../Styles/UserPage.css";
-import Filter from "../Assets/Icons/filter.svg";
-import Search  from "../Assets/Icons/search.svg";
-import Arrow from "../Assets/Icons/Arrow 1.svg";
-import CategoryIcon from "../Assets/Icons/dashiconscategory.svg";
-import Table from "../utils/Table";
+import  {useState} from "react";
+import "../UserPage/UserPage.css";
+import Filter from "../../Assets/Icons/filter.svg"
+import Search  from "../../Assets/Icons/search.svg";
+import Arrow from "../../Assets/Icons/Arrow 1.svg";
+import CategoryIcon from "../../Assets/Icons/dashiconscategory.svg";
+import Table from "../../utils/Table";
+import Pagination from "../../Components/Pagination";
 
 
-function UserPage() {
-
+const UserPage=()=> {
+const [searchQuery, setSearchQuery] = useState("");
   const columns = [
     { key: "msidn", header: "MSIDN" },
     { key: "gamesplayed", header: "Games played" },
@@ -46,7 +47,26 @@ function UserPage() {
     { msidn: '+2348176855712', gamesplayed: '5', winning: "5" },
     { msidn: '+2348176855712', gamesplayed: '28', winning: "28" },
   ];
+  const filteredTableDat = tableDat.filter((row) => {
+    return Object.values(row).some((value) =>
+      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
+  const filteredTableData = tableData.filter((row) => {
+    return Object.values(row).some((value) =>
+      value.toString().toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  });
 
+
+  const itemsPerPage = "X/100"; 
+
+  const totalPages = Math.ceil(tableData.length / itemsPerPage);
+  const [currentPage, setCurrentPage] = useState(0);
+  const handlePageClick = (selected) => {
+    setCurrentPage(selected);
+    
+  };
   return (
     <>
       <div className="container">
@@ -60,13 +80,19 @@ function UserPage() {
 
               </button>
             </div>
-            <Table data={tableData} columns={columns}/>
+            <Table data={filteredTableData} columns={columns}/>
+
+            <Pagination
+              pageCount={totalPages} 
+              handlePageClick={handlePageClick}
+            />
           </div>
           <div className="cate">
             <div className="search-box ">
             <div className="input-container">
 
-              <input type="text" placeholder="Search users" />
+              <input type="text" placeholder="Search users" value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)} />
               <img src={Search} alt="search-icon" className="search-icon"/>
             </div>
             </div>
@@ -76,11 +102,11 @@ function UserPage() {
             <p className="top">Top players</p>
               <p className="date">Date select</p>
               </div>
-              <Table data={tableDat} columns={columns}/>
+              <Table data={filteredTableDat} columns={columns}/>
             </div>
           </div>
         </div>
-        <button className="btn">
+        <button className="transactn-btn">
           <div className="icon">
           <img src={CategoryIcon} alt="cat-icon" />
           </div>

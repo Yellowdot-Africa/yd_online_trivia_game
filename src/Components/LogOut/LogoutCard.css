@@ -1,0 +1,67 @@
+.logout-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+  height: 250px;
+  background: var(--N1, #fff);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+}
+
+.logout-text {
+  color: var(--N3, #6a6a76);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.logout-ptext {
+  color: var(--N3, #6a6a76);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.logout-card p {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.logout-btn {
+  display: block;
+  padding: 10px 20px;
+  margin: 8px;
+  cursor: pointer;
+  width: 200px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid var(--N3, #6a6a76);
+  background: var(--N1, #fff);
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.25);
+  color: var(--N3, #6a6a76);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.logout-btnn {
+  display: block;
+  padding: 10px 20px;
+  margin: 8px;
+  cursor: pointer;
+  width: 200px;
+  height: 36px;
+  text-align: center;
+  border-radius: 10px;
+  border: 1px solid var(--N2, #bcbcbe);
+  background: var(--N4, #1f1f1f);
+  color: var(--N1, #fff);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 12px;
+  font-weight: 500;
+}

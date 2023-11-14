@@ -19,7 +19,7 @@
 .user {
   color: var(--N4, #1f1f1f);
   font-family: "Inter";
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -60,7 +60,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  padding: 5px;
+  padding: 15px;
 }
 .search-box input {
   border-radius: 19.5px;
@@ -68,7 +68,6 @@
   background: var(--N1, #fff);
   width: 377px;
   height: 30px;
-  flex-shrink: 0;
   outline: none;
 }
 
@@ -82,19 +81,19 @@ input::placeholder {
   font-size: 12px;
   font-weight: 500;
 }
-.btn {
+.transactn-btn {
   width: 389px;
   height: 35px;
   border: none;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: 16px;
+  border-radius: 14px !important;
   background: var(--p1a, #303064);
   padding: 25px;
 }
 
-.btn .icon {
+.transactn-btn .icon {
   border-radius: 12px;
   background: var(--N1, #fff);
   display: flex;
@@ -110,7 +109,7 @@ input::placeholder {
 .btn p {
   color: var(--N1, #fff);
   font-family: "Inter";
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
 }
 .players {
@@ -131,7 +130,7 @@ input::placeholder {
 .top {
   color: var(--N4, #1f1f1f);
   font-family: "Inter";
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
 }
 
@@ -139,7 +138,7 @@ input::placeholder {
   color: var(--p1a, #303064);
   text-align: right;
   font-family: "Inter";
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   text-decoration-line: underline;
 }

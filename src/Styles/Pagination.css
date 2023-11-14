@@ -1,0 +1,37 @@
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.page-item {
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.page-link {
+  color: var(--p2a, #7d6a00);
+  text-align: center;
+  font-family: "Inter";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  background-color: #fff;
+  border-radius: 5px;
+  /* border: 1px solid var(--p2a, #7d6a00); */
+  padding: 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  border: 1px solid var(--p2a, #7d6a00);
+}
+
+.previous,
+.next {
+  margin: 0 10px;
+}

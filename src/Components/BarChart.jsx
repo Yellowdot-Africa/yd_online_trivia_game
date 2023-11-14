@@ -1,20 +1,38 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-// import {Chart as ChartJs} from "chart.js/auto";
-// import ApexCharts from 'apexcharts'
-import { Chart as ChartJs } from "chart.js/auto";
 
-const BarChart = ({ chartData }) => {
+const BarChart = ({ chartData, barColor }) => {
+  const formatYAxis = (value) => {
+    return value + "K";
+  };
   const chartOptions = {
     scales: {
       x: {
+        stacked: true,
         grid: {
           display: false,
         },
       },
       y: {
+        stacked: true,
         grid: {
           display: false,
+        },
+        ticks: {
+          callback: (value) => formatYAxis(value),
+        },
+      },
+    },
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    elements: {
+      bar: {
+        borderRadius: {
+          topRight: 10,
+          bottomRight: 10,
         },
       },
     },
@@ -22,7 +40,7 @@ const BarChart = ({ chartData }) => {
 
   return (
     <>
-      <Bar data={chartData} options={chartOptions} />
+      <Bar data={chartData} options={chartOptions} barColor={barColor} />
     </>
   );
 };

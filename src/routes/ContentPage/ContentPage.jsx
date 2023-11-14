@@ -1,11 +1,13 @@
-import React from "react";
-import "../Styles/ContentPage.css";
-import Button from "../Components/Button";
-import PieChart from "../Components/PieChart";
-import Table from "../utils/Table";
-import Search from "../Assets/Icons/search.svg";
+import  {useState} from "react";
+import "../ContentPage/ContentPage.css";
+import Button from "../../Components/Button";
+import PieChart from "../../Components/PieChart";
+import Table from "../../utils/Table";
+import Search  from "../../Assets/Icons/search.svg";
 
 const ContentPage = () => {
+  const [searchQueryTerm, setSearchQueryTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
 
   const columns = [
     { key: "msidn", header: "MSIDN" },
@@ -28,6 +30,12 @@ const ContentPage = () => {
 
     
   ];
+  const filteredTableData = tableData.filter((row) => {
+    return Object.values(row).some((value) =>
+      value.toString().toLowerCase().includes(searchQueryTerm.toLowerCase())
+    );
+  });
+
 
   return (
     <>
@@ -38,9 +46,19 @@ const ContentPage = () => {
             <div className="inputs-container">
               <select name="" id="">
                 <option value="">Categories</option>
+                <option value="">History</option>
+                <option value="">Music</option>
+                <option value="">Categories</option>
+                <option value="">Categories</option>
+                <option value="">Categories</option>
+
+
+
+
               </select>
               <div className="input-container"> 
-              <input className="input" type="text" placeholder="Search" />
+              <input className="input" type="text" placeholder="Search" value={searchQueryTerm}
+                  onChange={(e) => setSearchQueryTerm(e.target.value)}/>
               <img className="searc-icon" src={Search} alt="search" />
               </div>
             </div>
@@ -61,7 +79,7 @@ const ContentPage = () => {
               <p className="win">Category Winners</p>
               <p className="date">Date select</p>
             </div>
-            <Table data={tableData} columns={columns} />
+            <Table data={filteredTableData} columns={columns} />
           </div>
         </div>
       </div>

@@ -1,0 +1,269 @@
+.desktop-images {
+  display: none;
+}
+
+.sign-in-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.sign-in-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.sign-in-header .mobile-logo {
+  width: 165px;
+}
+
+.sign-in-header .desktop-logo {
+  display: none;
+}
+
+.form {
+  width: 70vw;
+}
+
+.rel {
+  position: relative;
+}
+
+.form-select {
+  color: #cdcdcd;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  width: 100%;
+}
+.form-select:focus {
+  border: 2px solid #303064 !important;
+  box-shadow: none !important;
+}
+.form-control {
+  line-height: 0% !important;
+  width: 70%;
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+}
+.form-control::placeholder {
+  color: #cdcdcd;
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-style: normal;
+}
+.form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 2px solid #303064 !important;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 80%;
+  transform: translateY(-67%);
+  cursor: pointer;
+}
+
+.fill-info {
+  color: #acacc1;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.hand-img {
+  padding: 10px;
+}
+
+.create {
+  color: #acacc1 !important;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  text-decoration: none !important;
+  padding: 5px;
+}
+
+@media (min-width: 768px) {
+  .form-select {
+    width: 100px;
+  }
+  option {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .account {
+    padding: 0% !important;
+  }
+}
+
+@media (min-width: 767px) and (max-width: 980px) {
+  .form {
+    width: 35vw;
+  }
+  .desktop-images {
+    display: block;
+    position: relative;
+  }
+  .desktop-images .img1 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 250px;
+    left: 480px;
+  }
+
+  .desktop-images .img2 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 670px;
+    right: 500px;
+  }
+  .desktop-images .img3 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 660px;
+    right: 0;
+  }
+  .sign-in-header .desktop-logo {
+    width: 265px;
+    display: block;
+    padding: 20px;
+  }
+  .sign-in-header .mobile-logo {
+    display: none;
+  }
+}
+
+@media (min-width: 1023px) and (max-width: 1200px) {
+  .form {
+    width: 35vw;
+  }
+  .desktop-images {
+    display: block;
+    position: relative;
+  }
+  .desktop-images .img1 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 50px;
+    left: 630px;
+  }
+
+  .desktop-images .img2 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 370px;
+    right: 600px;
+  }
+  .desktop-images .img3 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 360px;
+    right: 0;
+  }
+  .sign-in-header .desktop-logo {
+    width: 265px;
+    display: block;
+    padding: 20px;
+  }
+  .sign-in-header .mobile-logo {
+    display: none;
+  }
+}
+@media (min-width: 1203px) and (max-width: 1390px) {
+  .form {
+    width: 35vw;
+  }
+  .desktop-images {
+    display: block;
+    position: relative;
+  }
+  .desktop-images .img1 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 70px;
+    left: 730px;
+  }
+
+  .desktop-images .img2 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 470px;
+    right: 700px;
+  }
+  .desktop-images .img3 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 460px;
+    right: 50px;
+  }
+  .sign-in-header .desktop-logo {
+    width: 265px;
+    display: block;
+    padding: 20px;
+  }
+  .sign-in-header .mobile-logo {
+    display: none;
+  }
+}
+
+@media (min-width: 1401px) {
+  .form {
+    width: 25vw;
+  }
+  .desktop-images {
+    display: block;
+    position: relative;
+  }
+  .desktop-images .img1 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 80px;
+    left: 800px;
+  }
+
+  .desktop-images .img2 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 500px;
+    right: 800px;
+  }
+  .desktop-images .img3 {
+    width: 277px;
+    height: 197px;
+    position: absolute;
+    top: 480px;
+    right: 180px;
+  }
+  .sign-in-header .desktop-logo {
+    width: 265px;
+    display: block;
+  }
+  .sign-in-header .mobile-logo {
+    display: none;
+  }
+}

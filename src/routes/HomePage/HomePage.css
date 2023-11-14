@@ -1,0 +1,52 @@
+.category-performance {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1000px;
+}
+.category-box {
+  border-radius: 21px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 312px;
+  height: 262px;
+  margin-top: 20px;
+}
+
+.performance {
+  color: #000;
+  font-family: "Inter";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  padding: 10px;
+}
+.winners {
+  width: 720px;
+  height: 382px;
+  margin: 20px;
+  border-radius: 21px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.winners-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+}
+
+.winners-details .win {
+  color: var(--N4, #1f1f1f);
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.winners-details .date {
+  color: var(--p1a, #303064);
+  text-align: right;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration-line: underline;
+}
