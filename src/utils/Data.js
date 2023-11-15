@@ -48,9 +48,3 @@ export const UserData = {
     { id: 12, year: "Dec", Revenue: 14, user: 9 },
   ],
 };
-
-
-
-
-
-

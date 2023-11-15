@@ -7,11 +7,11 @@ import LogOut from "../../Assets/Icons/logout.svg";
 import Elipse from "../../Assets/Icons/Ellipse1.png";
 import "../Root/Root.css";
 import AdminCard from "../../Components/ADMINCARD/AdminCard";
-import LogOutCard from "../../Components/LogOut/LogOutCard";
+import LogOutCard from "../../Components/LogOut/LogoutCard";
 
 const Root = () => {
   const [showAdminCard, setShowAdminCard] = useState(false);
-  const [showLogoutCard, setshowLogoutCard]= useState(false);
+  const [showLogoutCard, setshowLogoutCard] = useState(false);
 
   const openAdminCard = () => {
     setShowAdminCard(true);
@@ -20,14 +20,14 @@ const Root = () => {
     setShowAdminCard(false);
   };
 
-  const openLogoutCard =()=>{
+  const openLogoutCard = () => {
     setshowLogoutCard(true);
   };
 
-  const closeLogoutCard =()=>{
+  const closeLogoutCard = () => {
     setshowLogoutCard(false);
   };
-  
+
   return (
     <>
       <div id="sidebar">
@@ -59,14 +59,26 @@ const Root = () => {
           <img src={Elipse} alt="elipse" />
           <p className="greetings">Welcome Back,</p>
           <p className="name">Blessing Dorcas</p>
-          <Link to={`/admin-card`} onClick={(e)=>{ e.preventDefault(); openAdminCard();}}>
+          <Link
+            to={`/admin-card`}
+            onClick={(e) => {
+              e.preventDefault();
+              openAdminCard();
+            }}
+          >
             View
-            </Link>
+          </Link>
         </div>
         <div className="bottom">
-        <Link to={`/logout`} onClick={(e)=>{ e.preventDefault(); openLogoutCard();}}>
-          <img className="logout-img" src={LogOut} alt="" />
-          <p className="logout">Logout</p>
+          <Link
+            to={`/logout`}
+            onClick={(e) => {
+              e.preventDefault();
+              openLogoutCard();
+            }}
+          >
+            <img className="logout-img" src={LogOut} alt="" />
+            <p className="logout">Logout</p>
           </Link>
         </div>
       </div>
@@ -78,21 +90,15 @@ const Root = () => {
           <AdminCard />
           <p onClick={closeAdminCard}>Close</p>
         </div>
-        
       )}
-        {showLogoutCard && (
+      {showLogoutCard && (
         <div className="modal">
           <LogOutCard />
           <p onClick={closeLogoutCard}>Close</p>
         </div>
-        
       )}
     </>
   );
 };
 
 export default Root;
-
-
-
-
