@@ -6,16 +6,19 @@ import Notification from "../Assets/Icons/notif.svg";
 import PlusB from "../Assets/Icons/plusb.svg";
 import AddCategoryModal from "../Components/AddCategoryModal/AddCategoryModal";
 import UpdateQuestionsModal from "../Components/UpdateQuestionsModal/UpdateQuestionsModal";
+import SendNotificationModal from "../Components/SendNotificationModal/SendNotificationModal";
 import "../Styles/Button.css";
 
 const Button = () => {
   const [isAddCategoryModalVisible, setAddCategoryModalVisibility] = useState(false);
 const [isUpdateQuestionModalVisible, setIsUpdateQuestionModalVisibility] = useState(false);
-
+const [isSendNotificationModalVisible, setIsSendNotificationModalVisibility] = useState(false);
 
 
   const openAddCategoryModal = () => {
     setAddCategoryModalVisibility(true);
+    setIsUpdateQuestionModalVisibility(false);
+    setIsSendNotificationModalVisibility(false);
   };
 
   const closeAddCategoryModal = () => {
@@ -24,12 +27,24 @@ const [isUpdateQuestionModalVisible, setIsUpdateQuestionModalVisibility] = useSt
 
   const openUpdateQuestionModal = () => {
     setIsUpdateQuestionModalVisibility(true);
+    setAddCategoryModalVisibility(false);
+    setIsSendNotificationModalVisibility(false);
   };
 
   const closeUpdateQuestionModal = () => {
     setIsUpdateQuestionModalVisibility(false);
   };
 
+
+  const openSendNotificationModal = () =>{
+    setIsSendNotificationModalVisibility(true);
+    setAddCategoryModalVisibility(false);
+    setIsUpdateQuestionModalVisibility(false);
+  }
+
+  const closeSendNotificationModal = () => {
+    setIsSendNotificationModalVisibility (false);
+  }
   return (
     <>
       <div>
@@ -55,7 +70,7 @@ const [isUpdateQuestionModalVisible, setIsUpdateQuestionModalVisibility] = useSt
             </div>
             <img src={PlusB} alt="plus" />
           </button>
-          <button className="notif-btn">
+          <button className="notif-btn" onClick={openSendNotificationModal}>
             <div className="icons">
               <img src={Notification} alt="cate-icon" />
             </div>
@@ -68,12 +83,23 @@ const [isUpdateQuestionModalVisible, setIsUpdateQuestionModalVisibility] = useSt
 
           <AddCategoryModal
             isVisible={isAddCategoryModalVisible}
-            onClose={closeAddCategoryModal}
+            onClose={() => setAddCategoryModalVisibility(false)}
+
+            // onClose={closeAddCategoryModal}
           />
 
           <UpdateQuestionsModal
             isVisible={isUpdateQuestionModalVisible}
-            onClose={closeUpdateQuestionModal}
+            onClose={() => setIsUpdateQuestionModalVisibility(false)}
+
+            // onClose={closeUpdateQuestionModal}
+          />
+
+          <SendNotificationModal
+          isVisible = {isSendNotificationModalVisible}
+          onClose={() => setIsSendNotificationModalVisibility(false)}
+
+          // onClose={closeSendNotificationModal}
           />
         </div>
       </div>
