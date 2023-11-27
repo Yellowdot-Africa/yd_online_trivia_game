@@ -105,7 +105,7 @@ const HistoryModal = ({ closeModal, walletBalance }) => {
           <p className="modal-amount">
             {showBalance ? (
               <span className="dark-blue" data-aos="zoom-out">
-                N 8,000.00
+                N0
               </span>
             ) : (
               <span className="grey" data-aos="zoom-in">
