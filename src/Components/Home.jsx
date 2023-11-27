@@ -5,10 +5,11 @@ import Hero from "./Pages/Hero";
 import ContentSection from "./Pages/ContentSection";
 
 const Home = () => {
+
   return (
     <>
     <div className="home-wrapper">
-      <TopHeader />
+      <TopHeader/>
       <div className="container">
         <Hero />
         <ContentSection />

@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import axios from "axios";
 
-const HistoryModal = ({ closeModal }) => {
+const HistoryModal = ({ closeModal, walletBalance }) => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
@@ -25,6 +25,7 @@ const HistoryModal = ({ closeModal }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const token = sessionStorage.getItem("token");
   const userId = sessionStorage.getItem("userId");
+  // console.log("token", token);
 
   const navigate = useNavigate();
 

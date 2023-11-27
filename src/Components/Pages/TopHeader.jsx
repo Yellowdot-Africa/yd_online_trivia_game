@@ -12,6 +12,7 @@ const TopHeader = () => {
     AOS.refresh();
   });
   const [showModal, setShowModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleShowModal = () => {
     setShowModal(true);
@@ -21,8 +22,6 @@ const TopHeader = () => {
     setShowModal(false);
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -31,8 +30,8 @@ const TopHeader = () => {
     setIsModalOpen(false);
   };
   const location = useLocation();
-
-  const { gemsEarned, correctAnswers } = location.state || {};
+  const { user } = location.state || {};
+  // const { gemsEarned, correctAnswers } = location.state || {};
 
   return (
     <>
@@ -41,16 +40,17 @@ const TopHeader = () => {
           <div className="top-header">
             <div className="">
               <p className="amount" onClick={openModal}>
-                N1,000.00
+                N0
               </p>
+
               {isModalOpen && (
                 <HistoryModal data-aos="zoom-out-up" closeModal={closeModal} />
               )}
             </div>
             {/* <span className="d-flex justify-content-center align-items-center">
               {/* <img className="imgs p-2" src={Gem} alt="gem-img" />0 */}
-              {/* <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
-            </span> */} 
+            {/* <p className="nums-gems">+{gemsEarned || correctAnswers}</p>
+            </span> */}
             <div className="share-cont p-2">
               <p className="share" onClick={handleShowModal}>
                 Share

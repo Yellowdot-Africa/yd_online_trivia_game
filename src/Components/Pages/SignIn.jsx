@@ -29,6 +29,8 @@ const SignIn = () => {
   const [infoText, setInfoText] = useState("fill in appropriate info");
   const [handImage, setHandImage] = useState(HandPointUp);
   const [userRank, setUserRank] = useState("");
+  const [walletBalance, setWalletBalance] = useState(null);
+
   // const [users, setUsers] = useState([]);
   // const [user, setUser] = useState(null);
 
@@ -78,9 +80,11 @@ const SignIn = () => {
       if (response.status === 200) {
         sessionStorage.setItem("token", response.data.jwt);
         sessionStorage.setItem("userId", response.data.userID);
+        sessionStorage.setItem("walletBalance", response.data.walletBalance); 
+
         console.error(response.data);
 
-        navigate("/landingpage");
+        navigate("/landingpage" , { state: { walletBalance: response.data.walletBalance } });
         await createOrRenewToken();
 
       } else {
@@ -138,7 +142,6 @@ const createOrRenewToken = async () => {
     console.error("Token creation/renewal error:", error);
   }
 };
-
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
