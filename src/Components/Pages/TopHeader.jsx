@@ -3,10 +3,13 @@ import { React, useState, useEffect } from "react";
 import "../../Styles/TopHeader.css";
 import ShareModal from "../Common/ShareModal";
 import HistoryModal from "../../Components/Common/HistoryModal";
+import { useBalance } from "../../Components/Common/BalanceContext";
 import { useLocation } from "react-router-dom";
 import AOS from "aos";
 
 const TopHeader = () => {
+  const { walletBalance } = useBalance();
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();

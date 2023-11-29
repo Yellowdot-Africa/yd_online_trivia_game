@@ -2,9 +2,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CustomButton from "./CustomButton";
 import ErrorModal from "./ErrorModal";
+import { useBalance } from "../../Components/Common/BalanceContext";
+
+
 import "../../Styles/Deposit.css";
 
 const Deposit = ({ closeModal, loginDetails }) => {
+  const { walletBalance, updateBalance } = useBalance(); 
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
@@ -91,8 +95,10 @@ const Deposit = ({ closeModal, loginDetails }) => {
 
       if (!response.data.error) {
         const paymentUrl = response.data.data;
+        // updateBalance(response.data.data.updatedBalance);
 
         window.location.href = paymentUrl;
+        
       } else {
         if (response.data.error === "InvalidMSISDN") {
           setErrorMessage(

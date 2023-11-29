@@ -25,8 +25,7 @@ const CreateUser = () => {
   const token = sessionStorage.getItem("token");
 
   const [registrationData, setRegistrationData] = useState({
-    firstName: "",
-    lastName: "",
+    userName: "",
     email: "",
     msisdn: "",
     password: "",
@@ -38,8 +37,7 @@ const CreateUser = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const validationSchema = Yup.object().shape({
-    firstName: Yup.string().required("First Name is required"),
-    lastName: Yup.string().required("Last Name is required"),
+    userName: Yup.string().required("User Name is required"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
@@ -117,37 +115,19 @@ const CreateUser = () => {
           <div className="reg-form">
             <InputGroup className="mb-3">
               <Form.Control
-                placeholder="First Name"
-                aria-label="First Name"
+                placeholder="User Name"
+                aria-label="User Name"
                 onChange={(e) => {
                   setRegistrationData({
                     ...registrationData,
-                    firstName: e.target.value,
+                    userName: e.target.value,
                   });
                 }}
-                value={registrationData.firstName}
-                isInvalid={!!registrationError.firstName}
+                value={registrationData.userName}
+                isInvalid={!!registrationError.userName}
               />
               <Form.Control.Feedback type="invalid">
-                {registrationError.firstName}
-              </Form.Control.Feedback>
-            </InputGroup>
-
-            <InputGroup className="mb-3">
-              <Form.Control
-                placeholder="Last Name"
-                aria-label="Last Name"
-                onChange={(e) =>
-                  setRegistrationData({
-                    ...registrationData,
-                    lastName: e.target.value,
-                  })
-                }
-                value={registrationData.lastName}
-                isInvalid={!!registrationError.lastName}
-              />
-              <Form.Control.Feedback type="invalid">
-                {registrationError.lastName}
+                {registrationError.userName}
               </Form.Control.Feedback>
             </InputGroup>
 
@@ -213,8 +193,7 @@ const CreateUser = () => {
               disabled={
                 !registrationData.email ||
                 !registrationData.password ||
-                !registrationData.firstName ||
-                !registrationData.lastName ||
+                !registrationData.userName ||
                 !registrationData.msisdn
               }
               loading={loading}

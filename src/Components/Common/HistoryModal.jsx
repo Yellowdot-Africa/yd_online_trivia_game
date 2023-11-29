@@ -7,10 +7,14 @@ import Deposit from "../Common/Deposit";
 import Withdrawal from "../Common/Withdrawal";
 import ToggleSwitch from "../Common/ToggleSwitch";
 import { useNavigate } from "react-router-dom";
+import { useBalance } from "../../Components/Common/BalanceContext";
+
 import AOS from "aos";
 import axios from "axios";
 
-const HistoryModal = ({ closeModal, walletBalance }) => {
+const HistoryModal = ({ closeModal }) => {
+  const { walletBalance, updateBalance } = useBalance();
+
   useEffect(() => {
     AOS.init();
     AOS.refresh();
