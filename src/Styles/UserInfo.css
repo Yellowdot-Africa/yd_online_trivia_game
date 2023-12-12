@@ -1,0 +1,231 @@
+.user-stats-container {
+  width: 596px;
+  height: 315px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+  padding: 10px;
+}
+.gem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.gem-cont {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gemm {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+.gem-no {
+  color: #aeb2b8;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.prize {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-top: 20px; */
+}
+
+.prize-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prz {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.prz-no {
+  color: #aeb2b8;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.rank {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rank-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.player-rank {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.p-rank {
+  color: #aeb2b8;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.que {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.que-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.question {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.question-ans {
+  color: #aeb2b8;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.answers {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.answers-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ans {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ans-percent {
+  color: #aeb2b8;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cancel-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cancel-cancel-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cancel {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.cancel-percent {
+  color: #aeb2b8;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.money-cont {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.money-earnings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.total-earnings {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.earning {
+  color: #0f9836;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+}
+.user-headeer{
+    color: #3A464C;
+font-family: "Roboto";
+font-size: 20px;
+font-weight: 600;
+padding: 10px;
+}
+.user-info-card {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+  gap: 10px;
+  width: 596px;
+  height: 184px;
+}
+
+.phone-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.username-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registered-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

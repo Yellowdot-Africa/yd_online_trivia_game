@@ -1,0 +1,37 @@
+.footer-section {
+  background-color: #bab1cf;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-columns {
+  display: flex;
+}
+
+.column {
+  flex: 1;
+  padding: 20px;
+}
+
+.column h4 {
+  color: #191919;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.column a {
+  color: #191919;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+}
+.footer-logo {
+  padding-right: 10%;
+}
+
+@media (max-width: 768px) {
+}

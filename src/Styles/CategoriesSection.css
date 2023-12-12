@@ -1,0 +1,227 @@
+.category-container {
+  text-align: center;
+  padding: 20px;
+  background: #f2eefd;
+}
+
+.category-heading {
+  /* margin-bottom: 20px; */
+  margin: 35px;
+}
+.category-heading h4 {
+  color: #313131;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.category-heading p {
+  color: #585858;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 400;
+}
+.category-grid {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.category-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 32px;
+  background-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.4) 51.98%,
+    rgba(157, 120, 221, 0) 100%
+  );
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 309px;
+  height: 389px;
+  margin: 0 6.5px;
+}
+
+.football {
+  background-image: url("../assets/Images/football.png");
+}
+.football h4 {
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.football button {
+  border-radius: 35px;
+  background: #3a0f98;
+  border: none;
+  width: 100px;
+  height: 36px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.music {
+  background-image: url("../assets/Images/music.png");
+}
+.music h4 {
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 900;
+}
+.music button {
+  border-radius: 35px;
+  background: #3a0f98;
+  border: none;
+  width: 100px;
+  height: 36px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 900;
+}
+.history {
+  background-image: url("../assets/Images/history.png");
+}
+.history h4 {
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 900;
+}
+.history button {
+  border-radius: 35px;
+  background: #3a0f98;
+  border: none;
+  width: 100px;
+  height: 36px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 10px;
+  font-weight: 900;
+}
+.no {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  border-radius: 0px 0px 22px 22px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  width: 290px;
+  height: 33px;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 900;
+}
+.no img {
+  width: 14px;
+  height: 14px;
+}
+.moree {
+  margin: 25px;
+}
+
+.moree a {
+  color: #3e149b;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .category-container {
+        padding-bottom: 35px;
+      }
+  .category-heading h4 {
+    font-size: 24px;
+  }
+
+  .category-heading p {
+    font-size: 16px;
+  }
+  .category-grid {
+    /* grid-template-columns: repeat(2, 1fr);
+    margin: 10px; */
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+
+  .category-item {
+    width: 167px;
+    height: 235px;
+  }
+
+  .football h4 {
+    font-size: 20px;
+  }
+  .football button {
+    font-size: 8px;
+    width: 73px;
+    height: 23px;
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+  }
+
+  .music h4 {
+    font-size: 20px;
+  }
+  .music button {
+    font-size: 8px;
+    width: 73px;
+    height: 23px;
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+  }
+  .history h4 {
+    font-size: 20px;
+  }
+  .history button {
+    font-size: 8px;
+    width: 73px;
+    height: 23px;
+    position: absolute;
+    bottom: 50px;
+    left: 80px;
+  }
+
+  .no {
+    width: 149px;
+    height: 20px;
+    font-size: 12px;
+  }
+  .no img {
+    width: 10px;
+    height: 10px;
+  }
+
+  
+  .moree a {
+  
+    font-size: 18px;
+    position: absolute;
+    left: 20px;
+  }
+}

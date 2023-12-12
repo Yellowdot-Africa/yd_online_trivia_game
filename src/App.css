@@ -1,0 +1,15 @@
+:root {
+    --navbar-background-color: linear-gradient(90deg, #370c97 0%, rgba(55, 12, 151, 0.5) 55.87%, rgba(55, 12, 151, 0.5) 83.04%, rgba(55, 12, 151, 0.5) 100%, #fff 100%);
+  }
+
+
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* body{
+    background-image: linear-gradient(90deg, #370C97 0%, rgba(55, 12, 151, 0.50) 55.87%, rgba(55, 12, 151, 0.50) 83.04%, rgba(55, 12, 151, 0.50) 100%, #FFF 100%);;
+
+  } */

@@ -1,0 +1,42 @@
+.leaderboard-section h2{
+    color: #422671;
+    font-family: "Roboto";
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.leaderboard-section p{
+    color: #483A4C;
+font-family: "Roboto";
+font-size: 20px;
+font-weight: 600;
+}
+
+
+.leaderboard-cards{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.leaderboard-card{
+border-radius: 20px;
+border: 3px solid rgba(91, 44, 209, 0.30);
+background: #FFF;
+box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+width: 285px;
+height: 566px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+
+.leaderboards-card{
+    border-radius: 20px;
+background: #FFF;
+box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+width: 642px;
+/* height: 652px;  */
+}
