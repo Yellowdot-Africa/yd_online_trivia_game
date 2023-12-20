@@ -7,7 +7,7 @@ const ContactSection = () => {
       <h2>For support and enquiries, leave us your email address.</h2>
        <div className="email-form">
         <input type="email" placeholder="Enter email address" />
-        <button type="submit">Submit</button>
+        <button className="custom-button" type="submit">Submit</button>
       </div>
     </div>
   );

@@ -40,3 +40,8 @@ box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
 width: 642px;
 /* height: 652px;  */
 }
+
+.leaderboard-header{
+    display: flex;
+    justify-content: space-around;
+}

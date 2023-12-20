@@ -34,4 +34,9 @@
 }
 
 @media (max-width: 768px) {
+  .footer-logo img{
+    width: 85px;
+height: 15.367px;
+
+  }
 }

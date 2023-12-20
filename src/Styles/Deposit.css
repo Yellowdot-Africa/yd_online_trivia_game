@@ -1,0 +1,59 @@
+.deposit-modal-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .deposit-modal{
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+  }
+  .deposit-modal-container h3 {
+    color: #242424;
+    font-family: "Inter";
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+  }
+  .deposit-modal-container hr{
+      border: 3px solid #E7E7E7;
+      color: #E7E7E7 !important;
+      width: 100%;
+      opacity: none !important;
+  
+  
+  }
+  .deposit-modal-container p{
+      color: #242424;
+      font-family: "Inter";
+      font-size: 16px;
+      font-weight: 400;
+      text-align: center;
+      
+  
+  }
+  
+  .deposit-modal-container input{
+      border: 2px solid #303064;
+      border-radius: 10px;
+      margin: 20px;
+      width: 75%;
+  }
+  .deposit-modal-container input::placeholder{
+      color: #CDCDCD;
+  
+  }
+  
+  .error-message{
+      color: red !important;
+  }
+  
+  .success-message{
+      color: green !important;
+  }
+  
+  

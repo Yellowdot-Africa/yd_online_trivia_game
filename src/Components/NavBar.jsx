@@ -16,7 +16,9 @@ const NavBar = () => {
     >
       <Container>
         <Navbar.Brand href="#home">
-          <img src={Trophy} alt="logo" />
+          <img src={Trophy} alt="logo"width="30"
+            height="30" className="d-inline-block align-top"
+            />
           YDTRIVIA
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

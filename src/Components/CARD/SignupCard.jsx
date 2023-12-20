@@ -14,12 +14,14 @@ const SignupCard = () => {
   const [step, setStep] = useState(1);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordConfirmed, setPasswordConfirmed] = useState(false);
   const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
   const [usernameFocus, setUsernameFocus] = useState(false);
+  const [emailFocus, setEmailFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -52,6 +54,10 @@ const SignupCard = () => {
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -66,6 +72,14 @@ const SignupCard = () => {
 
   const handlePhoneNumberBlur = () => {
     setPhoneNumberFocus(false);
+  };
+
+  const handleEmailFocus = () => {
+    setEmailFocus(true);
+  };
+
+  const handleEmailBlur = () => {
+    setEmailFocus(false);
   };
 
   const handleUsernameFocus = () => {
@@ -209,6 +223,25 @@ const SignupCard = () => {
                 {phoneNumberFocus && (
                   <p className="input-text">
                     Please input a valid phone number
+                  </p>
+                )}
+              </Form.Group>{" "}
+              <br />
+              <Form.Group controlId="formEmail">
+                <Form.Control
+                  className={`form-control ${
+                    emailFocus ? "focused" : ""
+                  } ${registrationError.email ? "is-invalid" : ""}`}
+                  type="tel"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  onFocus={handleEmailFocus}
+                  onBlur={handleEmailBlur}
+                />
+                {emailFocus && (
+                  <p className="input-text">
+                    Please input a valid email
                   </p>
                 )}
               </Form.Group>{" "}

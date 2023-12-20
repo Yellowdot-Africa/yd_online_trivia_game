@@ -5,7 +5,10 @@ import Wrapper from "./Components/Wrapper";
 const App = () => {
   return (
     <>
-      <Wrapper/>
+    <div className="app-container">
+    <Wrapper/>
+
+    </div>
     </>
   );
 };

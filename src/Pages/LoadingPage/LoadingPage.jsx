@@ -25,7 +25,7 @@ const LoadingPage = () => {
 
         const continueButtonTimer = setTimeout(() => {
           setShowContinueButton(true);
-        }, 60000);
+        }, 2000);
 
         return () => {
           clearTimeout(continueButtonTimer);

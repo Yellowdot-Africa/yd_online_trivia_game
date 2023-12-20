@@ -26,6 +26,18 @@ const LeaderBoard = () => {
               <h3>Name</h3>
               <p>Score</p>
             </div>
+            <div className="leaderboard-details">
+              <div>
+                <p>1</p>
+                <img src="" alt="img" />
+              </div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
         </div>
       </div>

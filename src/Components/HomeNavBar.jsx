@@ -35,13 +35,13 @@ const HomeNavBar = () => {
               </Nav.Link>
             </Nav>
             <Nav className="custom-nav">
-              <Nav.Link className="custom-navlink" href="#deets">
+              <Nav.Link className="custom-navlink" as={Link} to="/account">
                 Acct:N1,050.00{" "}
               </Nav.Link>
-              <Nav.Link className="custom-navimg" href="#deets">
+              <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
                 <img src={HomeIcon} alt="home" />{" "}
               </Nav.Link>
-              <Nav.Link className="custom-navimg" href="#deets">
+              <Nav.Link className="custom-navimg" as={Link} to="/settings">
                 <img src={Settings} alt="setting" />
               </Nav.Link>
             </Nav>

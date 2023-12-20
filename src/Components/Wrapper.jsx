@@ -7,7 +7,9 @@ import LoadingPage from "../Pages/LoadingPage/LoadingPage";
 import HomePage from "../Pages/HomePage/HomePage";
 import UserStats from "../Pages/UserStats/UserStats";
 import LeaderBoard from "../Pages/LeaderBoard/LeaderBoard";
-
+import Rules from "../Pages/Rules/Rules";
+import Settings from "../Pages/Settings/Settings";
+import HistoryModal from "../Pages/History/HistoryModal";
 
 
 const router = createBrowserRouter([
@@ -40,6 +42,22 @@ const router = createBrowserRouter([
 {
   path: "/leaderboard",
   element: <LeaderBoard/>
+},
+{
+  path: "/rules-faqs",
+  element: <Rules/>
+},
+{
+  path: "/rules-faqs",
+  element: <Rules/>
+},
+{
+  path: "/account",
+  element: <HistoryModal/>
+},
+{
+  path: "/settings",
+  element: <Settings/>
 },
   
 ]);

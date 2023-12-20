@@ -26,8 +26,8 @@
   padding: 10px;
 }
 
-.email-form button {
-  border-radius: 0px 10px 10px 0px;
+.email-form .custom-button {
+  border-radius: 0px 10px 10px 0px !important;
   border: 2px solid #bab4c8;
   background: #4c3385;
   width: 160px;

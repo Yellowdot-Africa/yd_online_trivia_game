@@ -24,12 +24,10 @@
   font-weight: 400;
 }
 .category-grid {
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 
 .category-item {
   background-size: cover;
@@ -62,16 +60,18 @@
   font-weight: 900;
 }
 
-.football button {
+.football .cate-button {
   border-radius: 35px;
   background: #3a0f98;
   border: none;
-  width: 100px;
-  height: 36px;
+  width: 89px;
+  height: 27px;
   color: #fff;
   font-family: "Roboto";
   font-size: 10px;
   font-weight: 900;
+  position: absolute;
+  bottom: 8px;
 }
 
 .music {
@@ -83,17 +83,25 @@
   font-size: 30px;
   font-weight: 900;
 }
-.music button {
+.music .cate-button {
   border-radius: 35px;
   background: #3a0f98;
   border: none;
-  width: 100px;
-  height: 36px;
+  width: 89px;
+  height: 27px;
   color: #fff;
   font-family: "Roboto";
   font-size: 10px;
   font-weight: 900;
+  position: absolute;
+  bottom: 8px;
 }
+
+.movie {
+  background-image: url("../assets/Images/movie.png");
+  display: none;
+}
+
 .history {
   background-image: url("../assets/Images/history.png");
 }
@@ -103,21 +111,23 @@
   font-size: 30px;
   font-weight: 900;
 }
-.history button {
+.history .cate-button {
   border-radius: 35px;
   background: #3a0f98;
   border: none;
-  width: 100px;
-  height: 36px;
+  width: 89px;
+  height: 27px;
   color: #fff;
   font-family: "Roboto";
   font-size: 10px;
   font-weight: 900;
+  position: absolute;
+  bottom: 8px;
 }
 .no {
   position: absolute;
   bottom: 10px;
-  left: 10px;
+  left: 7px;
   display: flex;
   align-items: center;
   padding-left: 20px;
@@ -125,11 +135,30 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(50px);
   width: 290px;
-  height: 33px;
+  height: 43px;
   color: #fff;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 900;
+}
+.play-now-cont {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.play-no {
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 900;
+  padding-top: 15px;
+}
+.play-contn {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 75%;
+  gap: 5px;
 }
 .no img {
   width: 14px;
@@ -147,11 +176,119 @@
   font-weight: 700;
   text-decoration: none;
 }
+@media screen and (max-width: 283px) {
 
-@media (max-width: 768px) {
-    .category-container {
-        padding-bottom: 35px;
-      }
+  .category-heading {
+    margin: 0;
+  }
+  .category-heading h4 {
+    font-size: 24px;
+  }
+  .category-heading p {
+    font-size: 16px;
+  }
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .category-item {
+    width: 117px;
+    height: 218px;
+  }
+
+  .football h4 {
+    font-size: 20px;
+  }
+  .football .cate-button {
+    font-size: 7px;
+    width: 43px;
+    height: 18px;
+    left: 7px;
+  
+  }
+
+  .movie {
+    background-image: url("../assets/Images/movie.png");
+    display: block;
+  }
+
+  .movie h4 {
+    font-size: 20px;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .movie .cate-button {
+    font-size: 7px;
+    width: 43px;
+    height: 18px;
+    position: absolute;
+    left: 7px;
+    border-radius: 35px;
+    background: #3a0f98;
+    color: #fff;
+    font-family: "Roboto";
+  }
+
+  .music h4 {
+    font-size: 20px;
+  }
+  .music .cate-button {
+    font-size: 7px;
+    width: 43px;
+    height: 18px;
+    left: 7px;
+
+  }
+  .history h4 {
+    font-size: 20px;
+  }
+  .history .cate-button {
+    font-size: 7px;
+    width: 43px;
+    height: 18px;
+    left: 7px;
+
+  }
+
+  .no {
+    width: 105px;
+    height: 40px;
+    font-size: 12px;
+  }
+  .no img {
+    width: 10px;
+    height: 10px;
+  }
+  .play-no {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 8px;
+    font-weight: 900;
+  }
+  .play-contn {
+    left: 57%;
+    top: 0px;
+
+  }
+  .moree a {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+
+
+}
+
+@media only screen and (min-width: 285px) and (max-width: 767px){
+  .category-container {
+    padding-bottom: 35px;
+  }
   .category-heading h4 {
     font-size: 24px;
   }
@@ -160,11 +297,9 @@
     font-size: 16px;
   }
   .category-grid {
-    /* grid-template-columns: repeat(2, 1fr);
-    margin: 10px; */
-    display: flex;
-  justify-content: center;
-  align-items: center;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
   .category-item {
@@ -175,53 +310,103 @@
   .football h4 {
     font-size: 20px;
   }
-  .football button {
+  .football .cate-button {
     font-size: 8px;
-    width: 73px;
-    height: 23px;
-    position: absolute;
-    bottom: 50px;
-    left: 80px;
+    width: 53px;
+    height: 18px;
+  
+  }
+
+  .movie {
+    background-image: url("../assets/Images/movie.png");
+    display: block;
+  }
+
+  .movie h4 {
+    font-size: 20px;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .movie .cate-button {
+    font-size: 8px;
+    width: 53px;
+    height: 18px;
+    /* bottom: 1px; */
+    border-radius: 35px;
+    background: #3a0f98;
+    color: #fff;
+    font-family: "Roboto";
   }
 
   .music h4 {
     font-size: 20px;
   }
-  .music button {
+  .music .cate-button {
     font-size: 8px;
-    width: 73px;
-    height: 23px;
-    position: absolute;
-    bottom: 50px;
-    left: 80px;
+    width: 53px;
+    height: 18px;
+    /* bottom: 1px; */
   }
   .history h4 {
     font-size: 20px;
   }
-  .history button {
+  .history .cate-button {
     font-size: 8px;
-    width: 73px;
-    height: 23px;
-    position: absolute;
-    bottom: 50px;
-    left: 80px;
+    width: 53px;
+    height: 18px;
+    /* bottom: 1px; */
   }
 
   .no {
-    width: 149px;
-    height: 20px;
+    width: 157px;
+    height: 40px;
     font-size: 12px;
   }
   .no img {
     width: 10px;
     height: 10px;
   }
+  .play-no {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 10px;
+    font-weight: 900;
+  }
+  .play-contn {
+    left: 66%;
 
-  
+  }
   .moree a {
-  
     font-size: 18px;
-    position: absolute;
-    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+  }
+}
+@media  screen and (min-width: 768px) and (max-width:819px) {
+.no{
+  width: 214px;
+}
+.play-contn {
+  left: 68%;
+
+}
+
+
+}
+
+@media screen and (min-width: 820px) and (max-width:824px){
+  .no{
+    width: 232px;
+  }
+}
+
+@media screen and (min-width: 825px) and (max-width:920px){
+  .no{
+    width: 261px;
   }
 }
