@@ -5,14 +5,13 @@
 }
 
 .category-heading {
-  /* margin-bottom: 20px; */
   margin: 35px;
 }
 .category-heading h4 {
   color: #313131;
   text-align: center;
   font-family: "Roboto";
-  font-size: 38px;
+  font-size: 48px;
   font-weight: 900;
 }
 
@@ -20,7 +19,7 @@
   color: #585858;
   text-align: center;
   font-family: "Roboto";
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
 }
 .category-grid {
@@ -177,7 +176,6 @@
   text-decoration: none;
 }
 @media screen and (max-width: 283px) {
-
   .category-heading {
     margin: 0;
   }
@@ -205,7 +203,6 @@
     width: 43px;
     height: 18px;
     left: 7px;
-  
   }
 
   .movie {
@@ -241,7 +238,6 @@
     width: 43px;
     height: 18px;
     left: 7px;
-
   }
   .history h4 {
     font-size: 20px;
@@ -251,7 +247,6 @@
     width: 43px;
     height: 18px;
     left: 7px;
-
   }
 
   .no {
@@ -272,20 +267,16 @@
   .play-contn {
     left: 57%;
     top: 0px;
-
   }
   .moree a {
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-   
   }
-
-
 }
 
-@media only screen and (min-width: 285px) and (max-width: 767px){
+@media only screen and (min-width: 285px) and (max-width: 767px) {
   .category-container {
     padding-bottom: 35px;
   }
@@ -314,7 +305,6 @@
     font-size: 8px;
     width: 53px;
     height: 18px;
-  
   }
 
   .movie {
@@ -334,7 +324,6 @@
     font-size: 8px;
     width: 53px;
     height: 18px;
-    /* bottom: 1px; */
     border-radius: 35px;
     background: #3a0f98;
     color: #fff;
@@ -348,7 +337,6 @@
     font-size: 8px;
     width: 53px;
     height: 18px;
-    /* bottom: 1px; */
   }
   .history h4 {
     font-size: 20px;
@@ -357,7 +345,6 @@
     font-size: 8px;
     width: 53px;
     height: 18px;
-    /* bottom: 1px; */
   }
 
   .no {
@@ -377,36 +364,31 @@
   }
   .play-contn {
     left: 66%;
-
   }
   .moree a {
     font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-   
   }
 }
-@media  screen and (min-width: 768px) and (max-width:819px) {
-.no{
-  width: 214px;
-}
-.play-contn {
-  left: 68%;
-
-}
-
-
+@media screen and (min-width: 768px) and (max-width: 819px) {
+  .no {
+    width: 214px;
+  }
+  .play-contn {
+    left: 68%;
+  }
 }
 
-@media screen and (min-width: 820px) and (max-width:824px){
-  .no{
+@media screen and (min-width: 820px) and (max-width: 824px) {
+  .no {
     width: 232px;
   }
 }
 
-@media screen and (min-width: 825px) and (max-width:920px){
-  .no{
+@media screen and (min-width: 825px) and (max-width: 920px) {
+  .no {
     width: 261px;
   }
 }

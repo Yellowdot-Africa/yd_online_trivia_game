@@ -36,6 +36,14 @@
   height: 50px;
 }
 
+@media only screen and (min-width: 263px) and (max-width: 283px) {
+.hero-btn-container{
+  position: absolute;
+  right: 22%;
+}
+
+
+}
 
 @media (max-width: 768px) {
     .hero-section {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../../Styles/LoadingGame.css";
+import "../LoadingGame/LoadingGame.css";
 import ProgressBar from "../../Components/Common/ProgressBar";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -111,6 +111,11 @@ const LoadingGame = () => {
 };
 
 export default LoadingGame;
+
+
+
+
+
 
 
 

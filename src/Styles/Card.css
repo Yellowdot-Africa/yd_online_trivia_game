@@ -104,16 +104,15 @@
 .custom-modal {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
   position: absolute;
-  top: -50px;
+  top: -90px;
   left: -40px;
 }
 
 .modal-header {
   border-bottom: none;
- 
 }
-.btn-close:focus{
-box-shadow: none;
+.btn-close:focus {
+  box-shadow: none;
 }
 .header-content {
   display: flex;
@@ -231,10 +230,42 @@ box-shadow: none;
   font-family: "Roboto";
   font-size: 12px;
   font-weight: 700;
-  
 }
+@media only screen and (min-width: 263px) and (max-width: 283px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    width: 268px;
+    height: 620px;
+    padding: 10px;
+    top: -30px;
+  }
+  .first-card,
+  .second-card,
+  .third-card {
+    width: 300px;
+    height: 200px;
+  }
 
-@media (max-width: 768px) {
+  .modal-content {
+    border-radius: 0px;
+  }
+  .custom-modal {
+    top: 215px;
+    left: 0px;
+  }
+
+  .form-control {
+    width: 225px;
+    height: 40px;
+  }
+
+  .sign-up-button {
+    width: 220px;
+    height: 40px;
+  }
+}
+@media only screen and (min-width: 285px) and (max-width: 535px) {
   .card-container {
     flex-direction: column;
     align-items: center;
@@ -268,5 +299,97 @@ box-shadow: none;
   }
   .third-card h3 {
     padding: 5px;
+  }
+
+
+  .modal-content {
+    border-radius: 0px;
+    width: 330px;
+  }
+  .custom-modal {
+    top: 344px;
+    left: 12px;
+  }
+  .form-control {
+    width: 225px;
+    height: 40px;
+  }
+
+  .sign-up-button {
+    width: 220px;
+    height: 40px;
+  }
+}
+
+
+@media only screen and (min-width: 536px) and (max-width: 762px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    height: 517px;
+    top: -30px;
+    margin: 0 auto;
+  }
+
+  .first-card,
+  .second-card,
+  .third-card {
+    width: 305px;
+    height: 149px;
+  }
+
+  .first-card img,
+  .second-card img,
+  .third-card img {
+    display: flex;
+    align-items: flex-end;
+    width: 21px;
+  }
+
+  .first-card h3 {
+    padding-top: 5px;
+  }
+
+  .second-card h3 {
+    padding: 10px 0;
+  }
+  .third-card h3 {
+    padding: 5px;
+  }
+
+
+  .modal-content {
+    border-radius: 0px;
+    width: 490px;
+  }
+  .custom-modal {
+    top: 344px;
+    left: 12px;
+  }
+  .form-control {
+    width: 225px;
+    height: 40px;
+  }
+
+  .sign-up-button {
+    width: 220px;
+    height: 40px;
+  }
+}
+@media only screen and (min-width: 763px) and (max-width: 913px) {
+  .card-container {
+    width: 743px;
+    padding: 20px;
+  }
+  .first-card,
+  .second-card {
+    width: 359px;
+    height: 204px;
+  }
+
+  .third-card {
+    width: 359px;
+    height: 204px;
   }
 }

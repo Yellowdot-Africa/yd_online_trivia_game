@@ -35,6 +35,17 @@
 
 }
 
+ 
+.progress-bar {
+  background-color: #230640 !important;
+  color: #f0f0f0 !important;
+}
+
+/* .progressbar {
+  margin-top: 50px;
+  padding: 10px;
+} */
+
 .welcome-content {
   display: flex;
   flex-direction: column;

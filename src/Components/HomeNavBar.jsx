@@ -10,7 +10,7 @@ import "../Styles/HomeNavBar.css";
 const HomeNavBar = () => {
   return (
     <>
-    <div id="navbar"/>
+      <div id="navbar" />
       <Navbar collapseOnSelect expand="lg" className="nav-bgg">
         <Container>
           <Navbar.Brand href="#home">
@@ -20,7 +20,9 @@ const HomeNavBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto">
+            {/* Nav items for desktop view */}
+
+            <Nav className="me-auto  d-none d-lg-flex">
               <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
@@ -46,9 +48,21 @@ const HomeNavBar = () => {
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
+          {/* Nav items for mobile view */}
+          <Nav className="custom-nav d-lg-none">
+            <div className="nav-mobile">
+            <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
+              <img src={Settings} alt="setting" />
+            </Nav.Link>
+            <Nav.Link className="custom-navimg" as={Link} to="/settings">
+              <img src={HomeIcon} alt="home" />
+            </Nav.Link>
+            
+            </div>
+           
+          </Nav>
         </Container>
       </Navbar>
-    
     </>
   );
 };

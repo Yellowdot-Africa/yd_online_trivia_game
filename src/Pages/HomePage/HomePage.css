@@ -15,6 +15,10 @@
   font-weight: 700;
 }
 
+.homee-deetails {
+  display: none;
+}
+
 .special-games-section h2 {
   color: #3a464c;
   font-family: "Roboto";
@@ -64,19 +68,17 @@
   font-weight: 600;
 }
 
-.cards-containers{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 10px;
-
-
-   
+.more-llink{
+  display: none;
+}
+.cards-containers {
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 9fr;
+  grid-gap: 20px;
 }
 
 .popular-categories-card,
-.popular-categories-column
- {
+.popular-categories-column {
   background-color: rgba(217, 217, 217, 1);
   display: flex;
   flex-direction: column;
@@ -86,24 +88,169 @@
   border-radius: 10px;
   width: 180px;
   height: 204px;
-
-
 }
 
 .popular-categories-card h4,
-.popular-categories-column h4{
-
-    color: #3A464C;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 800;
-    
-
+.popular-categories-column h4 {
+  color: #3a464c;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 800;
 }
 
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+  .navbar-toggler-icon,
+  .navbar-brand {
+    display: none !important;
+  }
+  .nav-bgg {
+    width: 390px;
+    height: 286px;
+    border-radius: 0px 0px 28px 28px;
+    background: #7f2cd1;
+  }
 
+  .custom-nav {
+    position: absolute;
+    top: 23px;
+  }
 
+  .nav-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 340px;
+    height: 40px;
+  }
 
+  .nav-link {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid #982cdb;
+    background: #973cf2;
+    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+  }
+  .welcome-section {
+    position: absolute;
+    top: 92px;
+    left: 15px;
+  }
 
-  
+  .welcome-section h1 {
+    color: #e2e5f8;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .homee-deetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 345px;
+  }
+
+  .homee-deetails p {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 32px;
+    font-weight: 700;
+  }
+  .homee-deetails .customs-link {
+    width: 128px;
+    height: 34px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #432671;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .customs-link .link {
+    color: #e1c4ff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .special-games-section h2 {
+    display: none;
+  }
+
+  .cards-container {
+    position: relative;
+    top: -150px;
+    flex-wrap: nowrap;
+    
+  }
+
+  .special-game-card {
+    width: 159px;
+    height: 185px;
+  }
+
+  .special-game-card h3 {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .special-game-card h4 {
+    color: #fffefe;
+    font-family: "Roboto";
+    font-size: 28px;
+    font-weight: 900;
+  }
+
+  .special-game-card img {
+    width: 52px;
+    height: 38px;
+  }
+  .pop-categories-link{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .more-llink{
+    display: block;
+    color: #C315EF;
+/* text-align: right; */
+font-family: "Roboto";
+font-size: 14px;
+font-weight: 900;
+text-decoration: none;
+  }
+
+  .cards-containers{
+    display: grid;
+    grid-template-columns: 2fr 2fr ;
+    grid-gap: 20px;
+  }
+
+  .popular-categories-card,
+  .popular-categories-column{
+    width: 141px;
+height: 160px;
+  }
+
+  .icon-content-section{
+    background: #7F2CD1;
+    width: 390px;
+height: 102px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+  }
+  .icon-content-section img{
+    width: 24px;
+height: 24px;
+  }
+}

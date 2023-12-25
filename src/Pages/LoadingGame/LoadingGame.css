@@ -1,0 +1,76 @@
+.loading-game-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40%;
+  
+  }
+  .loading-game {
+   height: 50vh;
+  }
+  
+  /* .loading-game h4 {
+    text-align: center !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: 48px !important;
+    font-style: normal !important;
+    font-weight: 700 !important;
+  } */
+  
+  .loading-game p {
+    color: #e6e6e6 !important;
+    text-align: center !important;
+    font-family: "Inter", sans-serif !important;
+    font-size: 16px !important;
+    font-style: italic !important;
+    font-weight: 700 !important;
+  }
+  
+  .football-img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15%;
+  }
+  
+  .football-img img{
+    width: 100%;
+    border-radius: 50%;
+  }
+  
+  
+  .progress-bar {
+    background-color: #3834ab !important;
+    color: #f0f0f0 !important;
+  }
+  
+  .progressbar {
+    margin-top: 50px;
+    padding: 10px;
+  }
+  
+  .countdown-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .count {
+    background-color: #f0f0f0;
+    border-radius: 6px;
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .count .num {
+    color: #3b37a9 !important;
+    text-align: center !important;
+    font-family: "Inter";
+    font-size: 36px !important;
+    font-style: normal;
+    font-weight: 700;
+  }
+  
+  
+  
