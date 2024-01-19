@@ -1,0 +1,17 @@
+.icon-content-section{
+    display: none;
+}
+
+
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+
+    .icon-content-section{
+        display: block;
+        position:absolute ;
+        bottom: -151px;
+    }
+
+
+}
+
+

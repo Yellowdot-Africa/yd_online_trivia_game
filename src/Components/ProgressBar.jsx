@@ -6,16 +6,15 @@ const ProgressBar = (props) => {
   const containerStyles = {
     height: 8,
     width: "100%",
-    backgroundColor: "#9334AB",
+    backgroundColor: "#F0F0F0",
     borderRadius: 50,
-
   };
 
   const fillerStyles = {
     height: "100%",
     width: `${completed}%`,
-    backgroundColor: bgcolor,
-    transition: "width 1s ease-in-out",
+    backgroundColor: completed < 100 ? "#9334AB" : bgcolor,
+    transition: "width 1s ease-in-out,background-color 1s ease-in-out",
     borderRadius: "inherit",
     textAlign: "right",
   };

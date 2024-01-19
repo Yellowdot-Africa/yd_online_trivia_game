@@ -1,15 +1,12 @@
-.modal-cont {
+.history-modal-cont {
   display: block;
   position: fixed;
-  top: -20%;
+  top: 39%;
   left: 70%;
-  /* width: 40%; */
   width: 400px;
-  /* height: 338px; */
-  /* padding: 1em; */
 }
 
-.modal-content-cont {
+.history-modal-content-cont {
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
@@ -38,7 +35,7 @@
 
 .close {
   color: #fff;
-  background-color: #C89BD4;
+  background-color: #c89bd4;
   border-radius: 50%;
   padding: 5px;
   float: right;
@@ -85,7 +82,7 @@
   font-size: 30px;
 }
 
-.line{
+.line {
   width: 284.002px;
   height: 0px;
 }
@@ -152,4 +149,16 @@ li {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 730px) {
+  .nav-bgg {
+    display: block;
+  }
+
+  .history-modal-cont {
+    position: absolute;
+    top: 290px;
+    left: -14px;
+  }
 }

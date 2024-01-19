@@ -4,6 +4,8 @@
 
 .nav-bgg{
     background-color: #7E2CD1;
+    padding: 23px 140px;
+    
 }
 
 .navbar-brand {
@@ -38,4 +40,14 @@ justify-content: center;
 .custom-navimg{
     border-radius: 8px;
 background: #432671;
+}
+
+
+
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+
+.nav-bgg{
+    padding: 10px;
+}
+
 }

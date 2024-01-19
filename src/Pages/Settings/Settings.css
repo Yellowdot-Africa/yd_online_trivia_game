@@ -3,14 +3,15 @@
   width: 534px;
   height: 883px;
 }
-
+.back-icon{
+  display: none;
+}
 .settings h1 {
   color: #b3b3b3;
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 700;
   padding: 35px 136px;
-
 }
 
 .sound-lang {
@@ -18,21 +19,19 @@
   box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
   width: 534px;
   height: 202px;
-  
 }
 
 .sound {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 29px 71px 38.95px  107px;
+  padding: 29px 71px 38.95px 107px;
 }
 .sound-text {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
-
 }
 
 .sound-text p {
@@ -43,13 +42,11 @@
   padding-top: 15px;
 }
 
-
 .language-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:0 107px  ;
-  
+  padding: 0 107px;
 }
 .language-container p {
   color: #dcdee5;
@@ -63,7 +60,6 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
-
 }
 .default {
   display: flex;
@@ -76,30 +72,58 @@
   padding: 10px;
 }
 
+.slider-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #df03f2;
+  /* margin: 15px; */
+}
 
+.slider-disbled {
+  background-color: #e5e5e5;
+}
 
-  .slider-slider {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 100%;
-    height: 5px;
-    border-radius: 5px;
-    background-color: #DF03F2;
-    /* margin: 15px; */
+::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #df03f2;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 730px) {
+  .nav-bgg {
+    display: none;
   }
-  
-  
-  .slider-disbled {
-    background-color: #e5e5e5;
+  .settings {
+    width: 390px;
   }
-  
-  
-  ::-webkit-slider-thumb {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background-color: #DF03F2;
-    border-radius: 50%;
-    cursor: pointer;
+  .settings .back-icon {
+    display: block;
+    position: absolute;
+    top: 44px;
+    left: 25px;
   }
+
+  .sound-lang {
+    width: 350px;
+    height: 202px;
+    margin: 12px;
+    border-radius: 20px 20px 0px 0px;
+    background: #3e1f66;
+    box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+  }
+
+  .sound{
+    padding: 26px 42px;
+  }
+
+  .language-container{
+    padding: 4px 42px;
+  }
+}

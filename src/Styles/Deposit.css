@@ -21,9 +21,9 @@
   }
   .deposit-modal-container hr{
       border: 3px solid #E7E7E7;
-      color: #E7E7E7 !important;
+      color: #E7E7E7 ;
       width: 100%;
-      opacity: none !important;
+      opacity: none ;
   
   
   }
@@ -49,11 +49,15 @@
   }
   
   .error-message{
-      color: red !important;
+      color: red;
   }
   
   .success-message{
-      color: green !important;
+      color: green ;
   }
   
-  
+  @media only screen and (min-width: 263px) and (max-width: 730px) {
+
+
+
+  }

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 // import { useBalance } from "../../Components/Common/BalanceContext";
 
 import axios from "axios";
+import HomeFootIcon from "../../Components/HomeFootIcon";
 
 const HistoryModal = ({ closeModal }) => {
 //   const { walletBalance, updateBalance } = useBalance();
@@ -93,8 +94,8 @@ const HistoryModal = ({ closeModal }) => {
   return (
     <>
 <HomeNavBar/>
-    <div className="modal-cont">
-      <div className="modal-content-cont">
+    <div className="history-modal-cont">
+      <div className="history-modal-content-cont">
         <div className="modal-text">
           <p className="">Current balance</p>
 
@@ -196,6 +197,7 @@ const HistoryModal = ({ closeModal }) => {
         </div>
       </div>
     </div>
+    <HomeFootIcon/>
     </>
   );
 };

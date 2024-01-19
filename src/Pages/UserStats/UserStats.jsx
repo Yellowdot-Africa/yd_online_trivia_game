@@ -3,10 +3,11 @@ import HomeNavBar from '../../Components/HomeNavBar';
 import Avatar from "../../Components/Avatar";
 import UserInfo from '../../Components/UserInfo';
 import "../UserStats/UserStats.css";
+import HomeFootIcon from '../../Components/HomeFootIcon';
 
 const UserStats =()=> {
   return (
-    <div>
+    <>
         <HomeNavBar/>
         <div className="profile-container">
         <div className="profile-header">
@@ -18,11 +19,15 @@ const UserStats =()=> {
           <div className='user-stats'>
         <h4>User Stats</h4>
           <UserInfo />
+
         </div>
+
         </div>
        
       </div>
-    </div>
+      <HomeFootIcon/>
+
+    </>
   )
 }
 

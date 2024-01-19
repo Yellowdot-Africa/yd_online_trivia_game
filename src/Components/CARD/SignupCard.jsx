@@ -3,6 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Card1 from "../../assets/Images/card1-icon.png";
 import { useNavigate } from "react-router-dom";
+import LoginModal from "../../Components/LoginModal";
 import axios from "axios";
 import * as Yup from "yup";
 import "../../Styles/Card.css";
@@ -12,9 +13,9 @@ const SignupCard = () => {
 
   const [showModal, setShowModal] = useState(false);
   const [step, setStep] = useState(1);
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [msisdn, setMsisdn] = useState("");
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("")
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -29,11 +30,19 @@ const SignupCard = () => {
   const [success, setSuccess] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [userExistsError, setUserExistsError] = useState(null);
+  const [showLoginModal, setShowLoginModal] = useState(false);
+
+
 
   const token = sessionStorage.getItem("token");
+  // console.log("token", token);
+  console.log("Token:", token);
+
 
   const handleShowModal = () => {
     setShowModal(true);
+    setShowLoginModal(true);
     document.body.classList.add("blur");
   };
 
@@ -47,8 +56,8 @@ const SignupCard = () => {
     setStep(step + 1);
   };
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
+  const handleMsisdnChange = (e) => {
+    setMsisdn(e.target.value);
   };
 
   const handleUsernameChange = (e) => {
@@ -117,10 +126,8 @@ const SignupCard = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-
-
   const validationSchema = Yup.object().shape({
-    phoneNumber: Yup.string().required("Please input a valid phone number"),
+    msisdn: Yup.string().required("Please input a valid phone number"),
     username: Yup.string().required("Pick a username"),
     password: Yup.string()
       .required("Password is required")
@@ -135,7 +142,7 @@ const SignupCard = () => {
 
     try {
       await validationSchema.validate(
-        { phoneNumber, username, password, confirmPassword },
+        { msisdn, username, password, confirmPassword },
         { abortEarly: false }
       );
 
@@ -143,10 +150,10 @@ const SignupCard = () => {
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/CreateUser",
 
         {
-          phoneNumber,
+          msisdn,
           username,
+          email,
           password,
-          confirmPassword,
         },
         {
           headers: {
@@ -160,8 +167,10 @@ const SignupCard = () => {
       console.log("User registered successfully:", response.data);
       setSuccess("User registration successful:", response.data);
       setShowSuccessMessage(true);
+      setShowLoginModal(true);
 
-      navigate("/login");
+      // navigate("/login-modal",{ state: { showLoginModal: true } });
+
       handleCloseModal();
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
@@ -174,6 +183,12 @@ const SignupCard = () => {
         setRegistrationError(
           "Authentication failed. Please check your credentials."
         );
+      } else if (error.response && error.response.status === 400) {
+       if (error.response.data && error.response.data.error === "UserExists") {
+        setUserExistsError("User already exists with the same email or MSISDN." + error.response.data.message);
+        console.log("Error response data:", error.response.data);
+      } else {
+        setRegistrationError("Bad request. Please check your input.");}
       } else {
         setRegistrationError(
           "Error registering user: " + "internal server error"
@@ -192,147 +207,165 @@ const SignupCard = () => {
         <h3>Sign up for a new account</h3>
         <button onClick={handleShowModal}>Here</button>
       </div>
+      <div className="custom-modal-card">
+        <Modal
+          className="custom-modal"
+          show={showModal}
+          onHide={handleCloseModal}
+          centered
+        >
+          <Modal.Header className="modal-header" closeButton>
+            <div className="header-content">
+              <img src={Card1} alt="Header" className="header-image" />
+              <h2>Sign Up</h2>
+            </div>
+          </Modal.Header>
+          <Modal.Body>
+            {step === 1 && (
+              <Form onSubmit={handleSignUp} className="custom-form">
+                <Form.Group controlId="formPhoneNumber">
+                  <Form.Control
+                    className={`form-control ${
+                      phoneNumberFocus ? "focused" : ""
+                    } ${registrationError.msisdn ? "is-invalid" : ""}`}
+                    type="tel"
+                    placeholder="+234"
+                    value={msisdn}
+                    onChange={handleMsisdnChange}
+                    onFocus={handlePhoneNumberFocus}
+                    onBlur={handlePhoneNumberBlur}
+                  />
+                  {phoneNumberFocus && (
+                    <p className="inputt-textt">
+                      Please input a valid phone number
+                    </p>
+                  )}
+                </Form.Group>{" "}
+                <br />
+                <Form.Group controlId="formEmail">
+                  <Form.Control
+                    className={`form-control ${emailFocus ? "focused" : ""} ${
+                      registrationError.email ? "is-invalid" : ""
+                    }`}
+                    type="tel"
+                    placeholder="Email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    onFocus={handleEmailFocus}
+                    onBlur={handleEmailBlur}
+                  />
+                  {emailFocus && (
+                    <p className="inputt-textt">Please input a valid email</p>
+                  )}
+                </Form.Group>{" "}
+                <br />
+                <Form.Group controlId="formUsername">
+                  <Form.Control
+                    className={`form-control ${usernameFocus ? "focused" : ""}${
+                      registrationError.username ? "is-invalid" : ""
+                    }`}
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={handleUsernameChange}
+                    onFocus={handleUsernameFocus}
+                    onBlur={handleUsernameBlur}
+                  />
+                  {usernameFocus && (
+                    <p className="inputt-textt">Pick a user name</p>
+                  )}
+                </Form.Group>{" "}
+                <br />
+                <Button
+                  onClick={handleNextStep}
+                  type="submit"
+                  className="sign-up-button"
+                >
+                  Next
+                </Button>
+              </Form>
+            )}
 
-      <Modal
-        className="custom-modal"
-        show={showModal}
-        onHide={handleCloseModal}
-        centered
-      >
-        <Modal.Header className="modal-header" closeButton>
-          <div className="header-content">
-            <img src={Card1} alt="Header" className="header-image" />
-            <h2>Sign Up</h2>
-          </div>
-        </Modal.Header>
-        <Modal.Body>
-          {step === 1 && (
-            <Form onSubmit={handleSignUp} className="custom-form">
-              <Form.Group controlId="formPhoneNumber">
+            {step === 2 && (
+              <Form onSubmit={handleSignUp} className="custom-form">
                 <Form.Control
-                  className={`form-control ${
-                    phoneNumberFocus ? "focused" : ""
-                  } ${registrationError.phoneNumber ? "is-invalid" : ""}`}
-                  type="tel"
-                  placeholder="+234"
-                  value={phoneNumber}
-                  onChange={handlePhoneNumberChange}
-                  onFocus={handlePhoneNumberFocus}
-                  onBlur={handlePhoneNumberBlur}
-                />
-                {phoneNumberFocus && (
-                  <p className="input-text">
-                    Please input a valid phone number
-                  </p>
-                )}
-              </Form.Group>{" "}
-              <br />
-              <Form.Group controlId="formEmail">
-                <Form.Control
-                  className={`form-control ${
-                    emailFocus ? "focused" : ""
-                  } ${registrationError.email ? "is-invalid" : ""}`}
-                  type="tel"
-                  placeholder="Email"
-                  value={email}
-                  onChange={handleEmailChange}
-                  onFocus={handleEmailFocus}
-                  onBlur={handleEmailBlur}
-                />
-                {emailFocus && (
-                  <p className="input-text">
-                    Please input a valid email
-                  </p>
-                )}
-              </Form.Group>{" "}
-              <br />
-              <Form.Group controlId="formUsername">
-                <Form.Control
-                  className={`form-control ${usernameFocus ? "focused" : ""}${
-                    registrationError.username ? "is-invalid" : ""
+                  className={`form-control ${passwordFocus ? "focused" : ""}${
+                    registrationError.password ? "is-invalid" : ""
                   }`}
-                  type="text"
-                  placeholder="Username"
-                  value={username}
-                  onChange={handleUsernameChange}
-                  onFocus={handleUsernameFocus}
-                  onBlur={handleUsernameBlur}
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  placeholder="Choose Password"
+                  onFocus={handlePasswordFocus}
+                  onChange={handlePasswordChange}
+                  onBlur={handlePasswordBlur}
+                  autoComplete="current-password"
                 />
-                {usernameFocus && (
-                  <p className="input-text">Pick a user name</p>
+                {passwordFocus && (
+                  <p className="inputt-textt">
+                    Please choose a secure password
+                  </p>
                 )}
-              </Form.Group>{" "}
-              <br />
-              <Button
-                onClick={handleNextStep}
-                type="submit"
-                className="sign-up-button"
-              >
-                Next
-              </Button>
-            </Form>
-          )}
+                <div
+                  className="password-toggle-icon"
+                  onClick={handleTogglePasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </div>
 
-          {step === 2 && (
-            <Form onSubmit={handleSignUp} className="custom-form">
-              <Form.Control
-                className={`form-control ${passwordFocus ? "focused" : ""}${
-                  registrationError.password ? "is-invalid" : ""
-                }`}
-                type={showPassword ? "text" : "password"}
-                value={password}
-                placeholder="Choose Password"
-                onFocus={handlePasswordFocus}
-                onChange={handlePasswordChange}
-                onBlur={handlePasswordBlur}
-              />
-              {passwordFocus && (
-                <p className="input-text">Please choose a secure password</p>
-              )}
-              <div
-                className="password-toggle-icon"
-                onClick={handleTogglePasswordVisibility}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </div>
+                <br />
+                <Form.Control
+                  className={`form-control ${
+                    confirmPasswordFocus ? "focused" : ""
+                  }${registrationError.confirmPassword ? "is-invalid" : ""}`}
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm Password"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  onFocus={handleConfirmPasswordFocus}
+                  onBlur={handleConfirmPasswordBlur}
+                />
+                {confirmPasswordFocus && (
+                  <p className="input-text">
+                    Please confirm your password
+                    {passwordConfirmed && " - Password Confirmed"}
+                  </p>
+                )}
+                <div
+                  className="password-toggle-icon"
+                  onClick={handleToggleConfirmPasswordVisibility}
+                >
+                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+                </div>
+                <br />
+                <Button type="submit" className="sign-up-button">
+                  Submit
+                </Button>
+                <div className="error-message">{userExistsError}</div>
 
-              <br />
-              <Form.Control
-                className={`form-control ${
-                  confirmPasswordFocus ? "focused" : ""
-                }${registrationError.confirmPassword ? "is-invalid" : ""}`}
-                type={showConfirmPassword ? "text" : "password"}
-                placeholder="Confirm Password"
-                value={confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                onFocus={handleConfirmPasswordFocus}
-                onBlur={handleConfirmPasswordBlur}
-              />
-              {confirmPasswordFocus && (
-                <p className="input-text">
-                  Please confirm your password
-                  {passwordConfirmed && " - Password Confirmed"}
-                </p>
-              )}
-              <div
-                className="password-toggle-icon"
-                onClick={handleToggleConfirmPasswordVisibility}
-              >
-                {showPassword ? <FaEyeSlash /> : <FaEye />}
-              </div>
-              <br />
-              <Button type="submit" className="sign-up-button">
-                Submit
-              </Button>
-            </Form>
-          )}
-          <p className="login-text">
-            Already a user? <a href="#">Log in</a>
-          </p>
-        </Modal.Body>
-      </Modal>
+              </Form>
+            )}
+            <p className="login-text">
+              Already a user? <a href="#">Log in</a>
+            </p>
+          </Modal.Body>
+        </Modal>
+      </div>
+      {showLoginModal && (
+        <LoginModal
+          onClose={() => setShowLoginModal(false)} 
+        />
+      )}
     </>
   );
 };
 
 export default SignupCard;
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 .gem-no {
   color: #aeb2b8;
@@ -36,7 +37,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* padding-top: 20px; */
 }
 
 .prize-cont {
@@ -50,6 +50,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .prz-no {
@@ -77,6 +78,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .p-rank {
@@ -102,6 +104,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .question-ans {
@@ -117,7 +120,6 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
 }
 
 .answers-cont {
@@ -131,6 +133,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .ans-percent {
@@ -159,6 +162,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .cancel-percent {
@@ -187,6 +191,7 @@
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 400;
+  margin: 0 0 4px 10px;
 }
 
 .earning {
@@ -196,20 +201,22 @@
   font-size: 16px;
   font-weight: 400;
 }
-.user-headeer{
-    color: #3A464C;
-font-family: "Roboto";
-font-size: 20px;
-font-weight: 600;
-padding: 10px;
+.user-headeer {
+  color: #3a464c;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px;
 }
 .user-info-card {
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
   gap: 10px;
-  width: 596px;
-  height: 184px;
+  width: 566px;
+  height: 234px;
+  position: relative;
+
 }
 
 .phone-info {
@@ -228,4 +235,40 @@ padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.edit-buttunn {
+  position: absolute;
+  right: 10px;
+  bottom: 20px;
+}
+.eddit {
+  color: #9c33dd;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 17px;
+  border: 1px solid #9c33dd;
+  box-shadow: 0px 0px 8px 2px rgba(156, 51, 221, 0.25);
+  width: 130px;
+  height: 34px;
+  background: #fff;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+  .user-stats-container {
+    width: 350px;
+    height: 320px;
+    position: absolute;
+    bottom: -30px;
+    left: 13px;
+    padding: 41px 23px;
+  }
+
+  .user-headeer {
+    display: none;
+  }
+  .user-info-card {
+    display: none;
+  }
 }

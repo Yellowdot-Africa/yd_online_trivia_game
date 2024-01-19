@@ -3,6 +3,7 @@ import HomeNavBar from "../../Components/HomeNavBar";
 import VolumeIcon from "../../assets/Icons/Volume-icon.svg";
 import Language from "../../assets/Icons/language.svg";
 import Default from "../../assets/Icons/default-icon.svg";
+import Back from "../../assets/Icons/back.svg";
 import "../Settings/Settings.css";
 
 const Settings = () => {
@@ -34,6 +35,7 @@ const Settings = () => {
     <>
       <HomeNavBar />
       <div className="settings">
+        <img className="back-icon" src={Back} alt="" />
         <h1>Settings</h1>
         <div className="sound-lang">
           <div className="sound">

@@ -1,5 +1,6 @@
 .rules-faq {
   padding-left: 111px;
+  padding-top: 40px;
 }
 
 .rules-faq h2 {
@@ -18,9 +19,14 @@
 
 .rules-card {
   padding-left: 111px;
-
+}
+.mobile-view .general-card {
+  display: none;
 }
 
+.mobile-rule-faq {
+  display: none;
+}
 .rules-text {
   width: 566px;
   height: 239px;
@@ -35,13 +41,20 @@
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 600;
+  padding-left: 15px;
 }
 
-.rules-text ol {
+.rules-text .rules {
   color: #515a5f;
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
+}
+.rules-list {
+  list-style: auto;
+}
+.faq {
+  padding-left: 111px;
 }
 .faq-card {
   width: 566px;
@@ -58,9 +71,9 @@
   font-weight: 700;
   padding: 20px;
 }
-hr{
-    width: 506px;
-height: 1px;
+hr {
+  width: 506px;
+  height: 1px;
 }
 .faq-card li {
   color: #493f50;
@@ -93,4 +106,84 @@ height: 1px;
   font-size: 12px;
   font-weight: 400;
   margin-right: 52px;
+}
+.list-ol {
+  list-style: auto;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 730px) {
+  .mobile-rule-faq {
+    display: block;
+    position: relative;
+  }
+
+  .mobile-rule-faq h2 {
+    position: absolute;
+    top: -256px;
+    left: 111px;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .rules-faq {
+    display: none;
+  }
+
+  .rules-text {
+    display: none;
+  }
+
+  
+
+  .faq-card {
+    display: none;
+  }
+  .mobile-card {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+    width: 350px;
+    height: 609px;
+    position: absolute;
+    top: 81px;
+    left: 12px;
+  }
+
+  .mobile-card .general-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin:60px 40px;
+  }
+  .general-card .rules-btn {
+    border-radius: 5px;
+    border: 1px solid rgba(174, 178, 184, 0.6);
+    width: 130px;
+    height: 34px;
+  }
+
+  .faqs-btn {
+    border-radius: 6px;
+    border: 0.5px solid rgba(174, 178, 184, 0.6);
+    width: 130px;
+    height: 34px;
+  }
+  .mobile-view .rules-btn:hover {
+    border-radius: 5px;
+    border: 1px solid rgba(156, 51, 221, 0.6);
+    background: #9c33dd;
+    box-shadow: 0px 0px 8px 2px rgba(156, 51, 221, 0.25);
+    width: 130px;
+    height: 34px;
+  }
+  .mobile-view .faqs-btn:hover {
+    border-radius: 6px;
+    border: 0.5px solid rgba(223, 3, 242, 0.6);
+    background: #df03f2;
+    box-shadow: 0px 0px 8px 2px rgba(223, 3, 242, 0.25);
+  }
 }

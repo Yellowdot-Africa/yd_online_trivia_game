@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-.welcome-content {
+.info-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,24 +45,21 @@
   height: 100%;
 }
 
-.welcome {
-  color: #f9eeff;
+.info {
+  color: #fff;
   text-align: center;
   font-family: "Roboto";
-  font-size: 32px;
-  font-weight: 900;
-}
-.yd-span {
-  opacity: 0.7;
-  color: #ffd700;
-  font-family: "Roboto";
-  font-size: 32px;
-  font-style: normal;
-  font-weight: 900;
-  line-height: normal;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 32px;
 }
 
-.welcom-btn {
+.info-btn {
+  color: #141414;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 900;
   background-color: rgba(255, 215, 0, 1);
   outline: none;
   border: none;

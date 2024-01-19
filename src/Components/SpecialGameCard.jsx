@@ -13,10 +13,8 @@ const SpecialGameCard = ({ title, playText }) => (
 );
 
 const SpecialGamesSection = () => {
-  // Check if the screen width is less than a certain threshold (e.g., 768 pixels)
   const isMobile = window.innerWidth < 768;
 
-  // Render the Carousel only for mobile devices
   return (
     <div className="special-games-section">
       <h2>Special Games</h2>
@@ -34,14 +32,4 @@ const SpecialGamesSection = () => {
 
 
 
-// const HomeSection = () => {
-//   return (
-//     <>
-//       {/* Other content of HomeSection */}
-//       <SpecialGamesSection />
-//       {/* Rest of the content */}
-//     </>
-//   );
-// };
-
-// export default HomeSection;
+/

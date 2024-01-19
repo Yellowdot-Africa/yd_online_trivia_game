@@ -13,12 +13,12 @@ const HomeNavBar = () => {
       <div id="navbar" />
       <Navbar collapseOnSelect expand="lg" className="nav-bgg">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand className="logoo" href="#home">
             {" "}
             <img src={Trophy} alt="logo" />
             YDTRIVIA
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle className="menu-nav" aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             {/* Nav items for desktop view */}
 
@@ -33,14 +33,14 @@ const HomeNavBar = () => {
                 LeaderBoard
               </Nav.Link>
               <Nav.Link as={Link} to="/rules-faqs">
-                Rules & Faqs
+                Rules & FAQ's
               </Nav.Link>
             </Nav>
             <Nav className="custom-nav">
-              <Nav.Link className="custom-navlink" as={Link} to="/account">
+              <Nav.Link className="custom-navlink" as={Link} to="/account" >
                 Acct:N1,050.00{" "}
               </Nav.Link>
-              <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
+              <Nav.Link className="custom-navimg" as={Link} to="/loading2">
                 <img src={HomeIcon} alt="home" />{" "}
               </Nav.Link>
               <Nav.Link className="custom-navimg" as={Link} to="/settings">
@@ -51,10 +51,10 @@ const HomeNavBar = () => {
           {/* Nav items for mobile view */}
           <Nav className="custom-nav d-lg-none">
             <div className="nav-mobile">
-            <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
+            <Nav.Link className="custom-navimg" as={Link} to="/settings">
               <img src={Settings} alt="setting" />
             </Nav.Link>
-            <Nav.Link className="custom-navimg" as={Link} to="/settings">
+            <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
               <img src={HomeIcon} alt="home" />
             </Nav.Link>
             

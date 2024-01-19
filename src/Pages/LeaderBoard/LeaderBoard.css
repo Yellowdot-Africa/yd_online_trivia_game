@@ -1,47 +1,182 @@
-.leaderboard-section h2{
-    color: #422671;
-    font-family: "Roboto";
-    font-size: 30px;
-    font-weight: 700;
+.leaderboard-section {
+  margin: 39px 140px;
 }
 
-.leaderboard-section p{
-    color: #483A4C;
-font-family: "Roboto";
-font-size: 20px;
-font-weight: 600;
+.leaderboard-section h2 {
+  color: #422671;
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 700;
 }
 
-
-.leaderboard-cards{
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.leaderboard-section p {
+  color: #483a4c;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.leaderboard-card{
-border-radius: 20px;
-border: 3px solid rgba(91, 44, 209, 0.30);
-background: #FFF;
-box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
-width: 285px;
-height: 566px;
+.leaderboard-cards {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaderboard-card {
+  border-radius: 20px;
+  border: 3px solid rgba(91, 44, 209, 0.3);
+  background: #fff;
+  box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+  width: 285px;
+  height: 566px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.leaderboard-card-mobile {
+  display: none;
+}
+
+.leaderboards-card {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+  width: 642px;
+  height: 552px; 
+}
+
+.leaderboard-header {
+  display: flex;
+  justify-content: space-around;
+ 
+}
+
+.leaderboard-header h3,
+.leaderboard-header p {
+  display: flex;
+  justify-content: space-around;
+  color: #aeb2b8;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 700;
+  padding-top: 25px;
+}
+
+.leaderboard-details {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; */
+
+
+    
+   }
+
+
+.player-details{
 display: flex;
-flex-direction: column;
-justify-content: center;
+justify-content: space-between;
 align-items: center;
-
-}
-
-.leaderboards-card{
-    border-radius: 20px;
+border-radius: 20px;
 background: #FFF;
-box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
-width: 642px;
-/* height: 652px;  */
+box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.15);
+margin: 10px 20px;
+padding: 20px;
+
 }
 
-.leaderboard-header{
-    display: flex;
-    justify-content: space-around;
+.player-details img {
+  width: 30px; 
+  height: 30px;
 }
+
+.player-details .player-name{
+  color: #4D3163;
+text-align: center;
+font-family: "Roboto";
+font-size: 18px;
+font-weight: 700;
+}
+
+.player-details .player-score{
+  color: #BC70F8;
+text-align: right;
+font-family: "Roboto";
+font-size: 16px;
+font-weight: 700;
+}
+@media only screen and (min-width: 263px) and (max-width: 730px) {
+  .leaderboard-section {
+    margin: 39px ;
+  }
+  
+  .leaderboard-section h2 {
+    position: absolute;
+    top: 29px;
+    left: 120px;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .leaderboard-section .subheading {
+    position: absolute;
+    top: 85px;
+    left: 40px;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 6px;
+    border: 1px solid rgba(139, 0, 248, 0.6);
+    background: #8b00f8;
+    width: 300px;
+    height: 45px;
+    text-align: center;
+    padding: 10px 20px;
+  }
+  .leaderboard-card {
+    display: none;
+  }
+  .leaderboard-card-mobile {
+    position: absolute;
+    top: 65px;
+    left: 60px;
+    width: 284px;
+    height: 274px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background-color: none;
+  }
+
+  .leaderboard-card-mobile .Bmt {
+    
+    width: 151px;
+    height: 126px;
+  }
+
+  .leaderboard-card-mobile .bmo {
+    width: 157px;
+    height: 140px;
+  }
+  .leaderboard-card-mobile .bmtt {
+    width: 151px;
+    height: 129px;
+  }
+
+  .leaderboards-card{
+    display: none;
+  }
+}
+
+
+

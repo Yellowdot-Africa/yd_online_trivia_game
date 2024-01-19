@@ -1,78 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import HomeNavBar from "../../Components/HomeNavBar";
 import "../../Pages/Rules/Rules.css";
+import RulesCard from "../../Components/RulesCard";
+import FaqCard from "../../Components/FaqCard";
+import HomeFootIcon from "../../Components/HomeFootIcon";
 
 const Rules = () => {
+  const [showRules, setShowRules] = useState(true);
+
+  const toggleContent = () => {
+    setShowRules(!showRules);
+  };
   return (
     <>
       <HomeNavBar />
-      <div className="rules-faq">
-        <h2>Rules & FAQ’s</h2>
-        <p>Information and documentation</p>
-      </div>
-      <div className="rules-card">
-        <div className="rules-text">
-          <h3>Rules</h3>
-          <ol className="rules">
-            <li className="rules-list">
-              Answer two questions to enter for the daily draw{" "}
-            </li>
-            <li className="rules-list">
-              Pick from options in each question to move to the next level
-            </li>
-            <li className="rules-list">
-              All terms and conditions must be observed.
-            </li>
-          </ol>
-        </div>
-        <div className="faq-card">
-          <h3>Frequently asked questions</h3>
-          <div className="faqs-lists">
-            <ol className="faqs">
-              <li>
-                Collecting winnings
-                <div className="faqs-details">
-                  <p>Whenever a player wins a...</p>
-                  <button>Read</button>
-                </div>
-              </li>
-              <hr />
-              <li>
-                Collecting winnings
-                <div className="faqs-details">
-                  <p>Whenever a player wins a...</p>
-                  <button>Read</button>
-                </div>
-              </li>
-              <hr />
-              <li>
-                Collecting winnings
-                <div className="faqs-details">
-                  <p>Whenever a player wins a...</p>
-                  <button>Read</button>
-                </div>
-              </li>
-              <hr />
-              <li>
-                Collecting winnings
-                <div className="faqs-details">
-                  <p>Whenever a player wins a...</p>
-                  <button>Read</button>
-                </div>
-              </li>
-              <hr />
-              <li>
-                Collecting winnings
-                <div className="faqs-details">
-                  <p>Whenever a player wins a...</p>
-                  <button>Read</button>
-                </div>
-              </li>
-              <hr />
-            </ol>
+
+      {/* Mobile view */}
+      <div className="mobile-view">
+      <div className="mobile-rule-faq">
+            <h2>Rules & FAQ’s</h2>
           </div>
+          <div className="mobile-card">
+        <div className="general-card">
+          <button className="rules-btn" onClick={toggleContent}>
+            Rules
+          </button>
+          <button className="faqs-btn" onClick={toggleContent}>
+            FAQs
+          </button>
+
+          {showRules ? (
+            <RulesCard isVisible={showRules} />
+          ) : (
+            <FaqCard isVisible={!showRules} />
+          )}
+        </div>
         </div>
       </div>
+      {/* desktop view */}
+      <RulesCard isVisible={true} />
+      <FaqCard isVisible={true} />
+      <HomeFootIcon />
     </>
   );
 };

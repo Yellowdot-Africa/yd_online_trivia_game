@@ -1,5 +1,5 @@
 .profile-container {
-  padding: 20px;
+  padding: 40px 140px;
 }
 
 .profile-header {
@@ -45,3 +45,30 @@
   margin-top: 10px;
 }
 
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+  .profile-header h1 {
+    position: absolute;
+    top: 29px;
+    left: 150px;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .profile-header h2 {
+    display: none;
+  }
+
+  .user-stats h4 {
+    position: absolute;
+    top: 397px;
+    left: 38px;
+    z-index: 1;
+    color: #aeb2b8;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

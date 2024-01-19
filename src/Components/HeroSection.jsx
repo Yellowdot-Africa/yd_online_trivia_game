@@ -5,7 +5,6 @@ import "../Styles/HeroSection.css";
 const HeroSection = () => {
   return (
     <>
-      <container>
         <div className="hero-section ">
           <div className="hero-text">
             <h3>YellowDot Trivia,</h3>
@@ -26,7 +25,6 @@ const HeroSection = () => {
             </button>
           </div>
         </div>
-      </container>
       <Card />
     </>
   );

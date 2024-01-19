@@ -1,11 +1,8 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import Arrow from "../assets/Icons/arrow.svg";
-import category from "../assets/Icons/category.png";
-import homee from "../assets/Icons/home-me.svg";
-import leaderboard from "../assets/Icons/leaderboard.svg";
-import rules from "../assets/Icons/rules.svg";
-import userstats from "../assets/Icons/userstats.svg";
+import HomeFootIcon from "../Components/HomeFootIcon";
+
 // import SpecialGameCard from "../Components/SpecialGameCard";
 
 const SpecialGameCard = ({ title, playText }) => (
@@ -19,10 +16,8 @@ const SpecialGameCard = ({ title, playText }) => (
 );
 
 const SpecialGamesSection = () => {
-  // Check if the screen width is less than a certain threshold (e.g., 768 pixels)
   const isMobile = window.innerWidth < 768;
 
-  // Render the Carousel only for mobile devices
   return (
     <div className="special-games-section">
       {/* <h2>Special Games</h2> */}
@@ -119,14 +114,10 @@ const HomeSection = () => {
             </div>
           </div>
         </div>
+
       </div>
-      <div className="icon-content-section">
-        <img src={homee} alt="" />
-        <img src={userstats} alt="" />
-        <img src={category} alt="" />
-        <img src={leaderboard} alt="" />
-        <img src={rules} alt="" />
-      </div>
+      {/* <HomeFootIcon/> */}
+
     </>
   );
 };
