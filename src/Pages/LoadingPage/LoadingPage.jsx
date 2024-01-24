@@ -25,13 +25,13 @@ const LoadingPage = () => {
 
         const continueButtonTimer = setTimeout(() => {
           setShowContinueButton(true);
-        }, 3000);
+        }, 2000);
 
         return () => {
           clearTimeout(continueButtonTimer);
         };
       }
-    }, 500);
+    }, 300);
 
     return () => {
       clearInterval(interval);

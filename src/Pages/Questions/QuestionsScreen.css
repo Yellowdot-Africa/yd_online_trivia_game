@@ -1,19 +1,21 @@
-.loading-container.blur-background {
-  filter: blur(5px);
-  pointer-events: none;
+
+
+.que-pack-cont{
+  margin: 125px;
 }
+
+
 
 .question-container {
   background: rgba(217, 217, 217, 0.02);
-  backdrop-filter: blur(6px);
-}
+ }
 
 .question-card {
   width: 732px;
   height: 547px;
   background: #230640;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-  margin: 20% auto;
+  margin:  auto;
 }
 .question-text {
   color: #fff;
@@ -96,6 +98,46 @@
   font-weight: 900;
 }
 
+@media only screen and (min-width: 263px) and (max-width: 284px) {
+
+  .question-text{
+    font-size: 14px;
+    }
+    
+    .spann{
+      font-size: 14px;
+    }
+
+}
+
+@media only screen and (min-width: 285px) and (max-width: 730px) {
+.question-text{
+font-size: 16px;
+}
+
+.spann{
+  font-size: 16px;
+}
+
+
+
+}
+
+@media only screen and (min-width: 735px) and (max-width: 930px) {
+  .question-text{
+  font-size: 16px;
+  }
+  
+  .spann{
+    font-size: 16px;
+  }
+  .question-card{
+    width: 100%;
+  }
+  
+  
+  }
+
 /* countdownpageandquestionscreen css */
 
 .logo-contt {
@@ -103,6 +145,10 @@
   font-family: "Roboto";
   font-size: 24px;
   font-weight: 900;
+}
+
+.logo-contt span{
+  font-size: 24px;
 }
 
 .countdown-container {
@@ -119,37 +165,6 @@
   font-size: 56px;
   font-weight: 700;
 }
-
-/* .football-countdown{
-  color: #A2A2FF;
-text-align: center;
-font-family: "Roboto";
-font-size: 128px;
-font-weight: 700;
-border-radius: 266px;
-border: 1px solid #000;
-background: rgba(255, 255, 255, 0.10);
-width: 266px;
-height: 266px; 
-transform: rotate(123.191deg);
-} */
-
-/* .football-countdown {
-  color: #a2a2ff;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 128px;
-  font-weight: 700;
-  border-radius: 50%; 
-  border: 1px solid #000;
-  background: rgba(255, 255, 255, 0.10);
-  width: 266px;
-  height: 266px;
-  animation: countdownAnimation 3s ease-in-out; 
-
-  transition: transform 0.3s ease-in-out;
-  position: relative;
-} */
 
 .football-countdown-wrapper {
   display: inline-block;
@@ -205,6 +220,18 @@ transform: rotate(123.191deg);
   font-weight: 400;
 }
 
+
+
+@media only screen and (min-width: 263px) and (max-width: 730px) {
+.count-question-cont{
+  width: 100%;
+  padding: 20px;
+}
+
+
+}
+
+
 /* question screeen css */
 
 .main-container {
@@ -216,7 +243,7 @@ transform: rotate(123.191deg);
 }
 
 .quest-main-container {
-  width: 589px;
+  width: 600px;
   height: 258px;
   border-radius: 20px;
   background: #7e2cd1;
@@ -237,12 +264,18 @@ transform: rotate(123.191deg);
   display: flex;
   justify-content: space-between;
 }
-
+.loading {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 32px;
+  font-weight: 600;
+}
 .answer-container {
   width: 589px;
-  height: 481px;
+  height: 581px;
   border-radius: 20px;
-  background: #FFF;
+  background: #fff;
   padding: 56px;
 }
 
@@ -265,17 +298,65 @@ transform: rotate(123.191deg);
   width: 370px;
   height: 60px;
   border-radius: 29px;
-border: 3px solid var(--N1, #FFF);
-background: #FFF;
-box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.10);
+  border: 3px solid var(--N1, #fff);
+  background: #fff;
+  box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
 }
 
-.ans-que{
-  color: #9D78DD;
-font-family: "Inter";
-font-size: 18px;
-font-style: normal;
-font-weight: 700;
-margin-top: 71px;
+.answer-option.selected-answer {
+  border-radius: 29px;
+  background: rgba(126, 44, 209, 0.6);
+  box-shadow: 0px 2px 4px 1px rgba(129, 0, 251, 0.3);
+  color: white;
 }
 
+.answer-option.correct {
+  border-radius: 29px;
+  background: rgba(47, 209, 44, 0.6);
+  box-shadow: 0px 2px 4px 1px rgba(47, 209, 44, 0.3);
+  color: white;
+}
+
+.answer-option.wrong {
+  border-radius: 29px;
+  background: rgba(209, 44, 44, 0.6);
+  box-shadow: 0px 2px 4px 1px rgba(209, 44, 44, 0.3);
+  color: white;
+}
+
+.ans-que {
+  color: #9d78dd;
+  font-family: "Inter";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  margin-top: 71px;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+.nav-bgg{
+  border-radius: 0;
+}
+
+.main-container {
+  padding: 0;
+  background: transparent;
+}
+  
+.quest-main-container {
+  width: 100vw;
+  height: 100%;
+border-radius: 0px 0px 20px 20px;
+}
+.answer-container{
+  width: 100vw;
+    height: 100%;
+    padding: 20px;
+}
+
+.answer-option{
+  width: 100%;
+}
+
+}

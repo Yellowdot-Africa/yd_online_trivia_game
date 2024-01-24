@@ -5,12 +5,30 @@
 
 @media only screen and (min-width: 263px) and (max-width: 930px) {
 
-    .icon-content-section{
-        display: block;
-        position:absolute ;
-        bottom: -151px;
-    }
+   
+    .icon-content-section {
+        background: #7f2cd1;
+        width: 100%;
+        height: 102px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+        transition: 0.5s ease-in;
+        position: fixed;
+        bottom: 0;
+    
+      }
 
+      .icon-content-section img {
+        width: 24px;
+        height: 24px;
+      }
+      .icon-content-section img:hover {
+        transform: scale(1.1);
+        width: 41px;
+        height: 41px;
+      }
 
 }
 

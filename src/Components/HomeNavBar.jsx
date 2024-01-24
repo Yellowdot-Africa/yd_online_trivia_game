@@ -7,7 +7,7 @@ import HomeIcon from "../assets/Icons/home-icon.png";
 import { Link, Outlet } from "react-router-dom";
 import "../Styles/HomeNavBar.css";
 
-const HomeNavBar = () => {
+const HomeNavBar = ({ showNavMobile }) => {
   return (
     <>
       <div id="navbar" />
@@ -49,18 +49,21 @@ const HomeNavBar = () => {
             </Nav>
           </Navbar.Collapse>
           {/* Nav items for mobile view */}
+          {showNavMobile && (
+
           <Nav className="custom-nav d-lg-none">
             <div className="nav-mobile">
             <Nav.Link className="custom-navimg" as={Link} to="/settings">
               <img src={Settings} alt="setting" />
             </Nav.Link>
-            <Nav.Link className="custom-navimg" as={Link} to="/home-icon">
+            <Nav.Link className="custom-navimg" as={Link} to="/loading2">
               <img src={HomeIcon} alt="home" />
             </Nav.Link>
             
             </div>
            
           </Nav>
+           )}
         </Container>
       </Navbar>
     </>

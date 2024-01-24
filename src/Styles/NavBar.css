@@ -10,8 +10,29 @@
 
 }
 
+.navbar > .container, .navbar > .container-fluid, .navbar > .container-sm, .navbar > .container-md, .navbar > .container-lg, .navbar > .container-xl, .navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
 
+.custom-navbar .nav-link, .custom-navbar .nav-dropdown-item {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 600;
+  width: 130px;
+margin-top: 5px;
 
+}
+
+a.nav-btn{
+  margin-top: 5px;
+
+}
 .custom-navbar .navbar-brand {
   color: #fff;
   text-align: center;

@@ -17,6 +17,7 @@ import LoginModal from "../Components/LoginModal";
 import LoadingPage2 from "../Pages/LoadingPage2/LoadingPage2";
 import QuestionPack from "../Pages/Questions/QuestionPack";
 import { CountdownPage,Question, QuestionScreen } from "../Pages/Questions/CountdownPageAndQuestionScreen";
+import ResultPage from "../Pages/ResultPage/ResultPage";
 
 
 const router = createBrowserRouter([
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
 {
   path: "/question-screen",
   element: <QuestionScreen/>
+},
+{
+  path: "/result-page",
+  element: <ResultPage/>
 },
   
 ]);

@@ -11,7 +11,6 @@ const LoadingPage2 = () => {
   const [slider, setSlider] = useState(true);
   const [loadingCompleted, setLoadingCompleted] = useState(false);
   const [showContinueButton, setShowContinueButton] = useState(false);
-  const [blurBackground, setBlurBackground] = useState(false);
 
   const navigate = useNavigate();
 
@@ -27,13 +26,13 @@ const LoadingPage2 = () => {
 
         const continueButtonTimer = setTimeout(() => {
           setShowContinueButton(true);
-        }, 3000);
+        }, 2000);
 
         return () => {
           clearTimeout(continueButtonTimer);
         };
       }
-    }, 500);
+    }, 300);
 
     return () => {
       clearInterval(interval);
@@ -41,7 +40,6 @@ const LoadingPage2 = () => {
   }, [completed]);
 
   const handleButtonContinue = () => {
-    setBlurBackground(true);
     setShowContinueButton(false); 
     setTimeout(() => {
 
@@ -51,8 +49,8 @@ const LoadingPage2 = () => {
 
   return (
     <>
-      {/* <div className="loading-container"> */}
-      <div className={`loading-container ${blurBackground ? "blur-background" : ""}`}>
+      <div className="loading-container">
+      {/* <div className={`loading-container ${blurBackground ? "blur-background" : ""}`}> */}
 
         <div className="logo-cont">
           <img src={Logo} alt="logo" />

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import HomeNavBar from "../../Components/HomeNavBar";
 import Bage from "../../assets/Images/Bage.png";
 import BageOne from "../../assets/Images/Bage1.png";
@@ -8,7 +8,7 @@ import BageMobileTwo from "../../assets/Images/Bage-mobile2.png";
 import BageMobileThree from "../../assets/Images/Bage-mobile3.png";
 import PlayerImage from "../../assets/Images/player-img.svg";
 import HomeFootIcon from "../../Components/HomeFootIcon";
-import axios from "axios"; 
+import axios from "axios";
 
 import "../LeaderBoard/LeaderBoard.css";
 
@@ -16,25 +16,20 @@ const LeaderBoard = () => {
   const [leaderboardData, setLeaderboardData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [gameId, setGameId] = useState(1); 
+  const [gameId, setGameId] = useState(1);
 
   const [status, setStatus] = useState(false);
 
   const token = sessionStorage.getItem("token");
   console.log("Token:", token);
-    console.log(token, "token");
-
-
+  console.log(token, "token");
 
   const handleGameChange = (event) => {
-    setGameId(event.target.value); 
+    setGameId(event.target.value);
   };
 
-  
   const fetchLeaderboardData = async () => {
-   
     try {
- 
       const response = await axios.get(
         `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/ShowLeaderboard?gameID=${gameId}`,
 
@@ -71,7 +66,7 @@ const LeaderBoard = () => {
   };
   return (
     <>
-      <HomeNavBar />
+      <HomeNavBar showNavMobile={true} />
       <div className="leaderboard-section">
         <h2>Leaderboard</h2>
         <p className="subheading">Top Players of YD Trivia</p>
@@ -91,13 +86,13 @@ const LeaderBoard = () => {
 
           <div className="leaderboards-card">
             <div className="leaderboard-header">
-              <p></p>
-              <p></p>
-              <h3>Name</h3>
+              <p className="empty"></p>
+              <p className="empty"></p>
+              <h3 className="name-heading">Name</h3>
               <p>Score</p>
             </div>
             <div className="leaderboard-details">
-            {leaderboardData.map((player, index) => (
+              {leaderboardData.map((player, index) => (
                 <div className="player-details" key={index}>
                   <p>{index + 1}</p>
                   <img src={PlayerImage} alt={`img-${index}`} />
@@ -105,12 +100,11 @@ const LeaderBoard = () => {
                   <p className="player-score">{player.score}</p>
                 </div>
               ))}
-
             </div>
           </div>
         </div>
       </div>
-      <HomeFootIcon/>
+      <HomeFootIcon />
     </>
   );
 };
@@ -121,3 +115,4 @@ export default LeaderBoard;
 
 
 
+ 

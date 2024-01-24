@@ -8,8 +8,8 @@ import "../HomePage/HomePage.css";
 const HomePage = ()=> {
   return (
     <>
-        <div>
-           <HomeNavBar/> 
+        <div className='home-page-container'>
+           <HomeNavBar showNavMobile={true}/> 
            <HomeSection/>
            <HomeFootIcon/>
 

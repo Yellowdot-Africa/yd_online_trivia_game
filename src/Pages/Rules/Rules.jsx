@@ -13,7 +13,7 @@ const Rules = () => {
   };
   return (
     <>
-      <HomeNavBar />
+      <HomeNavBar showNavMobile={true}/>
 
       {/* Mobile view */}
       <div className="mobile-view">

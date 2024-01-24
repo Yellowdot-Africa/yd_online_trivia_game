@@ -3,7 +3,7 @@
 }
 
 .profile-header {
-  /* text-align: center; */
+  position: relative;
 }
 
 .profile-header h1 {
@@ -15,7 +15,6 @@
 
 .profile-header h2 {
   color: #483a4c;
-  /* text-align: center; */
   font-family: "Roboto";
   font-size: 18px;
   font-weight: 700;
@@ -72,3 +71,8 @@
     font-weight: 600;
   }
 }
+
+
+
+
+

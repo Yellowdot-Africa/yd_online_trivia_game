@@ -1,6 +1,3 @@
-
-
-
 import React, { useState } from "react";
 import "../Questions/QuestionsScreen.css";
 import { useNavigate } from "react-router-dom";
@@ -9,12 +6,16 @@ const QuestionPack = () => {
   const [selectedPack, setSelectedPack] = useState(null);
 
   const handlePackSelect = (pack) => {
+
     setSelectedPack(pack);
   };
+
 
   const navigate = useNavigate();
   return (
     <>
+     <div className="loading-container">
+
     <div className="que-pack-cont">
       <div className="question-container">
         <div className="question-card">
@@ -52,11 +53,13 @@ const QuestionPack = () => {
             </div>
           </div>
           {selectedPack && (
+            
             <button onClick={() => navigate("/question-loading")} className="go-button">
               Go!
             </button>
           )}
         </div>
+      </div>
       </div>
       </div>
     </>

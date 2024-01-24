@@ -106,7 +106,8 @@ const NavBar = () => {
                 Login
               </Link>
 
-              <Link to="/signup">
+              <Link  to="/signup"className="nav-btn" >
+
                 <Button
                   className="custom-btnnn"
                   style={{
