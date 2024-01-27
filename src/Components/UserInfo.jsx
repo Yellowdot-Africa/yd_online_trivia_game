@@ -1,18 +1,18 @@
-import React from "react";
+// import React from "react";
 
-import UserInfoCard from "../Components/UserInfoCard";
-import UserStatCard from "../Components/UserStatCard";
-import "../Styles/UserInfo.css";
+// import UserInfoCard from "../Components/UserInfoCard";
+// import UserStatCard from "../Components/UserStatCard";
+// import "../Styles/UserInfo.css";
 
-const UserInfo = () => {
-  return (
-    <>
-      <UserStatCard/>
+// const UserInfo = () => {
+//   return (
+//     <>
+      {/* <UserStatCard/>
 
-     <UserInfoCard/>
+     <UserInfoCard/> */}
     
-    </>
-  );
-};
+//     </>
+//   );
+// };
 
-export default UserInfo;
+// export default UserInfo;

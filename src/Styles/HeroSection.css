@@ -5,9 +5,8 @@
   background-repeat: no-repeat;
   height: 600px;
   width: 1512px;
-  /* height: 513px; */
   max-width: 100%;
-  padding: 120px;
+  padding: 140px;
 }
 
 .hero-text h3 {
@@ -37,41 +36,55 @@
 }
 
 @media only screen and (min-width: 263px) and (max-width: 283px) {
-.hero-btn-container{
-  position: absolute;
-  right: 22%;
+  .hero-btn-container {
+    padding: 50px 12px;
+  }
+
+  .hero-section {
+    padding: 70px 20px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+  }
+  .hero-text p {
+    font-size: 20px;
+  }
+
+  .hero-text h3 {
+    font-size: 24px;
+  }
 }
+@media only screen and (min-width: 285px) and (max-width: 768px) {
+  .hero-section {
+    padding: 100px 73px;
+    height: 100%;
+  }
 
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 245px;
+  }
 
-}
+  .hero-text h3 {
+    font-size: 30px;
+  }
 
-@media (max-width: 768px) {
-    .hero-section {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .hero-text {
-   
-    }
-   
+  .hero-text p {
+    font-size: 24px;
+  }
+  .hero-btn-container {
+    padding: 70px 8px;
+  }
 
-    .hero-text h3 {
-      
-        font-size: 30px;
-      
-      }
-
-      .hero-text p {
-       
-        font-size: 24px;
-       
-      }
-    .hero-btn-container {
-      margin-bottom: 35px; 
-    }
-
-  .hero-btn{
+  /* .hero-btn{
     width: 200px;
-  }
-  }
+  } */
+}

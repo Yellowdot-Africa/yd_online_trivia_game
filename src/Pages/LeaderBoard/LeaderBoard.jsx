@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HomeNavBar from "../../Components/HomeNavBar";
+import Settings from "../../assets/Icons/settings.svg";
+import HomeIcon from "../../assets/Icons/home-icon.png";
 import Bage from "../../assets/Images/Bage.png";
 import BageOne from "../../assets/Images/Bage1.png";
 import BageTwo from "../../assets/Images/Bage2.png";
@@ -68,6 +70,14 @@ const LeaderBoard = () => {
     <>
       <HomeNavBar showNavMobile={true} />
       <div className="leaderboard-section">
+      <div className="links-icon">
+            <a href="/settings">
+              <img src={Settings} alt="setting" />
+            </a>
+            <a href="/loading2">
+              <img src={HomeIcon} alt="home" />
+            </a>
+          </div>
         <h2>Leaderboard</h2>
         <p className="subheading">Top Players of YD Trivia</p>
 

@@ -256,15 +256,25 @@
 }
 
 @media only screen and (min-width: 263px) and (max-width: 930px) {
-  .user-stats-container {
+  /* .user-stats-container {
     width: 350px;
     height: 320px;
     position: absolute;
     bottom: -30px;
     left: 13px;
     padding: 41px 23px;
-  }
+  } */
+  .user-stats-container {
+    width: 350px;
+    height: 364px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 34px -127px;
+    margin-bottom: 96px;
+    padding: 41px 23px;
 
+  }
   .user-headeer {
     display: none;
   }

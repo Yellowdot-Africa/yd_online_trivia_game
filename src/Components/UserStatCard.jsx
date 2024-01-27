@@ -10,6 +10,7 @@ import Money from "../assets/Icons/ph_money-duotone.svg";
 const UserStatCard=()=> {
   return (
     <>
+    <div className='user-statistics'>
 <div className="user-stats-container">
         <div className="gem">
           <div className="gem-cont">
@@ -72,6 +73,7 @@ const UserStatCard=()=> {
           </div>
           <p className="earning">N200,000.00</p>
         </div>
+      </div>
       </div>
     </>
   )

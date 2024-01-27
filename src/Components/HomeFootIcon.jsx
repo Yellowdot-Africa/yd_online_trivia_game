@@ -7,7 +7,6 @@ import rules from "../assets/Icons/rules.svg";
 import userstats from "../assets/Icons/userstats.svg";
 import "../Styles/HomeFootIcon.css";
 
-
 const HomeFootIcon = () => {
   const navigate = useNavigate();
 
@@ -25,6 +24,7 @@ const HomeFootIcon = () => {
         />
         <img
           src={category}
+          className="menu-tab"
           alt=""
           onClick={() => handleIconClick("/loading2")}
         />
@@ -44,6 +44,3 @@ const HomeFootIcon = () => {
 };
 
 export default HomeFootIcon;
-
-
-

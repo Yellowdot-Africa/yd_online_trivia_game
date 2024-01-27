@@ -29,7 +29,7 @@ const CountdownPage = () => {
       <div className="loading-container">
         <div className="logo-contt">
           <img src={Logo} alt="logo" />
-          <span >YD</span>TRIVIA
+          <span>YD</span>TRIVIA
         </div>
         <div className="countdown-container">
           <h1 className="football-trivia">Football Trivia</h1>
@@ -83,7 +83,7 @@ const QuestionScreen = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [feedbackText, setFeedbackText] = useState("");
-  const [feedbackColor, setFeedbackColor] = useState('');
+  const [feedbackColor, setFeedbackColor] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const initialBalance = 0;
@@ -97,50 +97,48 @@ const QuestionScreen = () => {
     setSelectedAnswerIndex(null);
     setCurrentQuestionIndex(index);
     setFeedbackText("");
-
   };
 
   const handleAnswerClick = (index) => {
     setSelectedAnswerIndex(index);
   };
 
-    const fetchData = async () => {
-      try {
-        const token = sessionStorage.getItem("token");
-        const questionsResponse = await axios.get(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser?categoryID=1&gameID=1&language=english",
-          {
-            headers: {
-              Accept: "*/*",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (questionsResponse.data && questionsResponse.data.data !== null) {
-          const currentQuestionAnswers =
-            questionsResponse.data.data[currentQuestionIndex]?.answers || [];
-          setQuestions(questionsResponse.data.data);
-
-          setAnswers(currentQuestionAnswers);
-          // setCurrentQuestionIndex(0)
-        } else {
-          console.warn(
-            "Received null data for questions. Setting questions to an empty array."
-          );
-          setQuestions([]);
+  const fetchData = async () => {
+    try {
+      const token = sessionStorage.getItem("token");
+      const questionsResponse = await axios.get(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser?categoryID=1&gameID=1&language=english",
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
         }
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      }
-    };
+      );
+      if (questionsResponse.data && questionsResponse.data.data !== null) {
+        const currentQuestionAnswers =
+          questionsResponse.data.data[currentQuestionIndex]?.answers || [];
+        setQuestions(questionsResponse.data.data);
 
-    useEffect(() => {
+        setAnswers(currentQuestionAnswers);
+        // setCurrentQuestionIndex(0)
+      } else {
+        console.warn(
+          "Received null data for questions. Setting questions to an empty array."
+        );
+        setQuestions([]);
+      }
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
   }, [currentQuestionIndex]);
-
 
   const currentQuestion =
     questions.length > 0
@@ -160,53 +158,48 @@ const QuestionScreen = () => {
         }
       });
       setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong");
-      setFeedbackColor(isCorrect ? '#21A11E' : '#D12C2C');
+      setFeedbackColor(isCorrect ? "#21A11E" : "#D12C2C");
 
       setTimeout(() => {
-        const answerOptions = document.querySelectorAll('.answer-option');
+        const answerOptions = document.querySelectorAll(".answer-option");
 
         answerOptions.forEach((option) => {
           option.classList.remove("correct", "wrong", "selected-answer");
         });
         setFeedbackText("");
-        setFeedbackColor('');
-
+        setFeedbackColor("");
       }, 1000);
 
-const token = sessionStorage.getItem("token");
-    const gameId = 1; 
-    const questionId = questions[currentQuestionIndex]?.questionID;
-    const selectedAnswerID = answers[selectedAnswerIndex]?.answerID;
+      const token = sessionStorage.getItem("token");
+      const gameId = 1;
+      const questionId = questions[currentQuestionIndex]?.questionID;
+      const selectedAnswerID = answers[selectedAnswerIndex]?.answerID;
 
-    try {
-      const answersResponse = await axios.post(
-        'https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer',
-        {
-          gameID: gameId,
-          answers: [
-            {
-              questionID: questionId,
-              selectedAnswerID: selectedAnswerID,
-            },
-          ],
-        },
-        {
-          headers: {
-            Accept: '*/*',
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
+      try {
+        const answersResponse = await axios.post(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer",
+          {
+            gameID: gameId,
+            answers: [
+              {
+                questionID: questionId,
+                selectedAnswerID: selectedAnswerID,
+              },
+            ],
           },
-        }
-      );
+          {
+            headers: {
+              Accept: "*/*",
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-      console.log(answersResponse.data);
-    } catch (error) {
-      console.error('Error submitting answer:', error);
-    }
-
-
-
-
+        console.log(answersResponse.data);
+      } catch (error) {
+        console.error("Error submitting answer:", error);
+      }
 
       if (isCorrect) {
         setCorrectAnswers((prev) => prev + 1);
@@ -214,7 +207,6 @@ const token = sessionStorage.getItem("token");
         setWrongAnswers((prev) => prev + 1);
       }
     }
-   
 
     if (currentQuestionIndex === questions.length - 1) {
       navigate("/result-page", {
@@ -227,61 +219,60 @@ const token = sessionStorage.getItem("token");
     } else {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
     }
-    }
+  };
 
   return (
     <>
+      <div className="question-screen">
+        <HomeNavBar />
 
-    <div className="question-screen">
-      <HomeNavBar />
+        <main className="main-container">
+          {loading ? (
+            <p className="loading">Loading...</p>
+          ) : (
+            <>
+              <div className="quest-main-container">
+                {/* {currentQuestion && ( */}
+                {currentQuestion && answers.length > 0 && (
+                  <p className="question-txt"> {currentQuestion}</p>
+                )}
 
-      <main className="main-container">
-        {loading ? (
-          <p className="loading">Loading...</p>
-        ) : (
-          <>
-            <div className="quest-main-container">
-              {/* {currentQuestion && ( */}
-              {currentQuestion && answers.length > 0 && (
-                <p className="question-txt"> {currentQuestion}</p>
-              )}
-
-              <Pagination
-                totalItems={totalItems}
-                activeIndex={activeIndex}
-                onChange={handlePageChange}
-              />
-            </div>
-
-            <div className="answer-container">
-              <div className="answer-card">
-                {answers &&
-                  answers.map((answer, index) => (
-                    <div
-                      key={index}
-                      className={`answer-option ${
-                        selectedAnswerIndex === index ? "selected-answer" : ""
-                      }`}
-                      onClick={() => handleAnswerClick(index)}
-                    >
-                      {answer.answerText}
-                    </div>
-                  ))}
+                <Pagination
+                  totalItems={totalItems}
+                  activeIndex={activeIndex}
+                  onChange={handlePageChange}
+                />
               </div>
-              <p className="ans-que" style={{ color: feedbackColor }} onClick={handleAnswerSubmission}>
-                {feedbackText || "What's your answer?"}
 
-              </p>
-            </div>
-          </>
-        )}
-      </main>
-    </div>
+              <div className="answer-container">
+                <div className="answer-card">
+                  {answers &&
+                    answers.map((answer, index) => (
+                      <div
+                        key={index}
+                        className={`answer-option ${
+                          selectedAnswerIndex === index ? "selected-answer" : ""
+                        }`}
+                        onClick={() => handleAnswerClick(index)}
+                      >
+                        {answer.answerText}
+                      </div>
+                    ))}
+                </div>
+                <p
+                  className="ans-que"
+                  style={{ color: feedbackColor }}
+                  onClick={handleAnswerSubmission}
+                >
+                  {feedbackText || "What's your answer?"}
+                </p>
+              </div>
+            </>
+          )}
+        </main>
+      </div>
     </>
-
   );
 };
 
 export { CountdownPage, Question, QuestionScreen };
-
-

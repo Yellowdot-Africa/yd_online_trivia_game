@@ -45,11 +45,11 @@ const NavBar = () => {
               alt="logo"
               width="30"
               height="30"
-              className="d-inline-block align-top"
+              className="d-inline-block align-center p-1"
             />
-            YDTRIVIA
+            <span className="logo-name">YD</span>TRIVIA
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="Trivia" id="collapsible-nav-dropdown">

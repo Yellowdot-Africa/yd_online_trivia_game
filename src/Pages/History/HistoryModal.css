@@ -152,9 +152,9 @@ li {
 }
 
 @media only screen and (min-width: 263px) and (max-width: 730px) {
-  .nav-bgg {
+  /* .nav-bgg {
     display: block;
-  }
+  } */
 
   .history-modal-cont {
     position: absolute;

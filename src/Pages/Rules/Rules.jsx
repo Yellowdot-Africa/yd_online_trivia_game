@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import HomeNavBar from "../../Components/HomeNavBar";
 import "../../Pages/Rules/Rules.css";
+import Settings from "../../assets/Icons/settings.svg";
+import HomeIcon from "../../assets/Icons/home-icon.png";
 import RulesCard from "../../Components/RulesCard";
 import FaqCard from "../../Components/FaqCard";
 import HomeFootIcon from "../../Components/HomeFootIcon";
@@ -13,11 +15,19 @@ const Rules = () => {
   };
   return (
     <>
-      <HomeNavBar showNavMobile={true}/>
+      <HomeNavBar/>
 
       {/* Mobile view */}
       <div className="mobile-view">
       <div className="mobile-rule-faq">
+      <div className="links-icon">
+            <a href="/settings">
+              <img src={Settings} alt="setting" />
+            </a>
+            <a href="/loading2">
+              <img src={HomeIcon} alt="home" />
+            </a>
+          </div>
             <h2>Rules & FAQ’s</h2>
           </div>
           <div className="mobile-card">

@@ -10,62 +10,48 @@ import "../Styles/HomeNavBar.css";
 const HomeNavBar = ({ showNavMobile }) => {
   return (
     <>
-      <div id="navbar" />
-      <Navbar collapseOnSelect expand="lg" className="nav-bgg">
-        <Container>
-          <Navbar.Brand className="logoo" href="#home">
-            {" "}
-            <img src={Trophy} alt="logo" />
-            YDTRIVIA
-          </Navbar.Brand>
-          <Navbar.Toggle className="menu-nav" aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
-            {/* Nav items for desktop view */}
-
-            <Nav className="me-auto  d-none d-lg-flex">
-              <Nav.Link as={Link} to="/home">
-                Home
-              </Nav.Link>
-              <Nav.Link as={Link} to="/user-stats">
-                User Stats
-              </Nav.Link>
-              <Nav.Link as={Link} to="/leaderboard">
-                LeaderBoard
-              </Nav.Link>
-              <Nav.Link as={Link} to="/rules-faqs">
-                Rules & FAQ's
-              </Nav.Link>
-            </Nav>
-            <Nav className="custom-nav">
-              <Nav.Link className="custom-navlink" as={Link} to="/account" >
-                Acct:N1,050.00{" "}
-              </Nav.Link>
-              <Nav.Link className="custom-navimg" as={Link} to="/loading2">
-                <img src={HomeIcon} alt="home" />{" "}
-              </Nav.Link>
-              <Nav.Link className="custom-navimg" as={Link} to="/settings">
-                <img src={Settings} alt="setting" />
-              </Nav.Link>
-            </Nav>
-          </Navbar.Collapse>
-          {/* Nav items for mobile view */}
-          {showNavMobile && (
-
-          <Nav className="custom-nav d-lg-none">
-            <div className="nav-mobile">
-            <Nav.Link className="custom-navimg" as={Link} to="/settings">
-              <img src={Settings} alt="setting" />
-            </Nav.Link>
-            <Nav.Link className="custom-navimg" as={Link} to="/loading2">
-              <img src={HomeIcon} alt="home" />
-            </Nav.Link>
-            
-            </div>
-           
-          </Nav>
-           )}
-        </Container>
-      </Navbar>
+      <div id="navbar">
+        <Navbar collapseOnSelect expand="lg" className="nav-bgg">
+          <Container>
+            <Navbar.Brand className="logoo" href="#home">
+              {" "}
+              <img src={Trophy} alt="logo" />
+              YDTRIVIA
+            </Navbar.Brand>
+            <Navbar.Toggle
+              className="menu-nav"
+              aria-controls="responsive-navbar-nav"
+            />
+            <Navbar.Collapse id="responsive-navbar-nav">
+              <Nav className="me-auto  d-none d-lg-flex">
+                <Nav.Link as={Link} to="/home">
+                  Home
+                </Nav.Link>
+                <Nav.Link as={Link} to="/user-stats">
+                  User Stats
+                </Nav.Link>
+                <Nav.Link as={Link} to="/leaderboard">
+                  LeaderBoard
+                </Nav.Link>
+                <Nav.Link as={Link} to="/rules-faqs">
+                  Rules & FAQ's
+                </Nav.Link>
+              </Nav>
+              <Nav className="custom-nav">
+                <Nav.Link className="custom-navlink" as={Link} to="/account">
+                  Acct:N1,050.00{" "}
+                </Nav.Link>
+                <Nav.Link className="custom-navimg" as={Link} to="/loading2">
+                  <img src={HomeIcon} alt="home" />{" "}
+                </Nav.Link>
+                <Nav.Link className="custom-navimg" as={Link} to="/settings">
+                  <img src={Settings} alt="setting" />
+                </Nav.Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </div>
     </>
   );
 };
