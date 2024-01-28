@@ -13,7 +13,7 @@
 .column {
   /* flex: 1; */
   /* padding: 20px; */
-  padding:20px 60px;
+  padding: 20px 60px;
 }
 
 .column h4 {
@@ -41,9 +41,8 @@
   .column {
     flex: 0;
     padding: 20px;
-
   }
-  .column h4{
+  .column h4 {
     font-size: 14px;
   }
 
@@ -51,7 +50,7 @@
     font-size: 14px;
     text-align: center;
   }
-  
+
   .footer-logo {
     position: absolute;
     top: 340%;
@@ -65,29 +64,9 @@
 }
 @media only screen and (min-width: 285px) and (max-width: 705px) {
   .column {
-    /* flex: 1; */
-    /* padding: 20px; */
-    padding:10px 20px;
-  }
-  /* .footer-section {
-    padding: 0px;
-  }
-  .column {
-    flex: 0;
-    padding: 20px;
-
-  }
-  
-  .footer-logo {
-    position: absolute;
-    top: 327%;
-    left: 68%;
+    padding: 10px 20px;
   }
 
-  .footer-logo img {
-    width: 85px;
-    height: 15.367px;
-  } */
   .footer-logo img {
     width: 85px;
     height: 15.367px;

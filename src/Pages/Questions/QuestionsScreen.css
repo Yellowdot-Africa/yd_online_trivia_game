@@ -1,21 +1,17 @@
-
-
-.que-pack-cont{
+.que-pack-cont {
   margin: 125px;
 }
 
-
-
 .question-container {
   background: rgba(217, 217, 217, 0.02);
- }
+}
 
 .question-card {
   width: 732px;
   height: 547px;
   background: #230640;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-  margin:  auto;
+  margin: auto;
 }
 .question-text {
   color: #fff;
@@ -99,44 +95,37 @@
 }
 
 @media only screen and (min-width: 263px) and (max-width: 284px) {
-
-  .question-text{
+  .question-text {
     font-size: 14px;
-    }
-    
-    .spann{
-      font-size: 14px;
-    }
+  }
 
+  .spann {
+    font-size: 14px;
+  }
 }
 
 @media only screen and (min-width: 285px) and (max-width: 730px) {
-.question-text{
-font-size: 16px;
-}
+  .question-text {
+    font-size: 16px;
+  }
 
-.spann{
-  font-size: 16px;
-}
-
-
-
+  .spann {
+    font-size: 16px;
+  }
 }
 
 @media only screen and (min-width: 735px) and (max-width: 930px) {
-  .question-text{
-  font-size: 16px;
-  }
-  
-  .spann{
+  .question-text {
     font-size: 16px;
   }
-  .question-card{
+
+  .spann {
+    font-size: 16px;
+  }
+  .question-card {
     width: 100%;
   }
-  
-  
-  }
+}
 
 /* countdownpageandquestionscreen css */
 
@@ -147,7 +136,7 @@ font-size: 16px;
   font-weight: 900;
 }
 
-.logo-contt span{
+.logo-contt span {
   font-size: 24px;
 }
 
@@ -220,17 +209,12 @@ font-size: 16px;
   font-weight: 400;
 }
 
-
-
 @media only screen and (min-width: 263px) and (max-width: 730px) {
-.count-question-cont{
-  width: 100%;
-  padding: 20px;
+  .count-question-cont {
+    width: 100%;
+    padding: 20px;
+  }
 }
-
-
-}
-
 
 /* question screeen css */
 
@@ -335,32 +319,30 @@ font-size: 16px;
 }
 
 @media only screen and (min-width: 263px) and (max-width: 930px) {
-/* .nav-bgg{
+  /* .nav-bgg{
   border-radius: 0;
 } */
 
-.main-container {
-  padding: 0;
-  /* background: transparent; */
-  border-radius: 2236px;
-/* background: #7E2CD1; */
-width: 100vw;
-height: 100vh;
-}
-  
-.quest-main-container {
-  width: 100vw;
-  height: 100%;
-border-radius: 0px 0px 20px 20px;
-}
-.answer-container{
-  width: 100vw;
+  .main-container {
+    padding: 0;
+    background: transparent;
+    border-radius: 2236px;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .quest-main-container {
+    width: 100vw;
+    height: 100%;
+    border-radius: 0px 0px 20px 20px;
+  }
+  .answer-container {
+    width: 100vw;
     height: 100%;
     padding: 20px;
-}
+  }
 
-.answer-option{
-  width: 100%;
-}
-
+  .answer-option {
+    width: 100%;
+  }
 }

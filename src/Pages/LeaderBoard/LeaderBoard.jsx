@@ -68,9 +68,10 @@ const LeaderBoard = () => {
   };
   return (
     <>
-      <HomeNavBar showNavMobile={true} />
+      <HomeNavBar />
       <div className="leaderboard-section">
-      <div className="links-icon">
+        <div className="leaderboard-section-details">
+          <div className="links-icon">
             <a href="/settings">
               <img src={Settings} alt="setting" />
             </a>
@@ -78,51 +79,44 @@ const LeaderBoard = () => {
               <img src={HomeIcon} alt="home" />
             </a>
           </div>
-        <h2>Leaderboard</h2>
-        <p className="subheading">Top Players of YD Trivia</p>
-
+          <h2>Leaderboard</h2>
+          <p className="subheading">Top Players of YD Trivia</p>
+        </div>
         <div className="leaderboard-cards">
-          <div className="leaderboard-card">
+          <div className="leaderboard-card-desktop">
             <img src={Bage} alt="bage" />
             <img src={BageOne} alt="bage" />
             <img src={BageTwo} alt="bage" />
           </div>
+            <div className="leaderboard-card-mobile">
+              <img className="Bmt" src={BageMobileTwo} alt="bage" />
+              <img className="bmo" src={BageMobileOne} alt="bage" />
+              <img className="bmtt" src={BageMobileThree} alt="bage" />
+            </div>
 
-          <div className="leaderboard-card-mobile">
-            <img className="Bmt" src={BageMobileTwo} alt="bage" />
-            <img className="bmo" src={BageMobileOne} alt="bage" />
-            <img className="bmtt" src={BageMobileThree} alt="bage" />
-          </div>
-
-          <div className="leaderboards-card">
+          <div className="leaderboards-card-details">
             <div className="leaderboard-header">
               <p className="empty"></p>
               <p className="empty"></p>
               <h3 className="name-heading">Name</h3>
               <p>Score</p>
             </div>
-            <div className="leaderboard-details">
-              {leaderboardData.map((player, index) => (
-                <div className="player-details" key={index}>
-                  <p>{index + 1}</p>
-                  <img src={PlayerImage} alt={`img-${index}`} />
-                  <p className="player-name">{player.name}</p>
-                  <p className="player-score">{player.score}</p>
-                </div>
-              ))}
+              <div className="leaderboard-details">
+                {leaderboardData.map((player, index) => (
+                  <div className="player-details" key={index}>
+                    <p className="player-index">{index + 1}</p>
+                    <img src={PlayerImage} alt={`img-${index}`} />
+                    <p className="player-name">{player.name}</p>
+                    <p className="player-score">{player.score}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <HomeFootIcon />
     </>
   );
 };
 
 export default LeaderBoard;
-
-
-
-
-
- 

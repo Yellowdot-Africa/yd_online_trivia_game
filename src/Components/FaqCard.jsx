@@ -59,3 +59,9 @@ const FaqCard = ({isVisible}) => {
 };
 
 export default FaqCard;
+
+
+
+
+
+

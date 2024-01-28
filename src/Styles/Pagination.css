@@ -21,3 +21,14 @@
     transform: scale(1.5); 
   }
   
+
+  .dot.correct {
+    background-color: #82E180; 
+  }
+  
+  .dot.wrong {
+    background-color: #E37E80; 
+  }
+
+
+

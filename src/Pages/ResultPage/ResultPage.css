@@ -100,6 +100,14 @@
   margin-top: 20px;
 }
 
+.result-info img{
+  
+  width: 18px;
+  height: 18px;
+  margin-top: -17px;
+
+}
+
 .info-heading {
   color: #444;
   text-align: center;
@@ -158,35 +166,40 @@
 }
 
 
-@media only screen and (min-width: 263px) and (max-width: 930px) {
+@media only screen and (min-width: 263px) and (max-width: 280px) {
   .loading-containerr {
     background-color: transparent;
+    height: 100%;
+    padding: 0;
   }
- 
+  .emp {
+    background: #7f2cd1;
+    width: 100%;
+    height: 169px;
+  }
 
   .result-container {
     display: flex;
-     flex-direction: column;
-     align-items: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
   }
 
   .container-style {
     width: 100%;
-    /* width: 350px;  */
-    height: 617px;
+    height: 100%;
     border-radius: 20px;
     border: 1px solid #7e2cd1;
     background: #fff;
     box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
-    margin-top: -172px;
-    position: relative;
-    z-index: 1;
+    margin-top: -122px;
+    
   }
   .header-sty {
     position: relative;
     display: flex;
-         justify-content: center;
-         margin-top: 10px;
+    justify-content: center;
+    margin-top: 10px;
   }
   .done-link {
     color: #fff;
@@ -211,9 +224,111 @@
     font-family: "Roboto";
     font-size: 16px;
     font-weight: 400;
-    /* width: 303px; */
     width: 100%;
+  }
+  .info-heading {
+    color: #444;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 12px;
+    font-weight: 400;
+  }
 
+  .prize-heading {
+    color: #7e2cd1;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+  }
+
+  .prize-amount {
+    color: #4fd96d;
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .current-balance {
+    color: #444;
+    text-align: center;
+    font-size: 18px;
+  }
+
+.result-info img{
+  
+  width: 12px;
+  height: 12px;
+  margin-top: -17px;
+}
+.info-value {
+  color: #444;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  padding: 12px;
+}
+}
+
+
+@media only screen and (min-width: 283px) and (max-width: 930px) {
+  .loading-containerr {
+    background-color: transparent;
+    height: 100%;
+    padding: 0;
+  }
+  .emp {
+    background: #7f2cd1;
+    width: 100%;
+    height: 169px;
+  }
+
+  .result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+
+  .container-style {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 1px solid #7e2cd1;
+    background: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+    margin-top: -122px;
+    
+  }
+  .header-sty {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  .done-link {
+    color: #fff;
+    text-align: right;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 900;
+    margin-top: -70px;
+  }
+
+  .congratulations {
+    color: #7e2cd1;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .qualification-text {
+    color: #6a6a76;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
   }
   .info-heading {
     color: #444;
@@ -243,7 +358,3 @@
   }
 }
 
-
-@media only screen and (min-width: 735px)  {
-
-}

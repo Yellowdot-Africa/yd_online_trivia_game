@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import HomeNavBar from "../../Components/HomeNavBar";
 import VolumeIcon from "../../assets/Icons/Volume-icon.svg";
 import Language from "../../assets/Icons/language.svg";
@@ -10,7 +11,11 @@ const Settings = () => {
   const audioRef = useRef(null);
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(50);
+  const navigate = useNavigate();
 
+  const handleGoBack = () => {
+    navigate(-1);
+  };
   const toggleMute = () => {
     const audio = audioRef.current;
     setIsMuted(!isMuted);
@@ -35,7 +40,13 @@ const Settings = () => {
     <>
       <HomeNavBar />
       <div className="settings">
-        <img className="back-icon" src={Back} alt="" />
+        <img
+          className="back-icon"
+          src={Back}
+          alt=""
+          onClick={handleGoBack}
+          style={{ cursor: "pointer" }}
+        />
         <h1>Settings</h1>
         <div className="sound-lang">
           <div className="sound">
@@ -63,10 +74,10 @@ const Settings = () => {
           </div>
           <div className="language-container">
             <div className="language">
-            <img src={Language} alt="" />
-            <p>Language</p>
+              <img src={Language} alt="" />
+              <p>Language</p>
             </div>
-           
+
             <div className="default">
               <p>Default</p>
               <img src={Default} alt="" />

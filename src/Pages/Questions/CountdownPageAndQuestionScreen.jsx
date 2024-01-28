@@ -86,11 +86,14 @@ const QuestionScreen = () => {
   const [feedbackColor, setFeedbackColor] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
+
   const initialBalance = 0;
 
   const [balance, setBalance] = useState(initialBalance);
 
   const totalItems = 10;
+
+  const [answersInfo, setAnswersInfo] = useState(Array(totalItems).fill(''));
 
   const handlePageChange = (index) => {
     setActiveIndex(index);
@@ -122,7 +125,6 @@ const QuestionScreen = () => {
         setQuestions(questionsResponse.data.data);
 
         setAnswers(currentQuestionAnswers);
-        // setCurrentQuestionIndex(0)
       } else {
         console.warn(
           "Received null data for questions. Setting questions to an empty array."
@@ -202,8 +204,18 @@ const QuestionScreen = () => {
       }
 
       if (isCorrect) {
+        setAnswersInfo((prev) => {
+          const newAnswersInfo = [...prev];
+          newAnswersInfo[currentQuestionIndex] = 'correct';
+          return newAnswersInfo;
+        });
         setCorrectAnswers((prev) => prev + 1);
       } else {
+        setAnswersInfo((prev) => {
+          const newAnswersInfo = [...prev];
+          newAnswersInfo[currentQuestionIndex] = 'wrong';
+          return newAnswersInfo;
+        });
         setWrongAnswers((prev) => prev + 1);
       }
     }
@@ -232,7 +244,6 @@ const QuestionScreen = () => {
           ) : (
             <>
               <div className="quest-main-container">
-                {/* {currentQuestion && ( */}
                 {currentQuestion && answers.length > 0 && (
                   <p className="question-txt"> {currentQuestion}</p>
                 )}
@@ -276,3 +287,6 @@ const QuestionScreen = () => {
 };
 
 export { CountdownPage, Question, QuestionScreen };
+
+
+

@@ -1,5 +1,4 @@
 import React from "react";
-import { Carousel } from "react-bootstrap";
 import Arrow from "../assets/Icons/arrow.svg";
 import Settings from "../assets/Icons/settings.svg";
 import HomeIcon from "../assets/Icons/home-icon.png";

@@ -15,12 +15,12 @@ const Rules = () => {
   };
   return (
     <>
-      <HomeNavBar/>
+      <HomeNavBar />
 
       {/* Mobile view */}
       <div className="mobile-view">
-      <div className="mobile-rule-faq">
-      <div className="links-icon">
+        <div className="mobile-rule-faq-card">
+          <div className="links-icon">
             <a href="/settings">
               <img src={Settings} alt="setting" />
             </a>
@@ -28,23 +28,24 @@ const Rules = () => {
               <img src={HomeIcon} alt="home" />
             </a>
           </div>
-            <h2>Rules & FAQ’s</h2>
-          </div>
-          <div className="mobile-card">
-        <div className="general-card">
-          <button className="rules-btn" onClick={toggleContent}>
-            Rules
-          </button>
-          <button className="faqs-btn" onClick={toggleContent}>
-            FAQs
-          </button>
-
-          {showRules ? (
-            <RulesCard isVisible={showRules} />
-          ) : (
-            <FaqCard isVisible={!showRules} />
-          )}
+          <h2>Rules & FAQ’s</h2>
         </div>
+        <div className="mobile-general-card">
+          <div className="mobile-card">
+            <div className="general-card-btn">
+              <button className="rules-btn" onClick={toggleContent}>
+                Rules
+              </button>
+              <button className="faqs-btn" onClick={toggleContent}>
+                FAQs
+              </button>
+              {showRules ? (
+                <RulesCard isVisible={showRules} />
+              ) : (
+                <FaqCard isVisible={!showRules} />
+              )}
+            </div>
+          </div>
         </div>
       </div>
       {/* desktop view */}
@@ -56,3 +57,6 @@ const Rules = () => {
 };
 
 export default Rules;
+
+
+

@@ -1,5 +1,8 @@
 import React from 'react';
 import Logo from "../../assets/Images/trophy.png";
+import Red from "../../assets/Icons/red.svg";
+import Green from "../../assets/Icons/green.svg";
+
 import HomeNavBar from '../../Components/HomeNavBar';
 import { useNavigate, useLocation } from 'react-router-dom';
 import "../../Pages/ResultPage/ResultPage.css";
@@ -14,8 +17,9 @@ const { correctAnswers, wrongAnswers, balance } = location.state || {};
   return (
     <>
     
-  <HomeNavBar showNavMobile={false}/>
+  <HomeNavBar />
   <div className='loading-containerr'>
+    <div className='emp'/>
     <div className='result-container'>
     <div className="container-style">
         <div className='image-cont-sty'>
@@ -27,7 +31,7 @@ const { correctAnswers, wrongAnswers, balance } = location.state || {};
         </div>
      
       <div className='header-sty'>
-        <a href="/done" className="done-link">
+        <a href="/home" className="done-link">
           Done
         </a>
       </div>
@@ -44,11 +48,14 @@ const { correctAnswers, wrongAnswers, balance } = location.state || {};
       </div>
       <div className="result-details">
         <div className="result-info">
+        <img className='' src={Green} alt="green" />
+
         <p className="info-value">{correctAnswers}</p>
 
           <p className="info-heading">Correct </p>
         </div>
         <div className="result-info">
+          <img src={Red} alt="red" />
         <p className="info-value">{wrongAnswers}</p>
 
           <p className="info-heading">Wrong</p>

@@ -32,3 +32,7 @@ const RulesCard = ({ isVisible }) => {
 };
 
 export default RulesCard;
+
+
+
+
