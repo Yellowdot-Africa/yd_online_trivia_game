@@ -43,6 +43,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  gap: 19px;
 }
 
 .welcome {
@@ -78,9 +79,11 @@
     justify-content: center;
     align-items: center;
   }
-
+  .trivia-progress  {
+    margin-top: -70px;
+  }
   .trivia-progress img {
-    margin-bottom: 10px;
+    margin-bottom: 87px;
   }
   span {
     color: rgba(255, 215, 0, 0.8);

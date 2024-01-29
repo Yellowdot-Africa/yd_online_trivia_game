@@ -207,6 +207,14 @@ const SignupCard = () => {
         <h3>Sign up for a new account</h3>
         <button onClick={handleShowModal}>Here</button>
       </div>
+
+      <div className="first-card-mobile">
+        <h3>Sign up for a new account</h3>
+        <div className="mobile-btn-img">
+        <button onClick={handleShowModal}>Here</button>
+        <img src={Card1} alt="card-one" />
+        </div>
+      </div>
       <div className="custom-modal-card">
         <Modal
           className="custom-modal"
@@ -360,7 +368,6 @@ const SignupCard = () => {
 };
 
 export default SignupCard;
-
 
 
 

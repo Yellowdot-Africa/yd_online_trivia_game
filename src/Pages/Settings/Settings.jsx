@@ -48,6 +48,7 @@ const Settings = () => {
           style={{ cursor: "pointer" }}
         />
         <h1>Settings</h1>
+        <div className="sound-lang-containerr">
         <div className="sound-lang">
           <div className="sound">
             <div className="sound-text">
@@ -84,6 +85,7 @@ const Settings = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );

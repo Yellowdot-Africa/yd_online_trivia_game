@@ -4,6 +4,8 @@ import "../Styles/Avatar.css";
 
 const AvatarCard = ({ activeTab, toggleTab }) => {
   return (
+    <>
+    <div className="avatar-container">
     <div className="avatar-card">
       <img src={Avatar} alt="User Avatar" />
       <p>User Name</p>
@@ -22,6 +24,8 @@ const AvatarCard = ({ activeTab, toggleTab }) => {
         </button>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

@@ -49,7 +49,7 @@ const NavBar = () => {
             />
             <span className="logo-name">YD</span>TRIVIA
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <NavDropdown title="Trivia" id="collapsible-nav-dropdown">
@@ -93,8 +93,6 @@ const NavBar = () => {
               </NavDropdown>
             </Nav>
             <Nav>
-              {/* <Nav.Link href="#login">Login</Nav.Link> */}
-
               <Link
                 to={{
                   pathname: "/login-modal",
@@ -106,8 +104,7 @@ const NavBar = () => {
                 Login
               </Link>
 
-              <Link  to="/signup"className="nav-btn" >
-
+              <Link to="/signup" className="nav-btn">
                 <Button
                   className="custom-btnnn"
                   style={{

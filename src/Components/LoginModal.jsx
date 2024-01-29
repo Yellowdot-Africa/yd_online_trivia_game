@@ -61,10 +61,10 @@ const LoginModal = ({ show, handleClose, onClose }) => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Handling login...");
+    // console.log("Handling login...");
 
     try {
-      console.log("Before API request");
+      // console.log("Before API request");
 
       await validationSchema.validate(
         { phoneNumber: phoneNumber, password },
@@ -81,7 +81,7 @@ const LoginModal = ({ show, handleClose, onClose }) => {
       );
       setIsLoading(false);
       // console.log(response);
-      console.log("API Response:", response);
+      // console.log("API Response:", response);
 
       if (response.status === 200) {
         sessionStorage.setItem("token", response.data.jwt);
@@ -91,12 +91,11 @@ const LoginModal = ({ show, handleClose, onClose }) => {
         console.error(response.data);
         console.log("Before navigation");
         navigate("/loading");
-        console.log("After navigation");
+        // console.log("After navigation");
 
         // navigate("/loading");
         // await
 
-        // Add debug logging
         const storedToken = sessionStorage.getItem("token");
         console.log("Stored Token:", storedToken);
 
@@ -135,7 +134,6 @@ const LoginModal = ({ show, handleClose, onClose }) => {
   const navigateToTrivia = () => {
     console.log("Navigating to trivia...");
 
-    // Navigate to the next page (you may need to adjust the path)
     navigate("/loading");
   };
 
@@ -171,7 +169,7 @@ const LoginModal = ({ show, handleClose, onClose }) => {
         );
       }
     } catch (error) {
-      console.error("Token creation/renewal error:", error);
+      // console.error("Token creation/renewal error:", error);
     }
   };
   const handleCloseModal = () => {
@@ -210,7 +208,7 @@ const LoginModal = ({ show, handleClose, onClose }) => {
               onBlur={handlePhoneNumberBlur}
             />
             {phoneNumberFocus && (
-              <p className="input-text">Please input your phone number</p>
+              <p className="inputt-textt">Please input your phone number</p>
             )}
           </Form.Group>{" "}
           <br />
@@ -225,7 +223,7 @@ const LoginModal = ({ show, handleClose, onClose }) => {
             onChange={handlePasswordChange}
             onBlur={handlePasswordBlur}
           />
-          {passwordFocus && <p className="input-text">Input password</p>}
+          {passwordFocus && <p className="inputt-textt">Input password</p>}
           <br />
           <Button
             // onClick={handleNextStep}

@@ -49,6 +49,10 @@
   font-size: 16px;
   font-weight: 900;
 }
+.first-card-mobile,.second-card-mobile, .third-card-mobile{
+  display: none;
+}
+
 
 .second-card {
   border-radius: 32px;
@@ -105,7 +109,8 @@
   position: relative;
 }
 .modal-content{
-  position: relative;
+
+position: relative;
 }
 
 .custom-modal {
@@ -259,21 +264,137 @@
     width: 268px;
     height: 620px;
     padding: 10px;
-    top: -30px;
+    top: -50px;
   }
-  .first-card,
-  .second-card,
-  .third-card {
+  .first-card-mobile,
+  .second-card-mobile,
+  .third-card-mobile {
     width: 300px;
     height: 200px;
+    
+  }
+ 
+  .first-card,.second-card,.third-card{
+    display: none;
   }
 
+  .first-card-mobile,.third-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 279px;
+    height: 188px;
+    padding: 20px;
+  }
+  .first-card-mobile img,
+  .second-card-mobile img,
+  .third-card-mobile img {
+    width: 41px;
+  }
+  
+  .first-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    padding-top: 10px;
+  }
+  
+  .first-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+
+  .second-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    background: #9d78dd;
+    max-width: 100%;
+    width: 279px;
+    height: 188px;
+    padding: 20px;
+  }
+
+
+.second-card-mobile h3 {
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 700;
+  padding: 15px 0;
+}
+
+.second-card-mobile button {
+  border-radius: 31px;
+  background: #fff;
+  width: 139px;
+  height: 43px;
+  border: none;
+  color: #9d78dd;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 900;
+}
+
+
+.third-card-mobile h3 {
+  color: #444;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.third-card-mobile button {
+  border-radius: 31px;
+  background: #9d78dd;
+  width: 139px;
+  height: 43px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 900;
+}
+
+  .mobile-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 40px;
+  }
   .modal-content {
     border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .custom-modal {
-    top: 215px;
+    top: 55px;
     left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
   }
 
   .form-control {
@@ -290,30 +411,128 @@
   .card-container {
     flex-direction: column;
     align-items: center;
-    width: 340px;
+    width: 90%;
     height: 517px;
-    top: -30px;
-    margin: 0 auto;
+    top: -50px;
+    /* margin: 0 auto; */
   }
 
-  .first-card,
-  .second-card,
-  .third-card {
+  .first-card-mobile,
+  .second-card-mobile,
+  .third-card-mobile {
     width: 305px;
     height: 149px;
   }
 
-  .first-card img,
-  .second-card img,
-  .third-card img {
-    display: flex;
-    align-items: flex-end;
-    width: 21px;
+  .first-card, .second-card,.third-card{
+    display: none;
   }
 
-  .first-card h3 {
+  .first-card-mobile,.third-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 305px;
+    height: 149px;
+    padding: 20px;
+  }
+  .first-card-mobile img,
+  .second-card-mobile img,
+  .third-card-mobile img {
+    width: 41px;
+  }
+  
+  .first-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
     padding-top: 5px;
   }
+  
+  .first-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .second-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    background: #9d78dd;
+    max-width: 100%;
+    width: 305px;
+    height: 149px;
+    padding: 20px;
+  }
+
+  .second-card-mobile h3 {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 0;
+   
+  }
+  
+  .second-card-mobile button {
+    border-radius: 31px;
+    background: #fff;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #9d78dd;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+
+.third-card-mobile h3 {
+  color: #444;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.third-card-mobile button {
+  border-radius: 31px;
+  background: #9d78dd;
+  width: 139px;
+  height: 43px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 900;
+}
+  .mobile-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 80px;
+  }
+
+  
+  
 
   .second-card h3 {
     padding: 10px 0;
@@ -324,11 +543,11 @@
 
   .modal-content {
     border-radius: 0px;
-    width: 330px;
+    /* width: 330px; */
   }
   .custom-modal {
-    top: 344px;
-    left: 12px;
+    /* top: 344px;
+    left: 12px; */
   }
   .form-control {
     width: 225px;
@@ -345,45 +564,133 @@
   .card-container {
     flex-direction: column;
     align-items: center;
-    width: 340px;
+    width: 90%;
     height: 517px;
-    top: -30px;
-    margin: 0 auto;
+    top: -50px;
   }
 
-  .first-card,
-  .second-card,
-  .third-card {
+  .first-card-mobile,
+  .second-card-mobile,
+  .third-card-mobile {
     width: 305px;
     height: 149px;
   }
 
-  .first-card img,
-  .second-card img,
-  .third-card img {
-    display: flex;
-    align-items: flex-end;
-    width: 21px;
+  .first-card, .second-card,.third-card{
+    display: none;
   }
 
-  .first-card h3 {
+  .first-card-mobile,.third-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 305px;
+    height: 149px;
+    padding: 20px;
+  }
+  .first-card-mobile img,
+  .second-card-mobile img,
+  .third-card-mobile img {
+    display: flex;
+    align-items: flex-end;
+    width: 41px;
+  }
+
+  .first-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
     padding-top: 5px;
   }
 
-  .second-card h3 {
-    padding: 10px 0;
+  .first-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
   }
-  .third-card h3 {
-    padding: 5px;
+
+  .second-card-mobile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    background: #9d78dd;
+    max-width: 100%;
+    width: 305px;
+    height: 149px;
+    padding: 20px;
+  }
+
+  .second-card-mobile h3 {
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    padding: 15px 0;
+   
+  }
+  
+  .second-card-mobile button {
+    border-radius: 31px;
+    background: #fff;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #9d78dd;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 18px;
+    font-weight: 900;
+  }
+ 
+ 
+.third-card-mobile h3 {
+  color: #444;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.third-card-mobile button {
+  border-radius: 31px;
+  background: #9d78dd;
+  width: 139px;
+  height: 43px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 900;
+}
+  .mobile-btn-img{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 80px;
   }
 
   .modal-content {
     border-radius: 0px;
-    width: 490px;
   }
   .custom-modal {
-    top: 344px;
-    left: 12px;
+    /* top: 344px;
+    left: 12px; */
   }
   .form-control {
     width: 225px;

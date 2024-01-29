@@ -38,6 +38,16 @@ const LoginCard = () => {
         <LoginModal show={showLoginModal} handleClose={handleCloseModal} />
 
       </div>
+
+      <div className="second-card-mobile">
+      <h3>Log in to your account</h3>
+        <div className="mobile-btn-img">
+        <button onClick={handleShowLoginModal}>Here</button>
+        <img src={Card2} alt="card-two" />
+        <LoginModal show={showLoginModal} handleClose={handleCloseModal} />
+
+        </div>
+      </div>
     </>
   );
 };

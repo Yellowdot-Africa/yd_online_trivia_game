@@ -91,6 +91,7 @@ hr {
   font-family: "Roboto";
   font-size: 16px;
   font-weight: 500;
+  line-height: 25.6px;
 }
 
 .faqs-details button {
@@ -110,36 +111,21 @@ hr {
 .list-ol {
   list-style: auto;
 }
-
-@media only screen and (min-width: 263px) and (max-width: 930px) {
+@media only screen and (min-width: 263px) and (max-width: 280px) {
   .rules-faq {
     display: none;
   }
 
-  .rules-card {
-    display: block;
-    padding: 0;
-    width: 0;
-  }
-
   .rules-text {
-margin-bottom: 30px;
-margin-left: 0;
-  padding: 0;
-  box-shadow: none;
-  border-radius: 0;
-  background-color: transparent;
-    
+    display: none;
   }
-
-
 
   .faq {
     display: none;
   }
 
-  .faq-card{
-    display: block;
+  .faq-card {
+    display: none;
   }
   .mobile-view {
     padding: 0;
@@ -171,7 +157,177 @@ margin-left: 0;
     background: #fff;
     box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
     width: 100%;
-    height: 609px;
+    height: 980px;
+    margin-top: -70px;
+    padding: 20px;
+  }
+  .general-card-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 69px;
+  }
+
+  .rules-btn {
+    border-radius: 5px;
+    border: 1px solid rgba(174, 178, 184, 0.6);
+    width: 130px;
+    height: 34px;
+    color: #9c33dd;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .faqs-btn {
+    border-radius: 6px;
+    border: 0.5px solid rgba(174, 178, 184, 0.6);
+    width: 130px;
+    height: 34px;
+    color: #df03f2;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .faqs-details{
+    margin-top: 10px;
+  }
+  .faqs-details button{
+    margin-right: 20px;
+  }
+  .rules-btn:hover {
+    border-radius: 5px;
+    border: 1px solid rgba(156, 51, 221, 0.6);
+    background: #9c33dd;
+    box-shadow: 0px 0px 8px 2px rgba(156, 51, 221, 0.25);
+    width: 130px;
+    height: 34px;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .faqs-btn:hover {
+    border-radius: 6px;
+    border: 0.5px solid rgba(223, 3, 242, 0.6);
+    background: #df03f2;
+    box-shadow: 0px 0px 8px 2px rgba(223, 3, 242, 0.25);
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .content {
+    margin-top: 30px;
+  }
+
+  .mobile-rules-textt h3 {
+    color: #aeb2b8;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: 0.8px;
+  }
+
+  .mobile-rules-textt .mobile-rules {
+    color: #515a5f;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+  }
+  .mobile-save-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 107px;
+  }
+  .mobile-save-button button {
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 17px;
+    border: 1px solid #9c33dd;
+    background: #9c33dd;
+    box-shadow: 0px 0px 8px 2px rgba(156, 51, 221, 0.25);
+    width: 130px;
+    height: 34px;
+  }
+
+  .mobile-faq-carrd {
+    margin-top: 30px;
+  }
+
+  .mobile-faq-carrd h3 {
+    color: #aeb2b8;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: 0.8px;
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
+  }
+}
+@media only screen and (min-width: 283px) and (max-width: 930px) {
+  .rules-faq {
+    display: none;
+  }
+
+  .rules-text {
+    display: none;
+  }
+
+  .faq {
+    display: none;
+  }
+
+  .faq-card {
+    display: none;
+  }
+  .mobile-view {
+    padding: 0;
+    height: 100vh;
+  }
+
+  .mobile-rule-faq-card {
+    width: 100%;
+    height: 169px;
+    background: #7f2cd1;
+  }
+
+  .mobile-rule-faq-card h2 {
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: -73px;
+  }
+
+  .mobile-general-card {
+    margin: 20px;
+    height: 100%;
+  }
+
+  .mobile-card {
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
+    width: 100%;
+    /* height: 100%; */
+    height: 1000px;
     margin-top: -70px;
     padding: 20px;
   }
@@ -229,5 +385,63 @@ margin-left: 0;
     font-family: "Roboto";
     font-size: 14px;
     font-weight: 400;
+  }
+
+  .content {
+    margin-top: 30px;
+  }
+
+  .mobile-rules-textt h3 {
+    color: #aeb2b8;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: 0.8px;
+  }
+
+  .mobile-rules-textt .mobile-rules {
+    color: #515a5f;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25.6px;
+  }
+  .mobile-save-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 227px;
+  }
+  .mobile-save-button button {
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 17px;
+    border: 1px solid #9c33dd;
+    background: #9c33dd;
+    box-shadow: 0px 0px 8px 2px rgba(156, 51, 221, 0.25);
+    width: 130px;
+    height: 34px;
+  }
+
+  .mobile-faq-carrd {
+    margin-top: 30px;
+  }
+
+  .mobile-faq-carrd h3 {
+    color: #aeb2b8;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16.8px;
+    letter-spacing: 0.8px;
+  }
+
+  hr {
+    width: 100%;
+    height: 1px;
   }
 }
