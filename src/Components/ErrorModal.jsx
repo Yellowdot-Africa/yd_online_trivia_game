@@ -6,7 +6,7 @@ const ErrorModal = ({ message, onClose }) => {
       <div className="error-modal">
         <div className="error-modal-content">
           <p>{message}</p>
-          <button onClick={onClose} style={{backgroundColor:"#1D1DB9"}}>Close</button>
+          <button onClick={onClose} style={{backgroundColor:"#9C33DD"}}>Close</button>
         </div>
       </div>
     </>

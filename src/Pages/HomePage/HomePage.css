@@ -132,23 +132,7 @@
     width: 100vw;
     height: 286px;
   }
-  .links-icon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 25px;
-  }
-  .links-icon a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #982cdb;
-    background: #973cf2;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
-  }
+ 
   .welcome-section {
     padding: 0px 25px;
   }
@@ -316,24 +300,7 @@
     height: 286px;
   }
 
-  .links-icon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 25px;
-  }
-
-  .links-icon a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #982cdb;
-    background: #973cf2;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
-  }
+  
 
   .welcome-section {
     padding: 0px 25px;
@@ -497,24 +464,7 @@
     height: 286px;
   }
 
-  .links-icon {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 25px;
-  }
-
-  .links-icon a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #982cdb;
-    background: #973cf2;
-    box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
-  }
+ 
 
   .welcome-section {
     padding: 0px 25px;
@@ -644,8 +594,8 @@
   }
 
   .empty-div{
-    width: 100%;
-    height: 100vh;
+    width: 80%;
+    height: 80%;
     margin-bottom: 15px;
   }
 

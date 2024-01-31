@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CustomButton from "./CustomButton";
 import ErrorModal from "./ErrorModal";
-// import { useBalance } from "../../Components/Common/BalanceContext";
-
-
+import { useBalance } from "./BalanceContext";
 import "../Styles/Deposit.css";
 
 const Deposit = ({ closeModal, loginDetails }) => {
@@ -19,9 +17,6 @@ const Deposit = ({ closeModal, loginDetails }) => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
 
-  // const [loginMsisdn, setLoginMsisdn] = useState("");
-  // const [loginFullName, setLoginFullName] = useState("");
-  // const [loginEmail, setLoginEmail] = useState("");
 
   const buttonStyle = {
     borderRadius: "23px",
@@ -31,17 +26,11 @@ const Deposit = ({ closeModal, loginDetails }) => {
     fontWeight: "500",
     padding: "0",
     width: "222px",
-    backgroundColor: inputValue ? " #1D1DB9" : "#939393",
+    backgroundColor: inputValue ? "#9C33DD" : "#939393",
   };
   const token = sessionStorage.getItem("token");
 
-  // useEffect(() => {
-  //   if (loginDetails) {
-  //     setLoginMsisdn(loginDetails.msisdn || "");
-  //     setLoginFullName(loginDetails.fullName || "");
-  //     setLoginEmail(loginDetails.email || "");
-  //   }
-  // }, [loginDetails]);
+  
 
   const handleInputChange = (e) => {
     setErrorMessage("");
@@ -61,17 +50,7 @@ const Deposit = ({ closeModal, loginDetails }) => {
         return;
       }
 
-      // if (
-      //   // msisdn !== loginMsisdn ||
-      //   fullName !== loginFullName ||
-      //   email !== loginEmail
-      // ) {
-      //   setErrorMessage(
-      //     "Mismatched login details. Please use the same login details."
-      //   );
-      //   setShowErrorModal(true);
-      //   return;
-      // }
+     
 
       const apiUrl =
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/MakePayment";
@@ -101,13 +80,7 @@ const Deposit = ({ closeModal, loginDetails }) => {
         const paymentUrl = response.data.data;
         console.log("Deposit successful. Redirecting to payment:", paymentUrl);
 
-        // const addUnitsPayload = {
-        //   units: response.data.units,
-        //   amountPaid: response.data.amountPaid,  
-        //   paymentSource: response.data.paymentSource,
-        //   paymentReferenceNumber:  response.data.paymentReferenceNumber,
-        //   comments: response.data.comments
-        // };
+       
        const addUnitsPayload = {
     units: 1,
     amountPaid: inputValue,  
@@ -162,15 +135,6 @@ const Deposit = ({ closeModal, loginDetails }) => {
       setLoading(false);
     }
   };
-
-
-  // const addUnitsPayload = {
-  //   units: 5,
-  //   amountPaid: inputValue,  
-  //   paymentSource: "Web",
-  //   paymentReferenceNumber: "7PVGX8MEk85tgeEpVDtD",
-  //   comments: "Added using Paystack online payment"
-  // };
 
   
 

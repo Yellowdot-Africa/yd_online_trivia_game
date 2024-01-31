@@ -1,13 +1,11 @@
-import React , {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import More from "../assets/Icons/more.svg";
 import Play from "../assets/Icons/play.svg";
 import "../Styles/CategoriesSection.css";
 import axios from "axios";
 
-
 const CategoriesSection = () => {
   const [categories, setCategories] = useState([]);
-
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -16,15 +14,14 @@ const CategoriesSection = () => {
           "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategories"
         );
 
-        setCategories(response.data); 
+        setCategories(response.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
     };
 
     fetchCategories();
-  }, []); 
-
+  }, []);
 
   return (
     <div className="category-container">
@@ -34,24 +31,18 @@ const CategoriesSection = () => {
       </div>
 
       <div className="category-grid">
-      {/* {categories.map((category) => ( */}
-      <div className="football category-item">
-      <h4>Football</h4>
+        <div className="football category-item">
+          <h4>Football</h4>
 
-        {/* <div key={category.id} className={`category-item ${category.name.toLowerCase()}`}> */}
-          {/* <h4>{category.name}</h4> */}
           <div className="no">
             <div className="play-now-cont">
               <button className="cate-button">PLAY NOW</button>
               <div className="play-contn">
                 <img src={Play} alt="" />
                 <p className="play-no">10,200</p>
-
-                {/* <p className="play-no">{category.playCount}</p> */}
               </div>
             </div>
           </div>
-        
         </div>
 
         <div className="music category-item">
@@ -92,7 +83,6 @@ const CategoriesSection = () => {
             </div>
           </div>
         </div>
-          {/* ))} */}
       </div>
       <div className="moree">
         <a href="#">
@@ -106,8 +96,6 @@ const CategoriesSection = () => {
 
 export default CategoriesSection;
 
-
-
 // import React, { useState, useEffect } from "react";
 // import More from "../assets/Icons/more.svg";
 // import Play from "../assets/Icons/play.svg";
@@ -118,22 +106,36 @@ export default CategoriesSection;
 //   const [categories, setCategories] = useState([]);
 //   const token = sessionStorage.getItem("token");
 
-
 //   useEffect(() => {
 //     const fetchCategories = async () => {
 //       try {
+//         console.log(`Bearer ${token}`);
+
 //         const response = await axios.get(
-//           "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategories"
+//           "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategories",
+//           {
+//             headers: {
+//               Accept: "*/*",
+//               "Content-Type": "application/json",
+//               Authorization: `Bearer ${token}`,
+//             },
+//           }
 //         );
 
 //         setCategories(response.data);
+//         if (response.data.data.length > 0) {
+//           setSelectedCategoryIndex(0);
+//           setSelectedCategory(response.data.data[0]);
+//         }
+
+//         setLoading(false);
 //       } catch (error) {
 //         console.error("Error fetching categories:", error);
 //       }
 //     };
 
 //     fetchCategories();
-//   }, []); 
+//   }, [token]);
 
 //   return (
 //     <div className="category-container">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Settings from "../assets/Icons/settings.svg";
 import HomeIcon from "../assets/Icons/home-icon.png";
+import MobileLinkIcon from "./MobileLinkIcon";
 
 const RulesMobile = () => {
   const [showRules, setShowRules] = useState(true);
@@ -9,14 +10,7 @@ const RulesMobile = () => {
     <>
       <div className="mobile-view">
         <div className="mobile-rule-faq-card">
-          <div className="links-icon">
-            <a href="/settings">
-              <img src={Settings} alt="setting" />
-            </a>
-            <a href="/loading2">
-              <img src={HomeIcon} alt="home" />
-            </a>
-          </div>
+          <MobileLinkIcon/>
           <h2>Rules & FAQ’s</h2>
         </div>
         <div className="mobile-general-card">
