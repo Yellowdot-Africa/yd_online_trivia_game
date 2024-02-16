@@ -3,7 +3,9 @@ import React from "react";
 const SignUpForm = ({ isMenuOpen }) => {
   return (
     <>
-      <form className={`form signup-form ${isMenuOpen ? "open" : ""}`}>
+        <div className="signup-form-cont">
+
+      <form className={`signup-form ${isMenuOpen ? "open" : ""}`}>
         <input
           type="text"
           placeholder="Username"
@@ -18,6 +20,7 @@ const SignUpForm = ({ isMenuOpen }) => {
         />
         <button>Signup</button>
       </form>
+      </div>
     </>
   );
 };

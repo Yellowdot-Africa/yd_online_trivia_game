@@ -155,7 +155,8 @@ const LoginForm = ({ isMenuOpen }) => {
 
   return (
     <>
-      <form className={`form login-form ${isMenuOpen ? "open" : ""}`}>
+    <div className="login-form-cont">
+      <form className={`login-form ${isMenuOpen ? "open" : ""}`}>
         <input
           type="tel"
           placeholder="+234"
@@ -188,6 +189,7 @@ const LoginForm = ({ isMenuOpen }) => {
           <p className="error-text">{loginError.general}</p>
         )}
       </form>
+      </div>
     </>
   );
 };

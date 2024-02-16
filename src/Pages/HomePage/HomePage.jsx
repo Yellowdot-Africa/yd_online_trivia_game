@@ -6,7 +6,7 @@ import SearchBar from "../../Components/SearchBar";
 import TodaysGames from "../../Components/TodaysGame";
 // import PopularCategories from "../../Components/PopularCategories";
 import NavigationIcons from "../../Components/NavigationIcons";
-import SearchCard from "../../Components/SearchCard";
+// import SearchCard from "../../Components/SearchCard";
 import "../HomePage/HomePage.css";
 import CategoriesSection from "../../Components/CategoriesSection";
 

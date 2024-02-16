@@ -164,29 +164,48 @@
     margin-right: 8px;
   }
 
-  
-  /* .login-form,
-  .signup-form {
-    display: none;
+  .login-form-cont,
+  .signup-form-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+
+  .signup-form,
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -16px;
     padding: 20px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
-  } */
 
-  /* .login-form input,
+   
+
+  }
+  
+  
+  .login-form input,
   .signup-form input {
-    width: 100%;
+    width: 70vw;
     padding: 10px;
-    margin-bottom: 10px;
-  } */
-
+    margin: 10px 0;
+    border: 2px solid #41189CB2;
+    border-radius: 5px;
+  }
   .login-form button,
   .signup-form button {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #54349F;
     color: white;
     border: none;
+    border-radius: 30px;
     cursor: pointer;
   }
   .additional-content {
@@ -207,7 +226,8 @@
     padding: 10px;
   }
 }
-@media only screen and (min-width: 285px) and (max-width: 768px) {
+
+@media only screen and (min-width: 285px) and (max-width: 520px) {
   .hero-section {
     padding: 182px 73px;
     height: 100vh;
@@ -317,26 +337,34 @@
     cursor: pointer;
   }
   
+  .login-form-cont,
+  .signup-form-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
-  .form {
+  .login-form,
+  .signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: fixed;
+    position: absolute;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    left: -88px;
     padding: 20px;
-    /* border-radius: 10px; */
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+
+
   }
-  .form input {
-    width: 100%;
+  .login-form input,
+  .signup-form input {
+    width: 70vw;
     padding: 10px;
     margin: 10px 0;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
+    border: 2px solid #41189CB2;
     border-radius: 5px;
   }
 
@@ -351,20 +379,21 @@
   } */
  
 
-  .login-form input,
+  /* .login-form input,
   .signup-form input {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-  }
+  } */
 
   .login-form button,
   .signup-form button {
     width: 100%;
     padding: 10px;
-    background-color: #333;
+    background-color: #54349F;
     color: white;
     border: none;
+    border-radius: 30px;
     cursor: pointer;
   }
   .additional-content {
@@ -386,6 +415,536 @@
   }
 }
 
+
+@media only screen and (min-width: 530px) and (max-width: 700px) {
+  .hero-section {
+    padding: 182px 73px;
+    height: 100vh;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 88.89%);
+    margin-top: -2px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text h3 {
+    font-size: 30px;
+    width: 100vw;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    width: 100vw;
+  }
+  .hero-btn-container {
+    padding: 70px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .backdrop {
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 280.76%);
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -339px;
+    width: 339px;
+    height: 100%;
+    background-color: #fff;
+    color: #fff;
+    transition: right 0.3s ease;
+    padding: 20px;
+    display: block;
+  }
+
+  .menu.open {
+    right: 0;
+    z-index: 2;
+  }
+
+  .close-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+  }
+  .menu ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 58px;
+  }
+
+  .menu .menu-item {
+    margin-bottom: 10px;
+    color: #979797;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu-item img {
+    margin-right: 8px;
+  }
+  .form-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .login-form-cont,
+  .signup-form-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .login-form,
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -88px;
+    padding: 20px;
+
+  }
+  .login-form input,
+  .signup-form input {
+    width: 50vw;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #41189CB2;
+    border-radius: 5px;
+  }
+
+  .form.open{
+    display: flex;
+  }
+  
+
+  .login-form button,
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #54349F;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 360px;
+  }
+
+  .additional-content p,
+  a {
+    color: #6868ff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    text-decoration: none;
+    padding: 20px;
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 730px) and (max-width: 800px) {
+  .hero-section {
+    padding: 182px 73px;
+    height: 100vh;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 88.89%);
+    margin-top: -2px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text h3 {
+    font-size: 30px;
+    width: 100vw;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    width: 100vw;
+  }
+  .hero-btn-container {
+    padding: 70px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .backdrop {
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 280.76%);
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -339px;
+    width: 339px;
+    height: 100%;
+    background-color: #fff;
+    color: #fff;
+    transition: right 0.3s ease;
+    padding: 20px;
+    display: block;
+  }
+
+  .menu.open {
+    right: 0;
+    z-index: 2;
+  }
+
+  .close-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+  }
+  .menu ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 58px;
+  }
+
+  .menu .menu-item {
+    margin-bottom: 10px;
+    color: #979797;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu-item img {
+    margin-right: 8px;
+  }
+  .form-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .login-form-cont,
+  .signup-form-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .login-form,
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -88px;
+    padding: 20px;
+
+  }
+  .login-form input,
+  .signup-form input {
+    width: 40vw;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #41189CB2;
+    border-radius: 5px;
+  }
+
+  .form.open{
+    display: flex;
+  }
+  
+
+  .login-form button,
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #54349F;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 360px;
+  }
+
+  .additional-content p,
+  a {
+    color: #6868ff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    text-decoration: none;
+    padding: 20px;
+  }
+}
+
+
+
+
+
+@media only screen and (min-width: 810px) and (max-width: 950px) {
+  .hero-section {
+    padding: 182px 73px;
+    height: 100vh;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 88.89%);
+    margin-top: -2px;
+  }
+
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-text h3 {
+    font-size: 30px;
+    width: 100vw;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+    width: 100vw;
+  }
+  .hero-btn-container {
+    padding: 70px 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  .backdrop {
+    backdrop-filter: blur(15px);
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(150deg, #38128d 70.97%, #8774b8 280.76%);
+  }
+
+  .logo {
+    width: 100px;
+  }
+  .hamburger {
+    cursor: pointer;
+    width: 30px;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -339px;
+    width: 339px;
+    height: 100%;
+    background-color: #fff;
+    color: #fff;
+    transition: right 0.3s ease;
+    padding: 20px;
+    display: block;
+  }
+
+  .menu.open {
+    right: 0;
+    z-index: 2;
+  }
+
+  .close-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 41px;
+  }
+  .menu ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-top: 58px;
+  }
+
+  .menu .menu-item {
+    margin-bottom: 10px;
+    color: #979797;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .menu-item img {
+    margin-right: 8px;
+  }
+  .form-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .login-form-cont,
+  .signup-form-cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .login-form,
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: -88px;
+    padding: 20px;
+
+  }
+  .login-form input,
+  .signup-form input {
+    width: 30vw;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #41189CB2;
+    border-radius: 5px;
+  }
+
+  .form.open{
+    display: flex;
+  }
+  
+
+  .login-form button,
+  .signup-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #54349F;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+  .additional-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 360px;
+  }
+
+  .additional-content p,
+  a {
+    color: #6868ff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+    text-decoration: none;
+    padding: 20px;
+  }
+}
 
 
 
