@@ -1,0 +1,272 @@
+.card-container {
+    border-radius: 32px;
+    background: #fff;
+    box-shadow: 0px 1px 25px 0px rgba(0, 0, 0, 0.25);
+    width: 80vw;
+    height: 258px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: auto;
+    position: relative;
+    top: -150px;
+  }
+
+
+.third-card {
+  border-radius: 32px;
+  border: 2px solid #9d78dd;
+  background: #fff;
+  max-width: 100%;
+  width: 60vw;
+  height: 188px;
+  padding: 20px;
+}
+
+.third-card img {
+  width: 41px;
+}
+
+.third-card-mobile {
+  display: none;
+}
+
+.third-card h3 {
+  color: #444;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+  padding: 10px;
+}
+
+.third-card button {
+  border-radius: 31px;
+  background: #9d78dd;
+  width: 139px;
+  height: 43px;
+  border: none;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 900;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 283px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    width: 268px;
+    height: 224px;
+    padding: 10px;
+    top: -50px;
+  }
+
+  .third-card-mobile {
+    width: 300px;
+    height: 200px;
+  }
+
+  .third-card {
+    display: none;
+  }
+
+  .third-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 279px;
+    height: 188px;
+    padding: 20px;
+  }
+
+  .third-card-mobile img {
+    width: 41px;
+  }
+
+  .third-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px;
+    margin-right: 32px;
+
+  }
+
+  .third-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .mobile-btn-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+}
+
+@media only screen and (min-width: 285px) and (max-width: 535px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    /* height: 517px;
+    width: 351px; */
+height: 160px;
+flex-shrink: 0;
+    top: -50px;
+    /* margin: 0 auto; */
+  }
+
+  .third-card-mobile {
+    width: 305px;
+    height: 149px;
+  }
+
+  .third-card {
+    display: none;
+  }
+
+  .third-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 80vw;
+    height: 149px;
+    padding: 20px;
+  }
+
+  .third-card-mobile img {
+    width: 41px;
+  }
+
+  .third-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px;
+    margin-right: 89px;
+  }
+
+  .third-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .mobile-btn-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+  }
+
+  .third-card h3 {
+    padding: 5px;
+  }
+}
+
+@media only screen and (min-width: 536px) and (max-width: 762px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    height: 189px;
+    top: -50px;
+  }
+
+  .third-card-mobile {
+    width: 305px;
+    height: 149px;
+  }
+
+  .third-card {
+    display: none;
+  }
+
+  .third-card-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 32px;
+    border: 2px solid #9d78dd;
+    background: #fff;
+    max-width: 100%;
+    width: 305px;
+    height: 149px;
+    padding: 20px;
+  }
+
+  .third-card-mobile img {
+    display: flex;
+    align-items: flex-end;
+    width: 41px;
+  }
+
+  .third-card-mobile h3 {
+    color: #444;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900;
+    padding: 10px;
+  }
+
+  .third-card-mobile button {
+    border-radius: 31px;
+    background: #9d78dd;
+    width: 139px;
+    height: 43px;
+    border: none;
+    color: #fff;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+  .mobile-btn-img {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+  }
+}
+@media only screen and (min-width: 763px) and (max-width: 913px) {
+  .card-container {
+    width: 743px;
+    padding: 20px;
+  }
+
+  .third-card {
+    width: 600px;
+    height: 204px;
+  }
+}

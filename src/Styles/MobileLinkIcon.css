@@ -1,0 +1,28 @@
+.links-icon{
+  display: none;
+}
+
+
+
+@media only screen and (min-width: 263px) and (max-width: 980px) {
+
+.links-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 25px;
+}
+.links-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid #982cdb;
+  background: #973cf2;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.25);
+ 
+}
+
+}

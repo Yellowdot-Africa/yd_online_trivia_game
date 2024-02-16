@@ -1,0 +1,287 @@
+.leaderboard {
+  font-family: "Alpino";
+}
+
+.leaderboard-text {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.leaderboard-text h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+}
+
+.main {
+  padding: 20px;
+}
+
+.user-card {
+  background-color: #7e2cd133;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 51px;
+  display: flex;
+  gap: 12px;
+}
+
+.user-card p {
+  color: #550e9c;
+}
+.user-card .four {
+  color: #7e2cd1;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.winner-chart {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.winner-two {
+  margin-top: 76px;
+}
+.user-two {
+  background: linear-gradient(
+    180deg,
+    rgba(126, 44, 209, 0.8) 0%,
+    rgba(236, 130, 87, 0.8) 100%
+  );
+  width: 30vw;
+  height: 190px;
+}
+
+.user-one {
+  background: linear-gradient(
+    180deg,
+    rgba(126, 44, 209, 0.8) 0%,
+    rgba(29, 176, 31, 0.8) 100%
+  );
+  width: 30vw;
+  height: 266px;
+}
+.winner-one p,
+.winner-two p,
+.winner-three p {
+  text-align: center;
+}
+.winner-three {
+  margin-top: 118px;
+}
+
+.user-three {
+  background: linear-gradient(
+    180deg,
+    rgba(126, 44, 209, 0.8) 0%,
+    rgba(33, 210, 245, 0.8) 100%
+  );
+  width: 32vw;
+  height: 148px;
+}
+
+.top-players-deets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-players-card {
+  background-color: #f4f2f5;
+  width: 100vw;
+  height: 100%;
+  padding: 20px 15px 43px 15px;
+  border-radius: 10px;
+}
+
+.top-players-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-players-cont h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.top-players-cont p {
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7e2cd1;
+}
+
+.players-details-container {
+  padding: 15px;
+}
+.first-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.green {
+  background-color: #23a72b;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.green-deets {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.green-deets p {
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.green-deets .number {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.second-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.orange {
+  background-color: #e77e5c;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.orange-deets p {
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.orange-deets .number {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.third-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.blue {
+  background-color: #25cbf3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.blue-deets p {
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.blue-deets .number {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.fourth-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.purple {
+  background-color: #7f2cd1cc;
+
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+}
+
+.purple-deets p {
+  margin: 0;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.purple-deets .number {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}

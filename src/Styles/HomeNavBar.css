@@ -1,0 +1,47 @@
+#navbar {
+}
+
+.nav-bgg {
+  background-color: #7e2cd1;
+  padding: 23px 140px;
+}
+
+.navbar-brand {
+  color: #eed7fb;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+}
+.nav-link {
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 600;
+}
+.custom-nav {
+  gap: 10px;
+}
+
+.custom-navlink {
+  color: #e1c4ff;
+  text-align: right;
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: #432671;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-navimg {
+  border-radius: 8px;
+  background: #432671;
+}
+
+@media only screen and (min-width: 263px) and (max-width: 930px) {
+  .nav-bgg {
+    display: none;
+  }
+}

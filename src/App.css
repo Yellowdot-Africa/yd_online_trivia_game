@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "Alpino";   
+    /* src: local("Alpine"), */
+      src:url("./Fonts/Alpino-black.ttf") format("truetype");
+  
+    src: url("https://yoursite.com/css/fonts/CustomFont.eot");
+    src: url("https://yoursite.com/css/fonts/CustomFont.woff") format("woff"),
+    url("https://yoursite.com/css/fonts/CustomFont.otf") format("opentype"),
+    url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
+    }

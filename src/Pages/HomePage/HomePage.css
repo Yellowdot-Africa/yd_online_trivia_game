@@ -1,0 +1,243 @@
+.header {
+  padding: 20px;
+  background-color: rgba(126, 44, 209, 1);
+  border-radius: 0px 0px 28px 28px;
+  color: #fff;
+  width: 100vw;
+  height: 326px;
+}
+
+.welcome-user {
+  font-size: 16px;
+  font-family: "Alpino";
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: justify;
+}
+.username {
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.welcome-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.home-icon {
+  cursor: pointer;
+}
+
+.account-balance {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.account-balance .acct {
+  color: #cecece;
+  font-family: "Alpino";
+  font-size: 10px;
+  font-weight: 421;
+  line-height: 13px;
+  letter-spacing: 0em;
+}
+.account-balance .amount {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #afff93;
+}
+
+.see-account {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: "Alpino";
+  font-size: 12px;
+  font-weight: 507;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #fff;
+}
+
+.arrow-icon {
+  margin-left: 10px;
+  color: #fff;
+}
+
+.search-bar {
+  margin: 24px;
+  position: relative;
+}
+
+.search-bar input {
+  width: 100%;
+  height: 40px;
+  padding: 25px;
+  font-size: 16px;
+  border-radius: 50px;
+  outline: none;
+  border: 0;
+}
+input::placeholder {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  columns: #a3a3a3;
+}
+.search-icon {
+  position: absolute;
+  top: 15px;
+  left: 5px;
+}
+
+.todays-games-section {
+  margin-bottom: 28px;
+}
+
+.todays-game {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.todays-game h2 {
+  font-family: "Alpino";
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.see-all-games {
+  color: #7e2cd1;
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.todays-games {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+  }
+}
+.carousel-container {
+  width: 500px;
+  padding-left: 10px;
+}
+.todays-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.special-game-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0px 1px 2px 0px #00000040;
+  width: 158px;
+  height: 163px;
+}
+
+.special-game-card h3 {
+  background: #f4f4f4;
+  border-radius: 10px;
+  width: 70px;
+  height: 22px;
+  padding: 3px 18px 3px 18px;
+  font-family: Alpino;
+  font-size: 12px;
+  font-weight: 507;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 14px;
+}
+
+.game-title {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 86.5%
+  );
+  width: 158px;
+  height: 47px;
+  margin-top: 63px;
+}
+
+.game-title-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 23px;
+  padding: 0 10px;
+}
+
+.game-title p {
+  margin: 0;
+  padding-left: 5px;
+  color: #ffffff;
+  font-family: "Alpino";
+  font-size: 12px;
+  font-weight: 507;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.popular-categories {
+  margin-top: 20px;
+}
+
+.navigation-iconss {
+  position: fixed;
+  top: 581px;
+  right: -20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 24px;
+}
+
+.icon-content-section {
+  background-color: #fff;
+  border-radius: 40px;
+  width: 100vw;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.navigation-iconss div:hover {
+  background-color: #2980b9;
+}

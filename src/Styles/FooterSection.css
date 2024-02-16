@@ -1,0 +1,34 @@
+.footer-section {
+  background: #F1EDFC;
+  display: flex;
+  align-items: center;
+
+
+}
+
+.footer-columns{
+  padding: 45px 24px;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 284px) {
+  .footer-section {
+    padding: 0px;
+  }
+  
+  .footer-columns img{
+    padding: 28px 0;
+  }
+
+
+}
+@media only screen and (min-width: 285px) and (max-width: 705px) {
+ 
+  .footer-columns img{
+    padding: 28px 0;
+  }
+
+  .footer-columns p{
+    padding-bottom: 20px ;
+  }
+
+}

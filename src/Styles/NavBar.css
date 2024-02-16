@@ -1,0 +1,91 @@
+.custom-navbar {
+}
+
+.navbar > .container,
+.navbar > .container-fluid,
+.navbar > .container-sm,
+.navbar > .container-md,
+.navbar > .container-lg,
+.navbar > .container-xl,
+.navbar > .container-xxl {
+  display: flex;
+  flex-wrap: inherit;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+}
+
+.logo-name {
+  color: rgba(255, 215, 0, 0.8);
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .nav-dropdown-item {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 600;
+  width: 130px;
+  margin-top: 5px;
+}
+
+.navbar-toggler span {
+  color: #fff;
+}
+a.nav-btn {
+  margin-top: 5px;
+}
+.custom-navbar .navbar-brand {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.navbar-toggler {
+  border: none;
+  width: 0;
+  padding-right: 20px;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+.custom-navbar .nav-link,
+.custom-navbar .nav-dropdown-item {
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.custom-btnn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+@media screen and (max-width: 576px) {
+  /* .navbar-toggler-icon{
+    position: absolute;
+    left: 89%;
+    top: 15%;
+  } */
+}
+
+@media screen and (min-width: 577px) and (max-width: 766px) {
+  /* .navbar-toggler-icon{
+    position: absolute;
+    left: 59%;
+    top: 15%;
+  } */
+}

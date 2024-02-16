@@ -1,0 +1,176 @@
+.contact-section {
+  text-align: center;
+  padding: 50px;
+  background: #000;
+}
+.contact-section h2 {
+  /* color: #313131;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 48px;
+  font-weight: 900; */
+  color: #fff;
+  text-align: center;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 507;
+}
+
+.contact-section p {
+  color: #585858;
+  text-align: center;
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 400;
+}
+.email-form {
+  margin-top: 20px;
+}
+
+.email-form input {
+  color: #564383;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  width: 299px;
+  height: 36px;
+  border: none;
+  outline: none;
+  /* border-radius: 10px 0px 0px 10px; */
+  /* border: 2px solid #bab4c8; */
+  background: #fff;
+  padding: 10px;
+}
+.email-form input::placeholder {
+  color: #564383;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.email-form .custom-button {
+  /* border-radius: 0px 10px 10px 0px !important; */
+  /* border: 2px solid #bab4c8; */
+  /* background: #4c3385; */
+  background: #54349f;
+  border: none;
+  border-radius: 0;
+  width: 160px;
+  height: 36px;
+  color: #fff;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 700;
+  padding: 7px;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 284px) {
+  .contact-section h2 {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 900; */
+    color: #fff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+  }
+
+  .contact-section p {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400; */
+    color: #9c9c9c;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 12px;
+    font-weight: 421;
+  }
+  .email-form input {
+    width: 105px;
+    height: 36px;
+  }
+
+  .email-form .custom-button {
+    width: 75px;
+    height: 36px;
+  }
+}
+@media only screen and (min-width: 285px) and (max-width: 365px) {
+  .contact-section h2 {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 900; */
+    color: #fff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+  }
+
+  .contact-section p {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400; */
+    color: #9c9c9c;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 12px;
+    font-weight: 421;
+  }
+  .email-form input {
+    width: 174px;
+    height: 36px;
+  }
+
+  .email-form .custom-button {
+    width: 83px;
+    height: 36px;
+  }
+}
+@media only screen and (min-width: 366px) and (max-width: 767px) {
+  .contact-section h2 {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 24px;
+    font-weight: 900; */
+    color: #fff;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 507;
+  }
+
+  .contact-section p {
+    /* color: #272d1e;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400; */
+    color: #9c9c9c;
+    text-align: center;
+    font-family: "Alpino";
+    font-size: 12px;
+    font-weight: 421;
+  }
+
+  .email-form input {
+    width: 170px;
+    height: 36px;
+  }
+
+  .email-form .custom-button {
+    width: 97px;
+    height: 36px;
+  }
+}

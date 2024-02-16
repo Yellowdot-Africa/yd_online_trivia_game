@@ -1,0 +1,139 @@
+.loading-pagee-containerr {
+  background: #fff;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.glassmorphism {
+  width: 300px;
+  height: 300px;
+
+  background: radial-gradient(
+        30% 30% at 30% 20%,
+        #b481f6 0%,
+        rgba(184, 129, 246, 0) 100%
+      )
+      no-repeat,
+    radial-gradient(35% 30% at 70% 40%, #73c7f7 0%, rgba(115, 199, 247, 0) 100%)
+      no-repeat;
+
+  padding: 30px;
+  backdrop-filter: blur(75px);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+  width: 100px;
+}
+.logo-cont {
+  color: #eed7fb;
+  font-family: "Roboto";
+  font-size: 20px;
+  font-weight: 900;
+}
+.trivia-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.trivia-progress {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trivia-progress p {
+  color: #000;
+  text-align: center;
+  font-family: "Alpino";
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.trivia-progress img {
+  margin-bottom: 50px;
+}
+
+.progressbar {
+  margin-top: 50px;
+  padding: 10px;
+  width: 100%;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 19px;
+}
+
+.welcome {
+  color: #000;
+  text-align: center;
+  font-family: "Alpino";
+  font-size: 18px;
+  font-weight: 421;
+}
+.yd-span {
+  opacity: 0.7;
+  color: #ffd700;
+  font-family: "Roboto";
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+}
+
+.welcom-btn {
+  outline: none;
+  border: none;
+  width: 189px;
+  height: 49px;
+  border-radius: 30px;
+  background: #54349f;
+  box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  text-align: center;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 421;
+}
+/* @media (max-width: 768px) {
+  .loading-pagee-containerr {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .trivia-progress {
+    margin-top: -70px;
+  }
+  .trivia-progress img {
+    margin-bottom: 87px;
+  }
+  span {
+    color: rgba(255, 215, 0, 0.8);
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+  }
+
+  .logo-cont {
+    color: #f9eeff;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 900;
+    margin-bottom: 200px;
+  }
+} */

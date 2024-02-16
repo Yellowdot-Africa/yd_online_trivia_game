@@ -1,0 +1,219 @@
+.user-profile {
+  font-family: "Alpino";
+}
+
+.header-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+.header-text .user-prof-heading {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000;
+}
+
+.edit-user-profile {
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.header-text p {
+  color: #7e2cd1;
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+  cursor: pointer;
+}
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar p {
+  background-color: #973cf2;
+  color: #ffffff;
+  width: 72px;
+  height: 72px;
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  border-radius: 50%;
+}
+
+.avatar img {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 120px;
+  left: 203px;
+  /* padding: 2.88px, 3px, 4px, 3px; */
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+}
+
+.user-info .phone-number {
+  margin: 0;
+  background: #6868ff33;
+  color: #7e2cd1;
+  width: 164px;
+  height: 29px;
+  padding: 5px 8px 5px 8px;
+  border-radius: 7px;
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+}
+
+.user-info .user-name {
+  font-size: 20px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
+}
+
+.user-stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info-heading {
+  width: 327px;
+  height: 46px;
+  border-radius: 16px 16px 0 0;
+  background: #ffffff;
+  border: 13px solid #f4f4f4;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-info-heading h3 {
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
+}
+
+.user-info-deets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-deetails-info {
+  width: 328px;
+  height: 100%;
+  border-radius: 0 0 16px 16px;
+  background: #ffffff;
+  border: 13px solid #f4f4f4;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 33px;
+}
+
+.gem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.prize {
+  display: flex;
+  justify-content: space-between;
+}
+
+.current {
+  display: flex;
+  justify-content: space-between;
+}
+
+.right {
+  display: flex;
+  justify-content: space-between;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-mode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+label {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+input {
+  width: 90vw;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #00000066;
+  border-radius: 10px;
+}
+
+.save-button {
+  width: 90vw;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: #973cf266;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  margin-top: 300px;
+}
+
+.save-button:hover {
+  background-color: #973cf2;
+}
