@@ -1,7 +1,7 @@
 .category-container {
   text-align: center;
   padding: 20px;
-  background: #f2eefd;
+  background: #ffffff;
 }
 
 .category-heading {
@@ -29,161 +29,104 @@
 }
 
 .category-item {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 20px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  position: relative;
-  border-radius: none;
-  background-image: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0.4) 51.98%,
-    rgba(157, 120, 221, 0) 100%
-  );
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   width: 309px;
   height: 389px;
   margin: 0 6.5px;
 }
 
-.football {
-  background-image: url("../assets/Images/football.png");
-}
 .football h4 {
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 900;
-}
-
-.football .cate-button {
-  border-radius: 35px;
-  background: #3a0f98;
-  border: none;
-  width: 89px;
-  height: 27px;
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 10px;
-  font-weight: 900;
-  position: absolute;
-  bottom: 8px;
-}
-
-.music {
-  background-image: url("../assets/Images/music.png");
-}
-.music h4 {
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 900;
-}
-.music .cate-button {
-  border-radius: 35px;
-  background: #3a0f98;
-  border: none;
-  width: 89px;
-  height: 27px;
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 10px;
-  font-weight: 900;
-  position: absolute;
-  bottom: 8px;
-}
-
-.movie {
-  background-image: url("../assets/Images/movie.png");
-  display: none;
-}
-
-.history {
-  background-image: url("../assets/Images/history.png");
-}
-.history h4 {
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 30px;
-  font-weight: 900;
-}
-.history .cate-button {
-  border-radius: 35px;
-  background: #3a0f98;
-  border: none;
-  width: 89px;
-  height: 27px;
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 10px;
-  font-weight: 900;
-  position: absolute;
-  bottom: 8px;
-}
-.no {
-  position: absolute;
-  bottom: 10px;
-  left: 7px;
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  border-radius: 0px 0px 22px 22px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(50px);
-  width: 290px;
-  height: 43px;
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 14px;
-  font-weight: 900;
-}
-.play-now-cont {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.play-no {
-  color: #fff;
-  font-family: "Roboto";
-  font-size: 12px;
-  font-weight: 900;
-  padding-top: 15px;
-}
-.play-contn {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  left: 75%;
-  gap: 5px;
-}
-.no img {
-  width: 14px;
-  height: 14px;
-}
-.moree {
-  margin: 25px;
-}
-
-
-
-.moree a {
   color: #000000;
-  text-align: center;
-  font-family: "Alpino";
-  font-size: 20px;
-  font-weight: 507;
-  text-decoration: none;
-  border: 1px solid ;
-  border-image: linear-gradient(114.59deg, #54349F -11.92%, rgba(0, 0, 0, 0) 105.24%);
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 16.94px;
+  font-weight: 600;
+  padding-top: 14px;
+}
+
+.music h4 {
+  color: #000000;
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 16.94px;
+  font-weight: 600;
+  padding-top: 14px;
+}
+
+.history h4 {
+  color: #000000;
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 16.94px;
+  font-weight: 600;
+  padding-top: 14px;
+}
+
+.movie h4 {
+  color: #000000;
+  font-family: "Inter";
+  font-size: 14px;
+  line-height: 16.94px;
+  font-weight: 600;
+  padding-top: 14px;
+}
+
+.play-cont {
+  display: flex;
+  align-items: center;
+  padding-right: 5px;
+}
+
+.play {
+  background: #54349f;
+  width: 18.38px;
+  height: 18.38px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.play img {
+  width: 10px;
+  height: 10px;
+}
+
+.play-cont .play-no {
+  color: #000000;
+  font-family: "Inter";
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.load-more {
+  margin: 0 auto;
+  width: 50%;
+  padding: 6px 10px 6px 10px;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(114.59deg, #54349f -11.92%, rgba(0, 0, 0, 0) 105.24%)
+      border-box;
   border-radius: 30px;
-  
-  
-  
-} 
- @media screen and (max-width: 283px) {
+  border: 1px solid transparent;
+  box-shadow: 0px 6px 24px 0px #0000001a;
+  margin-top: 25px;
+}
+
+.load-more a {
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #000000;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 283px) {
   .category-heading {
     margin: 0;
   }
@@ -201,89 +144,6 @@
   .category-item {
     width: 117px;
     height: 218px;
-  }
-
-  .football h4 {
-    font-size: 20px;
-  }
-  .football .cate-button {
-    font-size: 7px;
-    width: 43px;
-    height: 18px;
-    left: 7px;
-  }
-
-  .movie {
-    background-image: url("../assets/Images/movie.png");
-    display: block;
-  }
-
-  .movie h4 {
-    font-size: 20px;
-    color: #fff;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 900;
-  }
-
-  .movie .cate-button {
-    font-size: 7px;
-    width: 43px;
-    height: 18px;
-    position: absolute;
-    left: 7px;
-    border-radius: 35px;
-    background: #3a0f98;
-    color: #fff;
-    font-family: "Roboto";
-  }
-
-  .music h4 {
-    font-size: 20px;
-  }
-  .music .cate-button {
-    font-size: 7px;
-    width: 43px;
-    height: 18px;
-    left: 7px;
-  }
-  .history h4 {
-    font-size: 20px;
-  }
-  .history .cate-button {
-    font-size: 7px;
-    width: 43px;
-    height: 18px;
-    left: 7px;
-  }
-
-  .no {
-    width: 105px;
-    height: 40px;
-    font-size: 12px;
-  }
-  .no img {
-    width: 10px;
-    height: 10px;
-  }
-  .play-no {
-    color: #fff;
-    font-family: "Roboto";
-    font-size: 8px;
-    font-weight: 900;
-  }
-  .play-contn {
-    left: 57%;
-    top: 0px;
-  }
-  .moree a {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid ;
-  border-image: linear-gradient(114.59deg, #54349F -11.92%, rgba(0, 0, 0, 0) 105.24%);
-  border-radius: 30px;
   }
 }
 
@@ -307,102 +167,5 @@
   .category-item {
     width: 167px;
     height: 235px;
-  }
-
-  .football h4 {
-    font-size: 20px;
-  }
-  .football .cate-button {
-    font-size: 8px;
-    width: 53px;
-    height: 18px;
-  }
-
-  .movie {
-    background-image: url("../assets/Images/movie.png");
-    display: block;
-  }
-
-  .movie h4 {
-    font-size: 20px;
-    color: #fff;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 900;
-  }
-
-  .movie .cate-button {
-    font-size: 8px;
-    width: 53px;
-    height: 18px;
-    border-radius: 35px;
-    background: #3a0f98;
-    color: #fff;
-    font-family: "Roboto";
-  }
-
-  .music h4 {
-    font-size: 20px;
-  }
-  .music .cate-button {
-    font-size: 8px;
-    width: 53px;
-    height: 18px;
-  }
-  .history h4 {
-    font-size: 20px;
-  }
-  .history .cate-button {
-    font-size: 8px;
-    width: 53px;
-    height: 18px;
-  }
-
-  .no {
-    width: 157px;
-    height: 40px;
-    font-size: 12px;
-  }
-  .no img {
-    width: 10px;
-    height: 10px;
-  }
-  .play-no {
-    color: #fff;
-    font-family: "Roboto";
-    font-size: 10px;
-    font-weight: 900;
-  }
-  .play-contn {
-    left: 66%;
-  }
-  .moree a {
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid ;
-  border-image: linear-gradient(114.59deg, #54349F -11.92%, rgba(0, 0, 0, 0) 105.24%);
-  border-radius: 30px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 819px) {
-  .no {
-    width: 214px;
-  }
-  .play-contn {
-    left: 68%;
-  }
-}
-
-@media screen and (min-width: 820px) and (max-width: 824px) {
-  .no {
-    width: 232px;
-  }
-}
-
-@media screen and (min-width: 825px) and (max-width: 920px) {
-  .no {
-    width: 261px;
   }
 }

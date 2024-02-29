@@ -1,0 +1,146 @@
+.pin-input-container {
+  padding: 27px;
+}
+
+.pin-text {
+  display: flex;
+  align-items: center;
+}
+
+.create-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.create-pin p {
+  margin: 0;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+}
+.pin-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-top: 34px;
+}
+
+.pin-info h2 {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #000000;
+}
+.pin-info p {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #979797;
+}
+
+.four-digit-input {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.digit-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-right: 15px;
+  border: 1px solid #d1d1d1;
+  margin-bottom: 72px;
+}
+.digit-circle span {
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8e93a6;
+}
+.pin-info .error-message {
+  color: #e75885;
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.keypad {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.key-row button {
+  width: 47px;
+  height: 47px;
+  cursor: pointer;
+  border: 1px solid #d1d1d1;
+  border-radius: 50px;
+  background-color: #8e93a6;
+  color: #fff;
+  margin: 25px;
+  font-family: "Alpino";
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+}
+
+.key-row button:active {
+  background-color: #e0e0e0;
+}
+.key-row .clear-icon-btn {
+  background-color: #efefef;
+  border-radius: 10px;
+  width: 33px;
+  height: 33px;
+}
+.key-row .back-btn {
+  background-color: #fff;
+  border: none;
+}
+
+.pin-continue-btn {
+  background-color: #973cf2;
+  border-radius: 10px;
+  width: 100%;
+  height: 54px;
+  border: none;
+  margin: 108px 0;
+  color: #fff;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+}

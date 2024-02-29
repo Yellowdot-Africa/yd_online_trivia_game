@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import More from "../assets/Icons/more.svg";
 import Play from "../assets/Icons/play.svg";
-import Football from "../assets/Images/football.png";
+import Football from "../assets/Images/new-football.png";
+import Music from "../assets/Images/music-new.png";
+import History from "../assets/Images/history-new.png";
+import Movie from "../assets/Images/movie-new.png";
+
 import "../Styles/CategoriesSection.css";
 import axios from "axios";
 
@@ -33,63 +36,60 @@ const CategoriesSection = () => {
 
       <div className="category-grid">
         <div className="football category-item">
+          <img src={Football} alt="football" />
           <h4>Football</h4>
-
-          <div className="no">
-            <div className="play-now-cont">
-              <button className="cate-button">PLAY NOW</button>
-              <div className="play-contn">
-                <img src={Play} alt="" />
-                <p className="play-no">10,200</p>
-              </div>
+          <div className="play-cont">
+            <div className="play">
+              <img src={Play} alt="" />
             </div>
+            <p className="play-no">1.2K</p>
+
+          </div>
+    
+        </div>
+
+        <div className="history category-item">
+        <img src={History} alt="history" />
+          <h4>History</h4>
+          <div className="play-cont">
+            <div className="play">
+              <img src={Play} alt="" />
+            </div>
+            <p className="play-no">1.2K</p>
+
           </div>
         </div>
 
         <div className="music category-item">
+        <img src={Music} alt="music" />
           <h4>Music</h4>
-          <div className="no">
-            <div className="play-now-cont">
-              <button className="cate-button">PLAY NOW</button>
-              <div className="play-contn">
-                <img src={Play} alt="" />
-                <p className="play-no">10,200</p>
-              </div>
+          <div className="play-cont">
+            <div className="play">
+              <img src={Play} alt="" />
             </div>
+            <p className="play-no">1.2K</p>
+
           </div>
+          
         </div>
 
         <div className="movie category-item">
+        <img src={Movie} alt="movie" />
+
           <h4>Movies</h4>
-          <div className="no">
-            <div className="play-now-cont">
-              <button className="cate-button">PLAY NOW</button>
-              <div className="play-contn">
-                <img src={Play} alt="" />
-                <p className="play-no">1,500</p>
-              </div>
+          <div className="play-cont">
+            <div className="play">
+              <img src={Play} alt="" />
             </div>
+            <p className="play-no">1.2K</p>
+
           </div>
         </div>
 
-        <div className="history category-item">
-          <h4>History</h4>
-          <div className="no">
-            <div className="play-now-cont">
-              <button className="cate-button">PLAY NOW</button>
-              <div className="play-contn">
-                <img src={Play} alt="" />
-                <p className="play-no">1,800</p>
-              </div>
-            </div>
-          </div>
-        </div>
+       
       </div>
-      <div className="moree">
-        <a href="#">
-          Load More
-          
-        </a>
+      <div className="load-more">
+        <a href="#">Load More</a>
       </div>
     </div>
   );

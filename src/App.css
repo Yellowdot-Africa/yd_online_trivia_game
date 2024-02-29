@@ -1,10 +1,26 @@
 @font-face {
     font-family: "Alpino";   
-    /* src: local("Alpine"), */
-      src:url("./Fonts/Alpino-black.ttf") format("truetype");
+      src:url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Regular.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Regular.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Regular.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Black.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Black.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Black.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Bold.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Bold.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Bold.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Light.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Light.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Light.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Medium.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Medium.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Medium.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Thin.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Thin.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Thin.ttf") format("truetype"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Variable.woff") format("woff"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Variable.woff2") format("woff2"),
+          url("./Fonts/Alpino_Complete/Fonts/WEB/fonts/Alpino-Variable.ttf") format("truetype");
   
-    src: url("https://yoursite.com/css/fonts/CustomFont.eot");
-    src: url("https://yoursite.com/css/fonts/CustomFont.woff") format("woff"),
-    url("https://yoursite.com/css/fonts/CustomFont.otf") format("opentype"),
-    url("https://yoursite.com/css/fonts/CustomFont.svg#filename") format("svg");
+
     }

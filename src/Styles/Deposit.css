@@ -1,4 +1,23 @@
-.deposit-modal-container {
+.deposit-container{
+    padding: 27px;
+}
+
+.deposit-text{
+    display: flex;
+    align-items: center;
+}
+
+.deposit-text p{
+    margin:0 auto;
+    font-family: "Alpino";
+    font-size: 16px;
+    font-weight: 421;
+    line-height: 21px;
+    letter-spacing: -0.3199999928474426px;
+    text-align: center;
+}
+
+ .deposit-modal-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,24 +31,11 @@
       justify-content: center;
       flex-direction: column;
   }
-  .deposit-modal-container h3 {
-    color: #242424;
-    font-family: "Inter";
-    font-size: 18px;
-    font-weight: 700;
-    text-align: center;
-  }
-  .deposit-modal-container hr{
-      border: 3px solid #E7E7E7;
-      color: #E7E7E7 ;
-      width: 100%;
-      opacity: none ;
-  
-  
-  }
+
+
   .deposit-modal-container p{
       color: #242424;
-      font-family: "Inter";
+      font-family: "Alpino";
       font-size: 16px;
       font-weight: 400;
       text-align: center;
@@ -38,7 +44,7 @@
   }
   
   .deposit-modal-container input{
-      border: 2px solid #303064;
+      border: 2px solid #E8E8E8;
       border-radius: 10px;
       margin: 20px;
       width: 75%;
@@ -55,9 +61,12 @@
   .success-message{
       color: green ;
   }
-  
-  @media only screen and (min-width: 263px) and (max-width: 730px) {
 
-
-
+  .error-modal{
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
   }
+  

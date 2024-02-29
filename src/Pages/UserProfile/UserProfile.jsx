@@ -47,6 +47,7 @@ const UserProfile = () => {
 
       {isEditMode ? (
         <div className="edit-mode">
+          <form action="">
           <label htmlFor="username">User Name</label>
           <input
             type="text"
@@ -61,6 +62,7 @@ const UserProfile = () => {
             value={editedPhoneNumber}
             onChange={(e) => setEditedPhoneNumber(e.target.value)}
           />
+          </form>
           <button className="save-button" onClick={() => handleSaveClick()}>
             Save
           </button>

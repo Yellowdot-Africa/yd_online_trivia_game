@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LogoIcon from "../../assets/Icons/cup-broken.svg";
 import HomeIcon from "../../assets/Icons/home-icon.png";
 import SearchBar from "../../Components/SearchBar";
@@ -11,7 +11,7 @@ import "../HomePage/HomePage.css";
 import CategoriesSection from "../../Components/CategoriesSection";
 
 const HomePage = () => {
-  const navigation = useNavigation();
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
@@ -20,7 +20,7 @@ const HomePage = () => {
   };
 
   const handleSeeAccount = () => {
-    navigate("/account-details");
+    navigate("/account");
   };
 
   const handleSeeAllGames = () => {

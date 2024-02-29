@@ -66,7 +66,7 @@
 .progressbar {
   margin-top: 50px;
   padding: 10px;
-  width: 100%;
+  width: 70vw;
 }
 
 .welcome-content {
@@ -108,6 +108,7 @@
   font-family: "Alpino";
   font-size: 16px;
   font-weight: 421;
+  margin-top: 142px;
 }
 /* @media (max-width: 768px) {
   .loading-pagee-containerr {

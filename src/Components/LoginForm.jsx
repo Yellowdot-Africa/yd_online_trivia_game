@@ -159,6 +159,7 @@ const LoginForm = ({ isMenuOpen }) => {
       <form className={`login-form ${isMenuOpen ? "open" : ""}`}>
         <input
           type="tel"
+          autoComplete="current-phonenumber"
           placeholder="+234"
           value={phoneNumber}
           onChange={handlePhoneNumberChange}
@@ -172,6 +173,7 @@ const LoginForm = ({ isMenuOpen }) => {
         )}
         <input
           type="password"
+          autoComplete="current-password"
           placeholder="Choose Password"
           value={password}
           onChange={handlePasswordChange}

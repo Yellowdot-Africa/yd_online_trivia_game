@@ -1,11 +1,12 @@
-.landing-page-menu {
-  /* display: none; */
-}
+
 
 .menu {
   display: none;
 }
 
+.landing-page-menu{
+  position: relative;
+}
 .hero-section {
   background-image: url(../assets/Images/bg-img.png);
   background-size: cover;
@@ -50,7 +51,12 @@
   height: 50px;
 }
 
+
+
 @media only screen and (min-width: 263px) and (max-width: 283px) {
+  .landing-page-menu{
+    position: relative;
+  }
   .hero-btn-container {
     padding: 50px 12px;
     display: flex;
@@ -92,6 +98,10 @@
     width: 100vw;
   }
 
+  .hero-img{
+    /* margin: -21px 40px; */
+    position: absolute;
+    }
   .backdrop {
     backdrop-filter: blur(15px);
     z-index: 1;
@@ -170,7 +180,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    /* position: relative; */
   }
 
 
@@ -180,7 +190,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: absolute;
+    /* position: absolute; */
     top: 50%;
     left: -16px;
     padding: 20px;
@@ -228,6 +238,10 @@
 }
 
 @media only screen and (min-width: 285px) and (max-width: 520px) {
+  .landing-page-menu{
+    position: relative;
+  }
+  
   .hero-section {
     padding: 182px 73px;
     height: 100vh;
@@ -259,7 +273,11 @@
     align-items: center;
     margin: auto;
   }
-
+  .hero-img{
+    position: absolute;
+    bottom: -38px;
+    right: 14px;
+    }
   .backdrop {
     backdrop-filter: blur(15px);
     z-index: 1;
@@ -417,6 +435,10 @@
 
 
 @media only screen and (min-width: 530px) and (max-width: 700px) {
+  .landing-page-menu{
+    position: relative;
+  }
+  
   .hero-section {
     padding: 182px 73px;
     height: 100vh;
@@ -448,7 +470,11 @@
     align-items: center;
     margin: auto;
   }
-
+  .hero-img{
+    position: absolute;
+    bottom: -60px;
+    right: 18px;
+    }
   .backdrop {
     backdrop-filter: blur(15px);
     z-index: 1;
@@ -595,6 +621,10 @@
 
 
 @media only screen and (min-width: 730px) and (max-width: 800px) {
+  .landing-page-menu{
+    position: relative;
+  }
+  
   .hero-section {
     padding: 182px 73px;
     height: 100vh;
@@ -626,7 +656,11 @@
     align-items: center;
     margin: auto;
   }
-
+  .hero-img{
+    position: absolute;
+    bottom: 75px;
+    right: 18px;
+    }
   .backdrop {
     backdrop-filter: blur(15px);
     z-index: 1;
@@ -773,6 +807,9 @@
 
 
 @media only screen and (min-width: 810px) and (max-width: 950px) {
+  .landing-page-menu{
+    position: relative;
+  }
   .hero-section {
     padding: 182px 73px;
     height: 100vh;
@@ -804,6 +841,11 @@
     align-items: center;
     margin: auto;
   }
+  .hero-img{
+    position: absolute;
+    bottom: 69px;
+    right: 80px;
+    }
 
   .backdrop {
     backdrop-filter: blur(15px);

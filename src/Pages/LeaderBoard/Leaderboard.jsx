@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Prev from "../../assets/Icons/chevron-left.png";
+import BadgeOne from "../../assets/Icons/badge1.png";
+import BadgeTwo from "../../assets/Icons/badge2.png";
+import BadgeThree from "../../assets/Icons/badge3.png";
 import "../../Pages/LeaderBoard/Leaderboard.css";
 import { useNavigate } from "react-router-dom";
 
@@ -39,18 +42,18 @@ const Leaderboard = () => {
         {!showMore && (
           <div className="winner-chart">
             <div className="winner-two">
-              <img src="" alt="" />
+              <img src={BadgeTwo} alt="badge-two" />
               <p>User Name</p>
               <div className="winner user-two"></div>
             </div>
 
             <div className="winner-one">
-              <img src="" alt="" />
+              <img src={BadgeOne} alt="badge-one" />
               <p>User Name</p>
               <div className="winner user-one"></div>
             </div>
             <div className="winner-three">
-              <img src="" alt="" />
+              <img src={BadgeThree} alt="badge-three" />
               <p>User Name</p>
               <div className="winner user-three"></div>
             </div>
@@ -150,3 +153,6 @@ const Leaderboard = () => {
 };
 
 export default Leaderboard;
+
+
+

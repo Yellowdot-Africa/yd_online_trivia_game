@@ -5,6 +5,7 @@ import SignUp from "../assets/Icons/sign-in.svg";
 import Login from "../assets/Icons/login.svg";
 import TC from "../assets/Icons/Pen.png";
 import FAQ from "../assets/Icons/Chat.png";
+import HeroImg from "../assets/Images/hero-img.png";
 import "../Styles/HeroSection.css";
 import Cardd from "../Components/CARDD/Cardd";
 import NavBar from "../Components/NavBar";
@@ -63,6 +64,9 @@ const HeroSection = () => {
             >
               Today's Trivia
             </button>
+          </div>
+          <div className="hero-img">
+            <img src={HeroImg} alt="hero-img" />
           </div>
 
           <div className={`menu ${isMenuOpen ? "open" : ""}`}>

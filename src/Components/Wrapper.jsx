@@ -8,6 +8,11 @@ import HomePage from "../Pages/HomePage/HomePage";
 import UserProfile from "../Pages/UserProfile/UserProfile";
 // import UserStats from "../Pages/UserStats/UserStats";
 import Leaderboard from "../Pages/LeaderBoard/Leaderboard";
+import Account from "../Pages/ACCOUNT/Account";
+import Withdraw from "../Components/Withdraw";
+import PinPage from "../Components/PinPage";
+import Deposit from "../Components/Deposit";
+import CashOutSuccessPage from "../Components/CashOutSuccessPage";
 // import Rules from "../Pages/Rules/Rules";
 // import Settings from "../Pages/Settings/Settings";
 // import HistoryModal from "../Pages/History/HistoryModal";
@@ -27,25 +32,6 @@ const router = createBrowserRouter([
     path: "/",
     element: <LandingPage />,
   },
-
-  //   {
-  //     path: "/signup",
-  //     element: <SignupCard />,
-  //   },
-
-  //   {
-  //     path: "/login",
-  //     element: <LoginCard />,
-  //   },
-  //   {
-  //     path: "/signup-modal",
-  //     element: <SignUpModal />,
-  //   },
-
-  //   {
-  //     path: "/login-modal",
-  //     element: <LoginModal />,
-  //   },
   {
     path: "/loading",
     element: <LoadingPage />,
@@ -61,6 +47,26 @@ const router = createBrowserRouter([
   {
     path: "/leaderboard",
     element: <Leaderboard />,
+  },
+  {
+    path: "/account",
+    element: <Account />,
+  },
+  {
+    path: "/withdraw",
+    element: <Withdraw />,
+  },
+  {
+    path: "/pin-page",
+    element: <PinPage />,
+  },
+  {
+    path: "/deposit",
+    element: <Deposit />,
+  },
+  {
+    path: "/cashout",
+    element: <CashOutSuccessPage />,
   },
   // {
   //   path: "/rules-faqs",

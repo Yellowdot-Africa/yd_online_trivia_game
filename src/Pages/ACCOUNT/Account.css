@@ -1,0 +1,182 @@
+.account-container {
+}
+
+.account-text {
+  display: flex;
+  align-items: center;
+  padding: 27px;
+}
+
+.account-text p {
+  margin: 0 122px;
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+}
+
+.current-balance-cont {
+  padding: 0 27px;
+}
+.current-balance-cont .current-bal {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  color: #747474;
+  margin: 0;
+  padding-bottom: 13px;
+}
+.amount-balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.amount-balance p {
+  font-family: "Alpino";
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #005505;
+  margin: 0;
+  padding: 9px 0;
+}
+
+.date {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  color: #000000;
+}
+
+.transaction-options {
+  display: flex;
+  align-items: center;
+  margin: 27px 0;
+  gap: 16px;
+}
+
+.withdraw-option {
+  width: 93px;
+  height: 86px;
+  padding: 25px 35px 15px 35px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.deposit-option {
+  width: 93px;
+  height: 86px;
+  padding: 25px 35px 15px 35px;
+  border-radius: 20px;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.history-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 27px;
+}
+
+.history-text h2 {
+  font-family: "Alpino";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #979797;
+}
+
+.history-text p {
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7e2cd1;
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 27px;
+}
+
+.game-win {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+.green-dot {
+  background: #4fd96d;
+  width: 12px;
+  height: 12px;
+  border-radius: 30px;
+}
+.game-win p {
+  margin: 0;
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #000000;
+}
+
+.amount-date p {
+  margin: 0;
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: right;
+}
+
+.line {
+  margin-left: 27px;
+}
+
+.red-dot {
+  background: #e75885;
+  width: 12px;
+  height: 12px;
+  border-radius: 30px;
+}
+
+.withdrawal {
+  display: flex;
+  align-items: center;
+  gap: 19px;
+}
+
+.withdrawal p {
+  margin: 0;
+  font-family: "Alpino";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}

@@ -84,6 +84,13 @@
 .winner-three p {
   text-align: center;
 }
+
+.winner-one img,
+.winner-two img,
+.winner-three img {
+margin-left: 43px;
+}
+
 .winner-three {
   margin-top: 118px;
 }

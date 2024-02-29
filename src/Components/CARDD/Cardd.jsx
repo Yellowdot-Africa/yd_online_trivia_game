@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "../../Styles/Card.css";
 import "../../Components/CARDD/Cardd.css";
 import QuickPPlay from "../../Components/CARDD/QuickPPlay";
@@ -9,8 +9,10 @@ const Cardd = () => {
   return (
     <>
       <div className={showModal ? "blur" : ""}>
-        <div className="card-container">
-          <QuickPPlay/>
+        <div className="card-section">
+          <div className="card-container">
+            <QuickPPlay />
+          </div>
         </div>
       </div>
     </>
@@ -18,9 +20,3 @@ const Cardd = () => {
 };
 
 export default Cardd;
-
-
-
-
-
-
