@@ -8,14 +8,19 @@ import FAQ from "../assets/Icons/Chat.png";
 import HeroImg from "../assets/Images/hero-img.png";
 import "../Styles/HeroSection.css";
 import Cardd from "../Components/CARDD/Cardd";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import LoginForm from "../Components/LoginForm";
 import SignUpForm from "./SignUpForm";
 
 const HeroSection = () => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isSignUpOpen, setSignUpOpen] = useState(false);
+  const [isLoginOpen, setLoginOpen] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+const navigate = useNavigate();
+
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -30,13 +35,18 @@ const HeroSection = () => {
   const toggleLoginForm = () => {
     setShowLogin(!showLogin);
     setShowSignup(false);
+    setLoginOpen(!isLoginOpen);
   };
 
   const toggleSignupForm = () => {
+
     setShowSignup(!showSignup);
     setShowLogin(false);
+    setSignUpOpen(!isSignUpOpen);
   };
-
+  const goToPopularCategories = () => {
+    navigate("/");
+  };
   return (
     <>
       {isMenuOpen && <div className="backdrop" onClick={closeMenu} />}
@@ -61,6 +71,7 @@ const HeroSection = () => {
                 background: "#FFF",
                 boxShadow: "0px 6px 24px 0px rgba(0, 0, 0, 0.10)",
               }}
+              onClick={goToPopularCategories}
             >
               Today's Trivia
             </button>
@@ -80,23 +91,23 @@ const HeroSection = () => {
               />
             </div>
 
-            <ul>
+            <ul className="menu-list">
               <li className="menu-item" onClick={toggleSignupForm}>
                 <div className="form-container">
                   <img src={SignUp} alt="signup" />
                   Signup
-                  {showSignup && <SignUpForm isMenuOpen={isMenuOpen} />}
                 </div>
               </li>
+              {showSignup && <SignUpForm isSignUpOpen={isSignUpOpen} />}
 
               <li className="menu-item" onClick={toggleLoginForm}>
                 <div className="form-container">
                   <img src={Login} alt="login" />
                   Login
-                  {showLogin && <LoginForm isMenuOpen={isMenuOpen} />}
                 </div>
               </li>
             </ul>
+            {showLogin && <LoginForm isLoginOpen={isLoginOpen} />}
 
             <div className="additional-content">
               <p>
@@ -120,7 +131,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
-

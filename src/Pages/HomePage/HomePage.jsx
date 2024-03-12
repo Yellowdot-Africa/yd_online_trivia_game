@@ -32,8 +32,8 @@ const HomePage = () => {
       <div className="header">
         <div className="welcome-section">
           <div className="welcome-user">
-            Welcome <br />
-            Username
+           Welcome <br />
+          <p className="username">Username</p>  
           </div>
           <div className="logo-section">
             <img src={LogoIcon} alt="Logo" className="logo-section-logo" />

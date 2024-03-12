@@ -11,6 +11,7 @@
 
 .header-text .user-prof-heading {
   margin: 0;
+  font-family: "AlpinoRegular";
   font-size: 16px;
   font-weight: 421;
   line-height: 21px;
@@ -20,7 +21,7 @@
 }
 
 .edit-user-profile {
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 16px;
   font-weight: 421;
   line-height: 21px;
@@ -32,6 +33,7 @@
 .header-text p {
   color: #7e2cd1;
   font-size: 14px;
+  font-family: "AlpinoRegular";
   font-weight: 421;
   line-height: 18px;
   letter-spacing: 0em;
@@ -52,6 +54,7 @@
   width: 72px;
   height: 72px;
   font-size: 24px;
+  font-family: "AlpinoMedium";
   font-weight: 507;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
@@ -89,7 +92,7 @@
   height: 29px;
   padding: 5px 8px 5px 8px;
   border-radius: 7px;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 14px;
   font-weight: 421;
   line-height: 21px;
@@ -98,6 +101,7 @@
 }
 
 .user-info .user-name {
+  font-family: "AlpinoMedium";
   font-size: 20px;
   font-weight: 507;
   line-height: 21px;
@@ -125,6 +129,7 @@
 }
 
 .user-info-heading h3 {
+  font-family: "AlpinoRegular";
   font-size: 12px;
   font-weight: 421;
   line-height: 21px;
@@ -156,7 +161,30 @@
   display: flex;
   justify-content: space-between;
 }
-
+.gemm,
+.prz,
+.question,
+.ans,
+.total-answers {
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+.gem-no,
+.prz-no,
+.question-ans,
+.ans-percent,
+.answerws {
+  font-family: "AlpinoMedium";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: right;
+}
 .prize {
   display: flex;
   justify-content: space-between;
@@ -189,6 +217,12 @@
   justify-content: flex-start;
   margin-top: 10px;
   text-align: left;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
 }
 input {
   width: 90vw;
@@ -196,6 +230,12 @@ input {
   margin-bottom: 10px;
   border: 1px solid #00000066;
   border-radius: 10px;
+  font-family: "AlpinoLight";
+font-size: 20px;
+font-weight: 507;
+line-height: 21px;
+letter-spacing: -0.3199999928474426px;
+
 }
 
 .save-button {
@@ -206,7 +246,7 @@ input {
   border-radius: 25px;
   cursor: pointer;
   background: #973cf266;
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 16px;
   font-weight: 507;
   line-height: 21px;

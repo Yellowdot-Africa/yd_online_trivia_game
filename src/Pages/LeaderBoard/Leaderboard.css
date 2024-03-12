@@ -16,6 +16,7 @@
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: center;
+  font-family: "AlpinoRegular";
 }
 
 .main {
@@ -88,7 +89,7 @@
 .winner-one img,
 .winner-two img,
 .winner-three img {
-margin-left: 43px;
+  margin-left: 43px;
 }
 
 .winner-three {
@@ -128,6 +129,7 @@ margin-left: 43px;
   margin-top: 0;
   font-size: 16px;
   font-weight: 421;
+  font-weight: "AlpinoRegular";
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: left;
@@ -140,6 +142,12 @@ margin-left: 43px;
   letter-spacing: 0em;
   text-align: left;
   color: #7e2cd1;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
 }
 
 .players-details-container {
@@ -157,12 +165,15 @@ margin-left: 43px;
   width: 30px;
   height: 30px;
   border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .green-deets {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
@@ -199,6 +210,10 @@ margin-left: 43px;
   width: 30px;
   height: 30px;
   border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .orange-deets p {
@@ -234,6 +249,10 @@ margin-left: 43px;
   width: 30px;
   height: 30px;
   border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blue-deets p {
@@ -266,10 +285,13 @@ margin-left: 43px;
 
 .purple {
   background-color: #7f2cd1cc;
-
   width: 30px;
   height: 30px;
   border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .purple-deets p {

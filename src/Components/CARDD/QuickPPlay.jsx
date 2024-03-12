@@ -13,14 +13,14 @@ const QuickPPlay = () => {
     <>
       <div className="third-card">
         <img src={Card3} alt="card-three" />
-        <h3>Quick game Play</h3>
-        <button onClick={handleButtonClick}>Here</button>
+        <h3>Quick Game Play</h3>
+        <button onClick={handleButtonClick}>Play</button>
       </div>
 
       <div className="third-card-mobile">
-        <h3>Quick game Play</h3>
+        <h3>Quick Game Play</h3>
         <div className="mobile-btn-img">
-          <button onClick={handleButtonClick}>Here</button>
+          <button onClick={handleButtonClick}>Play</button>
           <img src={Card3} alt="card-three" />
         </div>
       </div>

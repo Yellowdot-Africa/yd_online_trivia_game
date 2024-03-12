@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import TriviaLogo from "../../assets/Icons/big-cup.svg";
+import Background from "../../assets/Images/backgnd-img.png";
 import Logo from "../../assets/Images/ydTrivia.png";
 import ProgressBar from "../../Components/ProgressBar";
 import "../../Pages/LoadingPage/LoadingPage.css";
@@ -45,6 +46,7 @@ const LoadingPage = () => {
   return (
     <>
       <div className="loading-pagee-containerr">
+        <div className="loading-glassmorphism">
         <div className="glassmorphism">        
         <div className="trivia-main-container">
           <div className="trivia-progress">
@@ -70,11 +72,16 @@ const LoadingPage = () => {
         </div>
       </div>
       </div>
+      </div>
     </>
   );
 };
 
 export default LoadingPage;
+
+
+
+
 
 
 

@@ -9,14 +9,14 @@
 
 .welcome-user {
   font-size: 16px;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-weight: 421;
   line-height: 21px;
   letter-spacing: 0em;
   text-align: justify;
 }
 .username {
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 16px;
   font-weight: 507;
   line-height: 21px;
@@ -55,7 +55,7 @@
 
 .account-balance .acct {
   color: #cecece;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 10px;
   font-weight: 421;
   line-height: 13px;
@@ -64,7 +64,7 @@
   margin: 0;
 }
 .account-balance .amount {
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 14px;
   font-weight: 507;
   line-height: 19px;
@@ -79,7 +79,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 12px;
   font-weight: 507;
   line-height: 16px;
@@ -120,7 +120,7 @@
   border: 0;
 }
 input::placeholder {
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 14px;
   font-weight: 421;
   line-height: 18px;
@@ -158,7 +158,7 @@ input::placeholder {
   padding: 20px;
 }
 .todays-game h2 {
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 24px;
   font-weight: 507;
   line-height: 32px;
@@ -214,7 +214,7 @@ input::placeholder {
   width: 70px;
   height: 22px;
   padding: 3px 18px 3px 18px;
-  font-family: Alpino;
+  font-family: "AlpinoMedium";
   font-size: 12px;
   font-weight: 507;
   line-height: 16px;

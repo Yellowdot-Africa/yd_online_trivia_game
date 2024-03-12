@@ -2,6 +2,7 @@
   text-align: center;
   padding: 20px;
   background: #ffffff;
+
 }
 
 .category-heading {
@@ -9,23 +10,31 @@
 }
 .category-heading h4 {
   color: #313131;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 48px;
-  font-weight: 900;
+  font-family: "AlpinoBold";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-left: -10px;
 }
 
 .category-heading p {
   color: #585858;
   text-align: center;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 400;
+  font-family: "AlpinoRegular";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin-left: -10px;
 }
 .category-grid {
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .category-item {
@@ -37,7 +46,7 @@
   margin: 0 6.5px;
 }
 
-.football h4 {
+.category-item h4 {
   color: #000000;
   font-family: "Inter";
   font-size: 14px;
@@ -45,7 +54,9 @@
   font-weight: 600;
   padding-top: 14px;
 }
-
+.category-images {
+  border-radius: 5px;
+}
 .music h4 {
   color: #000000;
   font-family: "Inter";
@@ -116,7 +127,7 @@
 }
 
 .load-more a {
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 16px;
   font-weight: 507;
   line-height: 21px;
@@ -132,6 +143,8 @@
   }
   .category-heading h4 {
     font-size: 24px;
+    margin-left: -10px;
+
   }
   .category-heading p {
     font-size: 16px;
@@ -140,6 +153,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin: auto;
   }
   .category-item {
     width: 117px;
@@ -153,15 +167,20 @@
   }
   .category-heading h4 {
     font-size: 24px;
+    margin-left: -43px;
+
   }
 
   .category-heading p {
     font-size: 16px;
+    margin-left: -43px;
+
   }
   .category-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    margin: auto;
   }
 
   .category-item {

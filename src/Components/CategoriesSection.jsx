@@ -1,93 +1,82 @@
 import React, { useState, useEffect } from "react";
 import Play from "../assets/Icons/play.svg";
-import Football from "../assets/Images/new-football.png";
-import Music from "../assets/Images/music-new.png";
-import History from "../assets/Images/history-new.png";
-import Movie from "../assets/Images/movie-new.png";
-
-import "../Styles/CategoriesSection.css";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import "../Styles/CategoriesSection.css";
 
 const CategoriesSection = () => {
   const [categories, setCategories] = useState([]);
+  const token = sessionStorage.getItem("token");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const response = await axios.get(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategories"
-        );
-
-        setCategories(response.data);
-      } catch (error) {
-        console.error("Error fetching categories:", error);
-      }
-    };
-
-    fetchCategories();
+    fetchGameCategories();
   }, []);
+
+  const fetchGameCategories = async () => {
+    try {
+      const response = await axios.get(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/GameCategory/GetCategories",
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      setCategories(response.data.data);
+      console.log(category.logo);
+
+      if (response.data.data.length > 0) {
+        setSelectedCategoryIndex(0);
+        setSelectedCategory(response.data.data[0]);
+      }
+
+      setLoading(false);
+    } catch (error) {
+      setError(error.message);
+      setLoading(false);
+    }
+  };
+
+  const handleCategoryClick = () => {
+    navigate("/question-pack");
+  };
 
   return (
     <div className="category-container">
       <div className="category-heading">
-        <h4>Popular categories</h4>
+        <h4>Popular Categories</h4>
         <p>We know how wide your interests are...</p>
       </div>
 
       <div className="category-grid">
-        <div className="football category-item">
-          <img src={Football} alt="football" />
-          <h4>Football</h4>
-          <div className="play-cont">
-            <div className="play">
-              <img src={Play} alt="" />
+        {categories.map((category, index) => (
+          <div className="category-item" key={category.id}>
+            <img
+              className="category-images"
+              src={`data:image/png;base64,${category.logo}`}
+              alt={category.name}
+              onClick={() => handleCategoryClick(category.id)}
+
+            />
+            <h4>{category.name}</h4>
+            <div className="play-cont">
+              <div className="play">
+                <img src={Play} alt="" />
+              </div>
+              {/* <p className="play-no">{category.playCount}</p> */}
+              <p className="play-no">1.2K</p>
             </div>
-            <p className="play-no">1.2K</p>
-
           </div>
-    
-        </div>
-
-        <div className="history category-item">
-        <img src={History} alt="history" />
-          <h4>History</h4>
-          <div className="play-cont">
-            <div className="play">
-              <img src={Play} alt="" />
-            </div>
-            <p className="play-no">1.2K</p>
-
-          </div>
-        </div>
-
-        <div className="music category-item">
-        <img src={Music} alt="music" />
-          <h4>Music</h4>
-          <div className="play-cont">
-            <div className="play">
-              <img src={Play} alt="" />
-            </div>
-            <p className="play-no">1.2K</p>
-
-          </div>
-          
-        </div>
-
-        <div className="movie category-item">
-        <img src={Movie} alt="movie" />
-
-          <h4>Movies</h4>
-          <div className="play-cont">
-            <div className="play">
-              <img src={Play} alt="" />
-            </div>
-            <p className="play-no">1.2K</p>
-
-          </div>
-        </div>
-
-       
+        ))}
       </div>
+
       <div className="load-more">
         <a href="#">Load More</a>
       </div>
@@ -96,3 +85,9 @@ const CategoriesSection = () => {
 };
 
 export default CategoriesSection;
+
+
+
+
+
+

@@ -95,11 +95,14 @@
 
   .third-card-mobile h3 {
     color: #444;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 900;
+    font-family: "AlpinoRegular";
+    font-size: 18px;
+    font-weight: 421;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
     padding: 10px;
-    margin-right: 32px;
+    margin-right: 66px;
   }
 
   .third-card-mobile button {
@@ -109,10 +112,12 @@
     height: 43px;
     border: none;
     color: #fff;
+    font-family: "AlpinoRegular";
+    font-size: 12px;
+    font-weight: 421;
+    line-height: 16px;
+    letter-spacing: 0em;
     text-align: center;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 900;
   }
 
   .mobile-btn-img {
@@ -165,11 +170,14 @@
 
   .third-card-mobile h3 {
     color: #444;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 900;
+    font-family: "AlpinoRegular";
+    font-size: 18px;
+    font-weight: 421;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
     padding: 10px;
-    margin-right: 89px;
+    margin-right: 118px;
   }
 
   .third-card-mobile button {
@@ -179,10 +187,12 @@
     height: 43px;
     border: none;
     color: #fff;
+    font-family: "AlpinoRegular";
+    font-size: 12px;
+    font-weight: 421;
+    line-height: 16px;
+    letter-spacing: 0em;
     text-align: center;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 900;
   }
   .mobile-btn-img {
     display: flex;
@@ -236,10 +246,14 @@
 
   .third-card-mobile h3 {
     color: #444;
-    font-family: "Roboto";
-    font-size: 20px;
-    font-weight: 900;
+    font-family: "AlpinoRegular";
+    font-size: 18px;
+    font-weight: 421;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
     padding: 10px;
+    margin-right: 127px;
   }
 
   .third-card-mobile button {
@@ -250,9 +264,12 @@
     border: none;
     color: #fff;
     text-align: center;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 900;
+    font-family: "AlpinoRegular";
+    font-size: 12px;
+    font-weight: 421;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: center;
   }
   .mobile-btn-img {
     display: flex;

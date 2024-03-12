@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import * as Yup from "yup";
 
-const LoginForm = ({ isMenuOpen }) => {
+
+
+const LoginForm = ({ isLoginOpen }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
@@ -11,6 +14,8 @@ const LoginForm = ({ isMenuOpen }) => {
   const [infoText, setInfoText] = useState(null);
   const [loginError, setLoginError] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handlePhoneNumberChange = (e) => {
     setPhoneNumber(e.target.value);
@@ -47,10 +52,13 @@ const LoginForm = ({ isMenuOpen }) => {
 
       setIsLoading(true);
 
-      const response = await axios.post("https://your-api-endpoint.com/login", {
-        username: phoneNumber,
-        password: password,
-      });
+      const response = await axios.post(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/Login",
+        {
+          username: phoneNumber,
+          password: password,
+        }
+      );
 
       setIsLoading(false);
 
@@ -143,54 +151,52 @@ const LoginForm = ({ isMenuOpen }) => {
         );
       }
     } catch (error) {
-      // console.error("Token creation/renewal error:", error);
     }
   };
   const handleCloseModal = () => {
-    // setShowLoginModal(false);
-    // console.log("Button clicked");
+    
     handleClose();
     document.body.classList.remove("blur");
   };
 
   return (
     <>
-    <div className="login-form-cont">
-      <form className={`login-form ${isMenuOpen ? "open" : ""}`}>
-        <input
-          type="tel"
-          autoComplete="current-phonenumber"
-          placeholder="+234"
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-          onFocus={handlePhoneNumberFocus}
-        />
-        {phoneNumberFocus && (
-          <p className="inputt-textt">Please input your phone number</p>
-        )}
-        {loginError.username && (
-          <p className="error-text">{loginError.username}</p>
-        )}
-        <input
-          type="password"
-          autoComplete="current-password"
-          placeholder="Choose Password"
-          value={password}
-          onChange={handlePasswordChange}
-          onFocus={handlePasswordFocus}
-        />
-        {passwordFocus && <p className="inputt-textt">Input password</p>}
+      <div className="login-form-cont">
+        <form className={`login-form ${isLoginOpen ? "open" : ""}`}>
+          <input
+            type="tel"
+            autoComplete="current-phonenumber"
+            placeholder="+234"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+            onFocus={handlePhoneNumberFocus}
+          />
+          {phoneNumberFocus && (
+            <p className="inputt-textt">Please input your phone number</p>
+          )}
+          {loginError.username && (
+            <p className="error-text">{loginError.username}</p>
+          )}
+          <input
+            type="password"
+            autoComplete="current-password"
+            placeholder="Choose Password"
+            value={password}
+            onChange={handlePasswordChange}
+            onFocus={handlePasswordFocus}
+          />
+          {passwordFocus && <p className="inputt-textt">Input password</p>}
 
-        {loginError.password && (
-          <p className="error-text">{loginError.password}</p>
-        )}
-        <button onClick={handleLogin} disabled={isLoading}>
-          {isLoading ? "Logging in..." : "Login"}
-        </button>
-        {loginError.general && (
-          <p className="error-text">{loginError.general}</p>
-        )}
-      </form>
+          {loginError.password && (
+            <p className="error-text">{loginError.password}</p>
+          )}
+          <button onClick={handleLogin} disabled={isLoading}>
+            {isLoading ? "Logging in..." : "Login"}
+          </button>
+          {loginError.general && (
+            <p className="error-text">{loginError.general}</p>
+          )}
+        </form>
       </div>
     </>
   );

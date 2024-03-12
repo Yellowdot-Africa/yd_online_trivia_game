@@ -11,7 +11,7 @@
 .contact-section h2 {
   color: #fff;
   text-align: center;
-  font-family: "Alpino";
+  font-family: "AlpinoMedium";
   font-size: 16px;
   font-weight: 507;
 }
@@ -55,9 +55,12 @@
   height: 36px;
   color: #fff;
   text-align: center;
-  font-family: "Inter";
-  font-size: 16px;
-  font-weight: 700;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
   padding: 7px;
 }
 
@@ -65,7 +68,7 @@
   .contact-section h2 {
     color: #fff;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoMedium";
     font-size: 16px;
     font-weight: 507;
   }
@@ -73,7 +76,7 @@
   .contact-section p {
     color: #9c9c9c;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoRegular";
     font-size: 12px;
     font-weight: 421;
   }
@@ -92,7 +95,7 @@
   .contact-section h2 {
     color: #fff;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoMedium";
     font-size: 16px;
     font-weight: 507;
   }
@@ -100,7 +103,7 @@
   .contact-section p {
     color: #9c9c9c;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoRegular";
     font-size: 12px;
     font-weight: 421;
   }
@@ -118,7 +121,7 @@
   .contact-section h2 {
     color: #fff;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoMedium";
     font-size: 16px;
     font-weight: 507;
   }
@@ -126,7 +129,7 @@
   .contact-section p {
     color: #9c9c9c;
     text-align: center;
-    font-family: "Alpino";
+    font-family: "AlpinoRegular";
     font-size: 12px;
     font-weight: 421;
   }
