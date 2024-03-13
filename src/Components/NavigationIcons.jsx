@@ -15,16 +15,12 @@ const NavigationIcons = () => {
     <div className="navigation-iconss">
       <div className="icon-content-section">
         <img src={homee} alt="" onClick={() => handleIconClick("/home")} />
-        <img
-          src={leaderboard}
-          alt=""
-          onClick={() => handleIconClick("/leaderboard")}
-        />
-        <img
+  
+          <img
           src={category}
           className="menu-tab"
           alt=""
-          onClick={() => handleIconClick("/user-profile")}
+          onClick={() => handleIconClick("/leaderboard")}
         />
 
         <img

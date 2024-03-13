@@ -38,7 +38,7 @@ const HomePage = () => {
           <div className="logo-section">
             <img src={LogoIcon} alt="Logo" className="logo-section-logo" />
           </div>
-          <div className="home-icon" onClick={() => navigate("/")}>
+          <div className="home-icon" onClick={() => navigate("/user-profile")}>
             <img src={HomeIcon} alt="" />
           </div>
         </div>

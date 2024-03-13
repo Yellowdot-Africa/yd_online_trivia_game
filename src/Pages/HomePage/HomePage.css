@@ -259,7 +259,7 @@ input::placeholder {
 
 .navigation-iconss {
   position: fixed;
-  bottom: -23px;
+  bottom: -16px;
   right: -20px;
   display: flex;
   justify-content: center;
@@ -270,12 +270,13 @@ input::placeholder {
 .icon-content-section {
   background-color: #fff;
   border-radius: 40px;
-  width: 100vw;
+  width: 95vw;
   height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 25px;
+  margin: 0 5px;
 }
 
 .navigation-iconss div:hover {
