@@ -28,9 +28,11 @@ const Withdraw = () => {
           }
         );
 
-        console.log("Bank API response:", response.data);
-
-        setBanks(response.data || []);
+        if (response.data && Array.isArray(response.data.data)) {
+          setBanks(response.data.data);
+        } else {
+          console.warn("Unexpected API response structure:", response.data);
+        }
       } catch (error) {
         console.error("Error fetching banks:", error);
       }
@@ -65,11 +67,9 @@ const Withdraw = () => {
                 onChange={handleBankChange}
                 required
               >
-                {/* <option className="disabled" value="" disabled selected hidden> */}
                 <option className="disabled" disabled value="">
                   Select Bank
                 </option>
-                {/* {Array.isArray(banks) && */}
                 {banks?.map((bank) => (
                   <option key={bank.shortname} value={bank.shortname}>
                     {bank.name}
