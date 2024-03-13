@@ -1,65 +1,153 @@
-.loading-containerr {
-  background-color: #230640;
-  padding: 20px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
 .result-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-top: 70px; */
 }
-.result-header{
+
+.result-header {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.container-style {
-  width: 589px;
-  height: 749px;
-  border-radius: 20px;
-  background: #fff;
+
+.your-result {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 79px;
+}
+.your-result p {
+  font-family: "AlpinoMedium";
+  font-size: 18px;
+  font-weight: 507;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
+  margin: 0;
+}
+.result-header .quitt {
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: right;
+  margin: 0;
+}
+
+.result-details {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  background: #f7f7f7;
+}
+
+.result-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.result-info .right {
+  width: 18px;
+  height: 18px;
+  margin-top: -17px;
+  background-color: #4fd96d;
+  border-radius: 50px;
+  padding: 3px;
+}
+.result-info .wrong {
+  width: 18px;
+  height: 18px;
+  margin-top: -17px;
+  background-color: red;
+  border-radius: 50px;
+  padding: 3px;
+}
+.info-heading {
+  color: #444;
+  font-family: "AlpinoBold";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.info-value {
+  color: #444;
+  padding: 20px;
+  font-family: "AlpinoBold";
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.prize-details {
+  margin-top: 40px;
+  background: #f7f7f7;
+  width: 100%;
+  height: 196px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  justify-content: center;
 }
 
-.image-cont-sty {
-  position: relative;
-}
-
-.image-style {
-  width: 91px;
-  height: 91px;
-  position: absolute;
-  top: -58px;
-  right: -42px;
-}
-
-.header-sty {
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 80%;
-  margin-top: 10px;
-}
-.done-link {
-  text-decoration: none;
-  color: #444;
-  text-align: right;
-  font-family: "Roboto";
-  font-size: 16px;
+.prize-heading {
+  color: #7e2cd1;
+  padding-top: 32px;
+  font-family: "AlpinoBlack";
+  font-size: 24px;
   font-weight: 900;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+}
+
+.prize-amount {
+  color: #4fd96d;
+  text-align: center;
+  background: #e0f5e5;
+  width: 129px;
+  height: 52px;
+  border-radius: 10px;
+  font-family: "AlpinoBlack";
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 32px;
+  letter-spacing: 0em;
+  padding: 10px;
+}
+
+.current-balance {
+  color: #444;
+  font-family: "AlpinoBold";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 .result-text {
   text-align: center;
   margin-top: 20px;
+  background: #f7f7f7;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
 }
-
+.result-text img {
+  padding: 10px;
+}
 .congratulations {
   color: #7e2cd1;
   text-align: center;
@@ -71,117 +159,32 @@
 
 .qualification-text {
   color: #6a6a76;
-  text-align: center;
-  font-family: "Roboto";
+  font-family: "AlpinoRegular";
   font-size: 18px;
-  font-weight: 400;
-  width: 393px;
-}
-.result-heading .your-result {
-  color: #949494;
+  font-weight: 421;
+  line-height: 22px;
+  letter-spacing: 0em;
   text-align: center;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 700;
 }
-.result-details {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /* width: 314px; */
-  width: 100%;
-  height: 60px;
-  margin-top: 20px;
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0px 2px 4px 3px rgba(0, 0, 0, 0.1);
-}
-
-.result-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.result-info img{
-  
-  width: 18px;
-  height: 18px;
-  margin-top: -17px;
-
-}
-
-.info-heading {
-  color: #444;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 16px;
-  font-weight: 400;
-}
-
-.info-value {
-  color: #444;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 16px;
-  font-weight: 400;
-  padding: 20px;
-}
-
-.prize-details {
-  margin-top: 40px;
-}
-
-.prize-heading {
-  color: #7e2cd1;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 32px;
-  font-weight: 900;
-}
-
-.prize-amount {
-  color: #4fd96d;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 36px;
-  font-weight: 900;
-}
-
-.current-balance {
-  color: #444;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 24px;
-  font-weight: 700;
-}
-
 .replay-button {
-  width: 162px;
+  width: 100%;
   height: 50px;
-  background-color: #ffd700;
-  filter: drop-shadow(0px 2px 8px rgba(255, 215, 0, 0.4));
-  color: #141414;
+  background-color: #973cf2;
+  color: #ffffff;
   text-align: center;
   font-family: "Roboto";
   font-size: 14px;
   font-weight: 900;
+  margin-top: 103px;
 }
 
+.img-styl {
+  width: 47px;
+  height: 47px;
+  margin-top: 36px;
+}
 
 @media only screen and (min-width: 263px) and (max-width: 280px) {
-  .loading-containerr {
-    background-color: transparent;
-    height: 100%;
-    padding: 0;
-  }
-  .emp {
-    background: #7f2cd1;
-    width: 100%;
-    height: 169px;
-  }
-
   .result-container {
     display: flex;
     flex-direction: column;
@@ -197,7 +200,6 @@
     background: #fff;
     box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
     margin-top: -122px;
-    
   }
   .header-sty {
     position: relative;
@@ -224,18 +226,11 @@
 
   .qualification-text {
     color: #6a6a76;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 400;
     width: 100%;
   }
   .info-heading {
     color: #444;
     text-align: center;
-    font-family: "Roboto";
-    font-size: 12px;
-    font-weight: 400;
   }
 
   .prize-heading {
@@ -257,22 +252,20 @@
     font-size: 18px;
   }
 
-.result-info img{
-  
-  width: 12px;
-  height: 12px;
-  margin-top: -17px;
+  .result-info img {
+    width: 12px;
+    height: 12px;
+    margin-top: -17px;
+  }
+  .info-value {
+    color: #444;
+    text-align: center;
+    font-family: "Roboto";
+    font-size: 16px;
+    font-weight: 400;
+    padding: 12px;
+  }
 }
-.info-value {
-  color: #444;
-  text-align: center;
-  font-family: "Roboto";
-  font-size: 16px;
-  font-weight: 400;
-  padding: 12px;
-}
-}
-
 
 @media only screen and (min-width: 283px) and (max-width: 930px) {
   .loading-containerr {
@@ -301,7 +294,6 @@
     background: #fff;
     box-shadow: 0px 4px 8px 0px rgba(110, 110, 110, 0.25);
     margin-top: -122px;
-    
   }
   .header-sty {
     position: relative;
@@ -328,18 +320,11 @@
 
   .qualification-text {
     color: #6a6a76;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 400;
     width: 100%;
   }
   .info-heading {
     color: #444;
     text-align: center;
-    font-family: "Roboto";
-    font-size: 12px;
-    font-weight: 400;
   }
 
   .prize-heading {
@@ -361,4 +346,3 @@
     font-size: 18px;
   }
 }
-

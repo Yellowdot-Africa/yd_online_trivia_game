@@ -313,7 +313,7 @@
 /* question screeen css */
 .question-screen {
   background: #7e2cd1;
-
+height: 100vh;
 }
 
 .timer-container {
@@ -444,7 +444,13 @@
   box-shadow: 0px 2px 4px 1px rgba(209, 44, 44, 0.3);
   color: white;
 }
+.correct {
+  background-color: #21A11E; /* Green background for correct answer */
+}
 
+.wrong {
+  background-color: #D12C2C; /* Red background for wrong answer */
+}
 /* .ans-que {
   color: #9d78dd;
   font-family: "Inter";

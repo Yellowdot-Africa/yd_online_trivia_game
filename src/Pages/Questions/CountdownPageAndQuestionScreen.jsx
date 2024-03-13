@@ -68,34 +68,98 @@ const Question = () => {
   );
 };
 
-export default Question;
 
 const QuestionScreen = () => {
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
   const [feedbackText, setFeedbackText] = useState("");
   const [feedbackColor, setFeedbackColor] = useState("");
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
-
-  const initialBalance = 0;
-
-  const [balance, setBalance] = useState(initialBalance);
+  const [balance, setBalance] = useState(0);
 
   const totalItems = 10;
-
   const [answersInfo, setAnswersInfo] = useState(Array(totalItems).fill(""));
+  const [timer, setTimer] = useState(10);
+  const navigate = useNavigate();
 
   const handlePageChange = (index) => {
     setActiveIndex(index);
     setSelectedAnswerIndex(null);
     setCurrentQuestionIndex(index);
     setFeedbackText("");
+    setTimer(10);
+  };
+
+  const handleAnswerSubmission = async () => {
+    if (selectedAnswerIndex !== null) {
+      const isCorrect = answers[selectedAnswerIndex]?.isCorrectAnswer === true;
+      const answerOptions = document.querySelectorAll(".answer-option");
+
+      answerOptions.forEach((option, index) => {
+        option.classList.remove("selected-answer", "correct", "wrong");
+
+        if (index === selectedAnswerIndex) {
+          option.classList.add("selected-answer");
+        }
+
+        if (isCorrect && answers[index]?.isCorrectAnswer) {
+          option.classList.add("correct");
+        }
+
+        if (
+          !isCorrect &&
+          !answers[index]?.isCorrectAnswer &&
+          index === selectedAnswerIndex
+        ) {
+          option.classList.add("wrong");
+        }
+      });
+
+      setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong");
+
+      setTimeout(() => {
+        const answerOptions = document.querySelectorAll(".answer-option");
+
+        answerOptions.forEach((option) => {
+          option.classList.remove("selected-answer", "correct", "wrong");
+        });
+
+        setFeedbackText("");
+      }, 1000);
+
+      if (isCorrect) {
+        setCorrectAnswers((prev) => prev + 1);
+      } else {
+        setWrongAnswers((prev) => prev + 1);
+      }
+    }
+
+    if (currentQuestionIndex === questions.length - 1) {
+      // setTimeout(() => {
+      navigate("/result-page", {
+        state: {
+          correctAnswers,
+          wrongAnswers,
+          balance,
+        },
+      });
+      // },
+      //  1000);
+    } else {
+      // setTimeout(() => {
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setActiveIndex((prevIndex) => prevIndex + 1);
+      setSelectedAnswerIndex(null);
+      setTimer(10);
+      // },
+
+      // 1000);
+    }
   };
 
   const handleAnswerClick = (index) => {
@@ -119,7 +183,6 @@ const QuestionScreen = () => {
         const currentQuestionAnswers =
           questionsResponse.data.data[currentQuestionIndex]?.answers || [];
         setQuestions(questionsResponse.data.data);
-
         setAnswers(currentQuestionAnswers);
       } else {
         console.warn(
@@ -138,96 +201,25 @@ const QuestionScreen = () => {
     fetchData();
   }, [currentQuestionIndex]);
 
+  useEffect(() => {
+    const timerInterval = setInterval(() => {
+      setTimer((prevTimer) => {
+        if (prevTimer === 0) {
+          handleAnswerSubmission();
+          return 10;
+        } else {
+          return prevTimer - 1;
+        }
+      });
+    }, 1000);
+
+    return () => clearInterval(timerInterval);
+  }, [timer, handleAnswerSubmission]);
+
   const currentQuestion =
     questions.length > 0
       ? questions[currentQuestionIndex]?.question
       : "Loading...";
-
-  const handleAnswerSubmission = async () => {
-    if (selectedAnswerIndex !== null) {
-      const isCorrect = answers[selectedAnswerIndex]?.isCorrectAnswer === true;
-
-      const answerOptions = document.querySelectorAll(".answer-option");
-      answerOptions.forEach((option, index) => {
-        if (index === selectedAnswerIndex) {
-          option.classList.add(isCorrect ? "correct" : "wrong");
-        } else {
-          option.classList.remove("correct", "wrong");
-        }
-      });
-      setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong");
-      setFeedbackColor(isCorrect ? "#21A11E" : "#D12C2C");
-
-      setTimeout(() => {
-        const answerOptions = document.querySelectorAll(".answer-option");
-
-        answerOptions.forEach((option) => {
-          option.classList.remove("correct", "wrong", "selected-answer");
-        });
-        setFeedbackText("");
-        setFeedbackColor("");
-      }, 1000);
-
-      const token = sessionStorage.getItem("token");
-      const gameId = 1;
-      const questionId = questions[currentQuestionIndex]?.questionID;
-      const selectedAnswerID = answers[selectedAnswerIndex]?.answerID;
-
-      try {
-        const answersResponse = await axios.post(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitAnswer",
-          {
-            gameID: gameId,
-            answers: [
-              {
-                questionID: questionId,
-                selectedAnswerID: selectedAnswerID,
-              },
-            ],
-          },
-          {
-            headers: {
-              Accept: "*/*",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        console.log(answersResponse.data);
-      } catch (error) {
-        console.error("Error submitting answer:", error);
-      }
-
-      if (isCorrect) {
-        setAnswersInfo((prev) => {
-          const newAnswersInfo = [...prev];
-          newAnswersInfo[currentQuestionIndex] = "correct";
-          return newAnswersInfo;
-        });
-        setCorrectAnswers((prev) => prev + 1);
-      } else {
-        setAnswersInfo((prev) => {
-          const newAnswersInfo = [...prev];
-          newAnswersInfo[currentQuestionIndex] = "wrong";
-          return newAnswersInfo;
-        });
-        setWrongAnswers((prev) => prev + 1);
-      }
-    }
-
-    if (currentQuestionIndex === questions.length - 1) {
-      navigate("/result-page", {
-        state: {
-          correctAnswers,
-          wrongAnswers,
-          balance,
-        },
-      });
-    } else {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-    }
-  };
 
   return (
     <>
@@ -236,7 +228,7 @@ const QuestionScreen = () => {
           <div className="timer-container">
             <div className="timer">
               <img src={Timer} alt="timer" />
-              <p>10</p>
+              <p>{timer}</p>
             </div>
             <p className="quit">Quit</p>
           </div>
@@ -247,7 +239,7 @@ const QuestionScreen = () => {
               <>
                 <div className="quest-main-container">
                   {currentQuestion && answers.length > 0 && (
-                    <p className="question-txt"> {currentQuestion}</p>
+                    <p className="question-txt">{currentQuestion}</p>
                   )}
 
                   <Pagination
@@ -284,3 +276,4 @@ const QuestionScreen = () => {
 };
 
 export { CountdownPage, Question, QuestionScreen };
+
