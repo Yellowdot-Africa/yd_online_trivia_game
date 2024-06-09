@@ -1,0 +1,31 @@
+.getting-started-container{
+   width: 100vw;
+   height: 100vh;
+   background-color: #0B0B2A;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.challenge{
+   font-family: "AlpinoBold";
+font-size: 24px;
+font-weight: 700;
+line-height: 32.64px;
+text-align: center;
+color: #FFFFFF;
+padding-top: 14px;
+}
+
+.game-inffo{
+   font-family: "AlpinoBold";
+font-size: 14px;
+font-weight: 700;
+line-height: 19.04px;
+text-align: center;
+color: #FFFFFF;
+margin-top: 48px;
+margin-bottom: 133px;
+
+}

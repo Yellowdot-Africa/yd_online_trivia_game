@@ -1,0 +1,161 @@
+.settings {
+  font-family: "Alpino";
+  background-color: #f4f2f5;
+  height: 100vh;
+}
+
+.settings-container {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 6px 0 6px;
+  border-radius: 10px;
+  margin: 0 18px;
+}
+
+.settings-text {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.settings-text h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  font-family: "AlpinoRegular";
+}
+
+.setting-card {
+  background-color: #7e2cd133;
+  padding: 13px 16px 13px 12px;
+  border-radius: 10px;
+  margin: 0 24px 47px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.setting-card p {
+  color: #550e9c;
+  font-family: "AlpinoBold";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  margin: 0;
+}
+.setting-card .four {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.vol-container {
+  margin-right: 16px;
+}
+
+.vol-icon-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sound {
+  font-family: "AlpinoRegular";
+  font-size: 18px;
+  font-weight: 421;
+  line-height: 23.58px;
+  text-align: left;
+  color: #656565;
+  margin: 0;
+}
+
+.slider-slider {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 72vw;
+  height: 0px;
+  padding: 2px;
+  background-color: #6f0078;
+  margin-bottom: 57px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.slider-disbled {
+  background-color: #656565b2;
+}
+
+::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background-color: #6f0078;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.lang-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.lang-text {
+  margin: 0;
+  color: #656565;
+  font-family: "AlpinoRegular";
+  font-size: 18px;
+  font-weight: 421;
+  line-height: 23.58px;
+  text-align: left;
+}
+
+.default-card {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  background-color: #6f0078;
+  border-radius: 8px;
+  padding: 8px 10px 7px 23px;
+  gap: 10px;
+  width: 103px;
+  margin-bottom: 45px;
+}
+
+.default {
+  color: #ffffff;
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 18.62px;
+  text-align: left;
+  margin: 0;
+}
+
+.settings-nav-icon{
+  margin-top: 70px;
+}
+
+@media screen and (max-width: 290px) {
+  .default-card {
+    display: flex;
+    background-color: #432671;
+    margin-left: 0px;
+  }
+}

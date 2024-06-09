@@ -1,0 +1,390 @@
+.leaderboard {
+  font-family: "Alpino";
+}
+
+.leaderboard-text {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+}
+
+.leaderboard-text h2 {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 16px;
+  font-family: "AlpinoRegular";
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  font-family: "AlpinoRegular";
+}
+
+.main {
+  padding: 20px;
+}
+
+.user-card {
+  background-color: #7e2cd133;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 51px;
+  display: flex;
+  gap: 12px;
+}
+
+.user-card p {
+  color: #550e9c;
+  font-family: "AlpinoBold";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  margin: 0;
+}
+.user-card .four {
+  color: #7e2cd1;
+  font-size: 18px;
+  font-family: "AlpinoBold";
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  background: #ffffff;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.winner-chart {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  margin-top: 30px;
+}
+
+.winner-two {
+  margin-top: 76px;
+}
+.user-two {
+  background-color: rgba(117, 59, 255, 1);
+  width: 30vw;
+  height: 190px;
+}
+
+.user-one {
+  background: rgba(105, 255, 107, 1);
+  width: 30vw;
+  height: 266px;
+}
+.winner-one p,
+.winner-two p,
+.winner-three p {
+  text-align: center;
+  margin: 0;
+}
+
+.winner-one img,
+.winner-two img,
+.winner-three img {
+  margin-left: 43px;
+}
+
+.winner-three {
+  margin-top: 118px;
+}
+
+.user-three {
+  background: rgba(33, 210, 245, 1);
+  width: 32vw;
+  height: 148px;
+}
+
+.top-players-deets {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.top-players-card {
+  background-color: #f4f2f5;
+  width: 100vw;
+  height: 100%;
+  padding: 20px 15px 43px 15px;
+  border-radius: 10px;
+}
+
+.top-players-cont {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-players-cont h3 {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 421;
+  font-family: "AlpinoRegular";
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  margin: 0;
+}
+
+.top-players-cont p {
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #7e2cd1;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 0;
+}
+
+.players-details-container {
+  padding: 15px;
+}
+.first-user-deets {
+  display: flex;
+  /* justify-content:; */
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.green {
+  background-color: #23a72b;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green-deets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.green-deets p {
+  margin: 0;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.green-deets .number {
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.second-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.orange {
+  background-color: #e77e5c;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orange-deets p {
+  margin: 0;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.orange-deets .number {
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.third-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.blue {
+  background-color: #25cbf3;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blue-deets p {
+  margin: 0;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.blue-deets .number {
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.fourth-user-deets {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.purple {
+  background-color: #7f2cd1cc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 177px;
+}
+
+.purple-deets p {
+  margin: 0;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
+.purple-deets .number {
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #7e2cd1;
+  margin-right: 20px;
+}
+
+.leaderboard-date {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.leaderboard-date p {
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #000000;
+  margin: 0;
+}
+
+.leaderboard-date p:hover {
+  color: #7e2cd1;
+  border-bottom: 3px solid #7e2cd1;
+}
+
+
+@media screen and (min-width: 230px) and (max-width:350px)  {
+ .purple {
+  background-color: #7f2cd1cc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 153px;
+}
+}
+
+
+@media screen and (min-width: 750px) and (max-width:823px)  {
+  .winner-one img,
+.winner-two img,
+.winner-three img {
+  margin-left: 103px;
+}
+
+.purple {
+  background-color: #7f2cd1cc;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 541px;
+}
+
+}
+
+
+@media screen and (min-width: 830px) and (max-width:923px)  {
+  .winner-one img,
+.winner-two img,
+.winner-three img {
+  margin-left: 123px;
+}
+
+
+
+}

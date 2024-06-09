@@ -1,0 +1,26 @@
+.advert-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -146px;
+  background-color: #F4F2F5;
+  padding: 20px;
+}
+
+.advert {
+  background-color: #d9d9d9;
+  width: 345px;
+  height: 149px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.advert p{
+    font-family: "AlpinoBold";
+font-size: 16px;
+font-weight: 700;
+line-height: 21.76px;
+text-align: left;
+
+}

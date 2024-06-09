@@ -1,0 +1,45 @@
+.navigation-iconss {
+    /* position: fixed; */
+    /* bottom: -16px; */
+    position: relative;
+    bottom: 147px;
+    right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px;
+  }
+  
+  .icon-content-section {
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0px 2px 2px 0px #00000026;
+    width: 95vw;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px;
+    margin: 0 5px;
+  }
+  
+  .navigation-iconss div:hover {
+    background-color: #2980b9;
+  }
+  
+  .home-nav-icons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .home-nav-icons p{
+    font-family: "AlpinoMedium";
+font-size: 12px;
+font-weight: 500;
+line-height: 14.52px;
+text-align: left;
+
+  }

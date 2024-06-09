@@ -1,0 +1,85 @@
+.cash-out-success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 83px;
+}
+.check-icon {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success-message .check-icon {
+  background: #369c1d;
+  width: 56px;
+  height: 56px;
+  border-radius: 50px;
+}
+
+.success-message h2 {
+  font-family: "AlpinoMedium";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  color: #000000;
+  padding-top: 21px;
+}
+
+.success-message p {
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #9b9b9b;
+  width: 100vw;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.go-home-button {
+  background: #973cf2;
+  width: 80vw;
+  height: 54px;
+  border-radius: 10px;
+  border: none;
+  font-family: "AlpinoMedium";
+  font-size: 16px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  color: #FFFFFF;
+}
+
+
+.action-buttons p{
+    font-family: "AlpinoMedium";
+font-size: 16px;
+font-weight: 507;
+line-height: 21px;
+letter-spacing: -0.3199999928474426px;
+text-align: left;
+padding-top: 19px;
+
+}
+
+.ask-for-help{
+    color: #973CF2;
+}

@@ -1,0 +1,141 @@
+.header {
+  padding: 17px 26px 15px 26px;
+  background-color: #230442;
+  color: #fff;
+}
+
+
+.account-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+}
+.logo-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 51px;
+}
+
+.logo-section .logo-section-logo{
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+
+}
+.home-icon {
+  cursor: pointer;
+  border-radius: 17px;
+  border: 2px solid transparent;
+  background: #4b296d;
+  box-shadow: 2px 3px 4px 0px #00000040;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-balance {
+  margin-top: 20px;
+}
+
+.account-balance .acct {
+  color: #cecece;
+  font-family: "AlpinoRegular";
+  font-size: 10px;
+  font-weight: 421;
+  line-height: 13px;
+  letter-spacing: 0em;
+  margin: 0;
+}
+.account-balance .amount {
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #afff93;
+  margin: 0;
+}
+
+.account-balance .xpoint{
+  font-family: "AlpinoBold";
+font-size: 12px;
+font-weight: 700;
+line-height: 16.32px;
+
+
+}
+
+.toastt {
+  background-color: #d9d9d9;
+  margin: 32px 23px 20px 23px;
+  padding: 17px 71px 14px 71px;
+}
+.toastt p {
+  font-family: "AlpinoBold";
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16.32px;
+  text-align: center;
+  color: #000000;
+}
+
+
+/* .advert{
+    background-color: #D9D9D9;
+    margin-top:20px ;
+} */
+
+
+
+/* 
+<div className="progressbar">
+  <ProgressBar
+    bgcolor={"#FFFFFF"}
+    completed={completed}
+    isCompleted={loadingCompleted}
+  />
+</div>
+
+And then in your ProgressBar component:
+
+function ProgressBar(props) {
+  if (props.isCompleted) {
+    return <div className="progress-bar completed">Loading Complete!</div>;
+  } else {
+    return (
+      <div
+        className="progress-bar"
+        style={{ width: `${props.completed}%` }}
+      >
+        {props.completed}%
+      </div>
+    );
+  }
+} */
+
+
+
+
+/* <div className="answer-container">
+  {answers.map((answer, index) => (
+    <div className="answer-card" key={index}>
+      <input
+        className={`answer-option ${
+          selectedAnswerIndex === index
+            ? "selected-answer"
+            : answers[index]?.isCorrectAnswer
+            ? "correct-answer"
+            : ""
+        }`}
+        type="button"
+        value={answer.answerText}
+        onClick={() => handleAnswerClick(index)}
+      />
+    </div>
+  ))}
+</div> */
