@@ -1,229 +1,137 @@
-// import React,{ useState }  from 'react';
-
-// const LoginForm = ({ isLoginOpen }) => {
-// const [loginMethod, setLoginMethod] = useState("phone");
-
-//     const [phoneNumber, setPhoneNumber] = useState("");
-//     const [password, setPassword] = useState("");
-// const [email, setEmail] = useState("");
-// const [emailFocus, setEmailFocus] = useState(false);
-
-//     const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
-//     const [passwordFocus, setPasswordFocus] = useState(false);
-//     const [errorText, setErrorText] = useState(null);
-//     const [infoText, setInfoText] = useState(null);
-//     const [loginError, setLoginError] = useState({});
-//     const [isLoading, setIsLoading] = useState(false);
-
-//     const handlePhoneNumberChange = (e) => {
-//         setPhoneNumber(e.target.value);
-//       };
-
-// const handleEmailChange = (e) => {
-//     setEmail(e.target.value);
-// };
-
-//       const handlePasswordChange = (e) => {
-//         setPassword(e.target.value);
-//       };
-//       const handlePhoneNumberFocus = () => {
-//         setPhoneNumberFocus(true);
-//       };
-// const handleEmailFocus = () => {
-//     setEmailFocus(true);
-// };
-
-//       const handlePasswordFocus = () => {
-//         setPasswordFocus(true);
-//       };
-
-// const handleLoginMethodChange = (method) => {
-//     setLoginMethod(method);
-//     setPhoneNumber("");
-//     setEmail("");
-//     setPassword("");
-//     setPhoneNumberFocus(false);
-//     setEmailFocus(false);
-//     setPasswordFocus(false);
-//     setLoginError({});
-// };
-
-//   return (
-//     <>
-//          <div className="login-form-cont">
-//         <form className={`login-form ${isLoginOpen ? "open" : ""}`}>
-//           <input
-//             type="tel"
-//             autoComplete="current-phonenumber"
-//             placeholder="+234"
-//             value={phoneNumber}
-//             onChange={handlePhoneNumberChange}
-//             onFocus={handlePhoneNumberFocus}
-//           />
-//           {phoneNumberFocus && (
-//             <p className="inputt-textt">Please input your phone number</p>
-//           )}
-//           {loginError.username && (
-//             <p className="error-text">{loginError.username}</p>
-//           )}
-//           <input
-//             type="password"
-//             autoComplete="current-password"
-//             placeholder="Choose Password"
-//             value={password}
-//             onChange={handlePasswordChange}
-//             onFocus={handlePasswordFocus}
-//           />
-//           {passwordFocus && <p className="inputt-textt">Input password</p>}
-
-//           {loginError.password && (
-//             <p className="error-text">{loginError.password}</p>
-//           )}
-//           <button  disabled={isLoading}>
-//             {isLoading ? "Logging in..." : "Login"}
-//           </button>
-//           {loginError.general && (
-//             <p className="error-text">{loginError.general}</p>
-//           )}
-//         </form>
-//       </div>
-//     </>
-//   )
-// }
-
-// export default LoginForm;
-
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { login } from "../features/auth/authSlice";
+
 import "../Styles/Login.css";
 
 const LoginForm = ({ isLoginOpen }) => {
-  const [loginMethod, setLoginMethod] = useState("phone");
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailFocus, setEmailFocus] = useState(false);
-  const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
-  const [passwordFocus, setPasswordFocus] = useState(false);
-  const [errorText, setErrorText] = useState(null);
-  const [infoText, setInfoText] = useState(null);
-  const [loginError, setLoginError] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { status, error } = useSelector((state) => state.auth);
 
-  const handlePhoneNumberChange = (e) => {
-    setPhoneNumber(e.target.value);
-  };
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-  const handlePhoneNumberFocus = () => {
-    setPhoneNumberFocus(true);
-  };
-  const handleEmailFocus = () => {
-    setEmailFocus(true);
-  };
-  const handlePasswordFocus = () => {
-    setPasswordFocus(true);
-  };
-  const handleLoginMethodChange = (method) => {
-    setLoginMethod(method);
-    setPhoneNumber("");
-    setEmail("");
-    setPassword("");
-    setPhoneNumberFocus(false);
-    setEmailFocus(false);
-    setPasswordFocus(false);
-    setLoginError({});
+  const initialValues = {
+    // loginMethod: "phone",
+    loginMethod: "" ? "phone" : "email",
+    username: "",
+    // email: "",
+    password: "",
   };
 
-  const navigateToLoadingPage = () => {
-    console.log("Navigating to trivia...");
+  const validationSchema = Yup.object().shape({
+    loginMethod: Yup.string().required("Login method is required"),
+    phoneNumber: Yup.string()
+      .matches(/^\d{7,14}$/, "Please input a valid phone number")
+      .nullable(),
+    email: Yup.string().email("Please input a valid email address").nullable(),
+    password: Yup.string().required("Please input your password"),
+  });
 
-    navigate("/loading");
+  const handleSubmit = (values) => {
+    const { loginMethod, phoneNumber, email, password } = values;
+    const username = loginMethod === "phone" ? phoneNumber : email;
+
+    dispatch(login({ username, password }))
+      .then((action) => {
+        if (login.fulfilled.match(action)) {
+          navigate("/loading");
+        }
+      })
+      .catch((error) => {
+        console.error("Login failed:", error);
+      });
   };
 
   return (
     <>
       <div className="login-form-cont">
-        <form className={`login-form ${isLoginOpen ? "open" : ""}`}>
-          {loginMethod === "phone" && (
-            <input
-              type="tel"
-              autoComplete="current-phonenumber"
-              placeholder="+234"
-              value={phoneNumber}
-              onChange={handlePhoneNumberChange}
-              onFocus={handlePhoneNumberFocus}
-            />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+        >
+          {({ setFieldValue, values, handleChange }) => (
+            <Form className={`login-form ${isLoginOpen ? "open" : ""}`}>
+              {values.loginMethod === "phone" && (
+                <>
+                  <Field
+                    type="tel"
+                    name="phoneNumber"
+                    placeholder="Phone Number"
+                    autoComplete="tel"
+                    value={values.phoneNumber} 
+                    onChange={handleChange}
+                  />
+                  <ErrorMessage
+                    name="phoneNumber"
+                    component="p"
+                    className="error-input-text"
+                  />
+                </>
+              )}
+              {values.loginMethod === "email" && (
+                <>
+                  <Field
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    autoComplete="email"
+                    value={values.email} 
+                    onChange={handleChange}
+                  />
+                  <ErrorMessage
+                    name="email"
+                    component="p"
+                    className="error-input-text"
+                  />
+                </>
+              )}
+              <Field
+                type="password"
+                name="password"
+                placeholder="Password"
+                autoComplete="current-password"
+                value={values.password} 
+                onChange={handleChange}
+              />
+              <ErrorMessage
+                name="password"
+                component="p"
+                className="error-input-text"
+              />
+              <button type="submit" disabled={status === "loading"}>
+                {status === "loading" ? "Logging in..." : "Login"}
+              </button>{" "}
+              <br />
+              {error && <p className="error-input-text">{error}</p>}
+              <div className="login-method-selector">
+                {values.loginMethod === "phone" ? (
+                  <a
+                    href="#email"
+                    className="active"
+                    onClick={() => setFieldValue("loginMethod", "email")}
+                  >
+                    Use Email
+                  </a>
+                ) : (
+                  <a
+                    href="#phonenumber"
+                    className="active"
+                    onClick={() => setFieldValue("loginMethod", "phone")}
+                  >
+                    Use Phone Number
+                  </a>
+                )}
+              </div>
+            </Form>
           )}
-          {phoneNumberFocus && (
-            <p className="inputt-textt">Please input your phone number</p>
-          )}
-          {loginError.username && (
-            <p className="error-text">{loginError.username}</p>
-          )}
-          {loginMethod === "email" && (
-            <input
-              type="email"
-              autoComplete="current-email"
-              placeholder="Email"
-              value={email}
-              onChange={handleEmailChange}
-              onFocus={handleEmailFocus}
-            />
-          )}
-          {emailFocus && (
-            <p className="inputt-textt">Please input your email</p>
-          )}
-          <input
-            type="password"
-            autoComplete="current-password"
-            placeholder="Choose Password"
-            value={password}
-            onChange={handlePasswordChange}
-            onFocus={handlePasswordFocus}
-          />
-          {passwordFocus && <p className="inputt-textt">Input password</p>}
-          {loginError.password && (
-            <p className="error-text">{loginError.password}</p>
-          )}
-          <button onClick={navigateToLoadingPage} disabled={isLoading}>
-            {isLoading ? "Logging in..." : "Login"}
-          </button>
-          {loginError.general && (
-            <p className="error-text">{loginError.general}</p>
-          )}
-
-          <div className="login-method-selector">
-            {loginMethod === "phone" ? (
-              <a
-                href="#email"
-                className="active"
-                onClick={() => handleLoginMethodChange("email")}
-              >
-                Use Email
-              </a>
-            ) : (
-              <a
-                href="#phonenumber"
-                className="active"
-                onClick={() => handleLoginMethodChange("phone")}
-              >
-                Use Phone Number
-              </a>
-            )}
-          </div>
-        </form>
+        </Formik>
       </div>
     </>
   );
 };
 
 export default LoginForm;
-
 

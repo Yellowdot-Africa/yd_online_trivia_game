@@ -5,9 +5,7 @@ import ProgressBar from "../../Components/ProgressBar";
 import { useNavigate } from "react-router-dom";
 
 const LoadingPage = () => {
-  const [loading, setLoading] = useState(true);
   const [completed, setCompleted] = useState(0);
-  const [slider, setSlider] = useState(true);
   const [loadingCompleted, setLoadingCompleted] = useState(false);
   const [showContinueButton, setShowContinueButton] = useState(false);
   const navigate = useNavigate();
@@ -18,8 +16,6 @@ const LoadingPage = () => {
         setCompleted((prevCompleted) => prevCompleted + 1);
       } else {
         clearInterval(interval);
-        setLoading(false);
-        setSlider(false);
         setLoadingCompleted(true);
 
         const continueButtonTimer = setTimeout(() => {
@@ -42,43 +38,39 @@ const LoadingPage = () => {
   };
 
   return (
-    <>
-      <div className="loading-page">
-        <div className="loading-glassmorphism">
-          <div className="glassmorphism">
-            <div className="trivia-main-container">
-              <div className="trivia-progress">
-                <div className="trophy-img">
-                  <img src={TrophyCup} alt="trophy" />
-                </div>
-                <h4> YellowDot Trivia</h4>
-                {/* <p>You will be logged in shortly</p> */}
-                <p>{loadingCompleted ? "All Set, Lets Trivia" : "You will be logged in shortly"}</p>
-                {showContinueButton && (
-                      <button
-                        className="welcom-btn"
-                        onClick={handleButtonContinue}
-                      >
-                        Continue
-                      </button>
-                    )}
-
-
-               
-                 
-                  <div className="progressbar">
-                    {slider && (
-                      <ProgressBar bgcolor={"#FFFFFF"} completed={completed} isCompleted={loadingCompleted} />
-                    )}
-                  </div>
-               
+    <div className="loading-page">
+      <div className="loading-glassmorphism">
+        <div className="glassmorphism">
+          <div className="trivia-main-container">
+            <div className="trivia-progress">
+              <div className="trophy-img">
+                <img src={TrophyCup} alt="trophy" />
               </div>
+              <h4>YellowDot Trivia</h4>
+              <p>
+                {loadingCompleted
+                  ? "All Set, Let's Trivia"
+                  : "You will be logged in shortly"}
+              </p>
+              <div className="progressbar">
+                <ProgressBar
+                  bgcolor={"#FFFFFF"}
+                  completed={completed}
+                  isCompleted={loadingCompleted}
+                />
+              </div>
+              {showContinueButton && (
+                <button className="welcom-btn" onClick={handleButtonContinue}>
+                  Continue
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default LoadingPage;
+

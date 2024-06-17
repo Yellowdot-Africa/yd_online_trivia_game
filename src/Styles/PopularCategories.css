@@ -1,10 +1,3 @@
-.testing{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-   
-}
-
 .categories-container {
   text-align: center;
   background: #ffffff;
@@ -15,14 +8,13 @@
   align-items: center;
 }
 
-
 .categories-heading h4 {
   color: #262626;
   font-size: 24px;
   font-weight: 700;
   font-family: "AlpinoBold";
   line-height: 32.64px;
-  text-align:center;
+  text-align: center;
   margin-bottom: 5px;
 }
 
@@ -41,9 +33,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 22px;
-  margin-top: 30px;
-  /* margin: 40px 0 86px 0; */
-  
+  padding-top: 30px;
 }
 
 .category-item {
@@ -60,6 +50,15 @@
   font-weight: 600;
   padding-top: 14px;
   margin-bottom: 8px;
+}
+
+.category-item .category-logo-img {
+  width: 155px;
+  height: 155px;
+  border-radius: 5px;
+  background: #9B9B9B;
+
+
 }
 
 .count-container {
@@ -119,64 +118,8 @@
   padding-top: 14px;
 }
 
-@media screen and (max-width:380px) {
-
-
-  .category-item{
+@media screen and (max-width: 380px) {
+  .category-item {
     width: 46%;
   }
 }
-
-/*   
-  @media screen and (max-width: 283px) {
-    .category-heading {
-      margin: 0;
-    }
-    .category-heading h4 {
-      font-size: 24px;
-      margin-left: -10px;
-  
-    }
-    .category-heading p {
-      font-size: 16px;
-    }
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin: auto;
-    }
-    .category-item {
-      width: 117px;
-      height: 218px;
-    }
-  }
-  
-  @media only screen and (min-width: 285px) and (max-width: 767px) {
-    .category-container {
-      padding-bottom: 35px;
-    }
-    .category-heading h4 {
-      font-size: 24px;
-      margin-left: -43px;
-  
-    }
-  
-    .category-heading p {
-      font-size: 16px;
-      margin-left: -43px;
-  
-    }
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      margin: auto;
-    }
-  
-    .category-item {
-      width: 167px;
-      height: 235px;
-    }
-  }
-   */

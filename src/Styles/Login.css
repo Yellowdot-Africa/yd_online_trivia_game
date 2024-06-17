@@ -39,7 +39,7 @@
   border: 2px solid #41189cb2;
 }
 
-.inputt-textt {
+.inputt-textt, .error-input-text {
   color: #41189cb2;
   font-size: 12px;
   font-weight: 400;

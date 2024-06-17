@@ -19,13 +19,13 @@ const NavigationIcons = () => {
       <div className="navigation-iconss">
         <div className="icon-content-section">
 
-          {/* <div className="home-nav-icons"> */}
-          <div 
+          <div className="home-nav-icons">
+          {/* <div 
         className={`home-nav-icons ${active === 'home' ? 'active' : ''}`} 
         onClick={() => handleIconClick('home')}
-      >
-        <img src={homee} alt="" />
-            {/* <img src={homee} alt="" onClick={() => handleIconClick("/home")} /> */}
+      > */}
+        {/* <img src={homee} alt="" /> */}
+            <img src={homee} alt="" onClick={() => handleIconClick("/home")} />
             <p>Home</p>
           </div>
 

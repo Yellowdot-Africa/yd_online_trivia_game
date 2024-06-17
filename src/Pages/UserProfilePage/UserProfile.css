@@ -1,5 +1,7 @@
 .user-profile {
   font-family: "Alpino";
+  background-color: #F4F4F4;
+  height: 100vh;
 }
 
 .header-text {
@@ -119,9 +121,8 @@
 .user-info-heading {
   width: 327px;
   height: 46px;
-  border-radius: 16px 16px 0 0;
+  border-radius: 16px;
   background: #ffffff;
-  border: 13px solid #f4f4f4;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -142,12 +143,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f4f4f4;
 }
 
 .user-deetails-info {
   width: 328px;
   height: 100%;
-  border-radius: 0 0 16px 16px;
+  border-radius: 16px;
   background: #ffffff;
   border: 13px solid #f4f4f4;
   padding: 0 20px;
@@ -172,6 +174,7 @@
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: left;
+  color: #3C3C3C;
 }
 .gem-no,
 .prz-no,
@@ -184,7 +187,9 @@
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: right;
+  color: #000000;
 }
+
 .prize {
   display: flex;
   justify-content: space-between;

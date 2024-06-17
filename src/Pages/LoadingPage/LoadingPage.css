@@ -1,10 +1,27 @@
-.loading-page{
-    background-color: #0B0B2A;
-    height: 100vh;
-    display: flex;
-  flex-direction: column;
+.loading-page {
+  display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  background: url('../../assets/Images/loading1.png'), url('../../assets/Images/loading2.png'), url('../../assets/Images/loading3.png'), url('../../assets/Images/loading4.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  animation: animateBackground 20s infinite linear;
+}
+
+@keyframes animateBackground {
+  0% { background-position: 0% 0%; }
+  25% { background-position: 50% 50%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 50% 50%; }
+  100% { background-position: 0% 0%; }
+}
+
+.loading-glassmorphism{
+  height: 50vh;
 }
 
 .trivia-progress {
@@ -34,12 +51,7 @@
     line-height: 33px;
     letter-spacing: 0em;
     padding-top: 21px;
-  }
-/* .trophy-img{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+  } 
 
 
 .progressbar {
@@ -64,5 +76,13 @@
     font-weight: 700;
     line-height: 21px;
     letter-spacing: 0em;
-    margin-top: 142px;
+    margin-top: 74px;
   }
+
+
+
+
+
+
+
+  

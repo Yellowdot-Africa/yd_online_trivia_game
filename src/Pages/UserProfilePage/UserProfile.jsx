@@ -1,20 +1,34 @@
-import React, { useState, useEffect } from "react";
-import "../../Pages/UserProfilePage/UserProfile.css";
-import Prev from "../../assets/Icons/chevron-left.png";
-import Edit from "../../assets/Icons/editpic.png";
-import Phone from "../../assets/Icons/star.png";
-// import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchUserProfile } from '../../features/userProfile/userProfileSlice';
+import '../../Pages/UserProfilePage/UserProfile.css';
+import Prev from '../../assets/Icons/chevron-left.png';
+import Edit from '../../assets/Icons/editpic.png';
+import Phone from '../../assets/Icons/star.png';
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
-  const [editedUsername, setEditedUsername] = useState("Jamesjohn");
-  const [editedPhoneNumber, setEditedPhoneNumber] = useState("+2348178544567");
-  const [editedEmail,setEditedEmail] = useState("jamesjohn4u@gmail.com")
-  const [userStats, setUserStats] = useState(null);
+  const [editedUsername, setEditedUsername] = useState('Jamesjohn');
+  const [editedPhoneNumber, setEditedPhoneNumber] = useState('+2348178544567');
+  const [editedEmail, setEditedEmail] = useState('jamesjohn4u@gmail.com');
+  
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const token = sessionStorage.getItem("token");
-  console.log(token, "token");
+
+
+  const userID = useSelector((state) => state.auth.userID);
+  const authToken = useSelector(state => state.auth.token);
+
+  const { userStats, isLoading, error } = useSelector(state => state.userProfile);
+
+  useEffect(() => {
+    if (userID && authToken) {
+      dispatch(fetchUserProfile({userID,token: authToken}));
+    }
+  }, [dispatch, userID, authToken]);
+
+
 
   const handleEditClick = () => {
     setIsEditMode(true);
@@ -22,45 +36,28 @@ const UserProfile = () => {
 
   const handleGoBack = () => {
     setIsEditMode(false);
-    isEditMode ? navigate("/user-profile") : navigate(-1);
+    isEditMode ? navigate('/user-profile') : navigate(-1);
   };
 
   const handleSaveClick = () => {
     setIsEditMode(false);
   };
 
-  useEffect(() => {
-    const fetchUserStats = async () => {
-      try {
-        const response = await axios.get(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUserStats?userID=1",
-          {
-            headers: {
-              Accept: "*/*",
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-        setUserStats(response.data);
-      } catch (error) {
-        console.error("Error fetching user stats:", error);
-      }
-    };
-
-    fetchUserStats();
-  }, []);
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
     <div className="user-profile">
       <div className="user-content">
         <div className="header-text">
-          <img src={Prev} alt="prev" onClick={() => handleGoBack()} />
+          <img src={Prev} alt="prev" onClick={handleGoBack} />
           {isEditMode ? (
-            <>
-              <h2 className="edit-user-profile">Edit User Profile</h2>
-            </>
+            <h2 className="edit-user-profile">Edit User Profile</h2>
           ) : (
             <>
               <h2 className="user-prof-heading">User Profile</h2>
@@ -91,7 +88,7 @@ const UserProfile = () => {
               value={editedPhoneNumber}
               onChange={(e) => setEditedPhoneNumber(e.target.value)}
             />
-             <label htmlFor="phonenumber">Email</label>
+            <label htmlFor="email">Email</label>
             <input
               type="email"
               className="input-field"
@@ -101,7 +98,7 @@ const UserProfile = () => {
               onChange={(e) => setEditedEmail(e.target.value)}
             />
           </form>
-          <button className="save-button" onClick={() => handleSaveClick()}>
+          <button className="save-button" onClick={handleSaveClick}>
             Save
           </button>
         </div>
@@ -117,7 +114,6 @@ const UserProfile = () => {
             </p>
             <p className="phone-number">{editedEmail}</p>
             <p className="user-name">{editedUsername}</p>
-            
           </div>
         </div>
       )}
@@ -130,20 +126,20 @@ const UserProfile = () => {
         </div>
       )}
       {!isEditMode && userStats && (
-        <div className="user-info-deets">
-          <div className="user-deetails-info">
-            <div className="gem">
-              <p className="gemm">Games Played Count</p>
-              <p className="gem-no">{userStats?.gamesPlayedCount}</p>
-            </div>
-            <div className="prize">
-              <p className="prz">Total Score</p>
-              <p className="prz-no">{userStats?.totalScore}</p>
-            </div>
-            <div className="prize">
-              <p className="prz">Correct Answer Percentage</p>
-              <p className="prz-no">{userStats?.correctAnswerPercentage}</p>
-            </div>
+       <div className="user-info-deets">
+       <div className="user-deetails-info">
+         <div className="gem">
+           <p className="gemm">Games Played Count</p>
+           <p className="gem-no">{userStats.gamesPlayedCount || 0}</p>
+         </div>
+         <div className="prize">
+           <p className="prz">Total Score</p>
+           <p className="prz-no">{userStats.totalScore || 0}</p>
+         </div>
+         <div className="prize">
+           <p className="prz">Correct Answer Percentage</p>
+           <p className="prz-no">{userStats.correctAnswerPercentage || "0%"}</p>
+         </div>
           </div>
         </div>
       )}
@@ -152,5 +148,3 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-
-

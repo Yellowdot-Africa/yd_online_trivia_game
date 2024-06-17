@@ -1,72 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getCategories } from "../features/categories/categoriesSlice";
 import Play from "../assets/Icons/play.svg";
-import Football from "../assets/Images/new-football.png";
-import Politics from "../assets/Images/history-new.png";
-import Music from "../assets/Images/music-new.png";
-import Movies from "../assets/Images/movie-new.png";
 import "../Styles/PopularCategories.css";
 
 const PopularCategories = () => {
+  const dispatch = useDispatch();
+  const { categories, isLoading, error } = useSelector(
+    (state) => state.categories
+  );
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
   return (
-    <>
-    <div className="testing">
-
-    
-      <div className="categories-container">
-        <div className="categories-heading">
-          <h4>Popular Categories</h4>
-          <p>We know how wide your interests are...</p>
-        </div>
-
-        <div className="categoryy-grid">
-          <div className="football category-item">
-            <img src={Football} alt="" />
-            <h4>Football</h4>
-            <div className="count-container">
-              <div className="play-img">
-                <img src={Play} alt="" />
-              </div>
-              <p className="total-countt">1.2K</p>
-            </div>
-          </div>
-
-          <div className="history category-item">
-            <img src={Politics} alt="" />
-            <h4>Politics</h4>
-            <div className="count-container">
-              <div className="play-img">
-                <img src={Play} alt="" />
-              </div>
-              <p className="total-countt">1.2K</p>
-            </div>
-          </div>
-
-          <div className="music category-item">
-            <img src={Music} alt="" />
-
-            <h4>Music</h4>
-            <div className="count-container">
-              <div className="play-img">
-                <img src={Play} alt="" />
-              </div>
-              <p className="total-countt">1.2K</p>
-            </div>
-          </div>
-
-          <div className="movie category-item">
-            <img src={Movies} alt="" />
-            <h4>Movies</h4>
-            <div className="count-container">
-              <div className="play-img">
-                <img src={Play} alt="" />
-              </div>
-              <p className="total-countt">1.2K</p>
-            </div>
-          </div>
-        </div>
+    <div className="categories-container">
+      <div className="categories-heading">
+        <h4>Popular Categories</h4>
+        <p>We know how wide your interests are...</p>
       </div>
+
+      <div className="categoryy-grid">
+        {Array.isArray(categories) &&
+          categories.map((category) => (
+            <div
+              key={category.id}
+              className={`category-item ${category.name.toLowerCase()}`}
+            >
+              <img
+                src={`data:image/png;base64,${category.logo}`}
+                alt={category.name}
+                className="category-logo-img"
+              />
+              <h4>{category.name}</h4>
+              <div className="count-container">
+                <div className="play-img">
+                  <img src={Play} alt="Play" />
+                </div>
+                <p className="total-countt">1.2K</p>
+              </div>
+            </div>
+          ))}
       </div>
-    </>
+    </div>
   );
 };
 

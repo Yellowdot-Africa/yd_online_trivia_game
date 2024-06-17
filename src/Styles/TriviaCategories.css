@@ -46,6 +46,15 @@
     display: flex;
     flex-direction: column;
   }
+
+  .category-item .category-images {
+    width: 155px;
+    height: 155px;
+    border-radius: 5px;
+    background: #9B9B9B;
+  
+  
+  }
   
   .countt-container h4 {
     color: #000000;

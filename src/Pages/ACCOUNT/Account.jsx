@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import {useNavigate} from "react-router-dom"
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Prev from "../../assets/Icons/chevron-left.png";
 import EyeIcon from "../../assets/Icons/eye.png";
 import EyeOff from "../../assets/Icons/eye-off.png";
@@ -7,9 +7,8 @@ import ArrowUp from "../../assets/Icons/arrw-up-circlee.png";
 import ArrowDown from "../../assets/Icons/arrow-dwn-circle.png";
 import "../../Pages/ACCOUNT/Account.css";
 
-
 const Account = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleGoBack = () => {
     navigate(-1);
@@ -26,8 +25,6 @@ const Account = () => {
     setAmountVisibility(!isAmountVisible);
   };
 
-
-
   return (
     <>
       <div className="account-container">
@@ -39,33 +36,11 @@ const Account = () => {
 
           <div className="current-balance-cont">
             <div className="current-balance-info">
+              <h4 className="experience-pt">10,000 Xp</h4>
               <div className="bal-date">
-              <p className="current-bal">Current balance (N50 per token)</p>
-              <p className="date">Today 4th January</p>
+                <p className="current-bal">Experience Points</p>
+                <p className="date">Today 4th January</p>
               </div>
-              
-              <div className="amount-balance">
-              {isAmountVisible ? (
-                <div>
-                <p className="tokens">200 Tokens</p>
-                <p className="token-xperience">10,000 XP</p>
-
-</div>
-                ) : (
-                 <p className="hidden-amount">XXXX</p>
-               
-               
-                 )}
-
-
-                <img 
-                src={isAmountVisible ? EyeIcon : EyeOff}
-                 alt="" 
-                 onClick={toggleAmountVisibility}
-                 className="eye-icon"
-                 />
-              </div>
-             
             </div>
             <div className="transaction-options">
               <div className="withdraw-option" onClick={handleWithdraw}>
@@ -78,9 +53,34 @@ const Account = () => {
               </div>
             </div>
           </div>
+
+          <div className="balances">
+              <p>Available Balance</p>
+              <p>Wallet Balance</p>
+            </div>
+
+          <div className="amount-balance">
+           
+            {isAmountVisible ? (
+              <div className="token-bal">
+                <p className="tokens">N2,000</p>
+                <p className="token-xperience">N2,000</p>
+              </div>
+            ) : (
+              <p className="hidden-amount">XXXX</p>
+            )}
+
+            <img
+              src={isAmountVisible ? EyeIcon : EyeOff}
+              alt=""
+              onClick={toggleAmountVisibility}
+              className="eye-icon"
+            />
+          </div>
+
           <div className="history-section">
             <div className="history-text">
-              <h2> History</h2>
+              <h2>Recent Transaction</h2>
               <p>See All</p>
             </div>
             <div className="history-item">
@@ -150,7 +150,7 @@ const Account = () => {
             </div>{" "}
             <hr className="line" />
             <div className="history-item">
-            <div className="game-win">
+              <div className="game-win">
                 <div className="green-dot"></div>
                 <p>Game Win</p>
               </div>
@@ -168,8 +168,3 @@ const Account = () => {
 };
 
 export default Account;
-
-
-
-
-

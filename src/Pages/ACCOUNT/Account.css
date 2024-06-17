@@ -21,6 +21,14 @@
 .current-balance-cont {
   padding: 0 27px;
 }
+.experience-pt {
+  color: #7e2cd1;
+  font-family: "AlpinoMedium";
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+}
 .current-balance-cont .current-bal {
   font-family: "AlpinoRegular";
   font-size: 14px;
@@ -32,7 +40,7 @@
   padding-bottom: 13px;
 }
 
-.bal-date{
+.bal-date {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,7 +51,33 @@
   justify-content: space-between;
 }
 
-.amount-balance .tokens {
+.balances {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 24px 13px 24px;
+  color: #747474;
+  
+}
+
+.balances p{
+font-family: "AlpinoRegular";
+font-size: 16px;
+font-weight: 421;
+line-height: 21px;
+letter-spacing: -0.3199999928474426px;
+text-align: left;
+
+}
+
+.token-bal{
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  padding-left: 24px;
+  /* padding: 8px 24px 13px 24px; */
+}
+ .tokens {
   font-family: "AlpinoMedium";
   font-size: 24px;
   font-weight: 507;
@@ -52,18 +86,22 @@
   text-align: center;
   color: #005505;
   margin: 0;
-  padding: 9px 0;
 }
-.token-xperience{
-  color: #7E2CD1;
+.token-xperience {
+  color: #005505;
   font-family: "AlpinoMedium";
-font-size: 24px;
-font-weight: 507;
-line-height: 21px;
-letter-spacing: -0.3199999928474426px;
-text-align: left;
-
+  font-size: 24px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  margin: 0;
 }
+
+.eye-icon{
+  padding-right: 27px;
+}
+
 .date {
   font-family: "AlpinoRegular";
   font-size: 14px;
@@ -76,14 +114,13 @@ text-align: left;
 .transaction-options {
   display: flex;
   align-items: center;
-  margin: 27px 0;
+  margin: 15px 0;
   gap: 16px;
 }
 
 .withdraw-option {
   width: 93px;
-  height: 86px;
-  padding: 25px 35px 15px 35px;
+  height: 76px;
   border-radius: 20px;
   background: #f5f5f5;
   display: flex;
@@ -92,23 +129,48 @@ text-align: left;
   flex-direction: column;
 }
 
+.withdraw-option img {
+  padding: 17px 0 5px 0;
+}
+
+.withdraw-option p {
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
+}
+
 .deposit-option {
-  width: 156px;
-  height: 86px;
-  padding: 25px 35px 15px 35px;
+  width: 93px;
+  height: 76px;
   border-radius: 20px;
   background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+}
+.deposit-option img {
+  padding: 17px 0 5px 0;
+}
+.deposit-option p {
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
 }
 
 .history-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 27px;
+  padding: 28px 24px 17px 24px;
 }
 
 .history-text h2 {

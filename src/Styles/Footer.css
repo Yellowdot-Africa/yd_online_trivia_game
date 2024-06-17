@@ -11,10 +11,7 @@
 }
 
 .footer-links {
-  /* padding-top: 24px; */
-  /* display: grid;
-  grid-template-columns: repeat(2, 2fr); */
-  /* margin-left: 60px; */
+ 
   padding: 20px 0 0 47px;
   gap: 10px;
   width: 100vw;
@@ -50,9 +47,8 @@ margin-top: 30px;
 
 }
 
-.footer-links .links {
+.footer-links a {
   color: #ffffff;
-  padding-right: 30px;
   text-decoration: none;
   font-family: "AlpinoRegular";
   font-size: 14px;

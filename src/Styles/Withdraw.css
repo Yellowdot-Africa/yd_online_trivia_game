@@ -110,3 +110,103 @@ margin: 0;
 
 
 
+/*  */
+/* WithdrawalModal.css */
+/* .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  max-width: 80%;
+  position: relative;
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #d3d3d3; 
+  transition: background-color 0.3s;
+}
+
+input.input-focused,
+input:focus {
+  background-color: #800080; 
+  color: white;
+  outline: none;
+}
+
+.next-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #e0b3e6; 
+  cursor: not-allowed;
+  transition: background-color 0.3s;
+}
+
+.next-button.active {
+  background-color: #800080; 
+  cursor: pointer;
+  color: white;
+} */
+
+
+/* integrate in your account page
+import React, { useState } from 'react';
+import WithdrawalModal from './WithdrawalModal';
+
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+    <div className="App">
+      <button onClick={openModal}>Withdraw</button>
+      <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} />
+    </div>
+  );
+};
+
+export default App; */
