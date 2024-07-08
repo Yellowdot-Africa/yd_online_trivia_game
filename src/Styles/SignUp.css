@@ -8,16 +8,7 @@
   top: 0;
 }
 
-/* .signup-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding-top: 25px;
-  position: absolute;
-  top: 50%;
-  left: -176px;
-} */
+
 
 .signup-form {
   display: flex;
@@ -40,8 +31,10 @@
   border-radius: 5px;
 }
 
+
 .signup-form input:focus {
   border: 2px solid #41189cb2;
+  text-align: left;
 }
 
 .inputt-textt, .error-text {
@@ -159,3 +152,6 @@
     margin-right: 257px;
   }
 }
+
+
+

@@ -20,7 +20,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 25px;
-  margin: 0 5px;
+  margin:10px 0 40px 0;
+
 }
 
 .navigation-iconss div:hover {

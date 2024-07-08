@@ -1,0 +1,58 @@
+.end-modal-overlay {
+  position: fixed;
+  top: 360px;
+  left: 16px;
+  right: 0;
+  /* bottom: 0; */
+  /* backdrop-filter: blur(5px); */
+  width: 83%;
+  height: 194px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  border-radius: 10px;
+}
+
+
+  
+
+.end-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+}
+
+.end-game-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.end-close-button {
+  position: absolute;
+  /* top: 10px; */
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.end-button {
+  background: #e37f80;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 33px 0 20px 0;
+  width: 262px;
+height: 50px;
+
+
+}

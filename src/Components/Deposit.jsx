@@ -1,24 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setWalletBalance,
+  updateBalance,
+  setDepositResponse,
+  setExperiencePoints,
+} from "../features/wallet/walletSlice";
 import Prev from "../assets/Icons/chevron-left.png";
 import "../Styles/Deposit.css";
-import axios from "axios";
 import CustomButton from "./CustomButton";
 import ErrorModal from "./ErrorModal";
-import { useBalance } from "./BalanceContext";
+import Modal from "react-modal";
 
 const Deposit = () => {
-  const { walletBalance, updateBalance } = useBalance();
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const [depositResponse, setDepositResponse] = useState(null);
-  const [amount, setAmount] = useState("");
   const [msisdn, setMsisdn] = useState("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const token = useSelector((state) => state.auth.jwt);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [url, setUrl] = useState("");
+
   const buttonStyle = {
     borderRadius: "23px",
     color: "#FFFFFF",
@@ -29,7 +38,6 @@ const Deposit = () => {
     width: "222px",
     backgroundColor: inputValue ? "#973CF2" : "#973CF266",
   };
-  const token = sessionStorage.getItem("token");
 
   const handleGoBack = () => {
     navigate(-1);
@@ -37,7 +45,6 @@ const Deposit = () => {
 
   const handleInputChange = (e) => {
     setErrorMessage("");
-
     setInputValue(e.target.value);
   };
 
@@ -50,6 +57,7 @@ const Deposit = () => {
           "MSISDN must start with '234'. Please correct your MSISDN."
         );
         setShowErrorModal(true);
+        setLoading(false);
         return;
       }
 
@@ -71,22 +79,19 @@ const Deposit = () => {
         },
       });
 
-      setDepositResponse(response.data);
-
       if (!response.data.error) {
-        updateBalance(parseFloat(inputValue));
-
-        // setWalletBalance((prevBalance) => prevBalance + parseFloat(inputValue));
-
         const paymentUrl = response.data.data;
         console.log("Deposit successful. Redirecting to payment:", paymentUrl);
 
+        const conversionRate = 10;
+        const units = parseFloat(inputValue) * conversionRate;
+
         const addUnitsPayload = {
-          units: 1,
+          units: units,
           amountPaid: inputValue,
           paymentSource: "Web",
-          paymentReferenceNumber: "7PVGX8MEk85tgeEpVDtD",
-          comments: "Added using Paystack online payment",
+          paymentReferenceNumber: response.data.paymentReferenceNumber || "N/A",
+          comments: "Added using Flutterwave online payment",
         };
 
         const addUnitsResponse = await axios.post(
@@ -103,7 +108,11 @@ const Deposit = () => {
 
         console.log("AddUnits Response:", addUnitsResponse.data);
 
-        window.location.href = paymentUrl;
+        dispatch(setWalletBalance(parseFloat(inputValue)));
+        dispatch(setExperiencePoints(units));
+
+        setUrl(paymentUrl);
+        setModalIsOpen(true);
       } else {
         console.error("Error making deposit:", response.data.error);
 
@@ -122,8 +131,6 @@ const Deposit = () => {
       }
     } catch (error) {
       console.error("An error occurred while processing the deposit:", error);
-
-      console.error("Error making deposit:", error);
       setErrorMessage(
         "An error occurred while processing your deposit. Please try again later."
       );
@@ -137,9 +144,18 @@ const Deposit = () => {
     setShowErrorModal(false);
   };
 
+  const closeModal = () => {
+    setModalIsOpen(false);
+
+    setInputValue("");
+    setMsisdn("");
+    setFullName("");
+    setEmail("");
+  };
+
   return (
     <>
-      <div className="deposit-container">
+      <div className={`deposit-container ${modalIsOpen ? "modal-open" : ""}`}>
         <div className="deposit-text">
           <img src={Prev} alt="prev" onClick={handleGoBack} />
           <p>Fund Account</p>
@@ -180,21 +196,37 @@ const Deposit = () => {
               onClick={handleDeposit}
               disabled={loading || !inputValue}
             />
-            {depositResponse && (
-              <div className="deposit-response">
-                {depositResponse.error ? (
-                  <p className="error-message">{depositResponse.error}</p>
-                ) : (
-                  <p className="success-message">Redirecting...</p>
-                )}
-              </div>
-            )}
           </div>
           {showErrorModal && (
             <ErrorModal message={errorMessage} onClose={closeErrorModal} />
           )}
         </div>
       </div>
+      {(modalIsOpen || showErrorModal) && <div className="deposit-overlay" />}
+      {modalIsOpen && (
+        <div className="deposit-overlay" onClick={closeModal}></div>
+      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Payment Modal"
+        style={{
+          content: {
+            width: "80%",
+            height: "80%",
+            margin: "auto",
+          },
+        }}
+      >
+        <iframe
+          src={url}
+          title="Payment"
+          style={{ width: "100%", height: "100%" }}
+        />
+        <button className="close-payment" onClick={closeModal}>
+          Close
+        </button>
+      </Modal>
     </>
   );
 };

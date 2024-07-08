@@ -9,20 +9,18 @@ import UserProfile from "../Pages/UserProfilePage/UserProfile";
 import Leaderboard from "../Pages/LeaderBoard/Leaderboard";
 import Settings from "../Pages/Settings/Settings";
 import Account from "../Pages/ACCOUNT/Account";
-import Withdraw from "../Components/Withdraw";
+import WithdrawalModal from "../Components/WithdrawalModal";
 import PinPage from "../Components/PinPage";
 import Deposit from "../Components/Deposit";
 import CashOutSuccessPage from "../Components/CashOutSuccessPage";
 import GettingStarted from "../Pages/GettingStarted/GettingStarted";
 import QuestionPack from "../Pages/Questions/QuestionPack";
-import {
-  CountdownPage,
-  Question,
-  QuestionScreen,
-} from "../Pages/Questions/CountdownPageAndQuestionScreen";
+import QuestionScreen from "../Pages/Questions/QuestionScreen";
+import CountdownPage from "../Pages/Questions/CountDownPage";
+import QuestionInfo from "../Pages/Questions/QuestionInfo";
 import Ad from "../Components/Ad";
 import PopularCategories from "./PopularCategories";
-// import ResultPage from "../Pages/ResultPage/ResultPage";
+import ResultPage from "../Pages/ResultPage/ResultPage";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +57,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/withdraw",
-    element: <Withdraw />,
+    element: <WithdrawalModal />,
   },
   {
     path: "/pin-page",
@@ -87,20 +85,20 @@ const router = createBrowserRouter([
   },
   {
     path: "/questions",
-    element: <Question />,
+    element: <QuestionInfo />,
   },
   {
-    path: "/question-screen",
+    path: "/question-screen/:categoryID",
     element: <QuestionScreen />,
   },
   {
     path: "/ad",
     element: <Ad />,
   },
-  // {
-  //   path: "/result-page",
-  //   element: <ResultPage />,
-  // },
+  {
+    path: "/result-page",
+    element: <ResultPage />,
+  },
 ]);
 
 const Wrapper = () => {
@@ -113,6 +111,7 @@ const Wrapper = () => {
 };
 
 export default Wrapper;
+
 
 
 

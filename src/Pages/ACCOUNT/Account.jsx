@@ -1,33 +1,44 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import Prev from "../../assets/Icons/chevron-left.png";
 import EyeIcon from "../../assets/Icons/eye.png";
 import EyeOff from "../../assets/Icons/eye-off.png";
 import ArrowUp from "../../assets/Icons/arrw-up-circlee.png";
 import ArrowDown from "../../assets/Icons/arrow-dwn-circle.png";
 import "../../Pages/ACCOUNT/Account.css";
+import WithdrawalModal from "../../Components/WithdrawalModal";
 
 const Account = () => {
   const navigate = useNavigate();
+  const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  const experiencePoints = useSelector((state) => state.wallet.experiencePoints);
 
   const handleGoBack = () => {
     navigate(-1);
-  };
-  const handleWithdraw = () => {
-    navigate("/withdraw");
   };
   const handleDeposit = () => {
     navigate("/deposit");
   };
   const [isAmountVisible, setAmountVisibility] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const openModal = () => {
+    setIsModalOpen(true);
+    console.log("hello there")
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+  
   const toggleAmountVisibility = () => {
     setAmountVisibility(!isAmountVisible);
   };
 
   return (
     <>
-      <div className="account-container">
+      <div className={`account-container ${isModalOpen ? 'modal-open' : ''}`}>
         <div className="account-header">
           <div className="account-text">
             <img src={Prev} alt="prev" onClick={handleGoBack} />
@@ -36,14 +47,14 @@ const Account = () => {
 
           <div className="current-balance-cont">
             <div className="current-balance-info">
-              <h4 className="experience-pt">10,000 Xp</h4>
+              <h4 className="experience-pt">{experiencePoints} Xp</h4>
               <div className="bal-date">
                 <p className="current-bal">Experience Points</p>
                 <p className="date">Today 4th January</p>
               </div>
             </div>
             <div className="transaction-options">
-              <div className="withdraw-option" onClick={handleWithdraw}>
+              <div className="withdraw-option" onClick={openModal}>
                 <img src={ArrowUp} alt="" />
                 <p>Withdraw</p>
               </div>
@@ -63,8 +74,8 @@ const Account = () => {
            
             {isAmountVisible ? (
               <div className="token-bal">
-                <p className="tokens">N2,000</p>
-                <p className="token-xperience">N2,000</p>
+                <p className="tokens">N{walletBalance}</p>
+                <p className="token-xperience">N{walletBalance}</p>
               </div>
             ) : (
               <p className="hidden-amount">XXXX</p>
@@ -163,8 +174,12 @@ const Account = () => {
           </div>
         </div>
       </div>
+      <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 };
 
 export default Account;
+
+
+

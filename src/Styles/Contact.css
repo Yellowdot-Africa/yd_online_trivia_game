@@ -52,6 +52,11 @@
     color: #000000;
     font-family: "AlpinoLight";
     font-weight: 307;
+    text-align: left;
+  }
+
+  .contact-section input:focus{
+    text-align: left;
   }
 
 
@@ -59,7 +64,7 @@
     width: 90vw;
     height: 91px;
     padding: 10px;
-    margin: 15px 25px;
+    margin: 15px;
     border: 1px solid #00000066;
     border-radius: 20px;
     font-family: "AlpinoBold";
@@ -78,3 +83,7 @@
     font-weight: 307;
   }
   
+
+  .success{
+    color: yellow !important;
+  }

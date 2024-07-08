@@ -9,13 +9,18 @@ export const login = createAsyncThunk(
         username,
         password,
       });
-      const { token, ...userData } = response.data;
-      localStorage.setItem("jwt", token);
-      return { token, ...userData };
-    } catch (err) {
-      const errorMessage =
-        err.response?.data?.message || err.message || "Unknown error occurred";
-      return thunkAPI.rejectWithValue(errorMessage);
+      const { jwt, ...userData } = response.data;
+      if (!jwt) {
+        throw new Error("Token is not defined in the response");
+      }
+      localStorage.setItem("jwt", jwt);
+      return { jwt, ...userData };
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response
+          ? error.response.data.message || "Unknown error occurred"
+          : "An error occurred. Please try again later."
+      );
     }
   }
 );
@@ -45,6 +50,8 @@ export const signup = createAsyncThunk(
   }
 );
 
+
+
 const initialState = {
   userID: null,
   userType: null,
@@ -59,9 +66,11 @@ const initialState = {
   status: "idle",
 };
 
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
+ 
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -77,7 +86,7 @@ const authSlice = createSlice({
         state.username = action.payload.username;
         state.walletBalance = action.payload.walletBalance;
         state.tokenExpiry = action.payload.tokenExpiry;
-        state.jwt = action.payload.token;
+        state.jwt = action.payload.jwt;
         state.isAuthenticated = true;
         state.error = null;
         state.success = true;
@@ -88,7 +97,6 @@ const authSlice = createSlice({
         state.error = action.payload || "Login failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        state.error = action.error.message;
         console.error("Login error:", action.error);
       })
       .addCase(signup.pending, (state) => {
@@ -114,9 +122,12 @@ const authSlice = createSlice({
         state.error = action.payload || "Signup failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        state.error = action.error.message;
+        console.error("Signup error:", action.error);
       });
   },
 });
 
 export default authSlice.reducer;
+
+
+

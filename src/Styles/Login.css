@@ -34,9 +34,14 @@
   border-radius: 5px;
 }
 
+.login-form input::placeholder{
+  text-align: left;
+}
+
 .login-form input:focus
  {
   border: 2px solid #41189cb2;
+  text-align: left;
 }
 
 .inputt-textt, .error-input-text {

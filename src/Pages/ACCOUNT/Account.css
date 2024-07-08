@@ -1,4 +1,8 @@
-.account-container {
+.account-container.modal-open {
+  filter: blur(5px); 
+  pointer-events: none; 
+  background-color: #53535366;
+
 }
 
 .account-text {

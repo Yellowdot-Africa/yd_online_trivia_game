@@ -1,4 +1,4 @@
-.withdraw-container {
+/* .withdraw-container {
   padding: 24px;
 }
 
@@ -106,29 +106,35 @@ margin: 0;
 
 .continue-button:focus {
   background-color: #973cf266;
-}
+} */
 
-
-
-/*  */
-/* WithdrawalModal.css */
-/* .modal-overlay {
+.modal-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 255px;
+  left: 18px;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  width: 90%;
+  height: 50%;
+  border-radius: 10px;
 }
 
+@media screen and (min-width: 535px) {
+  .modal-overlay {
+    width: 340px;
+    height: 296px;
+    margin: 0px auto;
+    right: auto;
+  }
+}
 .modal-content {
-  background: white;
   padding: 20px;
-  border-radius: 5px;
   width: 400px;
   max-width: 80%;
   position: relative;
@@ -145,68 +151,75 @@ margin: 0;
   cursor: pointer;
 }
 
-h2 {
+.modal-content h2 {
   margin-top: 0;
+  font-family: "AlpinoRegular";
+  font-size: 24px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
 }
 
-p {
+.modal-content p {
   margin-bottom: 20px;
+  font-family: "AlpinoRegular";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  color: "#747474";
 }
 
-input {
+.modal-content input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ccc;
+  height: 40px;
+  padding: 10px 0px 8px 0px;
+  margin-top: 14px;
   border-radius: 5px;
-  background-color: #d3d3d3; 
+  background-color: #ffffff;
   transition: background-color 0.3s;
+  border: 1px solid #00000033;
+  border-radius: 20px;
+  color: #000000;
 }
 
-input.input-focused,
-input:focus {
-  background-color: #800080; 
-  color: white;
+.modal-content.input-focused,
+.modal-content input:focus {
   outline: none;
+  text-align: center;
+  border: 1px solid #7e2cd1;
+}
+
+.modal-content .input-focused::placeholder {
+  font-family: "AlpinoBold";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.76px;
+  text-align: center;
+  color: #000000;
 }
 
 .next-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
-  background-color: #e0b3e6; 
+  border-radius: 50px;
+  background-color: #54349f66;
   cursor: not-allowed;
   transition: background-color 0.3s;
+  margin: 32px auto;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 15.72px;
+  text-align: center;
+  color: #ffffff;
+  width: 125px;
 }
 
 .next-button.active {
-  background-color: #800080; 
+  background-color: #54349f;
   cursor: pointer;
   color: white;
-} */
-
-
-/* integrate in your account page
-import React, { useState } from 'react';
-import WithdrawalModal from './WithdrawalModal';
-
-const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  return (
-    <div className="App">
-      <button onClick={openModal}>Withdraw</button>
-      <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} />
-    </div>
-  );
-};
-
-export default App; */
+}

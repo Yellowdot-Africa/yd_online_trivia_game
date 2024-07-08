@@ -1,15 +1,21 @@
 import React from "react";
-import Logo from "../../assets/Icons/big-cup.svg";
+// import Logo from "../../assets/Icons/big-cup.svg";
+import Logo from "../../assets/Icons/Frame-cup.png";
 import Congrat from "../../assets/Icons/congrat.png";
 import Right from "../../assets/Icons/icon-cancel.png";
 import Cancel from "../../assets/Icons/icon-right.png";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 import "../../Pages/ResultPage/ResultPage.css";
 
 const ResultPage = () => {
   const location = useLocation();
 
   const navigate = useNavigate();
+  const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  const experiencePoints = useSelector((state) => state.wallet.experiencePoints);
+
   const { correctAnswers, wrongAnswers, balance } = location.state || {};
 
   return (
@@ -39,9 +45,9 @@ const ResultPage = () => {
         </div>
 
         <div className="prize-details">
-          <p className="prize-heading">You won!</p>
-          <p className="prize-amount">N{balance}</p>
-          <p className="current-balance">Current balance: N{balance}</p>
+          <p className="prize-heading">You won {experiencePoints} xp</p>
+          <p className="prize-amount">Welldone</p>
+          <p className="current-balance">Current balance: {walletBalance} Naira</p>
         </div>
         <div className="result-text">
           <img src={Congrat} alt="" />
@@ -50,7 +56,11 @@ const ResultPage = () => {
             exceed 70% correct.
           </p>
         </div>
+        <div className="card-img-styl">
         <img className="img-styl" src={Logo} alt="" />
+
+        </div>
+        <a href="./home" className="back-to-home">Home</a>
         <button
           className="replay-button"
           onClick={() => {

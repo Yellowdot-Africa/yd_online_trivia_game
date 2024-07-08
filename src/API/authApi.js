@@ -11,7 +11,7 @@ export const loginApi = axios.create({
     headers: {
       'Content-Type': 'application/json',
     },
-    timeout: 10000,
+    
   });
 
 
@@ -20,14 +20,12 @@ export const loginApi = axios.create({
     headers: {
       'Content-Type': 'application/json',
     },
-    timeout: 10000,
+    
   });
   
 
-//  this is done to a request interceptor which include authorization token
 loginApi.interceptors.request.use(
   (config) => {
-    //config can be modified here before returning it
     const jwtToken = localStorage.getItem("jwt");
     if (jwtToken) {
       config.headers.Authorization = `Bearer ${jwtToken}`;
@@ -35,7 +33,6 @@ loginApi.interceptors.request.use(
     return config;
   },
   (error) => {
-    // this handle request error
     return Promise.reject(error);
   }
 );

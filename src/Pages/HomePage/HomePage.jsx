@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import LogoIcon from "../../assets/Icons/cup-broken.svg";
 import HomeIcon from "../../assets/Icons/home-icon.png";
 import "../HomePage/HomePage.css";
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import Toast from "../../Components/Toastify";
+
 import { useNavigate } from "react-router-dom";
 import TriviaCategories from "../../Components/TriviaCategories";
 import NavigationIcons from "../../Components/NavigationIcons";
@@ -16,12 +16,11 @@ import Footer from "../../Components/Footer";
 
 
 const HomePage = () => {
-//   useEffect(() => {
-//     Toast({ type: "success", message: "Welcome to the home page!" });
-//   }, []);
+
 
 const navigate=useNavigate();
-
+const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  const experiencePoints = useSelector((state) => state.wallet.experiencePoints);
 const handleSeeAccount = () => {
     navigate("/account");
   };
@@ -34,8 +33,8 @@ const handleSeeAccount = () => {
           <div className="account-section">
             <div className="account-balance">
               <p className="acct" onClick={handleSeeAccount}>Account Balance</p>
-              <p className="amount">NGN20,000.00</p>
-              <p className="xpoint">Xp00</p>
+              <p className="amount">NGN{walletBalance}</p>
+              <p className="xpoint">Xp{experiencePoints}</p>
             </div>
             <div className="logo-section">
               <img src={LogoIcon} alt="Logo" className="logo-section-logo" />
@@ -48,7 +47,7 @@ const handleSeeAccount = () => {
             </div>
           </div>
         </div>
-        {/* <Toast /> */}
+        
         <div className="toastt">
           <p>
             **Flash win, random people can win big prizes but time is not

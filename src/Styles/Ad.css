@@ -3,24 +3,51 @@
   align-items: center;
   justify-content: center;
   margin-top: -146px;
-  background-color: #F4F2F5;
+  background-color: #f4f2f5;
   padding: 20px;
+  margin-bottom: 30px;
+
+}
+
+.content-loading{
+  padding-top: 10px;
 }
 
 .advert {
-  background-color: #d9d9d9;
-  width: 345px;
-  height: 149px;
+
+  max-width: 100%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.advert p{
-    font-family: "AlpinoBold";
-font-size: 16px;
-font-weight: 700;
-line-height: 21.76px;
-text-align: left;
 
+
+
+.advert img {
+  width: 100%;
+  margin: 20px 0 -180px 0;
+  
 }
+
+@media (min-width: 768px) {
+  .advert img{
+    margin: 40px 0 -380px 0;
+
+  }
+}
+
+.advert p {
+  font-family: "AlpinoBold";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.76px;
+  text-align: left;
+}
+
+
+
+
+
+

@@ -13,19 +13,12 @@
   margin-top: 32px;
 }
 .que-pack-cont {
-  /* margin: 0 125px; */
 }
 
 .question-container {
 }
 
-/* .question-card {
-  width: 732px;
-  height: 547px;
-  background: #230640;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
-  margin: auto;
-} */
+
 .question-text {
   color: #000;
   text-align: center;
@@ -63,7 +56,7 @@
   width: 90vw;
   height: 56px;
   border-radius: 10px;
-  border: 1px solid #783BFF80
+  border: 1px solid #783bff80;
 }
 .ten-que:hover {
   border-radius: 10px;
@@ -84,7 +77,7 @@
   width: 90vw;
   height: 56px;
   border-radius: 10px;
-  border: 1px solid #783BFF80
+  border: 1px solid #783bff80;
 }
 
 .fifteen-que:hover {
@@ -107,7 +100,7 @@
   width: 90vw;
   height: 56px;
   border-radius: 10px;
-  border: 1px solid #783BFF80
+  border: 1px solid #783bff80;
 }
 
 .twenty-que:hover {
@@ -130,10 +123,10 @@
   width: 90vw;
   height: 56px;
   border-radius: 10px;
-  border: 1px solid #783BFF80
+  border: 1px solid #783bff80;
 }
 
-.twenty-five-que:hover{
+.twenty-five-que:hover {
   border-radius: 10px;
   background: #783cff;
   color: #ffffff;
@@ -143,7 +136,6 @@
   line-height: 22px;
   letter-spacing: 0em;
   text-align: center;
-  
 }
 
 .qque {
@@ -167,7 +159,6 @@
   letter-spacing: 0em;
   text-align: left;
 }
-
 
 .go-button {
   background-color: #cac9cc;
@@ -246,15 +237,27 @@
   width: 266px;
   height: 266px;
   margin-top: 32px;
+  overflow: hidden;
 }
 
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
 .football-countdown {
   color: #a2a2ff;
   text-align: center;
   font-family: "AlpinoBold";
   font-size: 128px;
   font-weight: 700;
-  /* rotate: -123.19 deg; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes countdownAnimation {
@@ -268,32 +271,32 @@
 
 /* question css */
 
-.logo-icon-contt{
+.logo-icon-contt {
   margin-top: 82px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   width: 255px;
   height: 111px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.football-trivia-info{
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-margin-top: 48px;
+.football-trivia-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48px;
 }
 
-.football-trivia-info p{
+.football-trivia-info p {
   font-family: "AlpinoBold";
-font-size: 24px;
-font-weight: 700;
-line-height: 24px;
-text-align: center;
-background: linear-gradient(90deg, #1D1DB9 0%, #8210F4 100%);
-color: transparent;
-background-clip: text;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  background: linear-gradient(90deg, #1d1db9 0%, #8210f4 100%);
+  color: transparent;
+  background-clip: text;
 }
 
 .question_count-container {
@@ -301,9 +304,7 @@ background-clip: text;
   flex-direction: column;
   align-items: center;
   justify-content: center;
- 
 }
-
 
 .count-question-cont {
   display: flex;
@@ -318,8 +319,6 @@ background-clip: text;
   padding: 20px;
 }
 
-
-
 .count-question-cont p {
   color: #000000;
   font-family: "AlpinoMedium";
@@ -330,12 +329,27 @@ background-clip: text;
   text-align: center;
 }
 
-
-
 /* question screeen css */
 .question-screen {
-  background: #7e2cd1;
-/* height: 100vh; */
+  background: #580da4;
+  height: 941px;
+  max-height: 100%;
+  transition: background-color 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1050px) {
+  .question-screen {
+    background: #580da4;
+    height: 1369px;
+    max-height: 100%;
+    transition: background-color 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .timer-container {
@@ -415,10 +429,9 @@ background-clip: text;
   border-radius: 20px;
   padding: 56px;
   margin-top: -87px;
-} 
+}
 
 .answer-card {
- 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -438,76 +451,43 @@ background-clip: text;
   border: 3px solid var(--N1, #fff);
   background: #fff;
   box-shadow: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
   font-family: "AlpinoBold";
   font-size: 16px;
   font-weight: 700;
   line-height: 25px;
   letter-spacing: 0em;
   text-align: center;
+  transition: background-color 0.5s ease;
 }
 
 .answer-option.selected-answer {
   border-radius: 29px;
-  background: rgba(126, 44, 209, 0.6);
   box-shadow: 0px 2px 4px 1px rgba(129, 0, 251, 0.3);
   color: white;
+  background-color: #973cf2;
 }
 
 .answer-option.correct {
   border-radius: 29px;
-  background: rgba(47, 209, 44, 0.6);
+  background-color: #5cbe5a;
   box-shadow: 0px 2px 4px 1px rgba(47, 209, 44, 0.3);
   color: white;
 }
 
 .answer-option.wrong {
   border-radius: 29px;
-  background: rgba(209, 44, 44, 0.6);
+  background-color: #e37f80;
   box-shadow: 0px 2px 4px 1px rgba(209, 44, 44, 0.3);
   color: white;
 }
 .correct {
-  background-color: #21A11E; /* Green background for correct answer */
+  background-color: #5cbe5a;
 }
 
 .wrong {
-  background-color: #D12C2C; /* Red background for wrong answer */
+  background-color: #e37f80;
 }
-/* .ans-que {
-  color: #9d78dd;
-  font-family: "Inter";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  margin-top: 71px;
-}  */
 
-/* @media only screen and (min-width: 263px) and (max-width: 930px) { */
-/* .nav-bgg{
-  border-radius: 0;
-} */
-/* 
-  .main-container {
-    padding: 0;
-    background: transparent;
-    border-radius: 2236px;
-    width: 100vw;
-    height: 100vh;
-  }
-
-  .quest-main-container {
-    width: 100vw;
-    height: 100%;
-    border-radius: 0px 0px 20px 20px;
-  }
-  .answer-container {
-    width: 100vw;
-    height: 100%;
-    padding: 20px;
-  }
-
-  .answer-option {
-    width: 100%;
-  }
-} */
+.modal-active {
+  background-color: #0d89a4;
+}

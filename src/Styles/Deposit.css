@@ -1,5 +1,27 @@
+.deposit-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000; 
+   
+    display: none;
+  }
+  .modal-open .deposit-overlay {
+    display: block;
+    pointer-events: none; 
+    opacity: 0.5; 
+  }
+
+  .deposit-container.modal-open {
+    filter: blur(5px); 
+  }
+ 
 .deposit-container{
     padding: 27px;
+   
 }
 
 .deposit-text{
@@ -79,4 +101,14 @@
     color: #fff;
     border: none;
     border-radius: 24px ;
+  }
+
+  .close-payment{
+    width: 253px;
+    height: 48px;
+    color: #fff;
+    border: none;
+    border-radius: 24px ;
+    background-color: rgb(151, 60, 242);
+    margin-top: 20px;
   }

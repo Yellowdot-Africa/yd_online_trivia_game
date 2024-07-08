@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../features/categories/categoriesSlice";
 import Play from "../assets/Icons/play.svg";
 import "../Styles/PopularCategories.css";
+import { Circles } from 'react-loader-spinner'; 
 
 const PopularCategories = () => {
   const dispatch = useDispatch();
@@ -15,7 +16,11 @@ const PopularCategories = () => {
   }, [dispatch]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="category-spinner-container">
+        <Circles color="#D9D9D9" height={30} width={30} />
+      </div>
+    );
   }
 
   if (error) {

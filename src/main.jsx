@@ -4,7 +4,9 @@ import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "react-query";
 import store from "./store/store";
 import App from "./App.jsx";
+import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
 
 const queryClient = new QueryClient();
 

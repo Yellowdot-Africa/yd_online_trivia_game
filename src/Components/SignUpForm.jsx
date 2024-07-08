@@ -3,9 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { signup } from "../features/auth/authSlice";
+import { Circles } from 'react-loader-spinner'; 
 import '../Styles/SignUp.css';
+import Modal from "react-modal";
+import ErrorModal from "../Components/ErrorModal";
 
-const SignUpForm = ({ isSignUpOpen,navigateToLogin  }) => {
+
+const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const dispatch = useDispatch();
   const signupState = useSelector((state) => state.signup);
   const { status, error } = signupState || { status: 'idle', error: null }; 
@@ -14,6 +18,9 @@ const SignUpForm = ({ isSignUpOpen,navigateToLogin  }) => {
   const [usernameFocus, setUsernameFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
   const initialValues = {
@@ -36,17 +43,35 @@ const SignUpForm = ({ isSignUpOpen,navigateToLogin  }) => {
       .required('Please confirm your password'),
   });
 
- 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const result = await dispatch(signup(values)).unwrap();
       navigateToLogin(); 
     } catch (err) {
       console.error('Signup failed:', err);
+      if (err.message === "User exist with same email or MSISDN!") {
+        // setErrorMessage(err.message);
+        setErrorMessage("User exist with same email or MSISDN!");
+
+        setShowErrorModal(true);
+        console.log("Setting showErrorModal to true");
+
+      } else {
+        setErrorMessage("Signup failed. Please try again later.");
+        setShowErrorModal(true);
+        setModalIsOpen(true);
+        // console.log("Error message is now set, modal should open up.");
+
+      }
     } finally {
       setSubmitting(false);
     }
   };
+
+  const closeErrorModal = () => {
+    setShowErrorModal(false);
+  };
+
 
   return (
     <div className="signup-form-cont">
@@ -55,7 +80,7 @@ const SignUpForm = ({ isSignUpOpen,navigateToLogin  }) => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ setFieldValue }) => (
+        {({ isSubmitting }) => (
           <Form className={`signup-form ${isSignUpOpen ? 'open' : ''}`}>
             <Field
               type="email"
@@ -112,15 +137,30 @@ const SignUpForm = ({ isSignUpOpen,navigateToLogin  }) => {
             <ErrorMessage name="confirmPassword" component="p" className="error-text" />
             {confirmPasswordFocus && <p className="inputt-textt">Please confirm your password</p>}
 
-            <button type="submit" disabled={status === 'loading'}>
-              {status === 'loading' ? 'Signing up...' : 'Sign Up'}
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <Circles color="#D9D9D9" height={20} width={20} />
+              ) : (
+                "Sign Up"
+              )}
             </button>
-            {error && <p className="error-text">{error}</p>}
           </Form>
+         
         )}
+        
       </Formik>
+      {showErrorModal && (
+            <ErrorModal message={errorMessage} onClose={closeErrorModal} />
+          )}
+     
     </div>
   );
 };
 
 export default SignUpForm;
+
+
+
+
+
+

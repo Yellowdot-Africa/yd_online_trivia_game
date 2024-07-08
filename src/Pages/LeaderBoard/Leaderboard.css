@@ -105,6 +105,20 @@
   height: 148px;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner-containerr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
 .top-players-deets {
   display: flex;
   align-items: center;
@@ -156,10 +170,11 @@
 }
 .first-user-deets {
   display: flex;
-  /* justify-content:; */
+  justify-content:space-between;
   align-items: center;
   gap: 10px;
   padding: 10px 0;
+  width: 100%;
 }
 
 .green {
@@ -174,9 +189,12 @@
 }
 
 .green-deets {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 0 10px;
+
 }
 
 .green-deets p {
@@ -284,7 +302,12 @@
   gap: 10px;
   padding: 10px 0;
 }
+.purpcont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
 .purple {
   background-color: #7f2cd1cc;
   width: 30px;
@@ -294,7 +317,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 177px;
 }
 
 .purple-deets p {
@@ -340,51 +362,43 @@
   border-bottom: 3px solid #7e2cd1;
 }
 
-
-@media screen and (min-width: 230px) and (max-width:350px)  {
- .purple {
-  background-color: #7f2cd1cc;
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 153px;
-}
+@media screen and (min-width: 230px) and (max-width: 350px) {
+  .purple {
+    background-color: #7f2cd1cc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
-
-@media screen and (min-width: 750px) and (max-width:823px)  {
+@media screen and (min-width: 750px) and (max-width: 823px) {
   .winner-one img,
-.winner-two img,
-.winner-three img {
-  margin-left: 103px;
+  .winner-two img,
+  .winner-three img {
+    margin-left: 103px;
+  }
+
+  .purple {
+    background-color: #7f2cd1cc;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 541px;
+  }
 }
 
-.purple {
-  background-color: #7f2cd1cc;
-  width: 30px;
-  height: 30px;
-  border-radius: 50px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 541px;
-}
-
-}
-
-
-@media screen and (min-width: 830px) and (max-width:923px)  {
+@media screen and (min-width: 830px) and (max-width: 923px) {
   .winner-one img,
-.winner-two img,
-.winner-three img {
-  margin-left: 123px;
-}
-
-
-
+  .winner-two img,
+  .winner-three img {
+    margin-left: 123px;
+  }
 }
