@@ -17,7 +17,7 @@ const CustomButton = ({
           type={type}
           style={style}
           onClick={onClick}
-          disabled={disabled}
+          // disabled={disabled}
           // disabled={disabled || loading}
         >
           <div className="button-content">
