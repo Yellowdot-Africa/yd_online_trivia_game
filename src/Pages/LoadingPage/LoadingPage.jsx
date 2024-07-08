@@ -38,6 +38,7 @@ const LoadingPage = () => {
   };
 
   return (
+    
     <div className="loading-page">
       <div className="loading-glassmorphism">
         <div className="glassmorphism">

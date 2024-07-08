@@ -10,6 +10,7 @@
   position: relative;
   overflow: hidden;
   animation: animateBackground 20s infinite linear;
+  background-color: #0B0B2A;
 }
 
 @keyframes animateBackground {
