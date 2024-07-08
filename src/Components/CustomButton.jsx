@@ -6,6 +6,7 @@ const CustomButton = ({
   ImageSrc = null,
   onClick,
   loading,
+  type = "button",
   disabled,
 }) => {
   return (
@@ -13,9 +14,10 @@ const CustomButton = ({
       <div className=" mb-2 p-3">
         <button
           className="custom-button"
-          type="submit"
+          type={type}
           style={style}
           onClick={onClick}
+          disabled={disabled}
           // disabled={disabled || loading}
         >
           <div className="button-content">

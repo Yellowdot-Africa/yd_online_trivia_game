@@ -19,6 +19,7 @@
 }
 
 
+
 .question-text {
   color: #000;
   text-align: center;
@@ -48,6 +49,7 @@
   gap: 16px;
 }
 
+
 .ten-que {
   display: flex;
   justify-content: space-between;
@@ -58,7 +60,7 @@
   border-radius: 10px;
   border: 1px solid #783bff80;
 }
-.ten-que:hover {
+.ten-que:hover{
   border-radius: 10px;
   background: #783cff;
   color: #ffffff;
@@ -140,7 +142,6 @@
 
 .qque {
   padding: 12px 20px;
-  color: #000000;
   font-family: "AlpinoMedium";
   font-size: 16px;
   font-weight: 507;
@@ -150,7 +151,6 @@
 }
 
 .naira {
-  color: #000;
   padding: 13px 20px;
   font-family: "AlpinoBold";
   font-size: 16px;

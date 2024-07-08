@@ -1,4 +1,4 @@
-/* .withdraw-container {
+.withdraw-container {
   padding: 24px;
 }
 
@@ -106,7 +106,7 @@ margin: 0;
 
 .continue-button:focus {
   background-color: #973cf266;
-} */
+}
 
 .modal-overlay {
   position: fixed;
@@ -199,7 +199,18 @@ margin: 0;
   line-height: 21.76px;
   text-align: center;
   color: #000000;
+  padding: 10px;
 }
+
+.modal-content input::placeholder {
+  font-family: "AlpinoBold";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21.76px;
+  text-align: center;
+  color: #000000;
+}
+
 
 .next-button {
   padding: 10px 20px;

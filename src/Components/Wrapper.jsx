@@ -10,6 +10,7 @@ import Leaderboard from "../Pages/LeaderBoard/Leaderboard";
 import Settings from "../Pages/Settings/Settings";
 import Account from "../Pages/ACCOUNT/Account";
 import WithdrawalModal from "../Components/WithdrawalModal";
+import Withdraw from "../Components/Withdraw";
 import PinPage from "../Components/PinPage";
 import Deposit from "../Components/Deposit";
 import CashOutSuccessPage from "../Components/CashOutSuccessPage";
@@ -56,8 +57,12 @@ const router = createBrowserRouter([
     element: <Account />,
   },
   {
-    path: "/withdraw",
+    path: "/withdrawmodal",
     element: <WithdrawalModal />,
+  },
+  {
+    path: "/withdraw",
+    element: <Withdraw/>,
   },
   {
     path: "/pin-page",

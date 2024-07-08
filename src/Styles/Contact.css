@@ -87,3 +87,20 @@
   .success{
     color: yellow !important;
   }
+
+
+  .contact-button{
+    border-radius: 23px;
+    color: #FFFFFF;
+    font-family:"AlpinoMedium";
+    font-size: 16px;
+    font-weight: 500;
+    width: 125px;
+    height: 37px;
+    background-color: #54349f;
+    border: none;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

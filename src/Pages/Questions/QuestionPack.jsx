@@ -34,9 +34,9 @@ const QuestionPack = () => {
     } else if (pack === "fifteen") {
       return balance >= 2;
     } else if (pack === "twenty") {
-      return balance >= 150;
+      return balance >= 4;
     } else if (pack === "twenty-five") {
-      return balance >= 200;
+      return balance >= 10;
     }
     return false;
   };
@@ -89,7 +89,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("twenty")}
           >
             <p className="qque">15 Questions</p>
-            <p className="naira">NGN150 </p>
+            <p className="naira">4 tokens </p>
           </div>
           <div
             className={`twenty-five-que ${
@@ -102,7 +102,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("twenty-five")}
           >
             <p className="qque">20 Questions</p>
-            <p className="naira">NGN200 </p>
+            <p className="naira">10 tokens </p>
           </div>
         </div>
       </div>

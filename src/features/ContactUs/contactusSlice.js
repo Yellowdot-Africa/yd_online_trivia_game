@@ -1,34 +1,30 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import contactUsApi from '../../API/contactApi'; 
-
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import contactUsApi from "../../API/contactApi";
 
 const initialState = {
-  name: '',
-  mobile: '',
-  email: '',
-  message: '',
-  subject: '',
+  name: "",
+  mobile: "",
+  email: "",
+  message: "",
+  subject: "",
   isLoading: false,
   error: null,
   success: false,
 };
 
-
-
 export const submitContactForm = createAsyncThunk(
-  'contactUs/submitContactForm',
-  async (formData, { rejectWithValue }) => {
-    try {
-      const data = await contactUsApi.submitContactForm(formData);
-      return data;
-    } catch (error) {
-      return rejectWithValue(error.response.data);
-    }
+  "contactUs/submitContactForm",
+  async (formData, { getState }) => {
+    const state = getState();
+    const token = state.auth.jwt;
+
+    const data = await contactUsApi.submitContactForm(formData, token);
+    return data;
   }
 );
 
 const contactUsSlice = createSlice({
-  name: 'contactUs',
+  name: "contactUs",
   initialState,
   reducers: {
     setName: (state, action) => {
@@ -47,11 +43,11 @@ const contactUsSlice = createSlice({
       state.subject = action.payload;
     },
     resetForm: (state) => {
-      state.name = '';
-      state.mobile = '';
-      state.email = '';
-      state.message = '';
-      state.subject = '';
+      state.name = "";
+      state.mobile = "";
+      state.email = "";
+      state.message = "";
+      state.subject = "";
       state.success = false;
       state.error = null;
     },
@@ -74,10 +70,13 @@ const contactUsSlice = createSlice({
   },
 });
 
-export const { setName, setMobile, setEmail, setMessage, setSubject, resetForm } = contactUsSlice.actions;
+export const {
+  setName,
+  setMobile,
+  setEmail,
+  setMessage,
+  setSubject,
+  resetForm,
+} = contactUsSlice.actions;
 
 export default contactUsSlice.reducer;
-
-
-
-

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "../Styles/Withdraw.css";
+import { useNavigate } from 'react-router-dom';
 
 const WithdrawalModal = ({ isOpen, onClose }) => {
   const [amount, setAmount] = useState('');
   const [inputFocused, setInputFocused] = useState(false);
+const navigate= useNavigate();
+
 
   const handleChange = (e) => {
     setAmount(e.target.value);
@@ -15,6 +18,10 @@ const WithdrawalModal = ({ isOpen, onClose }) => {
 
   const handleBlur = () => {
     setInputFocused(false);
+  };
+
+  const handleNext = () => {
+    navigate("/withdraw");
   };
 
   return (
@@ -40,6 +47,7 @@ const WithdrawalModal = ({ isOpen, onClose }) => {
           <button
             className={`next-button ${amount ? 'active' : ''}`}
             disabled={!amount}
+            onClick={handleNext}
           >
             Next
           </button>

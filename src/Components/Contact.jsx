@@ -10,64 +10,48 @@ import {
   resetForm,
 } from "../features/ContactUs/contactusSlice";
 import CustomButton from "../Components/CustomButton";
+import { Circles } from "react-loader-spinner";
 import "../Styles/Contact.css";
 
 const Contact = () => {
-  // const [inputValue, setInputValue] = useState("");
-  // const [loading, setLoading] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
   const dispatch = useDispatch();
   const { name, mobile, email, message, subject, isLoading, error, success } =
     useSelector((state) => state.contactUs);
+  const token = useSelector((state) => state.auth.jwt);
+  const loading = useSelector((state) => state.leaderboard.loading);
+
+  const [buttonText, setButtonText] = useState("Submit");
+  const [buttonColor, setButtonColor] = useState("#54349F66");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Form submitted with data:", {
+      name,
+      mobile,
+      email,
+      message,
+      subject,
+    });
     dispatch(submitContactForm({ name, mobile, email, message, subject }));
   };
 
   useEffect(() => {
     if (success) {
+      console.log("Form submitted successfully");
+      setButtonText("Sent");
+      setButtonColor("#3D9F34");
       dispatch(resetForm());
     }
-  }, [success, dispatch]);
+  }, [success, dispatch, token]);
 
-  // const buttonStyle = {
-  //   borderRadius: "23px",
-  //   color: "#FFFFFF",
-  //   fontFamily: "Inter,sans-serif",
-  //   fontSize: "16px",
-  //   fontWeight: "500",
-  //   padding: "0",
-  //   width: "125px",
-  //   // backgroundColor: inputValue ? "#54349F" : "#54349F66",
-  //   backgroundColor: loading
-  //     ? "#54349F66"
-  //     : submitted
-  //     ? "#3D9F34"
-  //     : inputValue
-  //     ? "#54349F"
-  //     : "#54349F66",
-  //   marginLeft: "-170px",
-  // };
-
-  const buttonStyle = {
-    borderRadius: "23px",
-    color: "#FFFFFF",
-    fontFamily: "Inter, sans-serif",
-    fontSize: "16px",
-    fontWeight: "500",
-    padding: "0",
-    width: "125px",
-    backgroundColor: isLoading
-      ? "#54349F66"
-      : success
-      ? "#3D9F34"
-      : name && mobile && email && message && subject
-      ? "#54349F"
-      : "#54349F66",
-    marginLeft: "-170px",
-  };
-
+  useEffect(() => {
+    if (isLoading) {
+      setButtonText("Processing...");
+    } else if (!success) {
+      setButtonText("Submit");
+      setButtonColor("#54349F");
+    }
+  }, [isLoading, success, token]);
 
   return (
     <>
@@ -101,32 +85,34 @@ const Contact = () => {
             />
             <input
               type="text"
-              placeholder="subject"
+              placeholder="Subject"
               value={subject}
               onChange={(e) => dispatch(setSubject(e.target.value))}
               required
             />
             <textarea
-              name=""
-              id=""
               cols="30"
               rows="10"
               placeholder="Comment"
               value={message}
               onChange={(e) => dispatch(setMessage(e.target.value))}
             />
-       
-       </form>
-          <CustomButton
-            buttonText={isLoading ? "Processing..." : success ? "Sent" : "Submit"}
 
-            style={buttonStyle}
-            disabled={isLoading || !(name && mobile && email && message && subject)}
-/>
-          {isLoading && <p>Loading...</p>}
+            <button
+              type="submit"
+              className="contact-button"
+              disabled={
+                isLoading || !(name && mobile && email && message && subject)
+              }
+            >
+              {isLoading ? (
+                <Circles color="#FFFFFF" height={20} width={20} />
+              ) : (
+                "submit"
+              )}
+            </button>
+          </form>
           {error && <p className="error">Error: {error}</p>}
-          {/* {success && <p className="success">Message sent successfully!</p>} */}
-         
         </div>
       </div>
     </>
@@ -134,10 +120,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
-
-
-
-
-

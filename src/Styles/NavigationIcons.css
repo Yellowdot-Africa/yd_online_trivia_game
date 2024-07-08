@@ -20,12 +20,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 25px;
-  margin:10px 0 40px 0;
-
-}
-
-.navigation-iconss div:hover {
-  background-color: #2980b9;
+  margin: 10px 0 40px 0;
 }
 
 .home-nav-icons {
@@ -34,6 +29,9 @@
   align-items: center;
   justify-content: center;
   margin-top: 16px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
 }
 
 .home-nav-icons p {
@@ -42,4 +40,32 @@
   font-weight: 500;
   line-height: 14.52px;
   text-align: left;
+  transition: color 0.3s ease;
 }
+
+
+.home-nav-icons:hover p {
+  color: #54349f;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14.52px;
+  text-align: left;
+}
+
+
+.home-nav-icons.active p {
+  color: #973CF2;
+}
+
+.home-nav-icons img {
+  transition: filter 0.3s ease;
+}
+
+.home-nav-icons:hover img,
+.home-nav-icons.active img  {
+  filter: invert(27%) sepia(93%) saturate(5931%) hue-rotate(252deg) brightness(93%) contrast(105%);
+}
+
+
+
