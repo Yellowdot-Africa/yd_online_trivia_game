@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 32px 30px;
+  position: relative;
 }
 .menu-header {
   display: flex;
@@ -11,6 +12,13 @@
 
 .logo-container {
   margin: 0 129px;
+}
+.logo-container .logo-icon{
+  position: absolute;
+}
+
+.hamburger-menu img{
+  margin-top: 20px;
 }
 
 
