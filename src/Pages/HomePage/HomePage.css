@@ -1,5 +1,5 @@
 .header {
-  padding: 17px 26px 15px 26px;
+  padding:0px 26px 0px 26px;
   background-color: #230442;
   color: #fff;
 }
@@ -9,19 +9,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 16px;
 }
+
+.account-cont-cont{
+  margin-top: 35px;
+
+}
+
 .logo-section{
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 51px;
+  position: relative;
 }
 
 .logo-section .logo-section-logo{
   display: flex; 
   align-items: center;
   justify-content: center;
+  position: absolute;
 
 }
 .home-icon {
@@ -38,23 +44,25 @@
 }
 
 .account-balance {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .account-balance .acct {
-  color: #cecece;
+  color:#FFFFFF;
   font-family: "AlpinoRegular";
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 421;
-  line-height: 13px;
+  line-height: 15.72px;
   letter-spacing: 0em;
   margin: 0;
+
+
 }
 .account-balance .amount {
-  font-family: "AlpinoMedium";
-  font-size: 14px;
-  font-weight: 507;
-  line-height: 19px;
+  font-family: "AlpinoRegular";
+  font-size: 18px;
+  font-weight: 421;
+  line-height: 23.58px;
   letter-spacing: 0em;
   color: #afff93;
   margin: 0;

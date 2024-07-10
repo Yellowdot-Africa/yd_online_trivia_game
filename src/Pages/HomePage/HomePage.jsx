@@ -31,10 +31,12 @@ const handleSeeAccount = () => {
       <div className="home-page">
         <div className="header">
           <div className="account-section">
+            <div className="account-cont-cont">
             <div className="account-balance">
               <p className="acct" onClick={handleSeeAccount}>Account Balance</p>
               <p className="amount">NGN{walletBalance}</p>
               <p className="xpoint">Xp{experiencePoints}</p>
+            </div>
             </div>
             <div className="logo-section">
               <img src={LogoIcon} alt="Logo" className="logo-section-logo" />

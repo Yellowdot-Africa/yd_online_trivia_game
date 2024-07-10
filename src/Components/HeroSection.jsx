@@ -54,6 +54,8 @@ const HeroSection = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
+    setShowLogin(true); 
+    setShowSignup(false); 
   };
 
   const closeMenu = () => {
@@ -144,8 +146,7 @@ const HeroSection = () => {
               </li>
               {showLogin && (
                 <div className="login-div">
-                  {" "}
-                  <LoginForm isLoginOpen={true} />{" "}
+                  <LoginForm isLoginOpen={true} />
                 </div>
               )}
 
@@ -160,7 +161,7 @@ const HeroSection = () => {
                   <SignUpForm
                     isSignUpOpen={true}
                     navigateToLogin={navigateToLogin}
-                  />{" "}
+                  />
                 </div>
               )}
             </ul>

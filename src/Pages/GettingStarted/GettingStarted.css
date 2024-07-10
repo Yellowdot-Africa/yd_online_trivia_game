@@ -1,31 +1,58 @@
-.getting-started-container{
-   width: 100vw;
-   height: 100vh;
-   background-color: #0B0B2A;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
+.getting-started-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b0b2a;
+  background: url("../../assets/Images/loading1.png"),
+    url("../../assets/Images/loading2.png"),
+    url("../../assets/Images/loading3.png"),
+    url("../../assets/Images/loading4.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  animation: animateBackground 10s infinite linear;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.challenge{
-   font-family: "AlpinoBold";
-font-size: 24px;
-font-weight: 700;
-line-height: 32.64px;
-text-align: center;
-color: #FFFFFF;
-padding-top: 14px;
+@keyframes animateBackground {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  75% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
-.game-inffo{
-   font-family: "AlpinoBold";
-font-size: 14px;
-font-weight: 700;
-line-height: 19.04px;
-text-align: center;
-color: #FFFFFF;
-margin-top: 48px;
-margin-bottom: 133px;
+.challenge {
+  font-family: "AlpinoBold";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32.64px;
+  text-align: center;
+  color: #ffffff;
+  padding-top: 14px;
+}
 
+.game-inffo {
+  font-family: "AlpinoBold";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.04px;
+  text-align: center;
+  color: #ffffff;
+  margin-top: 48px;
+  margin-bottom: 133px;
 }
