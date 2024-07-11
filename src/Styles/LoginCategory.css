@@ -1,0 +1,171 @@
+
+
+  
+  .login-header{
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: "AlpinoMedium";
+    line-height: 12.6px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+.login-category-form-cont {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+
+
+.login-form-cate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+ 
+}
+
+
+.login-form-cate input
+ {
+  width: 70vw;
+  height: 49px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 2px solid #929292b2;
+  outline: none;
+  border-radius: 5px;
+}
+
+.login-form-cate input::placeholder{
+  text-align: left;
+}
+
+.login-form-cate input:focus
+ {
+  border: 2px solid #41189cb2;
+  text-align: left;
+}
+
+.inputt-textt, .error-input-text {
+  color: #41189cb2;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "AlpinoRegular";
+  line-height: 12.6px;
+  letter-spacing: 0.05em;
+  text-align: left;
+}
+.login-form-cate button
+ {
+  width: 118px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #54349f66;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-top: 26px;
+  margin-left: -145px;
+}
+
+.login-form-cate button:hover {
+  background-color: #54349f;
+}
+
+.login-method-selector {
+  margin-top: 31px;
+}
+
+.active {
+  color: #54349f;
+  text-decoration: none;
+}
+
+
+@media screen and (min-width: 200px) and (max-width: 360px) {
+    .login-form-cate button {
+        width: 118px;
+        height: 34px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        background-color: #54349f66;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-top: 26px;
+        margin-right: -30px;
+      }
+
+
+}
+
+@media screen and (min-width: 500px) and (max-width: 650px) {
+  .login-form-cate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    right: -44px;
+  }
+
+  .login-form-cate button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-right: 93px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .login-form-cate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+
+  .login-form-cate button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-right: 257px;
+  }
+}

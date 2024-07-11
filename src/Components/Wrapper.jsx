@@ -5,6 +5,7 @@ import LandingPage from "../Pages/LandingPage/LandingPage";
 // import "react-toastify/dist/ReactToastify.css";
 import LoadingPage from "../Pages/LoadingPage/LoadingPage";
 import HomePage from "../Pages/HomePage/HomePage";
+import LoginFormCategory from "./LoginFormCategory";
 import UserProfile from "../Pages/UserProfilePage/UserProfile";
 import Leaderboard from "../Pages/LeaderBoard/Leaderboard";
 import Settings from "../Pages/Settings/Settings";
@@ -21,6 +22,7 @@ import CountdownPage from "../Pages/Questions/CountDownPage";
 import QuestionInfo from "../Pages/Questions/QuestionInfo";
 import Ad from "../Components/Ad";
 import PopularCategories from "./PopularCategories";
+import TriviaCategories from "./TriviaCategories";
 import ResultPage from "../Pages/ResultPage/ResultPage";
 
 const router = createBrowserRouter([
@@ -37,12 +39,20 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
+    path: "/login-category",
+    element: <LoginFormCategory />,
+  },
+  {
     path: "/user-profile",
     element: <UserProfile />,
   },
   {
     path: "/popularcategories",
     element: <PopularCategories />,
+  },
+  {
+    path: "/trivia-categories",
+    element: <TriviaCategories />,
   },
   {
     path: "/leaderboard",

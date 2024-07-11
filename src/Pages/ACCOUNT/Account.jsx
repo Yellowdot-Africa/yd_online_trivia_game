@@ -13,7 +13,7 @@ import WithdrawalModal from "../../Components/WithdrawalModal";
 const Account = () => {
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.jwt);
-  const customerId = useSelector((state) => state.auth.customerId); // Assuming customerId is stored in auth slice
+  const userID = useSelector((state) => state.auth.userID); 
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
   const experiencePoints = useSelector(
     (state) => state.wallet.experiencePoints
@@ -46,7 +46,7 @@ const Account = () => {
     const fetchTransactionHistory = async () => {
       try {
         const response = await axios.get(
-          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/TransactionHistory?customerId=${customerId}`,
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/TransactionHistory?customerId=${userID}`,
           {
             headers: {
               Accept: "*/*",
@@ -62,7 +62,7 @@ const Account = () => {
     };
 
     fetchTransactionHistory();
-  }, [token, customerId]);
+  }, [token, userID]);
 
   return (
     <>

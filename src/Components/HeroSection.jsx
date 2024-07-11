@@ -14,6 +14,8 @@ import TC from "../assets/Icons/Pen.png";
 import FAQ from "../assets/Icons/Chat.png";
 import "../Styles/HeroSection.css";
 
+
+
 const HeroSection = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showText, setShowText] = useState(false);
@@ -40,11 +42,11 @@ const HeroSection = () => {
   useEffect(() => {
     const stageTimer1 = setTimeout(() => {
       setAnimationStage(2);
-    }, 4000);
+    }, 800);
 
     const stageTimer2 = setTimeout(() => {
       setAnimationStage(3);
-    }, 8000);
+    }, 2000);
 
     return () => {
       clearTimeout(stageTimer1);
@@ -79,6 +81,13 @@ const HeroSection = () => {
     setShowLogin(true);
   };
 
+  const handleScrollToCategories = () => {
+    const categoriesSection = document.getElementById("popularcategories");
+    if (categoriesSection) {
+      categoriesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       {isMenuOpen && <div className="backdrop" onClick={closeMenu} />}
@@ -111,11 +120,11 @@ const HeroSection = () => {
           <h4>YellowDot Trivia</h4>
 
           <div className="text-and-button">
-            <button type="submit" className="trivia-btn">
+            <button type="submit" className="trivia-btn" onClick={handleScrollToCategories}>
               Let's Trivia
-              <a href="#popularcategories">
+             
                 <img src={Arrow} alt="" />
-              </a>
+           
             </button>
             {showText && (
               <div className="trivia-text fade-in-text">
@@ -185,3 +194,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+

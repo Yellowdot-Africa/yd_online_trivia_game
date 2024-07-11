@@ -57,7 +57,7 @@ const Contact = () => {
     <>
       <div className="contact-container">
         <div className="contact-section">
-          <h4>We would love your feedback</h4>
+          <h4>Feedback Section</h4>
           <p>
             Please input your details and comments to get in touch with our
             support team.
