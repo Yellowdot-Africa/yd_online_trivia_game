@@ -24,3 +24,6 @@ const NavBar = ({ isMenuOpen, toggleMenu }) => {
 };
 
 export default NavBar;
+
+
+

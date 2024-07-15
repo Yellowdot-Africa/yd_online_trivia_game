@@ -122,3 +122,23 @@
     width: 46%;
   }
 }
+
+
+@media screen and (min-width:768px) {
+  .categories-container {
+    text-align: center;
+    background: #ffffff;
+    /* margin: 34px 24px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 356px;
+    margin:34px auto;
+
+  }
+
+  .categoryy-grid{
+    margin-bottom: 30px;
+  }
+}

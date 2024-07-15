@@ -4,3 +4,21 @@
   background-color: rgba(8, 8, 30, 1);
 
 }
+
+
+
+/* @media screen and (min-width:768px) {
+
+  .hero {
+    position: relative;
+    height: 100vh;
+    background-color: rgba(8, 8, 30, 1);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+  }
+
+
+} */

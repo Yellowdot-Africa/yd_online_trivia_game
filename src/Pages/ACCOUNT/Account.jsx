@@ -21,6 +21,8 @@ const Account = () => {
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [isAmountVisible, setAmountVisibility] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showAllTransactions, setShowAllTransactions] = useState(false);
+
 
   const handleGoBack = () => {
     navigate(-1);
@@ -42,11 +44,15 @@ const Account = () => {
     setAmountVisibility(!isAmountVisible);
   };
 
+  const toggleShowAllTransactions = () => {
+    setShowAllTransactions(!showAllTransactions);
+  };
+
   useEffect(() => {
     const fetchTransactionHistory = async () => {
       try {
         const response = await axios.get(
-          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/TransactionHistory?customerId=${userID}`,
+          `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/TransactionHistory?customerId=${encodeURIComponent(userID)}`,
           {
             headers: {
               Accept: "*/*",
@@ -97,6 +103,7 @@ const Account = () => {
             <p>Available Balance</p>
             <p>Wallet Balance</p>
           </div>
+          
 
           <div className="amount-balance">
             {isAmountVisible ? (
@@ -119,7 +126,9 @@ const Account = () => {
           <div className="history-section">
             <div className="history-text">
               <h2>Recent Transactions</h2>
-              <p>See All</p>
+              <p onClick={toggleShowAllTransactions} style={{cursor: 'pointer'}}>
+                {showAllTransactions ? "Show Less" : "See All"}
+              </p>
             </div>
             <div>
               {transactionHistory.length > 0 ? (
@@ -158,3 +167,7 @@ const Account = () => {
 };
 
 export default Account;
+
+
+
+
