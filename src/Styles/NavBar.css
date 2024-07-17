@@ -17,11 +17,14 @@
   position: absolute;
 }
 
-.hamburger-menu img{
+/* .hamburger-menu img{
   margin-top: 20px;
-  margin-right: 10px;
-}
+  margin-right: 20px;
+} */
 
+.hamburger-menu{
+  margin-top: 20px;
+}
 
 @media screen and (max-width:290px){
   

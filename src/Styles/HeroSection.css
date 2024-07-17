@@ -212,6 +212,10 @@
   .hero-container {
     padding-top: 0px;
   }
+
+  .text-and-button {
+    margin-top: -61px;
+  }
 }
 
 @media screen and (min-width: 680px) and (max-width: 1030px) {
@@ -228,6 +232,7 @@
    
     width: 70%;
   }
+  
 }
 
 @media screen and (min-width: 530px) and (max-width: 550px) {

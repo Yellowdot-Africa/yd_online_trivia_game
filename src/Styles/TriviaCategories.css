@@ -122,7 +122,7 @@
     font-size: 14px;
     line-height: 16.94px;
     font-weight: 600;
-    padding-top: 14px;
+    /* padding-top: 14px; */
   }
   
   .history h4 {
@@ -131,7 +131,7 @@
     font-size: 14px;
     line-height: 16.94px;
     font-weight: 600;
-    padding-top: 14px;
+    /* padding-top: 14px; */
   }
   
   .movie h4 {
@@ -140,7 +140,7 @@
     font-size: 14px;
     line-height: 16.94px;
     font-weight: 600;
-    padding-top: 14px;
+    /* padding-top: 14px; */
   }
 
 

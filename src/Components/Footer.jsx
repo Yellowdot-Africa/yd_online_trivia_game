@@ -20,13 +20,20 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer">
           <img src={LogoCup} alt="logo" />
+          <div className="socials">
           <img src={Facebook} alt="facebook" />
           <img src={Twitter} alt="twitter" />
           <img src={Youtube} alt="youtube" />
+          </div>
+          
         </div>
         <div className="footer-links">
-          <div className="explore">
-            <p onClick={toggleExplore}>Explore <span>&#9662;</span></p>
+          <div onClick={toggleExplore} className="explore">
+            <div className="explore-toggle-icon">
+            <p onClick={toggleExplore}>Explore </p>
+            <span>&#9662;</span>
+            </div>
+           
             {exploreOpen && (
               <ul className="explore-links">
                 <li>
@@ -46,7 +53,11 @@ const Footer = () => {
           </div>
 
           <div className="legal">
-            <p onClick={toggleLegal}>Legal <span>&#9662;</span></p>
+          <div onClick={toggleLegal} className="explore-toggle-icon">
+
+            <p onClick={toggleLegal}>Legal </p>
+            <span>&#9662;</span>
+            </div>
             {legalOpen && (
               <ul className="legal-links">
                 <li>
@@ -66,7 +77,11 @@ const Footer = () => {
           </div>
 
           <div className="about">
-            <p onClick={toggleAbout}>About <span>&#9662;</span></p>
+          <div onClick={toggleAbout} className="explore-toggle-icon">
+
+            <p onClick={toggleAbout}>About </p>
+            <span>&#9662;</span>
+            </div>
             {aboutOpen && (
               <ul className="about-links">
                 <li>
