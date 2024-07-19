@@ -200,7 +200,6 @@ export default HeroSection;
 
 
 
-
 // import React, { useState, useEffect } from "react";
 // import NavBar from "./NavBar";
 // import Arrow from "../assets/Icons/Arrow 2.png";
@@ -569,3 +568,4 @@ export default HeroSection;
 // };
 
 // export default HeroSection;
+

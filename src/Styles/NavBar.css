@@ -1,15 +1,19 @@
 .landing-page-menu {
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 32px 0 0 47px;
+  justify-content: space-between;
+  padding: 32px 47px 0 47px;
   position: relative;
 }
 .menu-header {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
+.empty-img{
+  margin-top: 20px;
+}
 .logo-container {
   margin: 0 129px;
 }

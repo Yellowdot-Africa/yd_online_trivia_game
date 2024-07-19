@@ -7,6 +7,10 @@ const NavBar = ({ isMenuOpen, toggleMenu }) => {
   return (
     <div className={`landing-page-menu ${isMenuOpen ? "menu-open" : ""}`}>
       <div className="menu-header">
+        <div className="empty-img">
+        <img src="" alt="" />
+
+        </div>
         <div className="logo-container">
           <img src={LogoIcon} alt="logo" className="logo-icon" />
         </div>

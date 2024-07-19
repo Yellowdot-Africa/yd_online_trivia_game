@@ -69,18 +69,26 @@ const Leaderboard = () => {
           {leaderboardData.length >= 3 ? (
             <>
               <div className="winner-two">
+                <div className='winner-two-cont'>
                 <img src={BadgeTwo} alt="badge-two" />
                 <p>{leaderboardData[1]?.name}</p>
+                </div>    
                 <div className="winner user-two"></div>
               </div>
               <div className="winner-one">
+                <div className='winner-two-cont'>
                 <img src={BadgeOne} alt="badge-one" />
                 <p>{leaderboardData[0]?.name}</p>
+                </div>
+              
                 <div className="winner user-one"></div>
               </div>
               <div className="winner-three">
+                <div className='winner-two-cont'>
                 <img src={BadgeThree} alt="badge-three" />
                 <p>{leaderboardData[2]?.name}</p>
+                </div>
+               
                 <div className="winner user-three"></div>
               </div>
             </>
