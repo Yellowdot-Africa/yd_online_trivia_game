@@ -5,6 +5,8 @@ const EndGameModal = ({ isOpen, onClose, onEnd }) => {
   if (!isOpen) return null;
 
   return (
+    <>
+    <div className='overlay-modal-cont'>
     <div className="end-modal-overlay">
       <div className="end-modal-content">
         <div className='end-game-content'>
@@ -15,6 +17,9 @@ const EndGameModal = ({ isOpen, onClose, onEnd }) => {
         <button className="end-button" onClick={onEnd}>End</button>
       </div>
     </div>
+    </div>
+    </>
+    
   );
 };
 
