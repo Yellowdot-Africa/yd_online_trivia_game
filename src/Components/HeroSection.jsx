@@ -31,7 +31,7 @@ const HeroSection = () => {
 
     const textTimer = setTimeout(() => {
       setShowText(true);
-    }, 10000);
+    }, 4000);
 
     return () => {
       clearTimeout(overlayTimer);
@@ -194,7 +194,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
-

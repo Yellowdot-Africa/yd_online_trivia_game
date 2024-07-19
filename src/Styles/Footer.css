@@ -1,52 +1,50 @@
 .footer-container {
-  /* padding: 20px 0 80px 0; */
   background-color: #07071d;
   padding: 20px 0;
 }
 
 .footer {
-  padding: 20px 0 0 47px;
-  display: flex;
-  align-items: center;
-  gap: 31px;
-}
-
-.socials{
+  padding: 20px 47px 0 47px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-left: 120px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
   gap: 12px;
 }
 
 .footer-links {
- 
-  padding: 20px 0 0 47px;
+  padding: 20px 47px 0 47px;
   gap: 10px;
   width: 100vw;
   color: #ffffff;
 }
+
 .explore,
 .legal,
-.about{
+.about {
   font-family: "AlpinoBold";
-font-size: 14px;
-font-weight: 700;
-line-height: 19.04px;
-text-align: left;
-
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 19.04px;
+  text-align: left;
 }
 
-.explore-toggle-icon{
+.explore-toggle-icon {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-right: 100px;
+
 }
 
 .legal,
-.about{
-margin-top: 30px;
+.about {
+  margin-top: 30px;
 }
 
 .explore-links,
@@ -61,7 +59,6 @@ margin-top: 30px;
   font-weight: 421;
   line-height: 18.34px;
   padding-top: 10px;
-
 }
 
 .footer-links a {

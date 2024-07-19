@@ -110,5 +110,27 @@
     border: none;
     border-radius: 24px ;
     background-color: rgb(151, 60, 242);
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+
+  }
+
+
+  @media screen and (min-width:750px) {
+
+    .close-payment{
+      width: 253px;
+      height: 48px;
+      color: #fff;
+      border: none;
+      border-radius: 24px ;
+      background-color: rgb(151, 60, 242);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px auto;
+    }
+    
   }

@@ -107,8 +107,12 @@ const Deposit = () => {
         );
 
         console.log("AddUnits Response:", addUnitsResponse.data);
+       
+        const newBalance = addUnitsResponse.data.newBalance; 
 
         dispatch(setWalletBalance(parseFloat(inputValue)));
+        // dispatch(setWalletBalance(newBalance));
+
         dispatch(setExperiencePoints(units));
 
         setUrl(paymentUrl);

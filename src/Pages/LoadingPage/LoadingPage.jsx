@@ -26,7 +26,7 @@ const LoadingPage = () => {
           clearTimeout(continueButtonTimer);
         };
       }
-    }, 300);
+    }, 100);
 
     return () => {
       clearInterval(interval);
@@ -74,4 +74,3 @@ const LoadingPage = () => {
 };
 
 export default LoadingPage;
-

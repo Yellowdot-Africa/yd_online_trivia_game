@@ -6,7 +6,6 @@ import {
 } from "../features/categories/categoriesSlice";
 import "../Styles/TriviaCategories.css";
 import { useNavigate } from "react-router-dom";
-import { Circles } from "react-loader-spinner";
 
 const TriviaCategories = () => {
   const dispatch = useDispatch();
@@ -25,13 +24,7 @@ const TriviaCategories = () => {
     navigate("/getting-started");
   };
 
-  if (isLoading) {
-    return (
-      <div className="category-spinner-container">
-        <Circles color="#D9D9D9" height={30} width={30} />
-      </div>
-    );
-  }
+
 
   if (error) {
     return <div>Error: {error}</div>;

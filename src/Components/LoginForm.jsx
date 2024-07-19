@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { login} from "../features/auth/authSlice";
-import { Circles } from 'react-loader-spinner'; 
+import { login } from "../features/auth/authSlice";
+import { Circles } from 'react-loader-spinner';
 
 import "../Styles/Login.css";
 
@@ -13,6 +13,7 @@ const LoginForm = ({ isLoginOpen }) => {
   const navigate = useNavigate();
   const { status, error } = useSelector((state) => state.auth);
   const [errorText, setErrorText] = useState(null);
+  const [isPasswordTyped, setIsPasswordTyped] = useState(false);
 
   const initialValues = {
     loginMethod: "" ? "email" : "phone",
@@ -34,7 +35,6 @@ const LoginForm = ({ isLoginOpen }) => {
     const username = loginMethod === "phone" ? phoneNumber : email;
 
     dispatch(login({ username, password }))
-   
       .then((action) => {
         if (login.fulfilled.match(action)) {
           navigate("/loading");
@@ -42,16 +42,21 @@ const LoginForm = ({ isLoginOpen }) => {
       })
       .catch((error) => {
         if (error.response) {
-          setErrorText(error.message); 
+          setErrorText(error.message);
           dispatch(loginFailed(error.message));
           setErrorText(error.response.data.message || "Login failed");
           dispatch(loginFailed(error.response.data.message));
-        console.error("Login failed:", error);
-      } else {
-        setErrorText("An error occurred. Please try again.");
-        setErrorText(error)
-      }
+          console.error("Login failed:", error);
+        } else {
+          setErrorText("An error occurred. Please try again.");
+          setErrorText(error);
+        }
       });
+  };
+
+  const handlePasswordChange = (e, handleChange) => {
+    setIsPasswordTyped(e.target.value.length > 0);
+    handleChange(e);
   };
 
   return (
@@ -71,7 +76,7 @@ const LoginForm = ({ isLoginOpen }) => {
                     name="phoneNumber"
                     placeholder="Phone Number"
                     autoComplete="tel"
-                    value={values.phoneNumber} 
+                    value={values.phoneNumber}
                     onChange={handleChange}
                   />
                   <ErrorMessage
@@ -88,7 +93,7 @@ const LoginForm = ({ isLoginOpen }) => {
                     name="email"
                     placeholder="Email"
                     autoComplete="email"
-                    value={values.email} 
+                    value={values.email}
                     onChange={handleChange}
                   />
                   <ErrorMessage
@@ -103,27 +108,31 @@ const LoginForm = ({ isLoginOpen }) => {
                 name="password"
                 placeholder="Password"
                 autoComplete="current-password"
-                value={values.password} 
-                onChange={handleChange}
+                value={values.password}
+                onChange={(e) => handlePasswordChange(e, handleChange)}
               />
               <ErrorMessage
                 name="password"
                 component="p"
                 className="error-input-text"
               />
-              <button type="submit" disabled={status === "loading"}>
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                style={{
+                  backgroundColor: isPasswordTyped ? "#54349f" : "defaultColor",
+                }}
+              >
                 {status === "loading" ? (
-                <Circles color="#D9D9D9" height={20} width={20} />
-              ) : (
-                "Login"
-              )}
-           
-              </button>{" "}
+                  <Circles color="#D9D9D9" height={20} width={20} />
+                ) : (
+                  "Login"
+                )}
+              </button>
               <br />
               {error && <p className="error-input-text">{error}</p>}
               <div className="login-method-selector">
                 {values.loginMethod === "phone" ? (
-                   
                   <a
                     href="#email"
                     className="active"
@@ -139,7 +148,6 @@ const LoginForm = ({ isLoginOpen }) => {
                   >
                     Use Phone Number
                   </a>
-                 
                 )}
               </div>
             </Form>
@@ -151,4 +159,6 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
+
+
 

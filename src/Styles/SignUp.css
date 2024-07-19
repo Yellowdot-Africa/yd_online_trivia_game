@@ -124,16 +124,16 @@
   }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 700px) and (max-width: 910px) {
   .signup-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    right: 90px;
+    left: -495px;
   }
 
   .signup-form button {
@@ -149,7 +149,121 @@
     border-radius: 30px;
     cursor: pointer;
     margin-top: 26px;
-    margin-right: 257px;
+    margin-left: -2px;
+  }
+
+  .signup-form input{
+    width: 50vw;
+  }
+}
+
+
+
+
+
+@media screen and (min-width: 912px) and (max-width:920px){
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    left: -595px;
+  }
+
+  .signup-form button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-left: -2px;
+  }
+
+  .signup-form input{
+    width: 50vw;
+  }
+
+
+
+
+}
+
+@media screen and (min-width: 920px) and (max-width:1200px){
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    left: -640px;
+  }
+
+  .signup-form button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-left: -2px;
+  }
+
+  .signup-form input{
+    width: 50vw;
+  }
+}
+
+
+
+
+@media screen and (min-width: 1201px) {
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    left: -768px;
+  }
+
+  .signup-form button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-left: -2px;
+  }
+
+  .signup-form input{
+    width: 50vw;
   }
 }
 

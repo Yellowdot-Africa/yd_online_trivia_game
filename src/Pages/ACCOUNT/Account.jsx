@@ -23,6 +23,16 @@ const Account = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showAllTransactions, setShowAllTransactions] = useState(false);
 
+  const initialDisplayCount = 5;
+
+
+  const getCurrentDate = () => {
+    const today = new Date();
+    const day = today.getDate();
+    const month = today.toLocaleString('default', { month: 'long' });
+    const year = today.getFullYear();
+    return `${month} ${day}, ${year}`;
+  };
 
   const handleGoBack = () => {
     navigate(-1);
@@ -70,6 +80,11 @@ const Account = () => {
     fetchTransactionHistory();
   }, [token, userID]);
 
+  const transactionsToDisplay = showAllTransactions
+    ? transactionHistory
+    : transactionHistory.slice(0, initialDisplayCount);
+
+
   return (
     <>
       <div className={`account-container ${isModalOpen ? "modal-open" : ""}`}>
@@ -84,7 +99,7 @@ const Account = () => {
               <h4 className="experience-pt">{experiencePoints} Xp</h4>
               <div className="bal-date">
                 <p className="current-bal">Experience Points</p>
-                <p className="date">Today 4th January</p>
+                <p className="date">{getCurrentDate()}</p>
               </div>
             </div>
             <div className="transaction-options">
@@ -131,9 +146,9 @@ const Account = () => {
               </p>
             </div>
             <div>
-              {transactionHistory.length > 0 ? (
+              {transactionsToDisplay.length > 0 ? (
                 <ul className="transaction-list">
-                  {transactionHistory.map((transaction, index) => (
+                  {transactionsToDisplay.map((transaction, index) => (
                     <li key={index}>
                       <div className="history-details">
                         Date: {transaction.transactionDate}
@@ -167,7 +182,6 @@ const Account = () => {
 };
 
 export default Account;
-
 
 
 
