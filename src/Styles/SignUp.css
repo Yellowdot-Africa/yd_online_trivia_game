@@ -1,6 +1,14 @@
 .signup-div {
   position: relative;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
+
+.signup-div.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+} 
 
 .signup-form-cont {
   position: absolute;

@@ -61,7 +61,8 @@ const initialState = {
   jwt: localStorage.getItem("jwt") || null,
   isLoading: false,
   isAuthenticated: !!localStorage.getItem("jwt"),
-  error: null,
+  loginError: null,
+  signUpError: null,
   success: false,
   status: "idle",
 };
@@ -76,7 +77,7 @@ const authSlice = createSlice({
     builder
       .addCase(login.pending, (state) => {
         state.isLoading = true;
-        state.error = null;
+        state.loginError = null;
         state.status = "loading";
       })
       .addCase(login.fulfilled, (state, action) => {
@@ -88,20 +89,20 @@ const authSlice = createSlice({
         state.tokenExpiry = action.payload.tokenExpiry;
         state.jwt = action.payload.jwt;
         state.isAuthenticated = true;
-        state.error = null;
+        state.loginError = null;
         state.success = true;
         state.status = "succeeded";
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload || "Login failed";
+        state.loginError = action.payload || "Login failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        console.error("Login error:", action.error);
+        // console.error("Login error:", action.error);
       })
       .addCase(signup.pending, (state) => {
         state.isLoading = true;
-        state.error = null;
+        state.signUpError = null;
         state.status = "loading";
       })
       .addCase(signup.fulfilled, (state, action) => {
@@ -113,16 +114,16 @@ const authSlice = createSlice({
         state.tokenExpiry = action.payload.tokenExpiry;
         state.jwt = action.payload.token;
         state.isAuthenticated = true;
-        state.error = null;
+        state.signUpError = null;
         state.success = true;
         state.status = "succeeded";
       })
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
-        state.error = action.payload || "Signup failed";
+        state.signUpError = action.payload || "Signup failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        console.error("Signup error:", action.error);
+        // console.error("Signup error:", action.error);
       });
   },
 });

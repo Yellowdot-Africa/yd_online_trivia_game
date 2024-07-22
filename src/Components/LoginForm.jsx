@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -11,7 +11,7 @@ import "../Styles/Login.css";
 const LoginForm = ({ isLoginOpen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { status, error } = useSelector((state) => state.auth);
+  const { status, loginError } = useSelector((state) => state.auth);
   const [errorText, setErrorText] = useState(null);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
 
@@ -130,7 +130,8 @@ const LoginForm = ({ isLoginOpen }) => {
                 )}
               </button>
               <br />
-              {error && <p className="error-input-text">{error}</p>}
+
+              {loginError && <p className="error-input-text">{loginError}</p>}
               <div className="login-method-selector">
                 {values.loginMethod === "phone" ? (
                   <a
@@ -159,6 +160,8 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
+
+
 
 
 

@@ -22,8 +22,11 @@ const Leaderboard = () => {
   const loading = useSelector((state) => state.leaderboard.loading);
   const error = useSelector((state) => state.leaderboard.error);
   const token = useSelector((state) => state.auth.jwt);
+  const username = useSelector((state) => state.auth.username);
   const [gameId, setGameId] = useState(1);
   const [showMore, setShowMore] = useState(false);
+
+
 
   useEffect(() => {
     dispatch(getLeaderboard(gameId));
@@ -34,6 +37,10 @@ const Leaderboard = () => {
       toast.error(error);
     }
   }, [error]);
+
+  const userRank = leaderboardData.findIndex(player => player.name === username) + 1;
+  const userRankText = userRank ? `You are currently number ${userRank} and you are doing better than ${Math.round((userRank / leaderboardData.length) * 100)}% of players` : '';
+
 
   const toggleDetails = () => {
     setShowMore(!showMore);
@@ -56,10 +63,10 @@ const Leaderboard = () => {
       </div>
       <div className="main">
         <div className="user-card">
-          <div className="four">#4</div>
-          <p>
-            You are currently number 4 and you are doing better than 65% of players
-          </p>
+          <div className="four">{userRank ? `#${userRank}` : ''}</div>
+       
+          <p>{userRankText || 'Loading your rank...'}</p>
+
         </div>
         <div className="leaderboard-date">
           <p>Today</p>

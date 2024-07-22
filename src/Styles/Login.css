@@ -1,15 +1,20 @@
-
 .login-div {
-    position: relative;
-  }
-  
+  position: relative;
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.login-div.hidden {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
 
 .login-form-cont {
   position: absolute;
   right: -35px;
   top: 0;
 }
-
 
 .login-form {
   display: flex;
@@ -18,13 +23,11 @@
   padding-top: 25px;
   position: absolute;
   top: 50%;
-  left: -176px;
+  left: -153px;
   align-items: flex-start;
 }
 
-
-.login-form input
- {
+.login-form input {
   width: 70vw;
   height: 49px;
   padding: 10px;
@@ -34,17 +37,17 @@
   border-radius: 5px;
 }
 
-.login-form input::placeholder{
+.login-form input::placeholder {
   text-align: left;
 }
 
-.login-form input:focus
- {
+.login-form input:focus {
   border: 2px solid #41189cb2;
   text-align: left;
 }
 
-.inputt-textt, .error-input-text {
+.inputt-textt,
+.error-input-text {
   color: #41189cb2;
   font-size: 12px;
   font-weight: 400;
@@ -53,8 +56,7 @@
   letter-spacing: 0.05em;
   text-align: left;
 }
-.login-form button
- {
+.login-form button {
   width: 118px;
   height: 34px;
   display: flex;
@@ -80,7 +82,7 @@
 
 .login-method-selector a {
   text-decoration: none;
-  color: #54349f; 
+  color: #54349f;
 }
 
 .login-method-selector a.active {
@@ -92,7 +94,6 @@
   text-decoration: none;
 }
 
-
 .button-default {
   background-color: defaultColor;
 }
@@ -101,25 +102,22 @@
   background-color: #54349f;
 }
 
-
 @media screen and (min-width: 200px) and (max-width: 360px) {
-    .login-form button {
-        width: 118px;
-        height: 34px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        background-color: #54349f66;
-        color: white;
-        border: none;
-        border-radius: 30px;
-        cursor: pointer;
-        margin-top: 26px;
-        /* margin-right: -30px; */
-      }
-
-
+  .login-form button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    /* margin-right: -30px; */
+  }
 }
 
 @media screen and (min-width: 500px) and (max-width: 650px) {
@@ -131,7 +129,7 @@
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -244px;
+    left: -200px;
   }
 
   .login-form button {
@@ -150,18 +148,18 @@
   }
 
   .login-method-selector {
-       margin-top: 10px; 
-       text-align: left; 
-     }
-  
-     .login-method-selector a {
-       text-decoration: none;
-       color: #54349f; 
-     }
-  
-     .login-method-selector a.active {
-       cursor: pointer;
-     }
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .login-method-selector a {
+    text-decoration: none;
+    color: #54349f;
+  }
+
+  .login-method-selector a.active {
+    cursor: pointer;
+  }
 }
 
 @media screen and (min-width: 700px) and (max-width: 910px) {
@@ -173,7 +171,7 @@
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -265px;
+    left: -216px;
   }
 
   .login-form button {
@@ -191,12 +189,12 @@
     margin-top: 26px;
   }
 
-  .login-form input{
+  .login-form input {
     width: 50vw;
   }
 }
 
-@media screen and (min-width: 912px) and (max-width:920px){
+@media screen and (min-width: 912px) and (max-width: 920px) {
   .login-form {
     display: flex;
     flex-direction: column;
@@ -205,7 +203,7 @@
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -295px;
+    left: -249px;
   }
 
   .login-form button {
@@ -223,25 +221,21 @@
     margin-top: 26px;
   }
 
-  .login-form input{
+  .login-form input {
     width: 50vw;
   }
-
-
-
-
 }
 
-@media screen and (min-width: 920px) and (max-width:1200px){
+@media screen and (min-width: 920px) and (max-width: 1200px) {
   .login-form {
     display: flex;
     flex-direction: column;
-    align-items:flex-start ;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -340px;
+    left: -249px;
   }
 
   .login-form button {
@@ -259,24 +253,21 @@
     margin-top: 26px;
   }
 
-  .login-form input{
+  .login-form input {
     width: 50vw;
   }
 }
-
-
-
 
 @media screen and (min-width: 1201px) {
   .login-form {
     display: flex;
     flex-direction: column;
-    align-items:flex-start ;
+    align-items: flex-start;
     justify-content: center;
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -428px;
+    left: -328px;
   }
 
   .login-form button {
@@ -294,7 +285,7 @@
     margin-top: 26px;
   }
 
-  .login-form input{
+  .login-form input {
     width: 50vw;
   }
 }

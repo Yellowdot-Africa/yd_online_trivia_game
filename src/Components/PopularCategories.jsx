@@ -52,6 +52,7 @@ const PopularCategories = () => {
                 src={`data:image/png;base64,${category.logo}`}
                 alt={category.name}
                 className="category-logo-img"
+                onClick={handlePlayClick}
               />
               <h4>{category.name}</h4>
               <div className="count-container">

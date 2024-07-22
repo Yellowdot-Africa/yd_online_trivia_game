@@ -5,6 +5,7 @@ import "../Styles/NavBar.css";
 
 const NavBar = ({ isMenuOpen, toggleMenu }) => {
   return (
+    <>
     <div className={`landing-page-menu ${isMenuOpen ? "menu-open" : ""}`}>
       <div className="menu-header">
         <div className="empty-img">
@@ -24,6 +25,7 @@ const NavBar = ({ isMenuOpen, toggleMenu }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

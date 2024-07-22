@@ -35,6 +35,12 @@
   text-align: left;
 }
 
+.explore p,
+.legal p,
+.about p{
+  margin: 0;
+}
+
 .explore-toggle-icon {
   display: flex;
   align-items: center;

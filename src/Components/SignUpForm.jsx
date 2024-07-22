@@ -5,14 +5,12 @@ import * as Yup from 'yup';
 import { signup } from "../features/auth/authSlice";
 import { Circles } from 'react-loader-spinner'; 
 import '../Styles/SignUp.css';
-import Modal from "react-modal";
-import ErrorModal from "../Components/ErrorModal";
 
 
 const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const dispatch = useDispatch();
-  const signupState = useSelector((state) => state.signup);
-  const { status, error } = signupState || { status: 'idle', error: null }; 
+  const signupState = useSelector((state) => state.auth);
+  const { status, signUpError } = signupState || { status: 'idle', signUpError: null }; 
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
   const [usernameFocus, setUsernameFocus] = useState(false);
@@ -20,7 +18,8 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+
 
 
   const initialValues = {
@@ -48,29 +47,20 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
       const result = await dispatch(signup(values)).unwrap();
       navigateToLogin(); 
     } catch (err) {
-      console.error('Signup failed:', err);
       if (err.message === "User exist with same email or MSISDN!") {
-        // setErrorMessage(err.message);
+        setErrorMessage(err.message);
         setErrorMessage("User exist with same email or MSISDN!");
-
-        setShowErrorModal(true);
-        console.log("Setting showErrorModal to true");
-
+      
       } else {
         setErrorMessage("Signup failed. Please try again later.");
-        setShowErrorModal(true);
-        setModalIsOpen(true);
-        // console.log("Error message is now set, modal should open up.");
-
+     
       }
     } finally {
       setSubmitting(false);
     }
   };
 
-  const closeErrorModal = () => {
-    setShowErrorModal(false);
-  };
+ 
 
 
   return (
@@ -144,23 +134,20 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
                 "Sign Up"
               )}
             </button>
+            <br/>
+            {signUpError && <p className="error-text">{signUpError}</p>}
+
           </Form>
          
         )}
         
       </Formik>
-      {showErrorModal && (
-            <ErrorModal message={errorMessage} onClose={closeErrorModal} />
-          )}
+     
      
     </div>
   );
 };
 
 export default SignUpForm;
-
-
-
-
 
 
