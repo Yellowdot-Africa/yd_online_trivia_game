@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { setWalletBalance } from "../../features/wallet/walletSlice";
 import Prev from "../../assets/Icons/chevron-left.png";
 import EyeIcon from "../../assets/Icons/eye.png";
 import EyeOff from "../../assets/Icons/eye-off.png";
@@ -12,6 +13,8 @@ import WithdrawalModal from "../../Components/WithdrawalModal";
 
 const Account = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const token = useSelector((state) => state.auth.jwt);
   const userID = useSelector((state) => state.auth.userID); 
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
@@ -58,6 +61,21 @@ const Account = () => {
     setShowAllTransactions(!showAllTransactions);
   };
 
+
+  const calculateBalanceFromHistory = (transactions) => {
+    let balance = 0;
+    transactions.forEach(transaction => {
+      if (transaction.type === 'credit') {
+        balance += transaction.amount;
+      } else if (transaction.type === 'debit') {
+        balance -= transaction.amount;
+      }
+    });
+    return balance;
+  };
+
+
+
   useEffect(() => {
     const fetchTransactionHistory = async () => {
       try {
@@ -71,14 +89,22 @@ const Account = () => {
             },
           }
         );
-        setTransactionHistory(response.data.data);
+        // setTransactionHistory(response.data.data);
+        const transactions = response.data.data;
+        setTransactionHistory(transactions);
+
+        const balance = calculateBalanceFromHistory(transactions);
+        dispatch(setWalletBalance(balance));
+
       } catch (error) {
         console.error("Error fetching transaction history:", error);
       }
     };
 
     fetchTransactionHistory();
-  }, [token, userID]);
+  }, [token, userID, dispatch]);
+
+
 
   const transactionsToDisplay = showAllTransactions
     ? transactionHistory

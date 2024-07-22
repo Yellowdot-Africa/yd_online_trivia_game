@@ -33,3 +33,6 @@ export const { setWalletBalance, updateBalance, setExperiencePoints, setDepositR
 export default walletSlice.reducer;
 
 
+
+
+

@@ -60,7 +60,9 @@ const ResultPage = () => {
         <img className="img-styl" src={Logo} alt="" />
 
         </div>
-        <a href="./home" className="back-to-home">Home</a>
+        <a className="back-to-home"  onClick={() => {
+            navigate("/home");
+          }}>Home</a>
         <button
           className="replay-button"
           onClick={() => {
