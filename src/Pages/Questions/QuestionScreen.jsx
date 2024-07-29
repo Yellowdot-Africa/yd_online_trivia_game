@@ -122,11 +122,14 @@ const QuestionScreen = () => {
     <div className={`question-screen ${showModal ? 'modal-active' : ''}`} style={{ backgroundColor: screenBgColor }}>
 
       <div className="timer-container">
+        <div className='time-timer'> 
         <div className="timer">
-          <img src={Timer} alt="timer" />
+          <img  src="" alt="" />
+          <img className='img-timer' src={Timer} alt="timer" />
           <p>{timer}</p>
         </div>
-        <p className="quit">Quit</p>
+        </div>
+        <p className="quit" >Quit</p>
       </div>
       <main className="main-container">
         {loading ? (

@@ -358,6 +358,12 @@
   justify-content: center;
 }
 
+.time-timer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .timer {
   display: flex;
   justify-content: center;
@@ -365,14 +371,20 @@
   width: 46px;
   height: 46px;
   background: #fcf5ff;
-  border: 1px solid #369c1d;
+  border: 1px solid #000000;
   border-radius: 50px;
   margin: 63px 110px;
   box-shadow: 0px 4px 4px 0px #0000001a;
 }
 
+
+.img-timer{
+  color: #000000;
+  filter: brightness(0);
+}
+
 .timer p {
-  color: #369c1d;
+  color: #000000;
   text-align: center;
   font-family: "Roboto";
   font-size: 16px;
@@ -428,7 +440,7 @@
   height: 581px;
   border-radius: 20px;
   padding: 56px;
-  margin-top: -87px;
+  margin-top: -35px;
 }
 
 .answer-card {
@@ -436,7 +448,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 41px;
+  gap: 21px;
 }
 
 .answer-option {

@@ -1,8 +1,7 @@
 .account-container.modal-open {
-  filter: blur(5px); 
-  pointer-events: none; 
+  filter: blur(5px);
+  pointer-events: none;
   background-color: #53535366;
-
 }
 
 .account-text {
@@ -15,7 +14,7 @@
   margin: 0;
   width: 100%;
   font-family: "AlpinoRegular";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 421;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
@@ -24,6 +23,7 @@
 
 .current-balance-cont {
   padding: 0 27px;
+  margin: -20px 0;
 }
 .experience-pt {
   color: #7e2cd1;
@@ -53,6 +53,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: -22px 0;
 }
 
 .balances {
@@ -61,33 +62,30 @@
   gap: 12px;
   padding: 8px 24px 13px 24px;
   color: #747474;
-  
 }
 
-
-.hidden-amount{
+.hidden-amount {
   margin: 0;
   padding: 0 24px;
 }
 
-.balances p{
-font-family: "AlpinoRegular";
-font-size: 16px;
-font-weight: 421;
-line-height: 21px;
-letter-spacing: -0.3199999928474426px;
-text-align: left;
-
+.balances p {
+  font-family: "AlpinoRegular";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
 }
 
-.token-bal{
+.token-bal {
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 90px;
   padding-left: 24px;
   /* padding: 8px 24px 13px 24px; */
 }
- .tokens {
+.tokens {
   font-family: "AlpinoMedium";
   font-size: 24px;
   font-weight: 507;
@@ -108,17 +106,18 @@ text-align: left;
   margin: 0;
 }
 
-.eye-icon{
+.eye-icon {
   padding-right: 27px;
 }
 
 .date {
   font-family: "AlpinoRegular";
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 421;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   color: #000000;
+  margin-top: -30px;
 }
 
 .transaction-options {
@@ -176,11 +175,15 @@ text-align: left;
   color: #000000;
 }
 
+.no-trans {
+  padding: 0 24px;
+}
+
 .history-text {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 24px 17px 24px;
+  padding: 67px 24px 17px 24px;
 }
 
 .history-text h2 {
@@ -267,4 +270,83 @@ text-align: left;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: left;
+}
+
+
+
+.transaction-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.transaction-item::before {
+  content: "\2022";
+  color: #4fd96d;
+  font-weight: bold;
+  font-size: 50px;
+  position: absolute;
+  left: 0;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+.transaction-left {
+  flex: 1;
+}
+
+.transaction-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.history-details {
+  margin-bottom: 5px;
+  padding-left: 10px;
+}
+
+.description {
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  margin: 0;
+}
+
+.amount {
+  color: #000;
+  order: 1;
+  font-family: "AlpinoMedium";
+  font-size: 14px;
+  font-weight: 507;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: right;
+  margin: 0;
+}
+
+.datee {
+  color: #000;
+  order: 2;
+  font-family: "AlpinoRegular";
+  font-size: 14px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: right;
+  margin: 0;
 }

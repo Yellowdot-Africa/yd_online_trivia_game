@@ -11,7 +11,7 @@
 }
 .contact-section h4 {
   font-family: "AlpinoMedium";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 507;
   line-height: 21.28px;
   text-align: center;
@@ -21,10 +21,10 @@
 
 .contact-section p {
   color: #9c9c9c;
-  font-size: 12px;
+  /* font-size: 12px; */
   margin: 0 25px 30px 25px;
   font-family: "AlpinoMedium";
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 507;
   line-height: 21.28px;
   text-align: center;

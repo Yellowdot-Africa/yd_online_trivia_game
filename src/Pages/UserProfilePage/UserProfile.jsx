@@ -12,7 +12,9 @@ const UserProfile = () => {
   const [editedUsername, setEditedUsername] = useState('Jamesjohn');
   const [editedPhoneNumber, setEditedPhoneNumber] = useState('+2348178544567');
   const [editedEmail, setEditedEmail] = useState('jamesjohn4u@gmail.com');
-  
+  const [isInputEdited, setIsInputEdited] = useState(false); 
+
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -41,6 +43,11 @@ const UserProfile = () => {
 
   const handleSaveClick = () => {
     setIsEditMode(false);
+  };
+
+  const handleInputChange = (setter) => (e) => {
+    setter(e.target.value);
+    setIsInputEdited(true);
   };
 
   if (isLoading) {
@@ -87,6 +94,7 @@ const UserProfile = () => {
               className="input-field"
               value={editedPhoneNumber}
               onChange={(e) => setEditedPhoneNumber(e.target.value)}
+
             />
             <label htmlFor="email">Email</label>
             <input
@@ -95,14 +103,20 @@ const UserProfile = () => {
               id="email"
               placeholder="Email"
               value={editedEmail}
-              onChange={(e) => setEditedEmail(e.target.value)}
+              onChange={handleInputChange(setEditedEmail)}
+
             />
           </form>
-          <button className="save-button" onClick={handleSaveClick}>
+         
+           <button 
+            className={`save-button ${isInputEdited ? 'active' : ''}`} 
+            onClick={handleSaveClick}
+          >
             Save
           </button>
         </div>
       ) : (
+        <div className='user-container'>
         <div className="user-details">
           <div className="avatar">
             <p>J</p>
@@ -115,6 +129,7 @@ const UserProfile = () => {
             <p className="phone-number">{editedEmail}</p>
             <p className="user-name">{editedUsername}</p>
           </div>
+        </div>
         </div>
       )}
 

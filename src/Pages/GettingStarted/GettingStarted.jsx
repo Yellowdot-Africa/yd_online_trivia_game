@@ -3,11 +3,27 @@ import "../../Pages/GettingStarted/GettingStarted.css";
 import TrophyCup from "../../assets/Icons/TrophyCup.png";
 import CustomButton from "../../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from 'react-redux';
+
 
 const GettingStarted = () => {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
+const popularCategories = useSelector(state => state.categories.selectedCategory);
+const { categories, isLoading, error } = useSelector(
+  (state) => state.categories
+);
+
+
+// console.log('Popular Categories:', popularCategories);
+// console.log('Selected Category:', selectedCategory);
+
+// const category = popularCategories.find(cat => cat.id === selectedCategory);
+const category = categories && categories.length > 0 
+    ? categories.find(cat => cat.id === popularCategories)
+    : null;
+
 
 const btnText ="Begin";
 const buttonStyle = {
@@ -31,7 +47,16 @@ const handleQuestionPack = () => {
           <img src={TrophyCup} alt="trophy" />
         </div>
         <h4 className="challenge">The Challenge!</h4>
-        <p className="game-inffo">Information about the game</p>
+
+        {category ? (
+        <div key={category.id} className="category">
+
+        <p className="game-inffo">{category.description}</p>
+        {/* <p className="game-inffo">Information about the game</p> */}
+        </div>
+          ) : (
+            <p className="game-inffo">No category selected</p>
+            )}
         <CustomButton 
         buttonText={btnText} 
         style={buttonStyle}
@@ -43,3 +68,6 @@ const handleQuestionPack = () => {
 };
 
 export default GettingStarted;
+
+
+

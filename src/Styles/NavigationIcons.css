@@ -1,13 +1,13 @@
 .navigation-iconss {
-  /* position: fixed; */
+  position: fixed;
   /* bottom: -16px; */
-  position: relative;
+  /* position: relative; */
   bottom: 147px;
-  right: 0px;
+  right: 9px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 24px;
+  /* margin: 24px; */
 }
 
 .icon-content-section {

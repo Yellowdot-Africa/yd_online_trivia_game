@@ -35,7 +35,8 @@ const handleSeeAccount = () => {
             <div className="account-balance">
               <p className="acct" onClick={handleSeeAccount}>Account Balance</p>
               <p className="amount">NGN{walletBalance}</p>
-              <p className="xpoint">Xp{experiencePoints}</p>
+              <p className="xpoint"></p>
+
             </div>
             </div>
             <div className="logo-section">

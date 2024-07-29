@@ -28,7 +28,6 @@ const Account = () => {
 
   const initialDisplayCount = 5;
 
-
   const getCurrentDate = () => {
     const today = new Date();
     const day = today.getDate();
@@ -61,7 +60,6 @@ const Account = () => {
     setShowAllTransactions(!showAllTransactions);
   };
 
-
   const calculateBalanceFromHistory = (transactions) => {
     let balance = 0;
     transactions.forEach(transaction => {
@@ -73,8 +71,6 @@ const Account = () => {
     });
     return balance;
   };
-
-
 
   useEffect(() => {
     const fetchTransactionHistory = async () => {
@@ -89,13 +85,11 @@ const Account = () => {
             },
           }
         );
-        // setTransactionHistory(response.data.data);
         const transactions = response.data.data;
         setTransactionHistory(transactions);
 
         const balance = calculateBalanceFromHistory(transactions);
         dispatch(setWalletBalance(balance));
-
       } catch (error) {
         console.error("Error fetching transaction history:", error);
       }
@@ -104,12 +98,9 @@ const Account = () => {
     fetchTransactionHistory();
   }, [token, userID, dispatch]);
 
-
-
   const transactionsToDisplay = showAllTransactions
     ? transactionHistory
     : transactionHistory.slice(0, initialDisplayCount);
-
 
   return (
     <>
@@ -122,20 +113,18 @@ const Account = () => {
 
           <div className="current-balance-cont">
             <div className="current-balance-info">
-              <h4 className="experience-pt">{experiencePoints} Xp</h4>
               <div className="bal-date">
-                <p className="current-bal">Experience Points</p>
+                <div className="transaction-options">
+                  <div className="withdraw-option" onClick={openModal}>
+                    <img src={ArrowUp} alt="" />
+                    <p>Withdraw</p>
+                  </div>
+                  <div className="deposit-option" onClick={handleDeposit}>
+                    <img src={ArrowDown} alt="" />
+                    <p>Fund Wallet</p>
+                  </div>
+                </div>
                 <p className="date">{getCurrentDate()}</p>
-              </div>
-            </div>
-            <div className="transaction-options">
-              <div className="withdraw-option" onClick={openModal}>
-                <img src={ArrowUp} alt="" />
-                <p>Withdraw</p>
-              </div>
-              <div className="deposit-option" onClick={handleDeposit}>
-                <img src={ArrowDown} alt="" />
-                <p>Fund Wallet</p>
               </div>
             </div>
           </div>
@@ -144,7 +133,6 @@ const Account = () => {
             <p>Available Balance</p>
             <p>Wallet Balance</p>
           </div>
-          
 
           <div className="amount-balance">
             {isAmountVisible ? (
@@ -155,7 +143,6 @@ const Account = () => {
             ) : (
               <p className="hidden-amount">XXXX</p>
             )}
-
             <img
               src={isAmountVisible ? EyeIcon : EyeOff}
               alt=""
@@ -167,7 +154,7 @@ const Account = () => {
           <div className="history-section">
             <div className="history-text">
               <h2>Recent Transactions</h2>
-              <p onClick={toggleShowAllTransactions} style={{cursor: 'pointer'}}>
+              <p onClick={toggleShowAllTransactions} style={{ cursor: 'pointer' }}>
                 {showAllTransactions ? "Show Less" : "See All"}
               </p>
             </div>
@@ -175,28 +162,27 @@ const Account = () => {
               {transactionsToDisplay.length > 0 ? (
                 <ul className="transaction-list">
                   {transactionsToDisplay.map((transaction, index) => (
-                    <li key={index}>
-                      <div className="history-details">
-                        Date: {transaction.transactionDate}
+                    <li key={index} className="transaction-item">
+                      <div className="transaction-left">
+                        <div className="history-details description">
+                          {transaction.description}
+                        </div>
+                      </div> 
+                      <div className="transaction-right">
+                      
+                        <div className="history-details amount">
+                          Amount: {transaction.amount}
+                        </div>
+                        <div className="history-details datee">
+                          Date: {transaction.transactionDate}
+                        </div>
+                       
                       </div>
-                      <div className="history-details">
-                        Amount: {transaction.amount}
-                      </div>
-                      <div className="history-details">
-                        Units: {transaction.units}
-                      </div>
-                      <div className="history-details">
-                        Description: {transaction.description}
-                      </div>
-                      <div className="history-details">
-                        Source: {transaction.source}
-                      </div>
-                      <hr />
                     </li>
                   ))}
                 </ul>
               ) : (
-                <div>No transaction history available.</div>
+                <div className="no-trans">No transaction history available.</div>
               )}
             </div>
           </div>
@@ -208,6 +194,4 @@ const Account = () => {
 };
 
 export default Account;
-
-
 

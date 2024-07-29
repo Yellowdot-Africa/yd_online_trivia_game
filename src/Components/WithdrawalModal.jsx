@@ -36,9 +36,8 @@ const navigate= useNavigate();
           <p>Please specify the amount you want to withdraw</p>
           <input
             type="number"
-           
             placeholder="Amount"
-            value={amount}
+            // value={amount}
             onChange={handleChange}
             onFocus={handleFocus}
             onBlur={handleBlur}

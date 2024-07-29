@@ -9,12 +9,20 @@ import "../Styles/Withdraw.css";
 const Withdraw = () => {
   const [banks, setBanks] = useState([]);
   const [bankId, setBankId] = useState("");
+  const [isInputEdited, setIsInputEdited] = useState(false); 
+  const [editedAmount, setEditedAmount] = useState('');
+
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.jwt);
   const dispatch = useDispatch();
 
   const handleBankChange = (event) => {
     setBankId(event.target.value);
+  };
+
+  const handleInputChange = (setter) => (e) => {
+    setter(e.target.value);
+    setIsInputEdited(true);
   };
 
   useEffect(() => {
@@ -88,6 +96,8 @@ const Withdraw = () => {
                 type="text"
                 id="accountNumber"
                 placeholder="Enter Account Number"
+                onChange={handleInputChange(setEditedAmount)}
+
               />
             </div>
             <div className="form-group">
@@ -100,7 +110,14 @@ const Withdraw = () => {
           <img src={MoneyIcon} alt="" />
           <p>Minimum Convertible Is 50 Tokens @200 Naira/Token </p>
         </div>
-        <button className="continue-button" onClick={handleContinue}>
+        {/* <button className="continue-button" onClick={handleContinue}>
+          Continue
+        </button> */}
+
+        <button
+          className={`continue-button ${isInputEdited ? "active" : ""}`}
+          onClick={handleContinue}
+        >
           Continue
         </button>
       </div>
