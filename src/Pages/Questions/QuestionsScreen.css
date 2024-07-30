@@ -332,12 +332,14 @@
 /* question screeen css */
 .question-screen {
   background: #580da4;
-  height: 941px;
-  max-height: 100%;
   transition: background-color 0.5s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+ height: 100vh;
+
+  
 }
 
 @media screen and (min-width: 768px) and (max-width: 1050px) {
@@ -349,19 +351,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: hidden;
   }
 }
+
 
 .timer-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  width: 100%;
+  padding-top: 55px;
+  padding-bottom: 57px;
 }
 
-.time-timer{
+.timer-wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .timer {
@@ -373,7 +382,6 @@
   background: #fcf5ff;
   border: 1px solid #000000;
   border-radius: 50px;
-  margin: 63px 110px;
   box-shadow: 0px 4px 4px 0px #0000001a;
 }
 
@@ -390,7 +398,13 @@
   font-size: 16px;
   font-weight: 700;
   line-height: 16px;
-  margin: 0px;
+  margin: 0;
+}
+
+.quit-div {
+  position: absolute;
+  right: 0;
+  padding-right: 20px;
 }
 
 .quit {
@@ -402,7 +416,23 @@
   text-align: right;
   color: #ffffff;
   margin: 0;
+  cursor: pointer;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .main-container {
   /* display: flex;
   flex-direction: column;
@@ -426,6 +456,7 @@
   letter-spacing: 0em;
   text-align: center;
   padding:0 44px;
+  margin-bottom: 47px;
 }
 
 .loading {
@@ -440,7 +471,6 @@
   height: 581px;
   border-radius: 20px;
   padding: 56px;
-  margin-top: -35px;
 }
 
 .answer-card {
@@ -499,6 +529,13 @@
 .wrong {
   background-color: #e37f80;
 }
+
+.answer-option.disabled {
+  cursor: not-allowed;
+  opacity: 0.6; 
+  pointer-events: none;
+}
+
 
 .modal-active {
   background-color: #0d89a4;

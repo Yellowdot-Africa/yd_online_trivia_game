@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Pagination.css";
 
-const Pagination = ({ totalItems, activeIndex, onChange }) => {
+const Pagination = ({ totalItems, activeIndex, onChange, statuses }) => {
   const dots = Array.from({ length: totalItems }, (_, index) => index);
 
   return (
@@ -9,7 +9,15 @@ const Pagination = ({ totalItems, activeIndex, onChange }) => {
       {dots.map((dotIndex) => (
         <div
           key={dotIndex}
-          className={`dot ${dotIndex === activeIndex ? "active" : ""}`}
+          className={`dot ${
+            dotIndex === activeIndex
+              ? "active"
+              : statuses[dotIndex] === "correct"
+              ? "correct"
+              : statuses[dotIndex] === "wrong"
+              ? "wrong"
+              : ""
+          }`}
           onClick={() => onChange(dotIndex)}
         />
       ))}
@@ -18,3 +26,10 @@ const Pagination = ({ totalItems, activeIndex, onChange }) => {
 };
 
 export default Pagination;
+
+
+
+
+
+
+

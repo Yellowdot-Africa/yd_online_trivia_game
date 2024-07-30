@@ -22,6 +22,8 @@ const Contact = () => {
 
   const [buttonText, setButtonText] = useState("Submit");
   const [buttonColor, setButtonColor] = useState("#54349F66");
+  const [messageSent, setMessageSent] = useState(false);
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,6 +35,7 @@ const Contact = () => {
       subject,
     });
     dispatch(submitContactForm({ name, mobile, email, message, subject }));
+    setMessageSent(false);
   };
 
   useEffect(() => {
@@ -40,7 +43,18 @@ const Contact = () => {
       console.log("Form submitted successfully");
       setButtonText("Sent");
       setButtonColor("#3D9F34");
-      dispatch(resetForm());
+      setMessageSent(true);
+
+
+      const timer = setTimeout(() => {
+        setMessageSent(false);
+        dispatch(resetForm());
+      }, 3000);
+
+      return () => clearTimeout(timer);
+
+
+     
     }
   }, [success, dispatch, token]);
 
@@ -58,11 +72,10 @@ const Contact = () => {
       <div className="contact-container">
         <div className="contact-section">
           <h4>Feedback Section</h4>
-          <p>
+          <p className="contact-text">
             Please input your details and comments to get in touch with our
             support team.
           </p>
-          {success && <p className="success">Message sent successfully!</p>}
 
           <form onSubmit={handleSubmit}>
             <input
@@ -113,6 +126,9 @@ const Contact = () => {
             </button>
           </form>
           {error && <p className="error">Error: {error}</p>}
+          {messageSent && !isLoading && !error && (
+            <p className="contact-success-message">Message has been sent!</p>
+          )}
         </div>
       </div>
     </>

@@ -10,19 +10,11 @@ const GettingStarted = () => {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
 const navigate = useNavigate();
-const popularCategories = useSelector(state => state.categories.selectedCategory);
-const { categories, isLoading, error } = useSelector(
-  (state) => state.categories
-);
+const { categories, selectedCategory } = useSelector((state) => state.categories);
 
 
-// console.log('Popular Categories:', popularCategories);
-// console.log('Selected Category:', selectedCategory);
 
-// const category = popularCategories.find(cat => cat.id === selectedCategory);
-const category = categories && categories.length > 0 
-    ? categories.find(cat => cat.id === popularCategories)
-    : null;
+const category = categories.find((cat) => cat.id === selectedCategory);
 
 
 const btnText ="Begin";
@@ -52,7 +44,6 @@ const handleQuestionPack = () => {
         <div key={category.id} className="category">
 
         <p className="game-inffo">{category.description}</p>
-        {/* <p className="game-inffo">Information about the game</p> */}
         </div>
           ) : (
             <p className="game-inffo">No category selected</p>

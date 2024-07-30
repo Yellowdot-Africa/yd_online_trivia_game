@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchQuestions, setCurrentQuestionIndex } from '../../features/questions/questionSlice';
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchQuestions,
+  setCurrentQuestionIndex,
+} from "../../features/questions/questionSlice";
 import Pagination from "../../Components/Pagination";
 import Timer from "../../assets/Icons/timer.svg";
-import { useNavigate } from 'react-router-dom';
-import EndGameModal from '../../Components/EndGameModal';
+import { useNavigate } from "react-router-dom";
+import EndGameModal from "../../Components/EndGameModal";
 import "../../Pages/Questions/QuestionsScreen.css";
-import { Circles } from 'react-loader-spinner'; 
-
+import { Circles } from "react-loader-spinner";
 
 const QuestionScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const {
-    questions,
-    answers,
-    currentQuestionIndex,
-    loading,
-  } = useSelector((state) => state.questions);
+  const { questions, answers, currentQuestionIndex, loading } = useSelector(
+    (state) => state.questions
+  );
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
@@ -29,6 +28,7 @@ const QuestionScreen = () => {
   const [timer, setTimer] = useState(10);
   const [screenBgColor, setScreenBgColor] = useState("#580DA4");
   const [answerBgColors, setAnswerBgColors] = useState([]);
+  const [statuses, setStatuses] = useState(Array(questions.length).fill(null));
 
   useEffect(() => {
     dispatch(fetchQuestions());
@@ -74,19 +74,29 @@ const QuestionScreen = () => {
       setScreenBgColor("#0D89A4");
       setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong");
 
+      const updatedStatuses = [...statuses];
+      updatedStatuses[currentQuestionIndex] = isCorrect ? "correct" : "wrong";
+      setStatuses(updatedStatuses);
+
       setTimeout(() => {
         if (currentQuestionIndex === questions.length - 1) {
-          setShowModal(true);
+          navigate("/result-page", {
+            state: {
+              correctAnswers,
+              wrongAnswers,
+            },
+          });
         } else {
-          dispatch(setCurrentQuestionIndex(currentQuestionIndex + 1));
-          setActiveIndex((prevIndex) => prevIndex + 1);
+          const nextIndex = currentQuestionIndex + 1;
+          dispatch(setCurrentQuestionIndex(nextIndex));
+          setActiveIndex(nextIndex);
           setSelectedAnswerIndex(null);
           setTimer(10);
           setScreenBgColor("#580DA4");
           setAnswerBgColors([]);
           setFeedbackText("");
         }
-      }, 2000); 
+      }, 2000);
 
       if (isCorrect) {
         setCorrectAnswers((prev) => prev + 1);
@@ -97,10 +107,23 @@ const QuestionScreen = () => {
   };
 
   const handleAnswerClick = (index) => {
-    setSelectedAnswerIndex(index);
-    setScreenBgColor("#0D37A4");
-    const newAnswerBgColors = answers.map((_, i) => (i === index ? "#973CF2" : ""));
-    setAnswerBgColors(newAnswerBgColors);
+    if (selectedAnswerIndex === null) {
+      setSelectedAnswerIndex(index);
+      setScreenBgColor("#0D37A4");
+
+      const newAnswerBgColors = answers.map((_, i) =>
+        i === index ? "#973CF2" : ""
+      );
+      setAnswerBgColors(newAnswerBgColors);
+
+      setTimeout(() => {
+        handleAnswerSubmission();
+      }, 500);
+    }
+  };
+
+  const handleQuit = () => {
+    setShowModal(true);
   };
 
   const handleEndGame = () => {
@@ -118,23 +141,25 @@ const QuestionScreen = () => {
       : "Loading...";
 
   return (
-
-    <div className={`question-screen ${showModal ? 'modal-active' : ''}`} style={{ backgroundColor: screenBgColor }}>
-
+    <div
+      className={`question-screen ${showModal ? "modal-active" : ""}`}
+      style={{ backgroundColor: screenBgColor }}
+    >
       <div className="timer-container">
-        <div className='time-timer'> 
-        <div className="timer">
-          <img  src="" alt="" />
-          <img className='img-timer' src={Timer} alt="timer" />
-          <p>{timer}</p>
+        <div className="timer-wrapper">
+          <div className="timer">
+            <img className="img-timer" src={Timer} alt="timer" />
+            <p>{timer}</p>
+          </div>
+          <div className="quit-div">
+            <p className="quit" onClick={handleQuit}>Quit</p>
+          </div>
         </div>
-        </div>
-        <p className="quit" >Quit</p>
       </div>
+
       <main className="main-container">
         {loading ? (
           <Circles color="#D9D9D9" height={20} width={20} />
-
         ) : (
           <>
             <div className="quest-main-container">
@@ -146,6 +171,7 @@ const QuestionScreen = () => {
                 totalItems={questions.length}
                 activeIndex={activeIndex}
                 onChange={handlePageChange}
+                statuses={statuses}
               />
               <div className="answer-container">
                 <div className="answer-card">
@@ -155,9 +181,9 @@ const QuestionScreen = () => {
                         key={index}
                         className={`answer-option ${
                           selectedAnswerIndex === index ? "selected-answer" : ""
-                        }`}
+                        } ${selectedAnswerIndex !== null ? "disabled" : ""}`}
                         onClick={() => handleAnswerClick(index)}
-                        style={{ backgroundColor: answerBgColors[index] || '' }}
+                        style={{ backgroundColor: answerBgColors[index] || "" }}
                       >
                         {answer.answerText}
                       </div>
@@ -168,16 +194,13 @@ const QuestionScreen = () => {
           </>
         )}
       </main>
-      <EndGameModal 
-        isOpen={showModal} 
-        onClose={() => setShowModal(false)} 
-        onEnd={handleEndGame} 
+      <EndGameModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        onEnd={handleEndGame}
       />
     </div>
   );
 };
 
 export default QuestionScreen;
-
-
-

@@ -20,7 +20,7 @@ const TriviaCategories = () => {
   }, [dispatch]);
 
   const handleCategoryClick = (category) => {
-    dispatch(selectCategory(category));
+    dispatch(selectCategory(category.id));
     navigate("/getting-started");
   };
 

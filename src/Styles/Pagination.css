@@ -1,9 +1,11 @@
 .pagination {
     display: flex;
     justify-content: space-between;
-    padding: 59px;
-    margin-top: -42px;
+    align-items: center;
+    padding:10px 59px;
   }
+
+
   
   .dot {
     width: 5px;

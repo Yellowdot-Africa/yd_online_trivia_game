@@ -19,7 +19,7 @@
   margin-bottom: 10px;
 }
 
-.contact-section p {
+.contact-section .contact-text {
   color: #9c9c9c;
   /* font-size: 12px; */
   margin: 0 25px 30px 25px;
@@ -105,6 +105,15 @@
 
 }
 
+.contact-success-message{
+  color: #9c9c9c;
+  font-family: "AlpinoMedium";
+  font-size: 18px;
+  font-weight: 507;
+  line-height: 21.28px;
+  text-align: right;
+padding-top: 20px;
+}
 
 @media screen and (min-width:768px) {
 
