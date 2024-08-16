@@ -61,6 +61,16 @@
   padding: 10px;
 }
 
+.err-text{
+  color: #7e2cd1;
+  font-size: 18px;
+  font-family: "AlpinoBold";
+  font-weight: 700;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+}
+
 .winner-chart {
   display: flex;
   justify-content: space-between;

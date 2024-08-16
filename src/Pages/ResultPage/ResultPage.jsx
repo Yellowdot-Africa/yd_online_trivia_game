@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 // import Logo from "../../assets/Icons/big-cup.svg";
 import Logo from "../../assets/Icons/Frame-cup.png";
 import Congrat from "../../assets/Icons/congrat.png";
@@ -6,10 +6,14 @@ import Right from "../../assets/Icons/icon-cancel.png";
 import Cancel from "../../assets/Icons/icon-right.png";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
+import EndGameModal from "../../Components/EndGameModal";
+import Trophy from "../../assets/Images/gold-trophy.png";
 import "../../Pages/ResultPage/ResultPage.css";
 
 const ResultPage = () => {
+  const [screenBgColor, setScreenBgColor] = useState("#580DA4"); // Default color
+  const [showModal, setShowModal] = useState(false);
+
   const location = useLocation();
 
   const navigate = useNavigate();
@@ -18,14 +22,23 @@ const ResultPage = () => {
 
   const { correctAnswers, wrongAnswers, balance } = location.state || {};
 
+  const handleQuit = () => {
+    setScreenBgColor("#1F82F2"); 
+    setShowModal(true);
+  };
+
   return (
     <>
       <div className="result-container">
         <div className="result-header">
           <div className="your-result">
             <p>Your Results</p>
+
           </div>
-          <p className="quitt">Quit</p>
+          <div className="quitt">
+            <p onClick={handleQuit}>Quit</p>
+
+          </div>
         </div>
 
         <div className="result-details">
@@ -45,6 +58,7 @@ const ResultPage = () => {
         </div>
 
         <div className="prize-details">
+          <img src={Trophy} alt="trophy" />
           <p className="prize-heading">You won {experiencePoints} xp</p>
           <p className="prize-amount">Welldone</p>
           <p className="current-balance">Current balance: {walletBalance} Naira</p>
@@ -56,13 +70,6 @@ const ResultPage = () => {
             exceed 70% correct.
           </p>
         </div>
-        <div className="card-img-styl">
-        <img className="img-styl" src={Logo} alt="" />
-
-        </div>
-        <a className="back-to-home"  onClick={() => {
-            navigate("/home");
-          }}>Home</a>
         <button
           className="replay-button"
           onClick={() => {
@@ -71,7 +78,16 @@ const ResultPage = () => {
         >
           Replay
         </button>
+        <a className="back-to-home"  onClick={() => {
+            navigate("/home");
+          }}>Home</a>
+       
       </div>
+      <EndGameModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        // onEnd={handleEndGame}
+      />
     </>
   );
 };

@@ -3,6 +3,8 @@ import "../Questions/QuestionsScreen.css";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Icons/logoicon.svg";
 import CustomButton from "../../Components/CustomButton";
+import Prev from '../../assets/Icons/chevron-left.png';
+
 
 const QuestionPack = () => {
   const [selectedPack, setSelectedPack] = useState(null);
@@ -13,6 +15,10 @@ const QuestionPack = () => {
 
   const handlePackSelect = (pack) => {
     setSelectedPack(pack);
+  };
+
+  const handleGoBack = () => {
+ navigate(-1);
   };
 
   const btnText = "Begin";
@@ -44,8 +50,14 @@ const QuestionPack = () => {
   return (
     <>
       <div className="loading-pack-container">
+     
         <div className="question-details-cont">
-          <img src={Logo} alt="logo" />
+        <div className="back-logo-cont">
+        <img className="back" src={Prev} alt="prev" onClick={handleGoBack} />
+        <img className="pack-logo" src={Logo} alt="logo" />
+
+          </div>
+
           <p className="question-text">
             Select your <span className="span"> Football </span> Trivia question
             pack (N50 per token)

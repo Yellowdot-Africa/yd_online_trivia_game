@@ -26,7 +26,7 @@ const QuestionScreen = () => {
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [timer, setTimer] = useState(10);
-  const [screenBgColor, setScreenBgColor] = useState("#580DA4");
+  const [screenBgColor, setScreenBgColor] = useState("#580DA4"); // Default color
   const [answerBgColors, setAnswerBgColors] = useState([]);
   const [statuses, setStatuses] = useState(Array(questions.length).fill(null));
 
@@ -65,13 +65,13 @@ const QuestionScreen = () => {
 
       const newAnswerBgColors = answers.map((answer, index) => {
         if (index === selectedAnswerIndex) {
-          return isCorrect ? "#5CBE5A" : "#E37F80";
+          return isCorrect ? "#5CBE5A" : "#E37F80"; 
         }
         return answer.isCorrectAnswer ? "#5CBE5A" : "";
       });
 
       setAnswerBgColors(newAnswerBgColors);
-      setScreenBgColor("#0D89A4");
+      setScreenBgColor("#4C22B8"); 
       setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong");
 
       const updatedStatuses = [...statuses];
@@ -92,7 +92,7 @@ const QuestionScreen = () => {
           setActiveIndex(nextIndex);
           setSelectedAnswerIndex(null);
           setTimer(10);
-          setScreenBgColor("#580DA4");
+          setScreenBgColor("#580DA4"); 
           setAnswerBgColors([]);
           setFeedbackText("");
         }
@@ -109,7 +109,7 @@ const QuestionScreen = () => {
   const handleAnswerClick = (index) => {
     if (selectedAnswerIndex === null) {
       setSelectedAnswerIndex(index);
-      setScreenBgColor("#0D37A4");
+      setScreenBgColor("#0B0B2A"); 
 
       const newAnswerBgColors = answers.map((_, i) =>
         i === index ? "#973CF2" : ""
@@ -123,6 +123,7 @@ const QuestionScreen = () => {
   };
 
   const handleQuit = () => {
+    setScreenBgColor("#1F82F2"); 
     setShowModal(true);
   };
 

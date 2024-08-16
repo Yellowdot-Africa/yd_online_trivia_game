@@ -1,6 +1,13 @@
+.home-page{
+  background: #08081E;
+
+}
+
 .header {
   padding:0px 26px 0px 26px;
-  background-color: #230442;
+  /* background-color: #230442; */
+  background: #08081E;
+
   color: #fff;
 }
 
@@ -82,7 +89,9 @@ line-height: 16.32px;
 }
 
 .toastt {
-  background-color: #d9d9d9;
+  /* background-color: #d9d9d9; */
+  background: #08081E;
+
   margin: 32px 23px 20px 23px;
   padding: 17px 71px 14px 71px;
 }
@@ -92,7 +101,7 @@ line-height: 16.32px;
   font-weight: 700;
   line-height: 16.32px;
   text-align: center;
-  color: #000000;
+  color: #ffffff;
 }
 
 

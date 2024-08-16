@@ -101,11 +101,16 @@ const PopularCategories = () => {
                   onClick={handleImageClick}
                 />
                 <h4>{category.name}</h4>
+                <div className="categories-btn-card">
                 <div className="count-container">
                   <div className="play-img" onClick={() => handlePlayClick(category)}>
                     <img src={Play} alt="Play" />
                   </div>
                   <p className="total-countt">1.2K</p>
+                 
+                  </div>
+                  <button className="total-countt-btn" onClick={() => handlePlayClick(category)}>Play</button>
+
                 </div>
               </div>
             ))}

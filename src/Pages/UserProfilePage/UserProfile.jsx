@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfile } from '../../features/userProfile/userProfileSlice';
+import { fetchUserProfile} from '../../features/userProfile/userProfileSlice';
 import '../../Pages/UserProfilePage/UserProfile.css';
 import Prev from '../../assets/Icons/chevron-left.png';
 import Edit from '../../assets/Icons/editpic.png';
@@ -21,8 +21,12 @@ const UserProfile = () => {
 
   const userID = useSelector((state) => state.auth.userID);
   const authToken = useSelector(state => state.auth.token);
+  const isLoading = useSelector((state) => state.userProfile.isLoading);
+  const error = useSelector((state) => state.userProfile.error);
+  // const userStats =useSelector((state) = state.userProfile.userStats)
+  const username = useSelector((state) => state.auth.username);
+  const userStats = useSelector((state) => state.userProfile.userStats);
 
-  const { userStats, isLoading, error } = useSelector(state => state.userProfile);
 
   useEffect(() => {
     if (userID && authToken) {
@@ -163,3 +167,6 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+
+

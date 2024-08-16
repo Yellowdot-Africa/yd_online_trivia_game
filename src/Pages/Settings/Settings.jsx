@@ -100,7 +100,7 @@ const Settings = ({ showShareButtons }) => {
       </div>
       </div>
       <div className="settings-nav-icon">
-      <NavigationIcons/>
+      <NavigationIcons  bgColor={"#FFFFFF"}/>
 
       </div>
     </>

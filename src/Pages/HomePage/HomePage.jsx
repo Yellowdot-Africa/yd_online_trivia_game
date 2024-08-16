@@ -59,7 +59,7 @@ const handleSeeAccount = () => {
         </div>
         <div>
             <TriviaCategories/>
-            <NavigationIcons/>
+            <NavigationIcons bgColor={"#404040"} opacity={0.9}/>
            
         </div>
         

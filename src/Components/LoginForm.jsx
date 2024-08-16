@@ -1,10 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../features/auth/authSlice";
-import { Circles } from 'react-loader-spinner';
+import { Circles } from "react-loader-spinner";
 
 import "../Styles/Login.css";
 
@@ -19,6 +19,7 @@ const LoginForm = ({ isLoginOpen }) => {
     loginMethod: "" ? "email" : "phone",
     username: "",
     password: "",
+    rememberMe: false,
   };
 
   const validationSchema = Yup.object().shape({
@@ -31,12 +32,17 @@ const LoginForm = ({ isLoginOpen }) => {
   });
 
   const handleSubmit = (values) => {
-    const { loginMethod, phoneNumber, email, password } = values;
+    const { loginMethod, phoneNumber, email, password , rememberMe } = values;
     const username = loginMethod === "phone" ? phoneNumber : email;
 
     dispatch(login({ username, password }))
       .then((action) => {
         if (login.fulfilled.match(action)) {
+          const token = action.payload.token; 
+
+          if (rememberMe) {
+            localStorage.setItem("token", token); 
+          }
           navigate("/loading");
         }
       })
@@ -116,6 +122,11 @@ const LoginForm = ({ isLoginOpen }) => {
                 component="p"
                 className="error-input-text"
               />
+
+              <div className="remember-me">
+                <Field type="checkbox" name="rememberMe" id="rememberMe" />
+                <label htmlFor="rememberMe">Remember Me</label>
+              </div>
               <button
                 type="submit"
                 disabled={status === "loading"}
@@ -160,8 +171,5 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
-
-
-
 
 

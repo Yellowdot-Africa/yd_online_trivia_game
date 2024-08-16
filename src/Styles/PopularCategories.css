@@ -1,7 +1,7 @@
 .categories-container {
   text-align: center;
-  background: #ffffff;
-  margin: 34px 24px;
+  background: #08081E;
+  padding: 34px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,7 @@
 }
 
 .categories-heading h4 {
-  color: #262626;
+  color: #FFFFFF;
   font-size: 24px;
   font-weight: 700;
   font-family: "AlpinoBold";
@@ -19,7 +19,7 @@
 }
 
 .categories-heading p {
-  color: #262626;
+  color: #FFFFFF;
   font-family: "AlpinoRegular";
   font-size: 16px;
   font-weight: 421;
@@ -43,13 +43,13 @@
 }
 
 .category-item h4 {
-  color: #000000;
+  color: #FFFFFF;
   font-family: "AlpinoBold";
   font-size: 14px;
   line-height: 16.94px;
   font-weight: 600;
   padding-top: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
  
 
 }
@@ -61,14 +61,19 @@
 
 
 }
-
+.categories-btn-card{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+ 
+}
 .count-container {
   display: flex;
   align-items: center;
 }
 
 .play-img {
-  background-color: #54349f;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(153, 153, 153, 0.32) 100%);
   border-radius: 50%;
   width: 18.38px;
   height: 18.38px;
@@ -80,7 +85,9 @@
 .play-img img {
   width: 10.38px;
   height: 10.38px;
+  /* filter: url("black"); */
 }
+
 .total-countt {
   padding-left: 5px;
   margin: 0;
@@ -89,11 +96,20 @@
   font-weight: 400;
   line-height: 16.94px;
   text-align: left;
-  color: #262626;
+  color: #FFFFFF;
+}
+
+.total-countt-btn{
+  background-color: #54349F;
+  box-shadow: 0px 6px 24px 0px #0000001A;
+  border: none;
+  border-radius: 30px;
+  padding: 7.5px 24.5px;
+  color: #FFFFFF;
 }
 
 .music h4 {
-  color: #000000;
+  color: #FFFFFF;
   font-family: "AlpinoBold";
   font-size: 14px;
   line-height: 16.94px;
@@ -105,7 +121,7 @@
 }
 
 .history h4 {
-  color: #000000;
+  color: #FFFFFF !important;
   font-family: "AlpinoBold";
   font-size: 14px;
   line-height: 16.94px;
@@ -114,7 +130,7 @@
 }
 
 .movie h4 {
-  color: #000000;
+  color: #FFFFFF !important;
   font-family: "AlpinoBold  ";
   font-size: 14px;
   line-height: 16.94px;
@@ -132,14 +148,12 @@
 @media screen and (min-width:768px) {
   .categories-container {
     text-align: center;
-    background: #ffffff;
-    /* margin: 34px 24px; */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 356px;
-    margin:34px auto;
+   
 
   }
 
@@ -150,7 +164,6 @@
 
 
 
-/* PopularCategories.css */
 
 .categories-container.blur {
   filter: blur(5px);

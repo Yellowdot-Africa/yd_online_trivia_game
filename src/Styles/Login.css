@@ -56,6 +56,39 @@
   letter-spacing: 0.05em;
   text-align: left;
 }
+
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  color: #54349f;
+
+}
+
+.remember-me input[type="checkbox"] {
+  margin-right: 8px;
+  accent-color: #54349f; 
+  width: 16px;
+  height: 16px;
+}
+
+.remember-me label {
+  font-size: 14px;
+  color: #333; 
+  cursor: pointer;
+}
+
+.remember-me label:hover {
+  color: #54349f;
+}
+
+.remember-me input[type="checkbox"]:focus {
+  outline: 2px solid #54349f;
+  outline-offset: 2px;
+}
+
+
 .login-form button {
   width: 118px;
   height: 34px;

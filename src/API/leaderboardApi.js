@@ -13,8 +13,19 @@ export const fetchLeaderboard = async (gameId, token) => {
         },
       }
     );
+    console.log('API Response:', response.data);
     return response.data;
   } catch (error) {
+    console.log("error 404");
+    console.error('API Error:', error.response ? error.response.data : error);
+    if (error.response && error.response.status === 404) {
+      return []; 
+    }
     throw error.response ? error.response.data : new Error("API Error");
   }
 };
+
+
+
+
+

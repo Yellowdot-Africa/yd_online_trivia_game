@@ -132,3 +132,54 @@ export default authSlice.reducer;
 
 
 
+// // userProfileSlice.js
+// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+// import axios from 'axios';
+
+// export const fetchUserProfile = createAsyncThunk(
+//   "userProfile/fetchUserProfile",
+//   async ({ userID, token }, thunkAPI) => {
+//     try {
+//       const response = await axios.get(
+//         `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUserStats`,
+//         {
+//           headers: {
+//             Authorization: `Bearer ${token}`
+//           }
+//         }
+//       );
+//       return response.data.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue(
+//         error.response ? error.response.data.message : "An error occurred"
+//       );
+//     }
+//   }
+// );
+
+// const userProfileSlice = createSlice({
+//   name: "userProfile",
+//   initialState: {
+//     userStats: null,
+//     isLoading: false,
+//     error: null
+//   },
+//   reducers: {},
+//   extraReducers: (builder) => {
+//     builder
+//       .addCase(fetchUserProfile.pending, (state) => {
+//         state.isLoading = true;
+//         state.error = null;
+//       })
+//       .addCase(fetchUserProfile.fulfilled, (state, action) => {
+//         state.isLoading = false;
+//         state.userStats = action.payload;
+//       })
+//       .addCase(fetchUserProfile.rejected, (state, action) => {
+//         state.isLoading = false;
+//         state.error = action.payload;
+//       });
+//   }
+// });
+
+// export default userProfileSlice.reducer;

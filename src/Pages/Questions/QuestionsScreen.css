@@ -12,6 +12,23 @@
   justify-content: center;
   margin-top: 32px;
 }
+
+.back-logo-cont{
+  display: flex;
+  align-items: center;
+  width: 100%;
+ 
+}
+
+.pack-logo{
+  display: flex;
+  margin: auto;
+
+}
+
+/* .back{
+  margin-left: 70px;
+} */
 .que-pack-cont {
 }
 

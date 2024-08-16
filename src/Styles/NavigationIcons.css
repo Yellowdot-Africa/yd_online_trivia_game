@@ -11,7 +11,9 @@
 }
 
 .icon-content-section {
-  background-color: #fff;
+  /* background-color: #fff; */
+  /* background-color: #404040; */
+ /* opacity: 0.9; */
   border-radius: 40px;
   box-shadow: 0px 2px 2px 0px #00000026;
   width: 95vw;
@@ -21,6 +23,7 @@
   justify-content: space-between;
   padding: 25px;
   margin: 10px 0 40px 0;
+  border: 1px solid #FFFFFF1A
 }
 
 .home-nav-icons {
