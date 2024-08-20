@@ -6,25 +6,21 @@ import { signup } from "../features/auth/authSlice";
 import { Circles } from 'react-loader-spinner'; 
 import '../Styles/SignUp.css';
 
-
 const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const dispatch = useDispatch();
   const signupState = useSelector((state) => state.auth);
   const { status, signUpError } = signupState || { status: 'idle', signUpError: null }; 
   const [emailFocus, setEmailFocus] = useState(false);
-  const [phoneNumberFocus, setPhoneNumberFocus] = useState(false);
+  const [msisdnFocus, setMsisdnFocus] = useState(false);
   const [usernameFocus, setUsernameFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState(""); 
 
-
-
-
   const initialValues = {
     email: '',
-    phoneNumber: '',
+    msisdn: '',
     username: '',
     password: '',
     confirmPassword: '',
@@ -32,7 +28,7 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
 
   const validationSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Please input your email'),
-    phoneNumber: Yup.string()
+    msisdn: Yup.string()
       .matches(/^\d{7,14}$/, 'Invalid phone number format')
       .required('Please input your phone number'),
     username: Yup.string().required('Please input your username'),
@@ -45,23 +41,26 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       const result = await dispatch(signup(values)).unwrap();
-      navigateToLogin(); 
+     
+      if (result.message === 'User Created Successfully') {
+        navigateToLogin(); 
+      } else {
+        setErrorMessage("Signup successful, but no user data was returned");
+      }
+     
+
     } catch (err) {
+      console.error('Signup error:', err);
+
       if (err.message === "User exist with same email or MSISDN!") {
         setErrorMessage(err.message);
-        setErrorMessage("User exist with same email or MSISDN!");
-      
       } else {
         setErrorMessage("Signup failed. Please try again later.");
-     
       }
     } finally {
       setSubmitting(false);
     }
   };
-
- 
-
 
   return (
     <div className="signup-form-cont">
@@ -85,14 +84,14 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
 
             <Field
               type="tel"
-              name="phoneNumber"
+              name="msisdn"
               placeholder="+234"
               autoComplete="tel"
-              onFocus={() => setPhoneNumberFocus(true)}
-              onBlur={() => setPhoneNumberFocus(false)}
+              onFocus={() => setMsisdnFocus(true)}
+              onBlur={() => setMsisdnFocus(false)}
             />
-            <ErrorMessage name="phoneNumber" component="p" className="error-text" />
-            {phoneNumberFocus && <p className="inputt-textt">Please input your phone number</p>}
+            <ErrorMessage name="msisdn" component="p" className="error-text" />
+            {msisdnFocus && <p className="inputt-textt">Please input your MSISDN</p>}
 
             <Field
               type="text"
@@ -136,18 +135,26 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
             </button>
             <br/>
             {signUpError && <p className="error-text">{signUpError}</p>}
-
           </Form>
-         
         )}
-        
       </Formik>
-     
-     
     </div>
   );
 };
 
 export default SignUpForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

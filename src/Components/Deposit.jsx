@@ -110,7 +110,7 @@ const Deposit = () => {
        
         const newBalance = addUnitsResponse.data.newBalance; 
 
-        dispatch(setWalletBalance(parseFloat(inputValue)));
+        // dispatch(setWalletBalance(parseFloat(inputValue)));
         // dispatch(setWalletBalance(newBalance));
 
         dispatch(setExperiencePoints(units));
@@ -236,6 +236,7 @@ const Deposit = () => {
 };
 
 export default Deposit;
+
 
 
 

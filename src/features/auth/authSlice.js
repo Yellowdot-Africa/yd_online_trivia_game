@@ -32,16 +32,20 @@ export const signup = createAsyncThunk(
       const response = await signupApi.post("/Users/CreateUser", {
         username: userData.username,
         email: userData.email,
-        msisdn: userData.phoneNumber,
+        msisdn: userData.msisdn,
         password: userData.password,
       });
 
-      const { statusCode, statusMessage, message, data } = response.data;
+      const statusCode = response.data?.statusCode;
+      const statusMessage = response.data?.statusMessage;
+      const message = response.data?.message;
+      const data = response.data?.data;
 
       if (statusCode !== "999") {
         throw new Error(statusMessage || "Signup failed");
       }
-      return { message, data };
+
+      return response.data;
     } catch (err) {
       const errorMessage =
         err.response?.data?.message || err.message || "Unknown error occurred";
@@ -50,12 +54,12 @@ export const signup = createAsyncThunk(
   }
 );
 
-
-
 const initialState = {
   userID: null,
   userType: null,
   username: null,
+  email: null,
+  msisdn: null,
   walletBalance: null,
   tokenExpiry: null,
   jwt: localStorage.getItem("jwt") || null,
@@ -67,11 +71,9 @@ const initialState = {
   status: "idle",
 };
 
-
 const authSlice = createSlice({
   name: "auth",
   initialState,
- 
   reducers: {},
   extraReducers: (builder) => {
     builder
@@ -110,6 +112,8 @@ const authSlice = createSlice({
         state.userID = action.payload.userID;
         state.userType = action.payload.userType;
         state.username = action.payload.username;
+        state.email = action.payload.email;
+        state.msisdn = action.payload.msisdn;
         state.walletBalance = action.payload.walletBalance;
         state.tokenExpiry = action.payload.tokenExpiry;
         state.jwt = action.payload.token;
@@ -118,6 +122,7 @@ const authSlice = createSlice({
         state.success = true;
         state.status = "succeeded";
       })
+
       .addCase(signup.rejected, (state, action) => {
         state.isLoading = false;
         state.signUpError = action.payload || "Signup failed";
@@ -129,57 +134,3 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
-
-
-
-// // userProfileSlice.js
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from 'axios';
-
-// export const fetchUserProfile = createAsyncThunk(
-//   "userProfile/fetchUserProfile",
-//   async ({ userID, token }, thunkAPI) => {
-//     try {
-//       const response = await axios.get(
-//         `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Users/GetUserStats`,
-//         {
-//           headers: {
-//             Authorization: `Bearer ${token}`
-//           }
-//         }
-//       );
-//       return response.data.data;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(
-//         error.response ? error.response.data.message : "An error occurred"
-//       );
-//     }
-//   }
-// );
-
-// const userProfileSlice = createSlice({
-//   name: "userProfile",
-//   initialState: {
-//     userStats: null,
-//     isLoading: false,
-//     error: null
-//   },
-//   reducers: {},
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(fetchUserProfile.pending, (state) => {
-//         state.isLoading = true;
-//         state.error = null;
-//       })
-//       .addCase(fetchUserProfile.fulfilled, (state, action) => {
-//         state.isLoading = false;
-//         state.userStats = action.payload;
-//       })
-//       .addCase(fetchUserProfile.rejected, (state, action) => {
-//         state.isLoading = false;
-//         state.error = action.payload;
-//       });
-//   }
-// });
-
-// export default userProfileSlice.reducer;

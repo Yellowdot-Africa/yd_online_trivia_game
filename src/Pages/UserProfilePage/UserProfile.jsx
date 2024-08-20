@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfile} from '../../features/userProfile/userProfileSlice';
+import { fetchUserProfile } from '../../features/userProfile/userProfileSlice';
 import '../../Pages/UserProfilePage/UserProfile.css';
 import Prev from '../../assets/Icons/chevron-left.png';
 import Edit from '../../assets/Icons/editpic.png';
@@ -8,33 +8,32 @@ import Phone from '../../assets/Icons/star.png';
 import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
-  const [isEditMode, setIsEditMode] = useState(false);
-  const [editedUsername, setEditedUsername] = useState('Jamesjohn');
-  const [editedPhoneNumber, setEditedPhoneNumber] = useState('+2348178544567');
-  const [editedEmail, setEditedEmail] = useState('jamesjohn4u@gmail.com');
-  const [isInputEdited, setIsInputEdited] = useState(false); 
+  const username = useSelector((state) => state.auth.username);
+  const email = useSelector((state) => state.auth.email);
+  const msisdn = useSelector((state) => state.auth.msisdn);
 
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [editedUsername, setEditedUsername] = useState(username || '');
+  const [editedPhoneNumber, setEditedPhoneNumber] = useState(msisdn || '');
+  const [editedEmail, setEditedEmail] = useState(email || '');
+  const [isInputEdited, setIsInputEdited] = useState(false);
+
+  const firstLetter = username ? username.charAt(0).toUpperCase() : '';
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
   const userID = useSelector((state) => state.auth.userID);
-  const authToken = useSelector(state => state.auth.token);
+  const authToken = useSelector(state => state.auth.jwt);
   const isLoading = useSelector((state) => state.userProfile.isLoading);
   const error = useSelector((state) => state.userProfile.error);
-  // const userStats =useSelector((state) = state.userProfile.userStats)
-  const username = useSelector((state) => state.auth.username);
   const userStats = useSelector((state) => state.userProfile.userStats);
-
 
   useEffect(() => {
     if (userID && authToken) {
-      dispatch(fetchUserProfile({userID,token: authToken}));
+      dispatch(fetchUserProfile({ userID, token: authToken }));
     }
   }, [dispatch, userID, authToken]);
-
-
 
   const handleEditClick = () => {
     setIsEditMode(true);
@@ -42,7 +41,7 @@ const UserProfile = () => {
 
   const handleGoBack = () => {
     setIsEditMode(false);
-    isEditMode ? navigate('/user-profile') : navigate(-1);
+    navigate(-1); 
   };
 
   const handleSaveClick = () => {
@@ -54,9 +53,7 @@ const UserProfile = () => {
     setIsInputEdited(true);
   };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -88,7 +85,7 @@ const UserProfile = () => {
               className="input-field"
               placeholder="User Name"
               value={editedUsername}
-              onChange={(e) => setEditedUsername(e.target.value)}
+              onChange={handleInputChange(setEditedUsername)}
             />
             <label htmlFor="phonenumber">Phone Number</label>
             <input
@@ -97,8 +94,7 @@ const UserProfile = () => {
               placeholder="Phone Number"
               className="input-field"
               value={editedPhoneNumber}
-              onChange={(e) => setEditedPhoneNumber(e.target.value)}
-
+              onChange={handleInputChange(setEditedPhoneNumber)}
             />
             <label htmlFor="email">Email</label>
             <input
@@ -108,11 +104,10 @@ const UserProfile = () => {
               placeholder="Email"
               value={editedEmail}
               onChange={handleInputChange(setEditedEmail)}
-
             />
           </form>
-         
-           <button 
+
+          <button 
             className={`save-button ${isInputEdited ? 'active' : ''}`} 
             onClick={handleSaveClick}
           >
@@ -121,19 +116,19 @@ const UserProfile = () => {
         </div>
       ) : (
         <div className='user-container'>
-        <div className="user-details">
-          <div className="avatar">
-            <p>J</p>
-            <img src={Edit} alt="" />
+          <div className="user-details">
+            <div className="avatar">
+              <p>{firstLetter}</p>
+              <img src={Edit} alt="" />
+            </div>
+            <div className="user-info">
+              <p className="phone-number">
+                <img src={Phone} alt="phone" /> {editedPhoneNumber}
+              </p>
+              <p className="phone-number">{editedEmail}</p>
+              <p className="user-name">{editedUsername}</p>
+            </div>
           </div>
-          <div className="user-info">
-            <p className="phone-number">
-              <img src={Phone} alt="phone" /> {editedPhoneNumber}
-            </p>
-            <p className="phone-number">{editedEmail}</p>
-            <p className="user-name">{editedUsername}</p>
-          </div>
-        </div>
         </div>
       )}
 
@@ -145,20 +140,20 @@ const UserProfile = () => {
         </div>
       )}
       {!isEditMode && userStats && (
-       <div className="user-info-deets">
-       <div className="user-deetails-info">
-         <div className="gem">
-           <p className="gemm">Games Played Count</p>
-           <p className="gem-no">{userStats.gamesPlayedCount || 0}</p>
-         </div>
-         <div className="prize">
-           <p className="prz">Total Score</p>
-           <p className="prz-no">{userStats.totalScore || 0}</p>
-         </div>
-         <div className="prize">
-           <p className="prz">Correct Answer Percentage</p>
-           <p className="prz-no">{userStats.correctAnswerPercentage || "0%"}</p>
-         </div>
+        <div className="user-info-deets">
+          <div className="user-deetails-info">
+            <div className="gem">
+              <p className="gemm">Games Played Count</p>
+              <p className="gem-no">{userStats.gamesPlayedCount || 0}</p>
+            </div>
+            <div className="prize">
+              <p className="prz">Total Score</p>
+              <p className="prz-no">{userStats.totalScore || 0}</p>
+            </div>
+            <div className="prize">
+              <p className="prz">Correct Answer Percentage</p>
+              <p className="prz-no">{userStats.correctAnswerPercentage || "0%"}</p>
+            </div>
           </div>
         </div>
       )}
@@ -167,6 +162,7 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
 
 
 

@@ -75,7 +75,8 @@ const Leaderboard = () => {
           <p>Today</p>
           <p>Monthly</p>
         </div>
-        {/* <div className="winner-chart">
+       
+ {/* <div className="winner-chart">
           {leaderboardData.length >= 3 ? (
             <>
               <div className="winner-two">
@@ -154,7 +155,6 @@ const Leaderboard = () => {
             </div>
           )}
         </div> */}
-
 
 <div className="winner-chart">
   {error ? (
