@@ -82,6 +82,7 @@ const router = createBrowserRouter([
     path: "/deposit",
     element: <Deposit />,
   },
+
   {
     path: "/cashout",
     element: <CashOutSuccessPage />,
@@ -100,10 +101,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/questions",
-    element: <QuestionInfo />,
+    element: <QuestionInfo  />,
   },
   {
-    path: "/question-screen/:categoryID",
+    path: "/question-screen",
     element: <QuestionScreen />,
   },
   {

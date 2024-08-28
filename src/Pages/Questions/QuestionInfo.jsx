@@ -10,7 +10,6 @@ import CustomButton from "../../Components/CustomButton";
 const QuestionInfo = () => {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
-  const [categoryID, setCategoryID] = useState(1); 
 
   const navigate = useNavigate();
 
@@ -21,11 +20,11 @@ const QuestionInfo = () => {
 
 
 const handleLetGoBtn = () => {
-    if (categoryID) {
-      navigate(`/question-screen/${categoryID}`);
-    } else {
-      console.error('Category ID is not provided');
-    }
+    // if (categoryID) {
+      navigate("/question-screen");
+    // } else {
+    //   console.error('Category ID is not provided');
+    // }
   };
 
   const btnText = "Let's go";
@@ -67,3 +66,5 @@ const handleLetGoBtn = () => {
 };
 
 export default QuestionInfo;
+
+

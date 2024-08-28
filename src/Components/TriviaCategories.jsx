@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getCategories,
   selectCategory,
+  selectGame,
+  getGames
 } from "../features/categories/categoriesSlice";
 import "../Styles/TriviaCategories.css";
 import { useNavigate } from "react-router-dom";
@@ -11,23 +13,50 @@ const TriviaCategories = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { categories, isLoading, error } = useSelector(
-    (state) => state.categories
-  );
+  const { isLoading, error } = useSelector((state) => state.categories);
+  const categories = useSelector((state) => state.categories.categories);
+  const games = useSelector((state) => state.categories.games);
 
   useEffect(() => {
     dispatch(getCategories());
+    dispatch(getGames());
   }, [dispatch]);
 
   const handleCategoryClick = (category) => {
-    dispatch(selectCategory(category.id));
+    if (!Array.isArray(games)) {
+      console.error('Games array is not defined');
+      return;
+    }
+
+    if (!category || !category.name) {
+      console.error('Category is not defined or does not have a name');
+      return;
+    }
+
+    console.log("Selected Category ID:", category.id);
+    console.log("Games Array:", games);
+
+    const selectedGame = games.find((game) =>
+      game.name.toLowerCase().includes(category.name.toLowerCase())
+    );
+
+    if (selectedGame) {
+      console.log("Selected Game ID:", selectedGame.id);
+      dispatch(selectCategory(category.id));
+      dispatch(selectGame(selectedGame.id));
+    } else {
+      console.warn('Game not found for the selected category, using default game ID');
+      dispatch(selectCategory(category.id));
+      dispatch(selectGame(1)); 
+    }
+
     navigate("/getting-started");
   };
 
-
+ 
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div>Error loading categories or games: {error.message}</div>;
   }
 
   return (
@@ -71,8 +100,4 @@ const TriviaCategories = () => {
 };
 
 export default TriviaCategories;
-
-
-
-
 

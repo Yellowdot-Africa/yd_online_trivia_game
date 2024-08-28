@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  gameId: null,  // Initialize gameId as null or any default value
+  gameId: null,  
 };
 
 const gameSlice = createSlice({

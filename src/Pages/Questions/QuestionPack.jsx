@@ -1,17 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "../Questions/QuestionsScreen.css";
 import { useNavigate } from "react-router-dom";
 import Logo from "../../assets/Icons/logoicon.svg";
 import CustomButton from "../../Components/CustomButton";
 import Prev from '../../assets/Icons/chevron-left.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchQuestions } from '../../features/questions/questionSlice';
+
 
 
 const QuestionPack = () => {
-  const [selectedPack, setSelectedPack] = useState(null);
-  const [inputValue, setInputValue] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [balance, setBalance] = useState(0);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [selectedPack, setSelectedPack] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { selectedCategory, selectedGame, selectedLanguage } = useSelector(
+    (state) => state.categories
+  );
+  const { questions, error } = useSelector((state) => state.questions);
+  const [inputValue, setInputValue] = useState("");
+  // const [balance, setBalance] = useState(0);
+  const balance = useSelector((state) => state.wallet.balance); 
+
+ 
+
+  useEffect(() => {
+    if (selectedCategory && selectedGame) {
+      setLoading(true);
+
+      dispatch(
+        fetchQuestions({
+          categoryID: selectedCategory,
+          gameID: selectedGame,
+          language: selectedLanguage,
+        })
+      ).finally(() => setLoading(false));
+    }
+  }, [dispatch, selectedCategory, selectedGame, selectedLanguage]);
+
 
   const handlePackSelect = (pack) => {
     setSelectedPack(pack);
@@ -19,6 +45,12 @@ const QuestionPack = () => {
 
   const handleGoBack = () => {
  navigate(-1);
+  };
+
+  const handleBegin = () => {
+    if (selectedPack) {
+      navigate("/question-loading");
+    }
   };
 
   const btnText = "Begin";
@@ -31,21 +63,35 @@ const QuestionPack = () => {
     padding: "0",
     width: "100%",
     marginTop: "245px",
-    backgroundColor: inputValue ? "#cac9cc" : "#973CF2",
+    // backgroundColor: inputValue ? "#cac9cc" : "#973CF2",
+    backgroundColor: selectedPack ? "#973CF2" : "#cac9cc", 
+
   };
 
+  // const isBalanceSufficient = (pack) => {
+  //   if (pack === "ten") {
+  //     return balance >= 1;
+  //   } else if (pack === "fifteen") {
+  //     return balance >= 2;
+  //   } else if (pack === "twenty") {
+  //     return balance >= 4;
+  //   } else if (pack === "twenty-five") {
+  //     return balance >= 10;
+  //   }
+  //   return false;
+  // };
+
   const isBalanceSufficient = (pack) => {
-    if (pack === "ten") {
-      return balance >= 1;
-    } else if (pack === "fifteen") {
-      return balance >= 2;
-    } else if (pack === "twenty") {
-      return balance >= 4;
-    } else if (pack === "twenty-five") {
-      return balance >= 10;
+    switch (pack) {
+      case "ten": return balance >= 1;
+      case "fifteen": return balance >= 2;
+      case "twenty": return balance >= 4;
+      case "twenty-five": return balance >= 10;
+      default: return false;
     }
-    return false;
   };
+
+
 
   return (
     <>
@@ -75,7 +121,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("ten")}
           >
             <p className="qque">5 Questions</p>
-            <p className="naira">1 token </p>
+            <p className="naira">N50  </p>
           </div>
           <div
             className={`fifteen-que ${
@@ -88,7 +134,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("fifteen")}
           >
             <p className="qque">10 Questions</p>
-            <p className="naira">2 tokens </p>
+            <p className="naira">N100 </p>
           </div>
           <div
             className={`twenty-que ${
@@ -101,7 +147,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("twenty")}
           >
             <p className="qque">15 Questions</p>
-            <p className="naira">4 tokens </p>
+            <p className="naira">N150  </p>
           </div>
           <div
             className={`twenty-five-que ${
@@ -114,7 +160,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("twenty-five")}
           >
             <p className="qque">20 Questions</p>
-            <p className="naira">10 tokens </p>
+            <p className="naira">N200  </p>
           </div>
         </div>
       </div>
@@ -122,8 +168,12 @@ const QuestionPack = () => {
       <CustomButton
         buttonText={btnText}
         style={buttonStyle}
-        onClick={() => navigate("/question-loading")}
-        disabled={loading || !inputValue}
+        onClick={handleBegin}
+
+        // onClick={() => navigate("/question-loading")}
+        // disabled={loading || !inputValue}
+        disabled={loading || !selectedPack}
+
       />
       {/* // )} */}
     </>

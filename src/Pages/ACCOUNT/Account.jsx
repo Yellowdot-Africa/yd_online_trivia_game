@@ -60,17 +60,33 @@ const Account = () => {
     setShowAllTransactions(!showAllTransactions);
   };
 
+  // const calculateBalanceFromHistory = (transactions) => {
+  //   let balance = 0;
+  //   transactions.forEach(transaction => {
+  //     if (transaction.type === 'credit') {
+  //       balance += transaction.amount;
+  //     } else if (transaction.type === 'debit') {
+  //       balance -= transaction.amount;
+  //     }
+  //   });
+  //   return balance;
+  // };
+
+
   const calculateBalanceFromHistory = (transactions) => {
     let balance = 0;
-    transactions.forEach(transaction => {
-      if (transaction.type === 'credit') {
-        balance += transaction.amount;
-      } else if (transaction.type === 'debit') {
-        balance -= transaction.amount;
-      }
-    });
+    if (Array.isArray(transactions)) {
+      transactions.forEach(transaction => {
+        if (transaction.type === 'credit') {
+          balance += transaction.amount;
+        } else if (transaction.type === 'debit') {
+          balance -= transaction.amount;
+        }
+      });
+    }
     return balance;
   };
+  
 
   useEffect(() => {
     const fetchTransactionHistory = async () => {
@@ -85,7 +101,9 @@ const Account = () => {
             },
           }
         );
-        const transactions = response.data.data;
+        // const transactions = response.data.data;
+        const transactions = response.data.data || []; 
+        console.log("Fetched transactions:", transactions);
         setTransactionHistory(transactions);
 
         const balance = calculateBalanceFromHistory(transactions);
@@ -98,9 +116,15 @@ const Account = () => {
     fetchTransactionHistory();
   }, [token, userID, dispatch]);
 
-  const transactionsToDisplay = showAllTransactions
+  // const transactionsToDisplay = showAllTransactions
+  //   ? transactionHistory
+  //   : transactionHistory.slice(0, initialDisplayCount);
+
+
+    const transactionsToDisplay = showAllTransactions
     ? transactionHistory
-    : transactionHistory.slice(0, initialDisplayCount);
+    : (transactionHistory || []).slice(0, initialDisplayCount);
+  
 
   return (
     <>
@@ -165,16 +189,22 @@ const Account = () => {
                     <li key={index} className="transaction-item">
                       <div className="transaction-left">
                         <div className="history-details description">
-                          {transaction.description}
+                          {/* {transaction.description} */}
+                          {transaction.description || 'No description available'}
+
                         </div>
                       </div> 
                       <div className="transaction-right">
                       
                         <div className="history-details amount">
-                          Amount: {transaction.amount}
+                          {/* Amount: {transaction.amount} */}
+                          Amount: {transaction.amount || 'N/A'}
+
                         </div>
                         <div className="history-details datee">
-                          Date: {transaction.transactionDate}
+                          {/* Date: {transaction.transactionDate} */}
+                          Date: {transaction.transactionDate || 'N/A'}
+
                         </div>
                        
                       </div>
