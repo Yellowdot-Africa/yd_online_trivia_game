@@ -131,7 +131,7 @@
   height: 52px;
   border-radius: 10px;
   font-family: "AlpinoBlack";
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 900;
   line-height: 32px;
   letter-spacing: 0em;
@@ -281,7 +281,7 @@
   .prize-amount {
     color: #4fd96d;
     text-align: center;
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .current-balance {
@@ -375,7 +375,7 @@
   .prize-amount {
     color: #4fd96d;
     text-align: center;
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .current-balance {
@@ -384,3 +384,5 @@
     font-size: 18px;
   }
 }
+
+

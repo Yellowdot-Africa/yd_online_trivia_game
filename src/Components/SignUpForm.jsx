@@ -43,6 +43,8 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
       const result = await dispatch(signup(values)).unwrap();
      
       if (result.message === 'User Created Successfully') {
+        setErrorMessage("Signup successful! Please check your email to verify your account.");
+
         navigateToLogin(); 
       } else {
         setErrorMessage("Signup successful, but no user data was returned");

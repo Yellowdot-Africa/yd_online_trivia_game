@@ -19,7 +19,15 @@ const userProfileSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    logoutUser: (state) => {
+      state.userStats = null;
+      state.isLoading = false;
+      state.error = null;
+      localStorage.clear();
+      sessionStorage.clear();
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchUserProfile.pending, (state) => {
@@ -36,5 +44,6 @@ const userProfileSlice = createSlice({
       });
   },
 });
+export const { logoutUser } = userProfileSlice.actions;
 
 export default userProfileSlice.reducer;

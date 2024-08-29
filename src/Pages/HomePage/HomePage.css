@@ -89,9 +89,8 @@ line-height: 16.32px;
 }
 
 .toastt {
-  /* background-color: #d9d9d9; */
-  background: #08081E;
-
+  background-color: #d9d9d9;
+  /* background: #08081E; */
   margin: 32px 23px 20px 23px;
   padding: 17px 71px 14px 71px;
 }
@@ -101,7 +100,7 @@ line-height: 16.32px;
   font-weight: 700;
   line-height: 16.32px;
   text-align: center;
-  color: #ffffff;
+  color: #000000;
 }
 
 

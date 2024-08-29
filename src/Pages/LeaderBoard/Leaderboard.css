@@ -1,5 +1,5 @@
 .leaderboard {
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
 }
 
 .leaderboard-text {
@@ -13,11 +13,10 @@
   text-align: center;
   font-size: 16px;
   font-family: "AlpinoRegular";
-  font-weight: 421;
+  font-weight: 700;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: center;
-  font-family: "AlpinoRegular";
 }
 
 .main {
@@ -104,6 +103,8 @@
 .winner-three p {
   text-align: center;
   margin: 0;
+  font-family: "AlpinoRegular";
+  font-weight: 421;
 }
 
 /* .winner-one img,

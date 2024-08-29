@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
@@ -8,7 +8,11 @@ import { Circles } from "react-loader-spinner";
 
 import "../Styles/Login.css";
 
+
+
+
 const LoginForm = ({ isLoginOpen }) => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { status, loginError } = useSelector((state) => state.auth);
@@ -19,7 +23,6 @@ const LoginForm = ({ isLoginOpen }) => {
     loginMethod: "" ? "email" : "phone",
     username: "",
     password: "",
-    rememberMe: false,
   };
 
   const validationSchema = Yup.object().shape({
@@ -31,18 +34,28 @@ const LoginForm = ({ isLoginOpen }) => {
     password: Yup.string().required("Please input your password"),
   });
 
+  const formatPhoneNumber = (phoneNumber) => {
+    if (phoneNumber.startsWith("234")) {
+      return "0" + phoneNumber.slice(3);
+    }
+
+    if (phoneNumber.startsWith("0")) {
+      return phoneNumber;
+    }
+
+    return phoneNumber;
+  };
+
+
   const handleSubmit = (values) => {
-    const { loginMethod, phoneNumber, email, password , rememberMe } = values;
-    const username = loginMethod === "phone" ? phoneNumber : email;
+    const { loginMethod, phoneNumber, email, password } = values;
+    const username = loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
 
     dispatch(login({ username, password }))
       .then((action) => {
         if (login.fulfilled.match(action)) {
-          const token = action.payload.token; 
+          const token = action.payload.token;
 
-          if (rememberMe) {
-            localStorage.setItem("token", token); 
-          }
           navigate("/loading");
         }
       })
@@ -123,10 +136,6 @@ const LoginForm = ({ isLoginOpen }) => {
                 className="error-input-text"
               />
 
-              <div className="remember-me">
-                <Field type="checkbox" name="rememberMe" id="rememberMe" />
-                <label htmlFor="rememberMe">Remember Me</label>
-              </div>
               <button
                 type="submit"
                 disabled={status === "loading"}
@@ -171,6 +180,3 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
-
-
-

@@ -1,6 +1,6 @@
 .user-profile {
   font-family: "Alpino";
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   height: 100vh;
 }
 
@@ -21,7 +21,6 @@
   text-align: center;
   color: #000;
   margin-left: 30px;
-
 }
 
 .edit-user-profile {
@@ -46,10 +45,10 @@
   cursor: pointer;
 }
 
-.user-container{
-display: flex;
-align-items: center;
-justify-content: center;
+.user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .user-details {
@@ -59,7 +58,7 @@ justify-content: center;
   justify-content: center;
 }
 
-.avatar{
+.avatar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -191,7 +190,7 @@ justify-content: center;
   line-height: 21px;
   letter-spacing: -0.3199999928474426px;
   text-align: left;
-  color: #3C3C3C;
+  color: #3c3c3c;
 }
 .gem-no,
 .prz-no,
@@ -259,18 +258,15 @@ justify-content: center;
   letter-spacing: -0.3199999928474426px;
 }
 
-.input-field::placeholder{
-    font-family: "AlpinoRegular";
-    font-size: 18px;
-    font-weight: 421;
-    line-height: 21px;
-    letter-spacing: -0.3199999928474426px;
-    text-align: left;
-    color: #00000080;
-   
+.input-field::placeholder {
+  font-family: "AlpinoRegular";
+  font-size: 18px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: left;
+  color: #00000080;
 }
-
-
 
 .save-button {
   width: 90vw;
@@ -291,4 +287,145 @@ justify-content: center;
 
 .save-button.active {
   background-color: #973cf2;
+}
+
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  border: none;
+  color: #54349f;
+  cursor: pointer;
+  font-family: "AlpinoMedium";
+  font-size: 20px;
+  font-weight: 507;
+  line-height: 21px;
+  text-align: center;
+}
+
+.backdropp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(0px);
+  z-index: 999;
+}
+
+.logout-modal {
+  width: 90%;
+  max-width: 340px;
+  height: auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  opacity: 1;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logout-modal .logout-modal-content {
+  text-align: center;
+}
+
+.logout-modal .close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.logout-modal h3 {
+  margin: 0;
+  font-family: "AlpinoRegular";
+  font-size: 24px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #000000;
+}
+
+.logout-modal p {
+  margin-top: 12px;
+  font-family: "AlpinoRegular";
+  font-size: 16px;
+  font-weight: 421;
+  line-height: 21px;
+  letter-spacing: -0.3199999928474426px;
+  text-align: center;
+  color: #747474;
+}
+
+.logout-modal .modal-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.logout-modal .cancel-button,
+.logout-modal .confirm-logout-button {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #ffffff;
+  outline: none;
+  border: none;
+}
+
+.logout-modal .cancel-button {
+  background-color: #54349f;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 15.72px;
+  text-align: center;
+  border-radius: 50px;
+}
+
+.logout-modal .confirm-logout-button {
+  color: #54349f;
+  border: none;
+  background-color: transparent;
+  font-family: "AlpinoRegular";
+  font-size: 12px;
+  font-weight: 421;
+  line-height: 15.72px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .logout-modal {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    top: 43%;
+    position: fixed;
+  }
+}
+
+
+@media (min-width: 700px) and (max-width: 1050px) {
+  .logout-modal {
+    width: 90%;
+    max-width: 300px;
+    height: auto;
+    top: 30%;
+    position: fixed;
+  }
 }

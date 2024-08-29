@@ -9,7 +9,7 @@ import EyeOff from "../../assets/Icons/eye-off.png";
 import ArrowUp from "../../assets/Icons/arrw-up-circlee.png";
 import ArrowDown from "../../assets/Icons/arrow-dwn-circle.png";
 import "../../Pages/ACCOUNT/Account.css";
-import WithdrawalModal from "../../Components/WithdrawalModal";
+// import WithdrawalModal from "../../Components/WithdrawalModal";
 
 const Account = () => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ const Account = () => {
   const getCurrentDate = () => {
     const today = new Date();
     const day = today.getDate();
-    const month = today.toLocaleString('default', { month: 'long' });
+    const month = today.toLocaleString('default', { month: 'short' });
     const year = today.getFullYear();
     return `${month} ${day}, ${year}`;
   };
@@ -44,6 +44,9 @@ const Account = () => {
     navigate("/deposit");
   };
 
+  const handleWithdraw = () => {
+    navigate("/withdraw");
+  };
   const openModal = () => {
     setIsModalOpen(true);
   };
@@ -139,7 +142,7 @@ const Account = () => {
             <div className="current-balance-info">
               <div className="bal-date">
                 <div className="transaction-options">
-                  <div className="withdraw-option" onClick={openModal}>
+                  <div className="withdraw-option" onClick={handleWithdraw}>
                     <img src={ArrowUp} alt="" />
                     <p>Withdraw</p>
                   </div>
@@ -218,7 +221,7 @@ const Account = () => {
           </div>
         </div>
       </div>
-      <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} />
+      {/* <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} /> */}
     </>
   );
 };

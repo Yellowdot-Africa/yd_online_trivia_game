@@ -59,7 +59,6 @@ const ResultPage = () => {
 
         <div className="prize-details">
           <img src={Trophy} alt="trophy" />
-          <p className="prize-heading">You won {experiencePoints} xp</p>
           <p className="prize-amount">Welldone</p>
           <p className="current-balance">Current balance: {walletBalance} Naira</p>
         </div>

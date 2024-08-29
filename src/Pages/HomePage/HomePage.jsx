@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import LogoIcon from "../../assets/Icons/cup-broken.svg";
@@ -12,19 +12,15 @@ import Ad from "../../Components/Ad";
 import Contact from "../../Components/Contact";
 import Footer from "../../Components/Footer";
 
-
-
-
 const HomePage = () => {
-
-
-const navigate=useNavigate();
-const walletBalance = useSelector((state) => state.wallet.walletBalance);
-  const experiencePoints = useSelector((state) => state.wallet.experiencePoints);
-const handleSeeAccount = () => {
+  const navigate = useNavigate();
+  const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  const experiencePoints = useSelector(
+    (state) => state.wallet.experiencePoints
+  );
+  const handleSeeAccount = () => {
     navigate("/account");
   };
-
 
   return (
     <>
@@ -32,12 +28,13 @@ const handleSeeAccount = () => {
         <div className="header">
           <div className="account-section">
             <div className="account-cont-cont">
-            <div className="account-balance">
-              <p className="acct" onClick={handleSeeAccount}>Account Balance</p>
-              <p className="amount">NGN{walletBalance}</p>
-              <p className="xpoint"></p>
-
-            </div>
+              <div className="account-balance">
+                <p className="acct" onClick={handleSeeAccount}>
+                  Account Balance
+                </p>
+                <p className="amount">NGN{walletBalance}</p>
+                <p className="xpoint"></p>
+              </div>
             </div>
             <div className="logo-section">
               <img src={LogoIcon} alt="Logo" className="logo-section-logo" />
@@ -50,7 +47,7 @@ const handleSeeAccount = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="toastt">
           <p>
             **Flash win, random people can win big prizes but time is not
@@ -58,24 +55,17 @@ const handleSeeAccount = () => {
           </p>
         </div>
         <div>
-            <TriviaCategories/>
-            <NavigationIcons bgColor={"#404040"} opacity={0.9}/>
-           
+          <TriviaCategories />
+          <NavigationIcons bgColor={"#404040"} opacity={0.9} />
         </div>
-        
       </div>
-      <div >
-      <Ad/>
-      <Contact/>
-      <Footer/>
+      <div>
+        <Ad />
+        <Contact />
+        <Footer />
       </div>
-
-
-
-     
     </>
   );
 };
 
 export default HomePage;
-

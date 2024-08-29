@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfile } from '../../features/userProfile/userProfileSlice';
+import { fetchUserProfile, logoutUser } from '../../features/userProfile/userProfileSlice';
 import '../../Pages/UserProfilePage/UserProfile.css';
 import Prev from '../../assets/Icons/chevron-left.png';
 import Edit from '../../assets/Icons/editpic.png';
 import Phone from '../../assets/Icons/star.png';
+import CloseIcon from '../../assets/Icons/close-iccon.svg';
 import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
@@ -17,6 +18,7 @@ const UserProfile = () => {
   const [editedPhoneNumber, setEditedPhoneNumber] = useState(msisdn || '');
   const [editedEmail, setEditedEmail] = useState(email || '');
   const [isInputEdited, setIsInputEdited] = useState(false);
+  const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false); // Logout modal state
 
   const firstLetter = username ? username.charAt(0).toUpperCase() : '';
 
@@ -53,7 +55,18 @@ const UserProfile = () => {
     setIsInputEdited(true);
   };
 
+  const handleLogoutClick = () => {
+    setIsLogoutModalVisible(true);
+  };
 
+  const closeLogoutModal = () => {
+    setIsLogoutModalVisible(false);
+  };
+
+  const handleLogoutConfirm = () => {
+    dispatch(logoutUser()); 
+    navigate('/'); 
+  };
 
   if (error) {
     return <div>Error: {error}</div>;
@@ -133,35 +146,64 @@ const UserProfile = () => {
       )}
 
       {!isEditMode && (
-        <div className="user-stats">
-          <div className="user-info-heading">
-            <h3>User Info</h3>
+        <>
+          <div className="user-stats">
+            <div className="user-info-heading">
+              <h3>User Info</h3>
+            </div>
           </div>
-        </div>
+          {userStats && (
+            <div className="user-info-deets">
+              <div className="user-deetails-info">
+                <div className="gem">
+                  <p className="gemm">Games Played Count</p>
+                  <p className="gem-no">{userStats.gamesPlayedCount || 0}</p>
+                </div>
+                <div className="prize">
+                  <p className="prz">Total Score</p>
+                  <p className="prz-no">{userStats.totalScore || 0}</p>
+                </div>
+                <div className="prize">
+                  <p className="prz">Correct Answer Percentage</p>
+                  <p className="prz-no">{userStats.correctAnswerPercentage || "0%"}</p>
+                </div>
+              </div>
+            </div>
+          )}
+          <button className="logout-button" onClick={handleLogoutClick}>
+            Logout
+          </button>
+        </>
       )}
-      {!isEditMode && userStats && (
-        <div className="user-info-deets">
-          <div className="user-deetails-info">
-            <div className="gem">
-              <p className="gemm">Games Played Count</p>
-              <p className="gem-no">{userStats.gamesPlayedCount || 0}</p>
-            </div>
-            <div className="prize">
-              <p className="prz">Total Score</p>
-              <p className="prz-no">{userStats.totalScore || 0}</p>
-            </div>
-            <div className="prize">
-              <p className="prz">Correct Answer Percentage</p>
-              <p className="prz-no">{userStats.correctAnswerPercentage || "0%"}</p>
+
+      {isLogoutModalVisible && (
+        <>
+        <div className="backdropp" onClick={() => setShowLogoutModal(false)}></div>
+
+        <div className="logout-modal">
+          <div className="logout-modal-content">
+            <img src={CloseIcon} alt="close" className="close-icon" onClick={closeLogoutModal} />
+            <h3>Log out</h3>
+            <p>Are you sure you want to log out?</p>
+            <div className="modal-buttons">
+              <button className="cancel-button" onClick={closeLogoutModal}>
+                No, Cancel
+              </button>
+              <button className="confirm-logout-button" onClick={handleLogoutConfirm}>
+                Yes, Logout
+              </button>
             </div>
           </div>
         </div>
+        </>
       )}
     </div>
   );
 };
 
 export default UserProfile;
+
+
 
 
 
