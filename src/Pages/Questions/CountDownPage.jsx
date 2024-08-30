@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import Logo from "../../assets/Icons/logoicon.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../../Pages/Questions/QuestionsScreen.css";
 
 const CountdownPage = () => {
   const [countdown, setCountdown] = useState(3);
   const navigate = useNavigate();
+  const location = useLocation();
+  const { selectedPack } = location.state || {}; 
+
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
@@ -14,11 +17,11 @@ const CountdownPage = () => {
 
     if (countdown === 0) {
       clearInterval(countdownInterval);
-      navigate("/questions");
+      navigate("/questions" , { state: { selectedPack } });
     }
 
     return () => clearInterval(countdownInterval);
-  }, [countdown, navigate]);
+  }, [countdown, navigate, selectedPack]);
 
 
 

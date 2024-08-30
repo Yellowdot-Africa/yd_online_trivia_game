@@ -50,7 +50,11 @@ const TriviaCategories = () => {
       dispatch(selectGame(1)); 
     }
 
-    navigate("/getting-started");
+    navigate("/getting-started",  {
+      state: { 
+        selectedCategoryName: category.name,  
+      },
+    });
   };
 
  

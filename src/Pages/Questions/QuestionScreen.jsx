@@ -51,8 +51,12 @@ const QuestionScreen = () => {
     }
   }, [dispatch, selectedCategoryID, selectedGameID]);
 
+
+
   const handleAnswerSubmission = useCallback(() => {
+    // console.log("IND", index || 0);
     if (selectedAnswerIndex !== null) {
+      // const isCorrect = answers[selectedAnswerIndex]?.isCorrectAnswer === true || answers[index]?.isCorrectAnswer === true;
       const isCorrect = answers[selectedAnswerIndex]?.isCorrectAnswer === true;
 
       const newAnswerBgColors = answers.map((answer, index) => {
@@ -101,7 +105,7 @@ const QuestionScreen = () => {
           },
         });
       }
-    }, 1000);
+    }, 2000);
   }, [
     selectedAnswerIndex,
     answers,
@@ -114,6 +118,96 @@ const QuestionScreen = () => {
     wrongAnswers,
   ]);
 
+ 
+//   const handleAnswerSubmission = useCallback(() => {
+//     if (selectedAnswerIndex !== null) {
+//         // Check if the selected answer is correct
+//         const isCorrect = answers[selectedAnswerIndex]?.isCorrectAnswer === true;
+
+//         // Set the background colors of the answers
+//         const newAnswerBgColors = answers.map((answer, index) => {
+//             if (index === selectedAnswerIndex) {
+//                 return isCorrect ? "#5CBE5A" : "#E37F80"; // Green for correct, red for wrong
+//             }
+//             return answer.isCorrectAnswer ? "#5CBE5A" : ""; // Mark the correct answer green if it's not the selected one
+//         });
+
+//         setAnswerBgColors(newAnswerBgColors); // Update the state with the new background colors
+//         setScreenBgColor("#4C22B8"); // Change the screen background color
+//         setFeedbackText(isCorrect ? "Nice! Correct" : "Oops! Wrong"); // Set the feedback text
+
+//         // Update the status of the current question to correct or wrong
+//         const updatedStatuses = [...statuses];
+//         updatedStatuses[currentQuestionIndex] = isCorrect ? "correct" : "wrong";
+//         setStatuses(updatedStatuses);
+
+//         // Increment the count of correct or wrong answers
+//         if (isCorrect) {
+//             setCorrectAnswers((prev) => prev + 1);
+//         } else {
+//             setWrongAnswers((prev) => prev + 1);
+//         }
+//     } else {
+//         // If no answer is selected, mark the question as wrong
+//         const updatedStatuses = [...statuses];
+//         updatedStatuses[currentQuestionIndex] = "wrong";
+//         setStatuses(updatedStatuses);
+
+//         setWrongAnswers((prev) => prev + 1);
+//     }
+
+//     // Move to the next question after 2 seconds
+//     setTimeout(() => {
+//         const nextIndex = currentQuestionIndex + 1;
+//         if (nextIndex < questions.length) {
+//             dispatch(setCurrentQuestionIndex(nextIndex));
+//             setActiveIndex(nextIndex);
+//             setTimer(10); // Reset the timer
+//             setScreenBgColor("#580DA4"); // Reset the background color
+//             setAnswerBgColors([]); // Clear the answer background colors
+//             setFeedbackText(""); // Clear the feedback text
+//             setSelectedAnswerIndex(null); // Reset the selected answer
+//         } else {
+//             // If there are no more questions, navigate to the result page
+//             navigate("/result-page", {
+//                 state: {
+//                     correctAnswers,
+//                     wrongAnswers,
+//                 },
+//             });
+//         }
+//     }, 2000);
+// }, [
+//     selectedAnswerIndex,
+//     answers,
+//     statuses,
+//     currentQuestionIndex,
+//     questions?.length,
+//     navigate,
+//     dispatch,
+//     correctAnswers,
+//     wrongAnswers,
+// ]);
+
+// const handleAnswerClick = useCallback(
+//   (index) => {
+//       if (selectedAnswerIndex === null) {
+//           setSelectedAnswerIndex(index); // Set the selected answer index
+//           setScreenBgColor("#0B0B2A"); // Change the screen background color
+
+//           const newAnswerBgColors = answers.map((_, i) => (i === index ? "#973CF2" : ""));
+//           setAnswerBgColors(newAnswerBgColors); // Update the background color of the selected answer
+
+//           // Check if the timer is 2 seconds or less, if so, show feedback and move to the next question
+//           if (timer <= 2) {
+//               handleAnswerSubmission();
+//           }
+//       }
+//   },
+//   [selectedAnswerIndex, answers, timer, handleAnswerSubmission]
+// );
+
+
   const handleAnswerClick = useCallback(
     (index) => {
       if (selectedAnswerIndex === null) {
@@ -122,10 +216,19 @@ const QuestionScreen = () => {
 
         const newAnswerBgColors = answers.map((_, i) => (i === index ? "#973CF2" : ""));
         setAnswerBgColors(newAnswerBgColors);
-      }
+
+        // setTimeout(()=>{
+
+        //   handleAnswerSubmission(index);
+        // },1500)
+      } 
+
+      
     },
     [selectedAnswerIndex, answers]
   );
+
+
 
   const handlePageChange = (index) => {
     setActiveIndex(index);
@@ -137,6 +240,8 @@ const QuestionScreen = () => {
     setAnswerBgColors([]);
   };
 
+ 
+
   useEffect(() => {
     const timerInterval = setInterval(() => {
       setTimer((prevTimer) => {
@@ -147,9 +252,25 @@ const QuestionScreen = () => {
         return prevTimer - 1;
       });
     }, 1000);
-
     return () => clearInterval(timerInterval);
   }, [handleAnswerSubmission]);
+
+
+//   useEffect(() => {
+//     const timerInterval = setInterval(() => {
+//         setTimer((prevTimer) => {
+//             if (prevTimer === 1) {
+//                 clearInterval(timerInterval);
+//                 handleAnswerSubmission(); // Show feedback and move to the next question when the timer reaches 1
+//             } else if (prevTimer === 2 && selectedAnswerIndex !== null) {
+//                 handleAnswerSubmission(); // Show feedback and move to the next question when the timer reaches 2
+//             }
+//             return prevTimer - 1;
+//         });
+//     }, 1000);
+//     return () => clearInterval(timerInterval);
+// }, [handleAnswerSubmission, selectedAnswerIndex]);
+
 
   const handleQuit = () => {
     setScreenBgColor("#1F82F2");
@@ -197,7 +318,7 @@ const QuestionScreen = () => {
               <div className="quest-main-container">
                 {currentQuestion && answers.length > 0 && <p className="question-txt">{currentQuestion}</p>}
                 <Pagination
-                  totalItems={questions?.length}
+                  totalItems={questions.length}
                   activeIndex={activeIndex}
                   onChange={handlePageChange}
                   statuses={statuses}
@@ -232,8 +353,6 @@ const QuestionScreen = () => {
 };
 
 export default QuestionScreen;
-
-
 
 
 

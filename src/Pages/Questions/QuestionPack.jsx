@@ -49,7 +49,16 @@ const QuestionPack = () => {
 
   const handleBegin = () => {
     if (selectedPack) {
-      navigate("/question-loading");
+      // navigate("/question-loading");
+      navigate("/question-loading", { 
+        state: {
+          selectedPack: selectedPack,
+          selectedCategory: selectedCategory, 
+        },
+        // state: 
+        // { selectedPack } 
+      });
+
     }
   };
 

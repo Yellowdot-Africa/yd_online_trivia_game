@@ -10,11 +10,14 @@ import EndGameModal from "../../Components/EndGameModal";
 import Trophy from "../../assets/Images/gold-trophy.png";
 import "../../Pages/ResultPage/ResultPage.css";
 
+
+
 const ResultPage = () => {
   const [screenBgColor, setScreenBgColor] = useState("#580DA4"); // Default color
   const [showModal, setShowModal] = useState(false);
 
   const location = useLocation();
+  const { selectedPack } = location.state || {}; 
 
   const navigate = useNavigate();
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
@@ -25,6 +28,10 @@ const ResultPage = () => {
   const handleQuit = () => {
     setScreenBgColor("#1F82F2"); 
     setShowModal(true);
+  };
+
+  const handleEndGame = () => {
+    navigate("/home");
   };
 
   return (
@@ -72,20 +79,28 @@ const ResultPage = () => {
         <button
           className="replay-button"
           onClick={() => {
-            navigate("/questions");
+            navigate("/questions", {
+              state: {
+                selectedPack
+              }
+            });
           }}
         >
           Replay
         </button>
         <a className="back-to-home"  onClick={() => {
-            navigate("/home");
+            navigate("/home", {
+              state: {
+                selectedPack
+              }
+            });
           }}>Home</a>
        
       </div>
       <EndGameModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        // onEnd={handleEndGame}
+        onEnd={handleEndGame}
       />
     </>
   );
