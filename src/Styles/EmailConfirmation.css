@@ -1,0 +1,58 @@
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 40px;
+}
+
+.confirmation-page h1 {
+  font-size: 28px;
+  font-family: "AlpinoMedium";
+  font-weight: 500;
+  color: #242222;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.confirmation-page p {
+  font-size: 18px;
+  font-family: "AlpinoRegular";
+  font-weight: 421;
+  color: #4f4d4d;
+  margin-bottom: 20px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.confirmation-page a {
+  font-size: 16px;
+  color: #7e2cd1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.confirmation-page a:hover {
+  color: #432671;
+}
+
+.confirmation-page .return-to-login {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: "AlpinoMedium";
+  font-weight: 500;
+  background-color: #7e2cd1;
+  color: #fff;
+  border: none;
+  border-radius: 48px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.confirmation-page .return-to-login:hover {
+  background-color: #432671;
+  color: #fff;
+}

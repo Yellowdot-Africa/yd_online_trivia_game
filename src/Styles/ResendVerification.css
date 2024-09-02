@@ -1,0 +1,91 @@
+.resend-verification-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    padding: 20px;
+
+  }
+  
+  .resend-verification-page h1 {
+    font-size: 24px;
+    font-family: "AlpinoMedium";
+    font-weight: 500;
+    color: #242222; 
+    margin-bottom: 10px;
+    text-align: center;
+
+  }
+  
+  .resend-verification-page p {
+    font-size: 18px;
+    font-family: "AlpinoRegular";
+    font-weight: 421;
+    color: #4f4d4d; 
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .resend-verification-page input[type="email"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  .resend-verification-page button {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: "AlpinoMedium";
+    font-weight: 500;
+    background-color: #7e2cd1; 
+    color: #fff; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+  }
+  
+  .resend-verification-page button:disabled {
+    background-color: #ccc; 
+  }
+  
+  .resend-verification-page button:hover:not(:disabled) {
+    background-color: #432671;
+  }
+  
+  .success-messagee {
+    color: #28a745; 
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .error-messagee {
+    color: #dc3545; 
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  .resend-verification-page button:last-of-type {
+    background-color: #6c757d; 
+    margin-top: 20px;
+  }
+  
+  .resend-verification-page button:last-of-type:hover {
+    background-color: #5a6268;
+  }
+  
+
+
+

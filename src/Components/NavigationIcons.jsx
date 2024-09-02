@@ -59,7 +59,7 @@ const NavigationIcons = ({bgColor, opacity}) => {
           onClick={() => handleIconClick("/leaderboard", "leaderboard")}
         >
           <img src={leaderBoard} alt="leaderboard" />
-          <p>Leaders board</p>
+          <p>Leaderboard</p>
         </div>
 
         <div

@@ -10,7 +10,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 18px 6px 0 6px;
+  padding: 18px 6px 20px 6px;
   border-radius: 10px;
   margin: 0 18px;
 }
@@ -148,7 +148,7 @@
   margin: 0;
 }
 
-.settings-nav-icon{
+.settings-nav-icon {
   margin-top: 70px;
 }
 
@@ -158,4 +158,20 @@
     background-color: #432671;
     margin-left: 0px;
   }
+}
+
+.settings-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  gap: 20px;
+}
+
+.settings-buttons button {
+  border: none;
+  background-color: transparent;
+  color: #432671;
+  font-family: "AlpinoMedium";
+  font-weight: 500;
+  font-size: 18px;
 }

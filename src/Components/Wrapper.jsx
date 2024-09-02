@@ -24,11 +24,22 @@ import Ad from "../Components/Ad";
 import PopularCategories from "./PopularCategories";
 import TriviaCategories from "./TriviaCategories";
 import ResultPage from "../Pages/ResultPage/ResultPage";
+import VerifyEmail from "../Components/VerifyEmail";
+import EmailConfirmationPage from "../Components/EmailConfirmationPage";
+import ResendVerificationPage from "../Components/ResendVerificationPage";
+import ErrorPage from "../Components/ErrorPage";
+
+
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <LandingPage />,
+  },
+  {
+    path: "/verify-email",
+    element: <VerifyEmail/>,
   },
   {
     path: "/loading",
@@ -107,6 +118,7 @@ const router = createBrowserRouter([
     path: "/question-screen",
     element: <QuestionScreen />,
   },
+  
   {
     path: "/ad",
     element: <Ad />,
@@ -115,6 +127,18 @@ const router = createBrowserRouter([
     path: "/result-page",
     element: <ResultPage />,
   },
+  {
+    path: "/email-confirmation",
+    element: <EmailConfirmationPage />,
+  },
+  {
+    path: "/resend-verification",
+    element: <ResendVerificationPage />,
+  },
+  {
+    path: "*",
+    element: <ErrorPage/>
+  }
 ]);
 
 const Wrapper = () => {

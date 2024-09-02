@@ -115,7 +115,7 @@ const QuestionPack = () => {
 
           <p className="question-text">
             Select your <span className="span"> Football </span> Trivia question
-            pack (N50 per token)
+            pack
           </p>
         </div>
         <div className="question-pack">
@@ -129,7 +129,7 @@ const QuestionPack = () => {
             }`}
             onClick={() => handlePackSelect("ten")}
           >
-            <p className="qque">5 Questions</p>
+            <p className="qque">2 Questions</p>
             <p className="naira">N50  </p>
           </div>
           <div
@@ -142,7 +142,7 @@ const QuestionPack = () => {
             }`}
             onClick={() => handlePackSelect("fifteen")}
           >
-            <p className="qque">10 Questions</p>
+            <p className="qque">5 Questions</p>
             <p className="naira">N100 </p>
           </div>
           <div
@@ -155,8 +155,8 @@ const QuestionPack = () => {
             }`}
             onClick={() => handlePackSelect("twenty")}
           >
-            <p className="qque">15 Questions</p>
-            <p className="naira">N150  </p>
+            <p className="qque">10 Questions</p>
+            <p className="naira">N200  </p>
           </div>
           <div
             className={`twenty-five-que ${
@@ -169,7 +169,7 @@ const QuestionPack = () => {
             onClick={() => handlePackSelect("twenty-five")}
           >
             <p className="qque">20 Questions</p>
-            <p className="naira">N200  </p>
+            <p className="naira">N500  </p>
           </div>
         </div>
       </div>

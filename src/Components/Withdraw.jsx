@@ -106,10 +106,10 @@ const Withdraw = () => {
             </div>
           </form>
         </div>
-        <div className="withdrawal-info">
+        {/* <div className="withdrawal-info">
           <img src={MoneyIcon} alt="" />
           <p>Minimum Convertible Is 50 Tokens @200 Naira/Token </p>
-        </div>
+        </div> */}
         {/* <button className="continue-button" onClick={handleContinue}>
           Continue
         </button> */}

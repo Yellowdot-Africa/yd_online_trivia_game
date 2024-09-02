@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 import { signup } from "../features/auth/authSlice";
 import { Circles } from 'react-loader-spinner'; 
 import '../Styles/SignUp.css';
 
 const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const signupState = useSelector((state) => state.auth);
   const { status, signUpError } = signupState || { status: 'idle', signUpError: null }; 
   const [emailFocus, setEmailFocus] = useState(false);
@@ -44,8 +46,8 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
      
       if (result.message === 'User Created Successfully') {
         setErrorMessage("Signup successful! Please check your email to verify your account.");
-
-        navigateToLogin(); 
+        navigate("/email-confirmation"); 
+        // navigateToLogin(); 
       } else {
         setErrorMessage("Signup successful, but no user data was returned");
       }
