@@ -11,8 +11,11 @@ const QuestionInfo = () => {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const { selectedPack, selectedCategoryName } = location.state || {}; 
+  const { selectedPack, selectedCategoryName, selectedCategoryImage } = location.state || {}; 
   const navigate = useNavigate();
+
+
+  console.log("Received state in QuestionInfo:", location.state);
 
   const handleCategorySelect = (id) => {
     setCategoryID(id);
@@ -22,7 +25,13 @@ const QuestionInfo = () => {
 
 const handleLetGoBtn = () => {
     // if (categoryID) {
-      navigate("/question-screen");
+      navigate("/question-screen", {
+      state: {
+        selectedPack,  
+        selectedCategoryName,
+        selectedCategoryImage,
+      },
+    });
     // } else {
     //   console.error('Category ID is not provided');
     // }
@@ -41,13 +50,13 @@ const handleLetGoBtn = () => {
 
   const getQuestionCountText = (pack) => {
     switch (pack) {
-      case "ten":
+      case "two":
+        return "You have 2 questions. Are you ready?";
+      case "five":
         return "You have 5 questions. Are you ready?";
-      case "fifteen":
+      case "ten":
         return "You have 10 questions. Are you ready?";
       case "twenty":
-        return "You have 15 questions. Are you ready?";
-      case "twenty-five":
         return "You have 20 questions. Are you ready?";
       default:
         return "You have X questions. Are you ready?";
@@ -62,9 +71,10 @@ const handleLetGoBtn = () => {
         </div>
         <div className="football-trivia-info">
           {/* <p>Football Trivia</p> */}
-          <p>{selectedCategoryName || "Football Trivia"}</p>
+          <p>{selectedCategoryName }</p>
+          <img src={selectedCategoryImage} alt={selectedCategoryName}/>
 
-          <img src={FootballIcon} alt="" />
+          {/* <img src={FootballIcon} alt="" /> */}
         </div>
         <div className="question_count-container">
           <div className="count-question-cont">
@@ -85,5 +95,10 @@ const handleLetGoBtn = () => {
 };
 
 export default QuestionInfo;
+
+
+
+
+
 
 

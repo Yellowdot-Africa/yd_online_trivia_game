@@ -92,10 +92,10 @@ const QuestionPack = () => {
 
   const isBalanceSufficient = (pack) => {
     switch (pack) {
-      case "ten": return balance >= 1;
-      case "fifteen": return balance >= 2;
-      case "twenty": return balance >= 4;
-      case "twenty-five": return balance >= 10;
+      case "two": return balance >= 1;
+      case "five": return balance >= 2;
+      case "ten": return balance >= 4;
+      case "twenty": return balance >= 10;
       default: return false;
     }
   };
@@ -121,6 +121,32 @@ const QuestionPack = () => {
         <div className="question-pack">
           <div
             className={`ten-que ${
+              selectedPack === "two"
+                ? "selected"
+                : isBalanceSufficient("two")
+                ? ""
+                : "insufficient-balance"
+            }`}
+            onClick={() => handlePackSelect("two")}
+          >
+            <p className="qque">2 Questions</p>
+            <p className="naira">N50  </p>
+          </div>
+          <div
+            className={`fifteen-que ${
+              selectedPack === "five"
+                ? "selected"
+                : isBalanceSufficient("five")
+                ? ""
+                : "insufficient-balance"
+            }`}
+            onClick={() => handlePackSelect("five")}
+          >
+            <p className="qque">5 Questions</p>
+            <p className="naira">N100 </p>
+          </div>
+          <div
+            className={`twenty-que ${
               selectedPack === "ten"
                 ? "selected"
                 : isBalanceSufficient("ten")
@@ -129,24 +155,11 @@ const QuestionPack = () => {
             }`}
             onClick={() => handlePackSelect("ten")}
           >
-            <p className="qque">2 Questions</p>
-            <p className="naira">N50  </p>
+            <p className="qque">10 Questions</p>
+            <p className="naira">N200  </p>
           </div>
           <div
-            className={`fifteen-que ${
-              selectedPack === "fifteen"
-                ? "selected"
-                : isBalanceSufficient("fifteen")
-                ? ""
-                : "insufficient-balance"
-            }`}
-            onClick={() => handlePackSelect("fifteen")}
-          >
-            <p className="qque">5 Questions</p>
-            <p className="naira">N100 </p>
-          </div>
-          <div
-            className={`twenty-que ${
+            className={`twenty-five-que ${
               selectedPack === "twenty"
                 ? "selected"
                 : isBalanceSufficient("twenty")
@@ -154,19 +167,6 @@ const QuestionPack = () => {
                 : "insufficient-balance"
             }`}
             onClick={() => handlePackSelect("twenty")}
-          >
-            <p className="qque">10 Questions</p>
-            <p className="naira">N200  </p>
-          </div>
-          <div
-            className={`twenty-five-que ${
-              selectedPack === "twenty-five"
-                ? "selected"
-                : isBalanceSufficient("twenty-five")
-                ? ""
-                : "insufficient-balance"
-            }`}
-            onClick={() => handlePackSelect("twenty-five")}
           >
             <p className="qque">20 Questions</p>
             <p className="naira">N500  </p>
@@ -190,3 +190,7 @@ const QuestionPack = () => {
 };
 
 export default QuestionPack;
+
+
+
+

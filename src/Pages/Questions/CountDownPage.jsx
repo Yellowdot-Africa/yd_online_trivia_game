@@ -7,7 +7,9 @@ const CountdownPage = () => {
   const [countdown, setCountdown] = useState(3);
   const navigate = useNavigate();
   const location = useLocation();
-  const { selectedPack } = location.state || {}; 
+  // const { selectedPack } = location.state || {}; 
+  const { selectedPack, selectedCategoryName, selectedCategoryImage } = location.state || {};
+
 
 
   useEffect(() => {
@@ -17,7 +19,12 @@ const CountdownPage = () => {
 
     if (countdown === 0) {
       clearInterval(countdownInterval);
-      navigate("/questions" , { state: { selectedPack } });
+      navigate("/questions" , { state:
+         { selectedPack },
+         selectedCategoryName,
+         selectedCategoryImage,
+        
+        });
     }
 
     return () => clearInterval(countdownInterval);
@@ -57,6 +64,3 @@ export default CountdownPage;
 
 
 
-
-  
-  

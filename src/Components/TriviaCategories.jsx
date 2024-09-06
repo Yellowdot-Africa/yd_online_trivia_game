@@ -53,6 +53,9 @@ const TriviaCategories = () => {
     navigate("/getting-started",  {
       state: { 
         selectedCategoryName: category.name,  
+        // selectedCategoryImage: category.logo,
+        selectedCategoryImage: `data:image/png;base64,${category.logo}`, 
+
       },
     });
   };
@@ -104,4 +107,7 @@ const TriviaCategories = () => {
 };
 
 export default TriviaCategories;
+
+
+
 
