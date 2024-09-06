@@ -4,7 +4,7 @@ import { fetchQuestions, setCurrentQuestionIndex } from "../../features/question
 import { getCategories, getGames } from "../../features/categories/categoriesSlice";
 import Pagination from "../../Components/Pagination";
 import Timer from "../../assets/Icons/timer.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import EndGameModal from "../../Components/EndGameModal";
 import "../../Pages/Questions/QuestionsScreen.css";
 import { Circles } from "react-loader-spinner";
@@ -13,6 +13,8 @@ import { unwrapResult } from "@reduxjs/toolkit";
 const QuestionScreen = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
   const { questions, answers, currentQuestionIndex, loading, error } = useSelector((state) => state.questions);
   const selectedCategoryID = useSelector((state) => state.categories.selectedCategory);
   const selectedGameID = useSelector((state) => state.categories.selectedGame);
@@ -28,7 +30,7 @@ const QuestionScreen = () => {
   const [answerBgColors, setAnswerBgColors] = useState([]);
   const [statuses, setStatuses] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
-  const [isOptionSelected, setIsOptionSelected] = useState(false); // Flag to track selection
+  const [isOptionSelected, setIsOptionSelected] = useState(false); 
   const { selectedPack} = location.state || {}; 
 
 
@@ -103,6 +105,7 @@ const QuestionScreen = () => {
           state: {
             correctAnswers,
             wrongAnswers,
+            selectedPack
           },
         });
       }

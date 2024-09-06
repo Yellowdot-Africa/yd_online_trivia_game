@@ -27,7 +27,7 @@ const handleLetGoBtn = () => {
     // if (categoryID) {
       navigate("/question-screen", {
       state: {
-        selectedPack,  
+        selectedPack: selectedPack,  
         selectedCategoryName,
         selectedCategoryImage,
       },
