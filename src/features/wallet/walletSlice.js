@@ -2,7 +2,6 @@ import {  createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   walletBalance: 0,
-  experiencePoints: 0,
   depositResponse: null,
 };
 
@@ -16,9 +15,7 @@ const walletSlice = createSlice({
     updateBalance(state, action) {
       state.walletBalance += action.payload;
     },
-    setExperiencePoints(state, action) {
-      state.experiencePoints = action.payload;
-    },
+  
     setDepositResponse(state, action) {
       state.depositResponse = action.payload;
     },
@@ -28,7 +25,7 @@ const walletSlice = createSlice({
   },
 });
 
-export const { setWalletBalance, updateBalance, setExperiencePoints, setDepositResponse, clearDepositResponse } = walletSlice.actions;
+export const { setWalletBalance, updateBalance, setDepositResponse, clearDepositResponse } = walletSlice.actions;
 
 export default walletSlice.reducer;
 

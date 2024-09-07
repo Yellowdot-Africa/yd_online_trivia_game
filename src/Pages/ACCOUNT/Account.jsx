@@ -18,9 +18,7 @@ const Account = () => {
   const token = useSelector((state) => state.auth.jwt);
   const userID = useSelector((state) => state.auth.userID); 
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
-  const experiencePoints = useSelector(
-    (state) => state.wallet.experiencePoints
-  );
+ 
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [isAmountVisible, setAmountVisibility] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -192,7 +190,6 @@ const Account = () => {
                     <li key={index} className="transaction-item">
                       <div className="transaction-left">
                         <div className="history-details description">
-                          {/* {transaction.description} */}
                           {transaction.description || 'No description available'}
 
                         </div>
@@ -200,12 +197,10 @@ const Account = () => {
                       <div className="transaction-right">
                       
                         <div className="history-details amount">
-                          {/* Amount: {transaction.amount} */}
                           Amount: {transaction.amount || 'N/A'}
 
                         </div>
                         <div className="history-details datee">
-                          {/* Date: {transaction.transactionDate} */}
                           Date: {transaction.transactionDate || 'N/A'}
 
                         </div>
@@ -227,4 +222,11 @@ const Account = () => {
 };
 
 export default Account;
+
+
+
+
+
+
+
 

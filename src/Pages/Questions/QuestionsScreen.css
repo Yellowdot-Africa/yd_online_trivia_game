@@ -316,6 +316,11 @@
   background-clip: text;
 }
 
+.football-trivia-info img{
+  width: 35%;
+  height: 35%;
+}
+
 .question_count-container {
   display: flex;
   flex-direction: column;

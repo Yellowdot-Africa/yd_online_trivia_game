@@ -13,7 +13,7 @@ import "../../Pages/ResultPage/ResultPage.css";
 
 
 const ResultPage = () => {
-  const [screenBgColor, setScreenBgColor] = useState("#580DA4"); // Default color
+  const [screenBgColor, setScreenBgColor] = useState("#580DA4"); 
   const [showModal, setShowModal] = useState(false);
 
   const location = useLocation();
@@ -21,7 +21,6 @@ const ResultPage = () => {
 
   const navigate = useNavigate();
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
-  const experiencePoints = useSelector((state) => state.wallet.experiencePoints);
 
   const { correctAnswers, wrongAnswers, balance } = location.state || {};
 

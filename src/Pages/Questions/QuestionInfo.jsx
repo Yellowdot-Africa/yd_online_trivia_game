@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import FootballIcon from "../../assets/Icons/football-fill.png";
 import LogoIcon from "../../assets/Icons/Frame-cup.png";
 import { useNavigate , useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "../../Pages/Questions/QuestionsScreen.css";
 import CustomButton from "../../Components/CustomButton";
 
@@ -11,11 +12,13 @@ const QuestionInfo = () => {
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
   const location = useLocation();
-  const { selectedPack, selectedCategoryName, selectedCategoryImage } = location.state || {}; 
+  const { selectedPack } = location.state || {}; 
   const navigate = useNavigate();
 
+  const { categories, selectedCategory } = useSelector((state) => state.categories);
 
-  console.log("Received state in QuestionInfo:", location.state);
+  const category = categories.find((cat) => cat.id === selectedCategory);
+
 
   const handleCategorySelect = (id) => {
     setCategoryID(id);
@@ -24,17 +27,13 @@ const QuestionInfo = () => {
 
 
 const handleLetGoBtn = () => {
-    // if (categoryID) {
       navigate("/question-screen", {
       state: {
         selectedPack: selectedPack,  
-        selectedCategoryName,
-        selectedCategoryImage,
+      
       },
     });
-    // } else {
-    //   console.error('Category ID is not provided');
-    // }
+    
   };
 
   const btnText = "Let's go";
@@ -70,11 +69,14 @@ const handleLetGoBtn = () => {
           <img src={LogoIcon} alt="logo" />
         </div>
         <div className="football-trivia-info">
-          {/* <p>Football Trivia</p> */}
-          <p>{selectedCategoryName }</p>
-          <img src={selectedCategoryImage} alt={selectedCategoryName}/>
-
-          {/* <img src={FootballIcon} alt="" /> */}
+          {category ? (
+            <>
+          <p>{category.name}</p>
+          <img src={`data:image/png;base64,${category.logo}`} alt={category.name} />
+          </>
+           ) : (
+            <p>No category selected</p>
+          )}
         </div>
         <div className="question_count-container">
           <div className="count-question-cont">

@@ -162,6 +162,7 @@ const QuestionScreen = () => {
   }, [handleAnswerSubmission, isOptionSelected]);
 
   const handleQuit = () => {
+
     setScreenBgColor("#1F82F2");
     setShowModal(true);
   };
@@ -174,6 +175,7 @@ const QuestionScreen = () => {
         selectedPack
       },
     });
+
   };
 
   const currentQuestion =
@@ -237,9 +239,9 @@ const QuestionScreen = () => {
           )}
         </main>
         <EndGameModal
-          show={showModal}
+          isOpen={showModal}
           onClose={() => setShowModal(false)}
-          onEndGame={handleEndGame}
+          onEnd={handleEndGame}
         />
       </div>
     </>
