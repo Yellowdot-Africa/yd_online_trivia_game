@@ -117,3 +117,7 @@ const depositSlice = createSlice({
 export const { setMsisdn, setAmount, setFullname, setEmail, resetForm, clearError } = depositSlice.actions;
 
 export default depositSlice.reducer;
+
+
+
+
