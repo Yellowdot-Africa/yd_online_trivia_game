@@ -43,13 +43,20 @@ export const ChangePinForm = () => {
         );
         if (response.status === 200) {
           setSuccess(response.data.message || "PIN successfully changed!"); 
-
+          setFormData({
+            currentPin: "",
+            newPin: ""
+          }); 
         }
       } catch (error) {
         setError(error.response?.data?.message || "Failed to change PIN. Please try again.");
         console.error("Error updating PIN:", error.response?.data || error.message);
       } finally {
         setLoading(false);
+        setTimeout(() => {
+          setSuccess("");
+          setError("");
+        }, 2000);
       }
     };
   

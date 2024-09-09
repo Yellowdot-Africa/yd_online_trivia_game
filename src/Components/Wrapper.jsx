@@ -29,6 +29,7 @@ import EmailConfirmationPage from "../Components/EmailConfirmationPage";
 import ResendVerificationPage from "../Components/ResendVerificationPage";
 import ErrorPage from "../Components/ErrorPage";
 import PaymentSuccessPage from "../Components/PaymentSuccessPage";
+import ForgotPassword from "./ForgotPassword";
 
 
 
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
   {
     path: "/login-category",
     element: <LoginFormCategory />,
+  },
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
   },
   {
     path: "/user-profile",

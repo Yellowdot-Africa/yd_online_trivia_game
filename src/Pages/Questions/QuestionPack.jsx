@@ -49,14 +49,12 @@ const QuestionPack = () => {
 
   const handleBegin = () => {
     if (selectedPack) {
-      // navigate("/question-loading");
       navigate("/question-loading", { 
         state: {
           selectedPack: selectedPack,
           selectedCategory: selectedCategory, 
         },
-        // state: 
-        // { selectedPack } 
+      
       });
 
     }
@@ -77,18 +75,7 @@ const QuestionPack = () => {
 
   };
 
-  // const isBalanceSufficient = (pack) => {
-  //   if (pack === "ten") {
-  //     return balance >= 1;
-  //   } else if (pack === "fifteen") {
-  //     return balance >= 2;
-  //   } else if (pack === "twenty") {
-  //     return balance >= 4;
-  //   } else if (pack === "twenty-five") {
-  //     return balance >= 10;
-  //   }
-  //   return false;
-  // };
+  
 
   const isBalanceSufficient = (pack) => {
     switch (pack) {
@@ -173,18 +160,14 @@ const QuestionPack = () => {
           </div>
         </div>
       </div>
-      {/* {selectedPack && ( */}
       <CustomButton
         buttonText={btnText}
         style={buttonStyle}
         onClick={handleBegin}
 
-        // onClick={() => navigate("/question-loading")}
-        // disabled={loading || !inputValue}
         disabled={loading || !selectedPack}
 
       />
-      {/* // )} */}
     </>
   );
 };

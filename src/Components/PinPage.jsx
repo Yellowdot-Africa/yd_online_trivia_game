@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Prev from "../assets/Icons/chevron-left.png";
 import CloseIcon from "../assets/Icons/close-iccon.svg";
 import "../Styles/PinPage.css";
@@ -21,23 +21,26 @@ const FourDigitInput = ({ value }) => {
 };
 
 const PinPage = () => {
+  const dispatch = useDispatch();
   const [pin, setPin] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [confirmPin, setConfirmPin] = useState("");
   const [isConfirmMode, setConfirmMode] = useState(false);
-  const [isPinCreated, setIsPinCreated] = useState(false);
   const [isPinVerified, setIsPinVerified] = useState(false);
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.jwt);
   const [isForgotPinModalOpen, setIsForgotPinModalOpen] = useState(false);
   const [isResetPinModalOpen, setIsResetPinModalOpen] = useState(false);
+  const hasTransactionPIN = useSelector(
+    (state) => state.auth.hasTransactionPIN
+  );
 
   useEffect(() => {
-    const pinCreated = localStorage.getItem("isPinCreated");
-    if (pinCreated) {
-      setIsPinCreated(true);
-    }
-  }, []);
+    console.log("hasTransactionPIN in component:", hasTransactionPIN);
+  }, [hasTransactionPIN]);
+
+  //   console.log("hasTransactionPin:", hasTransactionPIN);
+  // console.log("isPinVerified:", isPinVerified);
 
   const handleGoBack = () => {
     navigate(-1);
@@ -63,12 +66,12 @@ const PinPage = () => {
   const handleCloseResetPinModal = () => setIsResetPinModalOpen(false);
 
   const handleContinue = async () => {
-    if (!isConfirmMode && !isPinCreated) {
+    if (!isConfirmMode && !hasTransactionPIN) {
       setConfirmPin(pin);
       setPin("");
       setConfirmMode(true);
       setErrorMessage("");
-    } else if (isConfirmMode && !isPinCreated) {
+    } else if (isConfirmMode && !hasTransactionPIN) {
       if (pin === confirmPin) {
         try {
           const response = await axios.post(
@@ -82,8 +85,8 @@ const PinPage = () => {
             }
           );
           if (response.status === 200) {
-            localStorage.setItem("isPinCreated", "true");
-            setIsPinCreated(true);
+            dispatch({ type: "UPDATE_PIN_STATUS", payload: true });
+            hasTransactionPIN(true);
             setErrorMessage("");
             setConfirmMode(false);
             setPin("");
@@ -108,8 +111,7 @@ const PinPage = () => {
         setErrorMessage("PINs do not match. Try again.");
         setPin("");
       }
-    } else if (isPinCreated && !isPinVerified) {
-      // if (pin === confirmPin) {
+    } else if (hasTransactionPIN && !isPinVerified) {
       try {
         const response = await axios.post(
           "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/TransactionPin/VerifyTransactionPin",
@@ -141,24 +143,30 @@ const PinPage = () => {
       }
     }
   };
+
   const blurClass = isForgotPinModalOpen || isResetPinModalOpen ? "blur" : "";
 
   return (
-    // <div className='pin-input-container'>
     <>
       <div className={`pin-input-container ${blurClass}`}>
         <div className="pin-text">
           <img src={Prev} alt="prev" onClick={handleGoBack} />
           <div className="create-pin-text">
             <p className="create-pin">
-              {isPinCreated ? "Cash Out" : "Create PIN"}
+              {hasTransactionPIN ? "Enter PIN to Cash Out" : "Create PIN"}
             </p>
           </div>
         </div>
         <div className="pin-info">
-          <h2>Enter PIN</h2>
+          <h2>
+            {hasTransactionPIN
+              ? "Enter PIN"
+              : isConfirmMode
+              ? "Confirm PIN"
+              : "Create PIN"}
+          </h2>
           <p>
-            {isPinCreated
+            {hasTransactionPIN
               ? "Enter your PIN to continue cashout."
               : isConfirmMode
               ? "Confirm your four-digit PIN."
@@ -196,10 +204,11 @@ const PinPage = () => {
             Continue
           </button>
         )}
-
-        <p className="forgot-pin" onClick={handleOpenForgotPinModal}>
-          Forgot pin?
-        </p>
+        {hasTransactionPIN && (
+          <p className="forgot-pin" onClick={handleOpenForgotPinModal}>
+            Forgot pin?
+          </p>
+        )}
         <ForgotPinRequestModal
           isOpen={isForgotPinModalOpen}
           onClose={handleCloseForgotPinModal}

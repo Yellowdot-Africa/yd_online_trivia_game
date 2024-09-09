@@ -25,10 +25,6 @@ const NavigationIcons = ({bgColor, opacity}) => {
 
  
 
-  // const handleIconClick = (route, name) => {
-  //   setActive(name);
-  //   navigate(route);
-  // };
 
   const handleIconClick = (route, name) => {
     setActive(name);

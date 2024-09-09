@@ -9,7 +9,9 @@ import EyeOff from "../../assets/Icons/eye-off.png";
 import ArrowUp from "../../assets/Icons/arrw-up-circlee.png";
 import ArrowDown from "../../assets/Icons/arrow-dwn-circle.png";
 import "../../Pages/ACCOUNT/Account.css";
-// import WithdrawalModal from "../../Components/WithdrawalModal";
+
+
+
 
 const Account = () => {
   const navigate = useNavigate();
@@ -18,7 +20,7 @@ const Account = () => {
   const token = useSelector((state) => state.auth.jwt);
   const userID = useSelector((state) => state.auth.userID); 
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
- 
+  console.log(walletBalance);
   const [transactionHistory, setTransactionHistory] = useState([]);
   const [isAmountVisible, setAmountVisibility] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,17 +63,6 @@ const Account = () => {
     setShowAllTransactions(!showAllTransactions);
   };
 
-  // const calculateBalanceFromHistory = (transactions) => {
-  //   let balance = 0;
-  //   transactions.forEach(transaction => {
-  //     if (transaction.type === 'credit') {
-  //       balance += transaction.amount;
-  //     } else if (transaction.type === 'debit') {
-  //       balance -= transaction.amount;
-  //     }
-  //   });
-  //   return balance;
-  // };
 
 
   const calculateBalanceFromHistory = (transactions) => {
@@ -79,9 +70,9 @@ const Account = () => {
     if (Array.isArray(transactions)) {
       transactions.forEach(transaction => {
         if (transaction.type === 'credit') {
-          balance += transaction.amount;
+          balance += transaction.amount || 0;
         } else if (transaction.type === 'debit') {
-          balance -= transaction.amount;
+          balance -= transaction.amount || 0;
         }
       });
     }
@@ -102,13 +93,11 @@ const Account = () => {
             },
           }
         );
-        // const transactions = response.data.data;
         const transactions = response.data.data || []; 
         console.log("Fetched transactions:", transactions);
         setTransactionHistory(transactions);
 
         const balance = calculateBalanceFromHistory(transactions);
-        dispatch(setWalletBalance(balance));
       } catch (error) {
         console.error("Error fetching transaction history:", error);
       }
@@ -117,9 +106,6 @@ const Account = () => {
     fetchTransactionHistory();
   }, [token, userID, dispatch]);
 
-  // const transactionsToDisplay = showAllTransactions
-  //   ? transactionHistory
-  //   : transactionHistory.slice(0, initialDisplayCount);
 
 
     const transactionsToDisplay = showAllTransactions
@@ -216,7 +202,6 @@ const Account = () => {
           </div>
         </div>
       </div>
-      {/* <WithdrawalModal isOpen={isModalOpen} onClose={closeModal} /> */}
     </>
   );
 };

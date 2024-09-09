@@ -1,10 +1,19 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux"; 
 import Check from "../assets/Icons/check.png";
 import "../Styles/CashOutSuccess.css";
 
 const CashOutSuccessPage = () => {
     const navigate = useNavigate();
+    const location = useLocation();  
+    const userName = useSelector((state) => state.auth.userName); 
+
+    const recipientName = location.state?.recipientName || userName;  // If no recipientName, fallback to userName
+
+    const isSendingToSelf = recipientName === userName;
+
+
     const handleGoHome = ()=>{
         navigate("/home");
     }
@@ -18,8 +27,8 @@ const CashOutSuccessPage = () => {
         <img src={Check} alt="check-icon" />
 
         </div>
-        <h2>Cash out to James John is on the way</h2>
-        <p>Your cashout to James John is currently on the way.</p>
+        <h2>Cash out to {isSendingToSelf ? "your account" : recipientName}  is on the way</h2>
+        <p>Your cashout to {isSendingToSelf ? "your account" : recipientName}  is currently on the way.</p>
       </div>
       <div className="action-buttons">
         <button className="go-home-button" onClick={handleGoHome}>Go Home</button>

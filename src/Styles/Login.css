@@ -58,12 +58,17 @@
 }
 
 
-.remember-me {
+.forgot-password {
   display: flex;
   align-items: center;
   margin-top: 10px;
   color: #54349f;
 
+}
+
+.forgot-password a{
+  color: #54349f;
+  text-decoration: none;
 }
 
 .remember-me input[type="checkbox"] {

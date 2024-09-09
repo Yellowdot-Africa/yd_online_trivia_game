@@ -61,6 +61,7 @@ const initialState = {
   email: null,
   msisdn: null,
   walletBalance: null,
+  hasTransactionPIN: false,
   tokenExpiry: null,
   jwt: localStorage.getItem("jwt") || null,
   isLoading: false,
@@ -90,17 +91,18 @@ const authSlice = createSlice({
         state.walletBalance = action.payload.walletBalance;
         state.tokenExpiry = action.payload.tokenExpiry;
         state.jwt = action.payload.jwt;
+        state.hasTransactionPIN = action.payload.hasTransactionPIN;
         state.isAuthenticated = true;
         state.loginError = null;
         state.success = true;
         state.status = "succeeded";
+
       })
       .addCase(login.rejected, (state, action) => {
         state.isLoading = false;
         state.loginError = action.payload || "Login failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        // console.error("Login error:", action.error);
       })
       .addCase(signup.pending, (state) => {
         state.isLoading = true;
@@ -128,9 +130,16 @@ const authSlice = createSlice({
         state.signUpError = action.payload || "Signup failed";
         state.isAuthenticated = false;
         state.status = "failed";
-        // console.error("Signup error:", action.error);
       });
   },
 });
 
 export default authSlice.reducer;
+
+
+
+
+
+
+
+

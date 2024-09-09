@@ -7,12 +7,9 @@ import { login } from "../features/auth/authSlice";
 import { Circles } from "react-loader-spinner";
 
 import "../Styles/Login.css";
-
-
-
+import { setWalletBalance } from "../features/wallet/walletSlice";
 
 const LoginForm = ({ isLoginOpen }) => {
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { status, loginError } = useSelector((state) => state.auth);
@@ -46,16 +43,17 @@ const LoginForm = ({ isLoginOpen }) => {
     return phoneNumber;
   };
 
-
   const handleSubmit = (values) => {
     const { loginMethod, phoneNumber, email, password } = values;
-    const username = loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
+    const username =
+      loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
 
     dispatch(login({ username, password }))
       .then((action) => {
         if (login.fulfilled.match(action)) {
-          const token = action.payload.token;
-
+          const token = action.payload.jwt;
+          localStorage.setItem("jwt", token);
+          dispatch(setWalletBalance(action.payload.walletBalance))
           navigate("/loading");
         }
       })
@@ -67,7 +65,7 @@ const LoginForm = ({ isLoginOpen }) => {
           dispatch(loginFailed(error.response.data.message));
           console.error("Login failed:", error);
         } else {
-          setErrorText("An error occurred. Please try again.");
+          setErrorText(error.message || "An error occurred. Please try again.");
           setErrorText(error);
         }
       });
@@ -170,6 +168,12 @@ const LoginForm = ({ isLoginOpen }) => {
                     Use Phone Number
                   </a>
                 )}
+              </div>
+
+              <div className="forgot-password">
+                <a onClick={() => navigate("/forgot-password")}>
+                  Forgot Password?
+                </a>
               </div>
             </Form>
           )}

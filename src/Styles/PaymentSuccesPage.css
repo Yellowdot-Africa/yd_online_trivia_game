@@ -1,0 +1,29 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    text-align: center;
+  }
+  
+  .payment-status-heading {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .payment-status-text {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .success-texttt {
+    color: green;
+  }
+  
+  .failed-texttt {
+    color: red;
+  }
+  
