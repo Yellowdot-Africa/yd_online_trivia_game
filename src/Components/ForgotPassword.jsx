@@ -63,11 +63,7 @@ const ForgotPassword = () => {
   };
 
 
-//   const initialValues = {
-//     emailOrPhone: "",
-//     resetCode: "",
-//     newPassword: "",
-//   };
+
 
   const resetRequestSchema = Yup.object().shape({
     emailOrPhone: Yup.string().required("Email or phone number is required"),

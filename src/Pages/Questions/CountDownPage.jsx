@@ -7,7 +7,6 @@ const CountdownPage = () => {
   const [countdown, setCountdown] = useState(3);
   const navigate = useNavigate();
   const location = useLocation();
-  // const { selectedPack } = location.state || {}; 
   const { selectedPack, selectedCategoryName, selectedCategoryImage } = location.state || {};
 
 

@@ -1,10 +1,14 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const ErrorPage = () => {
+  const location = useLocation();
+  const errorMessage = location.state?.errorMessage || "Something went wrong. Please try again later.";
+
   return (
     <div>
       <h1>Error</h1>
-      <p>Something went wrong. Please try again later.</p>
+      <p>{errorMessage}</p> 
     </div>
   );
 };

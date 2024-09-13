@@ -50,7 +50,6 @@ export const ForgotPinRequestModal = ({
 
   return (
     <>
-    {/* // <div className="forgot-pin-modal"> */}
   
 
           <div className="modall-overlay">

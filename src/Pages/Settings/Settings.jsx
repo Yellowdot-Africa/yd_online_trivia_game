@@ -108,21 +108,7 @@ const Settings = ({ showShareButtons }) => {
             </div>
 
             <div className="settings-buttons">
-              {/* <button
-                className="settings-btn"
-                onClick={() =>
-                  openModal("Update Password", <p>this is a form</p>
-                  )
-                }
-              >
-                Update Password
-              </button> */}
-              {/* <button
-                className="settings-btn"
-                onClick={() => openModal("Reset PIN", <ResetPinForm />)}
-              >
-                Reset PIN
-              </button> */}
+          
               <button
                 className="settings-btn"
                 onClick={() => openModal("Update PIN", <ChangePinForm />)}

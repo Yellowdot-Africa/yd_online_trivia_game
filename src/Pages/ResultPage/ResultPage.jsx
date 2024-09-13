@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-// import Logo from "../../assets/Icons/big-cup.svg";
 import Logo from "../../assets/Icons/Frame-cup.png";
 import Congrat from "../../assets/Icons/congrat.png";
 import Right from "../../assets/Icons/icon-cancel.png";

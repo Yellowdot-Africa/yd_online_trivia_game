@@ -9,7 +9,7 @@ const CashOutSuccessPage = () => {
     const location = useLocation();  
     const userName = useSelector((state) => state.auth.userName); 
 
-    const recipientName = location.state?.recipientName || userName;  // If no recipientName, fallback to userName
+    const recipientName = location.state?.recipientName || userName;  
 
     const isSendingToSelf = recipientName === userName;
 

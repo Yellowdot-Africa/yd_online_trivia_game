@@ -1,14 +1,9 @@
-
-
-
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   updateBalance,
   setDepositResponse,
-  setWalletBalance,
-  clearDepositResponse,
 } from "../features/wallet/walletSlice";
 import axios from "axios";
 
@@ -25,27 +20,25 @@ const PaymentSuccessPage = () => {
   const status = queryParams.get("status");
   const txRef = queryParams.get("tx_ref");
   const transactionId = queryParams.get("transaction_id");
+  const amountPaid = queryParams.get("amount");
   const token = useSelector((state) => state.auth.jwt);
+
   useEffect(() => {
-  if(status){
-    if (status === "successful") {
+    if (status) {
+      if (status === "successful") {
         addUnitsToWallet();
       } else {
         setMessage("Payment was not successful.");
         setLoading(false);
       }
-  }
-
-
+    }
   }, [status]);
 
   const addUnitsToWallet = async () => {
-    const units = 5; 
-    const amountPaid = 10; 
     const payload = {
-      units,
-      amountPaid,
-      paymentSource: "Web", 
+      units: amountPaid,
+      amountPaid: amountPaid,
+      paymentSource: "Web",
       paymentReferenceNumber: txRef,
       comments: "Added using Flutterwave online payment",
     };
@@ -72,8 +65,8 @@ const PaymentSuccessPage = () => {
         );
 
         setTimeout(() => {
-          console.log("Redirecting to account page..."); 
-          navigate("/home"); 
+          console.log("Redirecting to account page...");
+          navigate("/home");
         }, 1000);
       } else {
         setMessage("Failed to update wallet.");
@@ -101,7 +94,7 @@ const PaymentSuccessPage = () => {
       </h2>
       <p
         className={`payment-status-text ${
-          status === "successful" ? "success-text" : "failed-text"
+          status === "successful" ? "success-texttt" : "failed-texttt"
         }`}
       >
         {message}
@@ -111,4 +104,3 @@ const PaymentSuccessPage = () => {
 };
 
 export default PaymentSuccessPage;
-

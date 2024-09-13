@@ -32,7 +32,12 @@ export const ResetPinModal = ({ isOpen, onClose }) => {
       );
       if (response.status === 200) {
         setSuccess(response.data.message || "PIN successfully reset"); 
-
+        setTimeout(() => {
+          setResetCode("");
+          setNewPin("");
+          setMessage("");
+          setSuccess("");
+        }, 1000);
       }else {
         setMessage(response.data.message || "Failed to reset PIN.");
       }
@@ -47,7 +52,6 @@ export const ResetPinModal = ({ isOpen, onClose }) => {
 
   return (
     <div className="modall-overlay">
-    {/* // <div className="reset-pin-modal"> */}
 
       <div className="modall-content">
       <div className="close-text-icon">
@@ -85,7 +89,5 @@ export const ResetPinModal = ({ isOpen, onClose }) => {
     </div>
   );
 };
-
-
 
 
