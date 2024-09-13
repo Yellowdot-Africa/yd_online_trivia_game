@@ -13,7 +13,7 @@ const VerifyEmail = () => {
 
   
 
-    const verifyUserEmail = async () => {
+    const verifyUserEmail = async (retries = 3) => {
 
     
       try {
@@ -23,7 +23,7 @@ const VerifyEmail = () => {
         );
         console.log("API response:", response); 
 
-        if (response.status === 200) {
+        if (response.status === 200 ) {
           navigate("/login");
         } else {
           const errorMessage = response.data.message || "Verification failed";
@@ -33,12 +33,14 @@ const VerifyEmail = () => {
           navigate("/error", { state: { errorMessage } });  
         }
       } catch (error) {
-        console.error("Verification error:", error);
+       
+       
         const errorMessage = error.response?.data?.message || "An unknown error occurred";
 
         navigate("/error", { state: { errorMessage } });  
-      }
+      
     };
+  }
     if (code) {
       verifyUserEmail();
     } else {

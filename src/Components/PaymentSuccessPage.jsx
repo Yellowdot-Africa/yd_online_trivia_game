@@ -20,13 +20,12 @@ const PaymentSuccessPage = () => {
   const status = queryParams.get("status");
   const txRef = queryParams.get("tx_ref");
   const transactionId = queryParams.get("transaction_id");
-  const amountPaid = queryParams.get("amount");
+  const amountPaid = queryParams.get("Amount");
   const token = useSelector((state) => state.auth.jwt);
 
-
-//   const calculateUnits = (amountPaid) => {
-//     return amountPaid / 100;
-//   };
+  const calculateUnits = (amountPaid) => {
+    return amountPaid / 100;
+  };
 
   useEffect(() => {
     if (status) {
@@ -40,7 +39,8 @@ const PaymentSuccessPage = () => {
   }, [status]);
 
   const addUnitsToWallet = async () => {
-    const units = calculateUnits(amountPaid);
+    const amountPaid = parseFloat(queryParams.get("Amount"));
+    const units = Math.floor(calculateUnits(amountPaid));
 
     const payload = {
       units: units,
@@ -67,7 +67,6 @@ const PaymentSuccessPage = () => {
         setSuccess(true);
         setMessage(`Payment of ${amountPaid} was successful!`);
 
-        // setMessage("Wallet updated successfully with the payment!");
         dispatch(updateBalance(amountPaid));
         dispatch(
           setDepositResponse("Wallet updated successfully with the payment!")
