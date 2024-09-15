@@ -10,10 +10,11 @@ const VerifyEmail = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get("code");
-
+// console.log("code", code);
   
 
-    const verifyUserEmail = async (retries = 3) => {
+    const verifyUserEmail = async () => {
+      console.log("code", code);
 
     
       try {

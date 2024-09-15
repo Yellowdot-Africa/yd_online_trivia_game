@@ -10,10 +10,12 @@ const walletSlice = createSlice({
   initialState,
   reducers: {
     setWalletBalance(state, action) {
-      state.walletBalance = action.payload;
+      // state.walletBalance = action.payload;
+      state.walletBalance = Number(action.payload); 
     },
     updateBalance(state, action) {
-      state.walletBalance += action.payload;
+      // state.walletBalance += action.payload;
+      state.walletBalance += Number(action.payload);
     },
   
     setDepositResponse(state, action) {
@@ -28,6 +30,7 @@ const walletSlice = createSlice({
 export const { setWalletBalance, updateBalance, setDepositResponse, clearDepositResponse } = walletSlice.actions;
 
 export default walletSlice.reducer;
+
 
 
 

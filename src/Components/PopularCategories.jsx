@@ -74,6 +74,7 @@ const PopularCategories = () => {
 
   const handlePlayClick = (category) => {
     console.log(`Playing category: ${category.name}`);
+    toggleImage();
   };
  
 

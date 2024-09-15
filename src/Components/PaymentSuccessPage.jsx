@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   updateBalance,
   setDepositResponse,
+  setWalletBalance,
 } from "../features/wallet/walletSlice";
 import axios from "axios";
 
@@ -20,12 +21,11 @@ const PaymentSuccessPage = () => {
   const status = queryParams.get("status");
   const txRef = queryParams.get("tx_ref");
   const transactionId = queryParams.get("transaction_id");
-  const amountPaid = queryParams.get("Amount");
+  const amountPaid = parseFloat(queryParams.get("Amount"));
   const token = useSelector((state) => state.auth.jwt);
 
-  const calculateUnits = (amountPaid) => {
-    return amountPaid / 100;
-  };
+
+  const previousBalance = useSelector((state) => state.wallet.walletBalance);
 
   useEffect(() => {
     if (status) {
@@ -39,12 +39,10 @@ const PaymentSuccessPage = () => {
   }, [status]);
 
   const addUnitsToWallet = async () => {
-    const amountPaid = parseFloat(queryParams.get("Amount"));
-    const units = Math.floor(calculateUnits(amountPaid));
-
+ 
     const payload = {
-      units: units,
-      amountPaid: amountPaid,
+      units: amountPaid,
+      amountPaid,
       paymentSource: "Web",
       paymentReferenceNumber: txRef,
       comments: "Added using Flutterwave online payment",
@@ -56,18 +54,23 @@ const PaymentSuccessPage = () => {
         payload,
         {
           headers: {
-            Accept: "*/*",
+            Accept: "/",
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
         }
       );
 
-      if (response.status === 200) {
-        setSuccess(true);
-        setMessage(`Payment of ${amountPaid} was successful!`);
 
-        dispatch(updateBalance(amountPaid));
+      if (response.status === 200) {
+        // setSuccess(true);
+        setMessage(`Payment of ${amountPaid} was successful!`);
+       
+        const newBalance = previousBalance + amountPaid;
+
+        // dispatch(updateBalance(amountPaid));
+        dispatch(setWalletBalance(newBalance));
+
         dispatch(
           setDepositResponse("Wallet updated successfully with the payment!")
         );
@@ -112,3 +115,8 @@ const PaymentSuccessPage = () => {
 };
 
 export default PaymentSuccessPage;
+
+
+
+
+
