@@ -89,7 +89,7 @@ const TriviaCategories = () => {
                 <div className="category-details">
                   <div className="countt-container">
                     <h4>{category.name}</h4>
-                    <p className="total-count">1.2K</p>
+                    {/* <p className="total-count">1.2K</p> */}
                   </div>
                   <button
                     className="play-btn"

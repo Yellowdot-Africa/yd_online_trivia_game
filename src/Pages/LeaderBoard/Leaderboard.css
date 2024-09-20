@@ -380,6 +380,105 @@
   border-bottom: 3px solid #7e2cd1;
 }
 
+
+
+.winner {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.leaderboard-img {
+  width: 100%;
+  height: auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.badgde {
+  position: absolute;
+  color: black;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.badgde p{
+  font-family: "AlpinoMedium";
+  font-weight: 521;
+  font-size: 18px;
+}
+
+.badge-one {
+  top: 25%;  
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.badge-two {
+  top: 45%;  
+  left: 16%;  
+  transform: translateX(-50%);
+}
+
+.badge-three {
+  top: 63%;  
+  right: 16%;  
+  transform: translateX(50%);
+}
+
+@media (min-width: 768px) {
+  .badgde {
+    font-size: 24px;
+  }
+  .badge-one {
+    top: 25%;  
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .badge-two {
+    top: 47%;  
+    left: 16%;  
+    transform: translateX(-50%);
+  }
+  
+  .badge-three {
+    top: 65%;  
+    right: 16%;  
+    transform: translateX(50%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .badgde {
+    font-size: 24px;
+  }
+  .badge-one {
+    top: 25%;  
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .badge-two {
+    top: 47%;  
+    left: 16%;  
+    transform: translateX(-50%);
+  }
+  
+  .badge-three {
+    top: 65%;  
+    right: 16%;  
+    transform: translateX(50%);
+  }
+}
+
+
+
 @media screen and (min-width: 230px) and (max-width: 350px) {
   .purple {
     background-color: #7f2cd1cc;
@@ -420,3 +519,7 @@
     margin-left: 123px;
   }
 }
+
+
+
+

@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  updateBalance,
-  setDepositResponse,
-  setWalletBalance,
-} from "../features/wallet/walletSlice";
+import { setDepositResponse, setWalletBalance } from "../features/wallet/walletSlice";
 import axios from "axios";
+import "../Styles/PaymentSuccesPage.css";
 
 const PaymentSuccessPage = () => {
   const location = useLocation();
@@ -14,18 +11,13 @@ const PaymentSuccessPage = () => {
   const dispatch = useDispatch();
 
   const [loading, setLoading] = useState(true);
-  const [success, setSuccess] = useState(false);
   const [message, setMessage] = useState("");
 
   const queryParams = new URLSearchParams(location.search);
   const status = queryParams.get("status");
   const txRef = queryParams.get("tx_ref");
-  const transactionId = queryParams.get("transaction_id");
   const amountPaid = parseFloat(queryParams.get("Amount"));
   const token = useSelector((state) => state.auth.jwt);
-
-
-  const previousBalance = useSelector((state) => state.wallet.walletBalance);
 
   useEffect(() => {
     if (status) {
@@ -39,7 +31,6 @@ const PaymentSuccessPage = () => {
   }, [status]);
 
   const addUnitsToWallet = async () => {
- 
     const payload = {
       units: amountPaid,
       amountPaid,
@@ -61,22 +52,15 @@ const PaymentSuccessPage = () => {
         }
       );
 
-
       if (response.status === 200) {
-        // setSuccess(true);
-        setMessage(`Payment of ${amountPaid} was successful!`);
-       
-        const newBalance = previousBalance + amountPaid;
+        const newBalance = response.data.data; 
+        setMessage(`Payment of N${amountPaid} was successful! Wallet balance updated.`);
 
-        // dispatch(updateBalance(amountPaid));
         dispatch(setWalletBalance(newBalance));
+        dispatch(setDepositResponse("Wallet updated successfully with the payment!"));
 
-        dispatch(
-          setDepositResponse("Wallet updated successfully with the payment!")
-        );
 
         setTimeout(() => {
-          console.log("Redirecting to account page...");
           navigate("/home");
         }, 1000);
       } else {
@@ -86,9 +70,7 @@ const PaymentSuccessPage = () => {
     } catch (error) {
       console.error("Error updating wallet:", error);
       setMessage("An error occurred while updating the wallet.");
-      dispatch(
-        setDepositResponse("An error occurred while updating the wallet.")
-      );
+      dispatch(setDepositResponse("An error occurred while updating the wallet."));
     } finally {
       setLoading(false);
     }
@@ -99,24 +81,30 @@ const PaymentSuccessPage = () => {
   }
 
   return (
+    
     <div className="payment-container">
-      <h2 className="payment-status-heading">
-        {status === "successful" ? "Payment Successful" : "Payment Failed"}
-      </h2>
-      <p
-        className={`payment-status-text ${
-          status === "successful" ? "success-texttt" : "failed-texttt"
-        }`}
-      >
-        {message}
-      </p>
-    </div>
+         {loading ? (
+          <div className="loading-spinner"></div>
+        ) : (
+          <>
+            <h2 className="payment-status-heading">
+              {status === "successful" ? (
+                <span className="payment-icon">✔</span>
+              ) : (
+                <span className="failed-icon">✖</span>
+              )}
+            </h2>
+            <p
+              className={`payment-status-text ${
+                status === "successful" ? "success-texttt" : "failed-texttt"
+              }`}
+            >
+              {message}
+            </p>
+          </>
+        )}
+      </div>
   );
 };
 
 export default PaymentSuccessPage;
-
-
-
-
-

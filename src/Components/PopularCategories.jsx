@@ -4,7 +4,7 @@ import { getCategories } from "../features/categories/categoriesSlice";
 import Play from "../assets/Icons/play.svg";
 import { useNavigate } from "react-router-dom";
 import "../Styles/PopularCategories.css";
-import { Circles } from 'react-loader-spinner';
+import { Circles } from "react-loader-spinner";
 import NavBar from "./NavBar";
 import CloseIcon from "../assets/Icons/close-iccon.svg";
 import LoginForm from "../Components/LoginForm";
@@ -76,12 +76,14 @@ const PopularCategories = () => {
     console.log(`Playing category: ${category.name}`);
     toggleImage();
   };
- 
 
   return (
     <>
       {isImageOpen && <div className="backdropp" onClick={closeMenu} />}
-      <div className={`categories-container ${isImageOpen ? 'blur' : ''}`} id="popularcategories">
+      <div
+        className={`categories-container ${isImageOpen ? "blur" : ""}`}
+        id="popularcategories"
+      >
         <div className="categories-heading">
           <h4>Popular Categories</h4>
           <p>Pick a Category to Play</p>
@@ -94,24 +96,22 @@ const PopularCategories = () => {
                 key={category.id}
                 className={`category-item ${category.name.toLowerCase()}`}
               >
-
                 <img
                   src={`data:image/png;base64,${category.logo}`}
                   alt={category.name}
                   className="category-logo-img"
                   onClick={handleImageClick}
                 />
-                <h4>{category.name}</h4>
                 <div className="categories-btn-card">
-                <div className="count-container">
-                  <div className="play-img" onClick={() => handlePlayClick(category)}>
-                    <img src={Play} alt="Play" />
+                  <div className="count-container">
+                    <h4>{category.name}</h4>
                   </div>
-                  <p className="total-countt">1.2K</p>
-                 
-                  </div>
-                  <button className="total-countt-btn" onClick={() => handlePlayClick(category)}>Play</button>
-
+                  <button
+                    className="total-countt-btn"
+                    onClick={() => handlePlayClick(category)}
+                  >
+                    Play
+                  </button>
                 </div>
               </div>
             ))}
@@ -177,8 +177,3 @@ const PopularCategories = () => {
 };
 
 export default PopularCategories;
-
-
-
-
-

@@ -11,6 +11,9 @@ const Withdraw = () => {
   const [bankId, setBankId] = useState("");
   const [isInputEdited, setIsInputEdited] = useState(false); 
   const [editedAmount, setEditedAmount] = useState('');
+  const [accountNumber, setAccountNumber] = useState(""); 
+
+
 
   const navigate = useNavigate();
   const token = useSelector((state) => state.auth.jwt);
@@ -59,7 +62,7 @@ const Withdraw = () => {
   };
 
   const handleContinue = () => {
-    navigate("/pin-page");
+    navigate("/pin-page",{ state: { editedAmount, bankId, accountNumber } });
   };
 
   return (
@@ -96,13 +99,14 @@ const Withdraw = () => {
                 type="text"
                 id="accountNumber"
                 placeholder="Enter Account Number"
-                onChange={handleInputChange(setEditedAmount)}
+                value={accountNumber}
+                onChange={handleInputChange(setAccountNumber)}
 
               />
             </div>
             <div className="form-group">
               <label htmlFor="amount">Amount</label>
-              <input type="text" id="amount" placeholder="Enter Amount" />
+              <input type="text" id="amount" placeholder="Enter Amount"  value={editedAmount} onChange={handleInputChange(setEditedAmount)}/>
             </div>
           </form>
         </div>
@@ -120,3 +124,6 @@ const Withdraw = () => {
 };
 
 export default Withdraw;
+
+
+

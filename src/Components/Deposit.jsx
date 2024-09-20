@@ -10,6 +10,7 @@ import {
 import Prev from "../assets/Icons/chevron-left.png";
 import CustomButton from "./CustomButton";
 import ErrorModal from "./ErrorModal";
+import PaymentAdviceModal from "./PaymentAdviceModal";
 
 import "../Styles/Deposit.css";
 
@@ -22,6 +23,8 @@ const Deposit = () => {
   const token = useSelector((state) => state.auth.jwt);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [showAdviceModal, setShowAdviceModal] = useState(true); 
+
   const [showErrorModal, setShowErrorModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -93,6 +96,10 @@ const Deposit = () => {
     setShowErrorModal(false);
   };
 
+  const closeAdviceModal = () => {
+    setShowAdviceModal(false);
+  };
+
   return (
     <div className="deposit-container">
       <div className="deposit-text">
@@ -141,6 +148,12 @@ const Deposit = () => {
           <ErrorModal message={errorMessage} onClose={closeErrorModal} />
         )}
       </div>
+      {showAdviceModal && (
+        <PaymentAdviceModal
+          onClose={closeAdviceModal} 
+          onProceed={handlePayment} 
+        />
+      )}
     </div>
   );
 };

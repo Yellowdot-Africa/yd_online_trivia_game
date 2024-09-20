@@ -10,7 +10,7 @@
 
 .withdraw-text p {
   margin: 0 122px;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 16px;
   font-weight: 421;
   line-height: 21px;
@@ -36,7 +36,7 @@
   margin-bottom: 5px;
   display: flex;
   justify-content: flex-start;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 14px;
   font-weight: 421;
   line-height: 21px;
@@ -54,7 +54,7 @@
 }
 select:required:invalid {
   color: #979797;
-  font-family: "Alpino";
+  font-family: "AlpinoRegular";
   font-size: 14px;
   font-weight: 421;
   line-height: 21px;
@@ -80,7 +80,7 @@ select:required:invalid {
 }
 
 .withdrawal-info p{
-font-family: "Alpino";
+font-family: "AlpinoRegular";
 font-size: 12px;
 font-weight: 700;
 line-height: 21px;
@@ -94,6 +94,8 @@ margin: 0;
 .continue-button {
   padding: 10px 20px;
   font-size: 16px;
+  font-family: "AlpinoMedium";
+  font-weight: 521;
   background-color: #973cf266;
   color: #fff;
   border: none;

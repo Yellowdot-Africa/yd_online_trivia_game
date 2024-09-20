@@ -16,11 +16,21 @@ export const login = createAsyncThunk(
       localStorage.setItem("jwt", jwt);
       return { jwt, ...userData };
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response
-          ? error.response.data.message || "Unknown error occurred"
-          : "An error occurred. Please try again later."
-      );
+      console.error("Login Error: ", error.response ? error.response.data : error.message);
+      let errorMessage;
+
+      if (error.response) {
+        errorMessage =
+       error.response.data.message || "Internal Server error occurred. Please try again"
+
+} else {
+  errorMessage = error.message || "An unknown error occurred.";
+
+
+}
+return thunkAPI.rejectWithValue(errorMessage);
+
+    
     }
   }
 );
@@ -88,6 +98,8 @@ const authSlice = createSlice({
         state.userID = action.payload.userID;
         state.userType = action.payload.userType;
         state.username = action.payload.username;
+        state.email = action.payload.email;
+        state.msisdn = action.payload.msisdn;
         state.walletBalance = action.payload.walletBalance;
         state.tokenExpiry = action.payload.tokenExpiry;
         state.jwt = action.payload.jwt;

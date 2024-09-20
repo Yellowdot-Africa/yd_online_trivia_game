@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
   const username = useSelector((state) => state.auth.username);
-  const email = useSelector((state) => state.auth.email);
-  const msisdn = useSelector((state) => state.auth.msisdn);
+  const email = useSelector((state) => state.auth.username);
+  const msisdn = useSelector((state) => state.auth.username);
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedUsername, setEditedUsername] = useState(username || '');
@@ -132,13 +132,13 @@ const UserProfile = () => {
           <div className="user-details">
             <div className="avatar">
               <p>{firstLetter}</p>
-              <img src={Edit} alt="" />
+              {/* <img src={Edit} alt="" /> */}
             </div>
             <div className="user-info">
-              <p className="phone-number">
+              {/* <p className="phone-number">
                 <img src={Phone} alt="phone" /> {editedPhoneNumber}
-              </p>
-              <p className="phone-number">{editedEmail}</p>
+              </p> */}
+              {/* <p className="phone-number">{editedEmail}</p> */}
               <p className="user-name">{editedUsername}</p>
             </div>
           </div>
@@ -202,6 +202,10 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
+
+
+
+
 
 
 
