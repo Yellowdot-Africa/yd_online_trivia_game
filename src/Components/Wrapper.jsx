@@ -31,7 +31,7 @@ import ErrorPage from "../Components/ErrorPage";
 import PaymentSuccessPage from "../Components/PaymentSuccessPage";
 import ForgotPassword from "./ForgotPassword";
 import TermsAndConditions from "../Components/TermsAndConditions";
-
+import FaqPage from "../Components/FaqPage";
 
 
 const router = createBrowserRouter([
@@ -136,6 +136,10 @@ const router = createBrowserRouter([
   {
     path: "/result-page",
     element: <ResultPage />,
+  },
+  {
+    path: "/faqs",
+    element: <FaqPage />,
   },
   {
     path: "/terms-and-conditions",
