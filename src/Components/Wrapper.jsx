@@ -30,7 +30,7 @@ import ResendVerificationPage from "../Components/ResendVerificationPage";
 import ErrorPage from "../Components/ErrorPage";
 import PaymentSuccessPage from "../Components/PaymentSuccessPage";
 import ForgotPassword from "./ForgotPassword";
-
+import TermsAndConditions from "../Components/TermsAndConditions";
 
 
 
@@ -136,6 +136,10 @@ const router = createBrowserRouter([
   {
     path: "/result-page",
     element: <ResultPage />,
+  },
+  {
+    path: "/terms-and-conditions",
+    element: <TermsAndConditions />,
   },
   {
     path: "/email-confirmation",

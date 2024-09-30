@@ -140,6 +140,21 @@
   background-color: #54349f;
 }
 
+.password-input-container {
+  position: relative;
+}
+
+.toggle-password-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+
 @media screen and (min-width: 200px) and (max-width: 360px) {
   .login-form button {
     width: 118px;

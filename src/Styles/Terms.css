@@ -1,0 +1,29 @@
+.terms{
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content:center;
+}
+
+.terms h2{
+    font-family: "AlpinoBold";
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.terms-para{
+text-align:justify ;
+font-family: "AlpinoRegular";
+font-size: 20px;
+font-weight: normal;
+/* line-height: 22px; */
+}
+
+.terms-header {
+    text-align:justify ;
+    font-family: "AlpinoMedium";
+    font-size: 22px;
+    font-weight: medium; 
+}

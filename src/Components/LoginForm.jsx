@@ -5,7 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { login } from "../features/auth/authSlice";
 import { Circles } from "react-loader-spinner";
-
+import eye from "../assets/Icons/eye.png";
+import eyeHidden from "../assets/Icons/eye-off.png";
 import "../Styles/Login.css";
 import { setWalletBalance } from "../features/wallet/walletSlice";
 
@@ -15,6 +16,7 @@ const LoginForm = ({ isLoginOpen }) => {
   const { status, loginError } = useSelector((state) => state.auth);
   const [errorText, setErrorText] = useState(null);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); 
 
   const initialValues = {
     loginMethod: "" ? "email" : "phone",
@@ -120,14 +122,25 @@ const LoginForm = ({ isLoginOpen }) => {
                   />
                 </>
               )}
+             <div className="password-input-container">
+
               <Field
-                type="password"
+                // type="password"
+                type={showPassword ? "text" : "password"}
+
                 name="password"
                 placeholder="Password"
                 autoComplete="current-password"
                 value={values.password}
                 onChange={(e) => handlePasswordChange(e, handleChange)}
               />
+                <img
+                src={showPassword ? eye : eyeHidden}
+                alt={showPassword ? "Hide password" : "Show password"}
+                className="toggle-password-icon"
+                onClick={() => setShowPassword((prev) => !prev)}
+              />
+            </div>
               <ErrorMessage
                 name="password"
                 component="p"

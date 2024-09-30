@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate,useLocation } from "react-router-dom";
+import { useNavigate,useLocation, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Prev from "../assets/Icons/chevron-left.png";
 import CloseIcon from "../assets/Icons/close-iccon.svg";
@@ -37,7 +37,10 @@ const PinPage = () => {
   const username = useSelector((state) => state.auth.username);
   const msisdn = useSelector((state) => state.auth.msisdn);
   const location = useLocation();
-  const { editedAmount, bankId, accountNumber } = location.state || {};
+  const { editedAmount,bankId, accountNumber, fullName } = location.state || {};
+
+console.log("Amount",editedAmount);
+console.log("bankId",bankId);
 
 
   useEffect(() => {
@@ -70,6 +73,38 @@ const PinPage = () => {
   const handleOpenResetPinModal = () => setIsResetPinModalOpen(true);
   const handleCloseResetPinModal = () => setIsResetPinModalOpen(false);
 
+
+  const handleWithdrawToBank = async () => {
+console.log("klbjbk,bjhbjkbm")
+    // const transactionID = `dtt-cash${new Date().toISOString().replace(/[^0-9]/g, '')}-${Math.floor(Math.random() * 10000)}`;
+    try {
+      const withdrawResponse = await axios.post(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/WithdrawToBank",
+        {
+          bankCode: bankId, 
+          accountNumber: accountNumber,
+          amount:  Number(editedAmount), 
+          fullname: fullName ,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log("withdrawResponse",withdrawResponse)
+      console.log("klbjbk,hkhkuhjugjyghh")
+  
+      // if (withdrawResponse.status === 200) {
+      //   navigate("/cashout-success");  
+      // } else {
+      //   setErrorMessage("Withdraw failed. Try again.");
+      // }
+    } catch (error) {
+      setErrorMessage("Error processing withdrawal. Try again.");
+    }
+  };
+
   const handleContinue = async () => {
     if (!isConfirmMode && !hasTransactionPIN) {
       setConfirmPin(pin);
@@ -89,7 +124,7 @@ const PinPage = () => {
               },
             }
           );
-          if (response.status === 200) {
+          if (response.status ===999) {
             dispatch({ type: "UPDATE_PIN_STATUS", payload: true });
             hasTransactionPIN(true);
             setErrorMessage("");
@@ -127,17 +162,17 @@ const PinPage = () => {
             },
           }
         );
-        if (response.status === 200) {
+        console.log("response",response)
+        if (response?.data?.statusCode === "999") {
+          handleWithdrawToBank();
           setIsPinVerified(true);
           setErrorMessage("");
-
-          await handleWithdrawToBank();
-
+          setErrorMessage(response.data.message)
+          setPin("")
+          
           // navigate("/cashout");
         } else {
-          setErrorMessage(response.data.message || "Incorrect PIN. Try again.");
-
-          setPin("");
+          setErrorMessage("Incorrect PIN. Try again.");
         }
       } catch (error) {
         if (error.response && error.response.data) {
@@ -155,36 +190,7 @@ const PinPage = () => {
  
   
 
-  const handleWithdrawToBank = async () => {
-
-    // const transactionID = `dtt-cash${new Date().toISOString().replace(/[^0-9]/g, '')}-${Math.floor(Math.random() * 10000)}`;
-
-    try {
-      const withdrawResponse = await axios.post(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/WithdrawToBank",
-       
-        {
-          bankCode: bankId, 
-          accountNumber: accountNumber,
-          amount: editedAmount, 
-          fullname: username ,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
   
-      if (withdrawResponse.status === 200) {
-        navigate("/cashout-success");  
-      } else {
-        setErrorMessage("Withdraw failed. Try again.");
-      }
-    } catch (error) {
-      setErrorMessage("Error processing withdrawal. Try again.");
-    }
-  };
 
 
   const blurClass = isForgotPinModalOpen || isResetPinModalOpen ? "blur" : "";

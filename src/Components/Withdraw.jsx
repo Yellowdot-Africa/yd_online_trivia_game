@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Prev from "../assets/Icons/chevron-left.png";
 import MoneyIcon from "../assets/Icons/mingcute_cash-line.png";
-import { useNavigate } from "react-router-dom";
+import { useNavigate , useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "../Styles/Withdraw.css";
@@ -9,19 +9,31 @@ import "../Styles/Withdraw.css";
 const Withdraw = () => {
   const [banks, setBanks] = useState([]);
   const [bankId, setBankId] = useState("");
-  const [isInputEdited, setIsInputEdited] = useState(false); 
-  const [editedAmount, setEditedAmount] = useState('');
-  const [accountNumber, setAccountNumber] = useState(""); 
-
-
+  const [isInputEdited, setIsInputEdited] = useState(false);
+  const [editedAmount, setEditedAmount] = useState("");
+  const [accountNumber, setAccountNumber] = useState("");
+  const [fullName, setFullName] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
   const token = useSelector((state) => state.auth.jwt);
   const dispatch = useDispatch();
 
+
+
+
   const handleBankChange = (event) => {
-    setBankId(event.target.value);
-  };
+
+  
+
+  const selectedValue =event.target.value;
+  setBankId(selectedValue)
+  //alert("selectedValue", bankId)
+  }
+
+console.log(bankId)
+
+
 
   const handleInputChange = (setter) => (e) => {
     setter(e.target.value);
@@ -33,6 +45,7 @@ const Withdraw = () => {
       try {
         const response = await axios.get(
           "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/banks",
+         
           {
             headers: {
               Accept: "*/*",
@@ -42,10 +55,12 @@ const Withdraw = () => {
           }
         );
 
-        console.log("API response:", response.data);
+        console.log("API response:", response.data.data);
 
         if (response.data && Array.isArray(response.data.data)) {
           setBanks(response.data.data);
+          console.log("API response:", );
+
         } else {
           console.warn("Unexpected API response structure:", response.data);
         }
@@ -60,11 +75,16 @@ const Withdraw = () => {
   const handleGoBack = () => {
     navigate(-1);
   };
+let state;
+  const handleContinue = (e) => {
+e.preventDefault();
+    navigate("/pin-page", {
+      state: { editedAmount, bankId, accountNumber, fullName },
 
-  const handleContinue = () => {
-    navigate("/pin-page",{ state: { editedAmount, bankId, accountNumber } });
+    });
+
   };
-
+console.log("state pin", state)
   return (
     <>
       <div className="withdraw-container">
@@ -87,7 +107,7 @@ const Withdraw = () => {
                   Select Bank
                 </option>
                 {banks?.map((bank) => (
-                  <option key={bank.shortname} value={bank.shortname}>
+                  <option key={bank.shortname} value={bank.code}>
                     {bank.name}
                   </option>
                 ))}
@@ -101,16 +121,30 @@ const Withdraw = () => {
                 placeholder="Enter Account Number"
                 value={accountNumber}
                 onChange={handleInputChange(setAccountNumber)}
-
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="fullname">Full Name</label>
+              <input
+                type="text"
+                value={fullName}
+                onChange={handleInputChange(setFullName)}
+                className="input-field"
+                placeholder="Enter your full name"
               />
             </div>
             <div className="form-group">
               <label htmlFor="amount">Amount</label>
-              <input type="text" id="amount" placeholder="Enter Amount"  value={editedAmount} onChange={handleInputChange(setEditedAmount)}/>
+              <input
+                type="text"
+                id="amount"
+                placeholder="Enter Amount"
+                value={editedAmount}
+                onChange={handleInputChange(setEditedAmount)}
+              />
             </div>
           </form>
         </div>
-       
 
         <button
           className={`continue-button ${isInputEdited ? "active" : ""}`}
@@ -124,6 +158,3 @@ const Withdraw = () => {
 };
 
 export default Withdraw;
-
-
-

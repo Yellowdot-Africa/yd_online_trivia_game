@@ -61,7 +61,7 @@ const Footer = () => {
             {legalOpen && (
               <ul className="legal-links">
                 <li>
-                  <Link>Terms of Service</Link>
+                  <Link to="./terms-and-conditions">Terms of Service</Link>
                 </li>
                 <li>
                   <Link>Privacy Policy</Link>
@@ -87,7 +87,7 @@ const Footer = () => {
                 <li>
                   <Link>About Us</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link>Partners</Link>
                 </li>
                 <li>
@@ -95,7 +95,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link>Developers</Link>
-                </li>
+                </li> */}
               </ul>
             )}
           </div>
