@@ -175,5 +175,3 @@ const QuestionPack = () => {
 export default QuestionPack;
 
 
-
-

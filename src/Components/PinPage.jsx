@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate,useLocation, Routes } from "react-router-dom";
+import { useNavigate, useLocation, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import {
+  setDepositResponse,
+  setWalletBalance,
+} from "../features/wallet/walletSlice";
 import Prev from "../assets/Icons/chevron-left.png";
 import CloseIcon from "../assets/Icons/close-iccon.svg";
 import "../Styles/PinPage.css";
@@ -37,11 +41,11 @@ const PinPage = () => {
   const username = useSelector((state) => state.auth.username);
   const msisdn = useSelector((state) => state.auth.msisdn);
   const location = useLocation();
-  const { editedAmount,bankId, accountNumber, fullName } = location.state || {};
+  const { editedAmount, bankId, accountNumber, fullName } =
+    location.state || {};
 
-console.log("Amount",editedAmount);
-console.log("bankId",bankId);
-
+  console.log("Amount", editedAmount);
+  console.log("bankId", bankId);
 
   useEffect(() => {
     console.log("hasTransactionPIN in component:", hasTransactionPIN);
@@ -73,18 +77,17 @@ console.log("bankId",bankId);
   const handleOpenResetPinModal = () => setIsResetPinModalOpen(true);
   const handleCloseResetPinModal = () => setIsResetPinModalOpen(false);
 
-
   const handleWithdrawToBank = async () => {
-console.log("klbjbk,bjhbjkbm")
+    // console.log("klbjbk,bjhbjkbm");
     // const transactionID = `dtt-cash${new Date().toISOString().replace(/[^0-9]/g, '')}-${Math.floor(Math.random() * 10000)}`;
     try {
       const withdrawResponse = await axios.post(
         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/WithdrawToBank",
         {
-          bankCode: bankId, 
+          bankCode: bankId,
           accountNumber: accountNumber,
-          amount:  Number(editedAmount), 
-          fullname: fullName ,
+          amount: Number(editedAmount),
+          fullname: fullName,
         },
         {
           headers: {
@@ -92,11 +95,27 @@ console.log("klbjbk,bjhbjkbm")
           },
         }
       );
-      console.log("withdrawResponse",withdrawResponse)
-      console.log("klbjbk,hkhkuhjugjyghh")
-  
+      console.log("withdrawResponse", withdrawResponse);
+      console.log("klbjbk,hkhkuhjugjyghh");
+      console.log("my balance before withdraw", updatedBalance);
+      if (withdrawResponse.status === 200) {
+        const updatedBalance = withdrawResponse.data.data;
+
+        dispatch(setWalletBalance(updatedBalance));
+        console.log("my balance after withdraw", updatedBalance);
+
+        // dispatch(setWalletBalance(walletBalance));
+
+        dispatch(
+          setDepositResponse("Wallet updated successfully with the payment!")
+        );
+        console.log("my balance after withdraw", updatedBalance);
+      } else {
+        console.error("Withdrawal failed: ", response.data.message);
+        setErrorMessage("Withdraw failed. Try again.");
+      }
       // if (withdrawResponse.status === 200) {
-      //   navigate("/cashout-success");  
+      //   navigate("/cashout-success");
       // } else {
       //   setErrorMessage("Withdraw failed. Try again.");
       // }
@@ -124,7 +143,7 @@ console.log("klbjbk,bjhbjkbm")
               },
             }
           );
-          if (response.status ===999) {
+          if (response.status === 999) {
             dispatch({ type: "UPDATE_PIN_STATUS", payload: true });
             hasTransactionPIN(true);
             setErrorMessage("");
@@ -162,15 +181,15 @@ console.log("klbjbk,bjhbjkbm")
             },
           }
         );
-        console.log("response",response)
+        console.log("response", response);
         if (response?.data?.statusCode === "999") {
           handleWithdrawToBank();
           setIsPinVerified(true);
           setErrorMessage("");
-          setErrorMessage(response.data.message)
-          setPin("")
-          
-          // navigate("/cashout");
+          setErrorMessage(response.data.message);
+          setPin("");
+
+          navigate("/cashout");
         } else {
           setErrorMessage("Incorrect PIN. Try again.");
         }
@@ -186,12 +205,6 @@ console.log("klbjbk,bjhbjkbm")
       }
     }
   };
-
- 
-  
-
-  
-
 
   const blurClass = isForgotPinModalOpen || isResetPinModalOpen ? "blur" : "";
 
@@ -254,10 +267,10 @@ console.log("klbjbk,bjhbjkbm")
           </button>
         )}
         {/* {hasTransactionPIN && ( */}
-          <p className="forgot-pin" onClick={handleOpenForgotPinModal}>
-            Forgot pin?
-          </p>
-         {/* )} */}
+        <p className="forgot-pin" onClick={handleOpenForgotPinModal}>
+          Forgot pin?
+        </p>
+        {/* )} */}
         <ForgotPinRequestModal
           isOpen={isForgotPinModalOpen}
           onClose={handleCloseForgotPinModal}
@@ -274,7 +287,3 @@ console.log("klbjbk,bjhbjkbm")
 };
 
 export default PinPage;
-
-
-
-

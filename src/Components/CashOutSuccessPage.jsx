@@ -1,6 +1,6 @@
-import React from "react";
+import React , { useEffect }from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux"; 
+import { useSelector,useDispatch } from "react-redux"; 
 import Check from "../assets/Icons/check.png";
 import "../Styles/CashOutSuccess.css";
 
@@ -8,6 +8,8 @@ const CashOutSuccessPage = () => {
     const navigate = useNavigate();
     const location = useLocation();  
     const userName = useSelector((state) => state.auth.userName); 
+    const dispatch = useDispatch();
+    const walletBalance = useSelector((state) => state.wallet.walletBalance);
 
     const recipientName = location.state?.recipientName || userName;  
 
@@ -18,6 +20,13 @@ const CashOutSuccessPage = () => {
         navigate("/home");
     }
 
+    useEffect(() => {
+      const fetchBalance = async () => {
+        const response = await fetchWalletBalance();
+        dispatch(setWalletBalance(response.data.data));
+      };
+      fetchBalance();
+    }, [dispatch]);
     
   return (
     <>

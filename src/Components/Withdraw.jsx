@@ -5,7 +5,11 @@ import { useNavigate , useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import "../Styles/Withdraw.css";
-
+import {
+  setWalletBalance,
+  updateBalance,
+  setDepositResponse,
+} from "../features/wallet/walletSlice";
 const Withdraw = () => {
   const [banks, setBanks] = useState([]);
   const [bankId, setBankId] = useState("");
@@ -158,3 +162,7 @@ console.log("state pin", state)
 };
 
 export default Withdraw;
+
+
+
+
