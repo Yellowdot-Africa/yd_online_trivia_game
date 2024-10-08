@@ -20,13 +20,13 @@ const CashOutSuccessPage = () => {
         navigate("/home");
     }
 
-    useEffect(() => {
-      const fetchBalance = async () => {
-        const response = await fetchWalletBalance();
-        dispatch(setWalletBalance(response.data.data));
-      };
-      fetchBalance();
-    }, [dispatch]);
+    // useEffect(() => {
+    //   const fetchBalance = async () => {
+    //     const response = await fetchWalletBalance();
+    //     dispatch(setWalletBalance(response.data.data));
+    //   };
+    //   fetchBalance();
+    // }, [dispatch]);
     
   return (
     <>
