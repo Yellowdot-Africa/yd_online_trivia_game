@@ -123,6 +123,7 @@ console.log("state pin", state)
                 type="text"
                 id="accountNumber"
                 placeholder="Enter Account Number"
+                className="input-field"
                 value={accountNumber}
                 onChange={handleInputChange(setAccountNumber)}
               />
@@ -142,6 +143,7 @@ console.log("state pin", state)
               <input
                 type="text"
                 id="amount"
+                className="input-field"
                 placeholder="Enter Amount"
                 value={editedAmount}
                 onChange={handleInputChange(setEditedAmount)}
@@ -166,3 +168,61 @@ export default Withdraw;
 
 
 
+// const validationSchema = Yup.object().shape({
+//   loginMethod: Yup.string().required("Login method is required"),
+  
+//   // For phone login:
+//   phoneNumber: Yup.string()
+//     .matches(/^\d{10,14}$/, "Please input a valid phone number") // Allow 10-14 digits
+//     .nullable()
+//     .required("Phone number is required when using phone login"),
+    
+//   // For email login:
+//   email: Yup.string()
+//     .email("Please input a valid email address")
+//     .nullable()
+//     .required("Email is required when using email login"),
+  
+//   // Password validation:
+//   password: Yup.string()
+//     .min(8, "Password should be at least 8 characters")
+//     .required("Please input your password"),
+// });
+
+
+
+// const formatPhoneNumber = (phoneNumber) => {
+//   if (phoneNumber.startsWith("234")) { // Nigerian country code
+//     return "0" + phoneNumber.slice(3); // Convert to local format
+//   }
+
+//   if (phoneNumber.startsWith("0")) { 
+//     return phoneNumber; // If it's already local format
+//   }
+
+//   return null; // Invalid format
+// };
+
+
+// const validationSchema = Yup.object().shape({
+//   // For phone numbers, validate the length and pattern
+//   phoneNumber: Yup.string()
+//     .matches(/^\d{10}$/, "Phone number must be 10 digits (for local numbers)")
+//     .required("Phone number is required when using phone login"),
+// });
+
+// const validationSchema = Yup.object().shape({
+//   email: Yup.string()
+//     .email("Please input a valid email address")
+//     .required("Email is required when using email login"),
+// });
+
+// const validationSchema = Yup.object().shape({
+//   password: Yup.string()
+//     .min(8, "Password must be at least 8 characters")
+//     .matches(/[a-z]/, "Password must contain at least one lowercase letter")
+//     .matches(/[A-Z]/, "Password must contain at least one uppercase letter")
+//     .matches(/\d/, "Password must contain at least one number")
+//     .matches(/[\W_]/, "Password must contain at least one special character")
+//     .required("Password is required"),
+// });

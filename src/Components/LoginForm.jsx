@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 import { login } from "../features/auth/authSlice";
 import { Circles } from "react-loader-spinner";
 import eye from "../assets/Icons/eye.png";
@@ -16,7 +18,7 @@ const LoginForm = ({ isLoginOpen }) => {
   const { status, loginError } = useSelector((state) => state.auth);
   const [errorText, setErrorText] = useState(null);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
 
   const initialValues = {
     loginMethod: "" ? "email" : "phone",
@@ -48,6 +50,7 @@ const LoginForm = ({ isLoginOpen }) => {
   const handleSubmit = (values) => {
     const { loginMethod, phoneNumber, email, password } = values;
     const username =
+      // loginMethod === "phone" ? phoneNumber : email;
       loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
 
     dispatch(login({ username, password }))
@@ -55,10 +58,19 @@ const LoginForm = ({ isLoginOpen }) => {
         if (login.fulfilled.match(action)) {
           const token = action.payload.jwt;
           localStorage.setItem("jwt", token);
-          dispatch(setWalletBalance(action.payload.walletBalance))
+          dispatch(setWalletBalance(action.payload.walletBalance));
           navigate("/loading");
         }
       })
+      //     .catch((error) => {
+      //       if (error.response) {
+      //         setErrorText(error.response.data.message || "Login failed");
+      //       } else {
+      //         setErrorText(error.message || "An error occurred. Please try again.");
+      //       }
+      //     });
+      // };
+
       .catch((error) => {
         if (error.response) {
           setErrorText(error.message);
@@ -79,121 +91,139 @@ const LoginForm = ({ isLoginOpen }) => {
   };
 
   return (
-    <>
-      <div className="login-form-cont">
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={handleSubmit}
-        >
-          {({ setFieldValue, values, handleChange }) => (
-            <Form className={`login-form ${isLoginOpen ? "open" : ""}`}>
-              {values.loginMethod === "phone" && (
-                <>
-                  <Field
-                    type="tel"
-                    name="phoneNumber"
-                    placeholder="Phone Number"
-                    autoComplete="tel"
-                    value={values.phoneNumber}
-                    onChange={handleChange}
-                  />
-                  <ErrorMessage
-                    name="phoneNumber"
-                    component="p"
-                    className="error-input-text"
-                  />
-                </>
-              )}
-              {values.loginMethod === "email" && (
-                <>
-                  <Field
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    autoComplete="email"
-                    value={values.email}
-                    onChange={handleChange}
-                  />
-                  <ErrorMessage
-                    name="email"
-                    component="p"
-                    className="error-input-text"
-                  />
-                </>
-              )}
-             <div className="password-input-container">
+    <div className="login-form-cont">
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ setFieldValue, values, handleChange }) => (
+          <Form className={`login-form ${isLoginOpen ? "open" : ""}`}>
+            {values.loginMethod === "phone" && (
+              <>
+                <PhoneInput
+                  country={"ng"}
+                  className="phoen-input"
+                  value={values.phoneNumber}
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  autoComplete="username"
+                  onChange={(value) => setFieldValue("phoneNumber", value)}
+                  inputProps={{
+                    name: "phoneNumber",
+                    required: true,
+                    autoFocus: true,
+                  }}
+                />
 
+               
+                <ErrorMessage
+                  name="phoneNumber"
+                  component="p"
+                  className="error-input-text"
+                />
+              </>
+            )}
+            {values.loginMethod === "email" && (
+              <>
+                <Field
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  autoComplete="email"
+                  value={values.email}
+                  onChange={handleChange}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  className="error-input-text"
+                />
+              </>
+            )}
+            <div className="password-input-container">
               <Field
-                // type="password"
                 type={showPassword ? "text" : "password"}
-
                 name="password"
                 placeholder="Password"
                 autoComplete="current-password"
                 value={values.password}
                 onChange={(e) => handlePasswordChange(e, handleChange)}
               />
-                <img
+              <img
                 src={showPassword ? eye : eyeHidden}
                 alt={showPassword ? "Hide password" : "Show password"}
                 className="toggle-password-icon"
                 onClick={() => setShowPassword((prev) => !prev)}
               />
             </div>
-              <ErrorMessage
-                name="password"
-                component="p"
-                className="error-input-text"
-              />
+            <ErrorMessage
+              name="password"
+              component="p"
+              className="error-input-text"
+            />
 
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                style={{
-                  backgroundColor: isPasswordTyped ? "#54349f" : "defaultColor",
-                }}
-              >
-                {status === "loading" ? (
-                  <Circles color="#D9D9D9" height={20} width={20} />
-                ) : (
-                  "Login"
-                )}
-              </button>
-              <br />
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              style={{
+                backgroundColor: isPasswordTyped ? "#54349f" : "defaultColor",
+              }}
+            >
+              {status === "loading" ? (
+                <Circles color="#D9D9D9" height={20} width={20} />
+              ) : (
+                "Login"
+              )}
+            </button>
+            <br />
 
-              {loginError && <p className="error-input-text">{loginError}</p>}
-              <div className="login-method-selector">
-                {values.loginMethod === "phone" ? (
-                  <a
-                    href="#email"
-                    className="active"
-                    onClick={() => setFieldValue("loginMethod", "email")}
-                  >
-                    Use Email
-                  </a>
-                ) : (
-                  <a
-                    href="#phonenumber"
-                    className="active"
-                    onClick={() => setFieldValue("loginMethod", "phone")}
-                  >
-                    Use Phone Number
-                  </a>
-                )}
-              </div>
-
-              <div className="forgot-password">
-                <a onClick={() => navigate("/forgot-password")}>
-                  Forgot Password?
+            {loginError && <p className="error-input-text">{loginError}</p>}
+            <div className="login-method-selector">
+              {values.loginMethod === "phone" ? (
+                <a
+                  href="#email"
+                  className="active"
+                  onClick={() => setFieldValue("loginMethod", "email")}
+                >
+                  Use Email
                 </a>
-              </div>
-            </Form>
-          )}
-        </Formik>
-      </div>
-    </>
+              ) : (
+                <a
+                  href="#phonenumber"
+                  className="active"
+                  onClick={() => setFieldValue("loginMethod", "phone")}
+                >
+                  Use Phone Number
+                </a>
+              )}
+            </div>
+
+            <div className="forgot-password">
+              <a onClick={() => navigate("/forgot-password")}>
+                Forgot Password?
+              </a>
+            </div>
+          </Form>
+        )}
+      </Formik>
+    </div>
   );
 };
 
 export default LoginForm;
+
+// {username: "vvv", email: "vvvvw@gggg.com", msisdn: "000000000001", password: "vvv"}
+// email
+// :
+// "vvvvw@gggg.com"
+// msisdn
+// :
+// "000000000001"
+// password
+// :
+// "vvv"
+// username
+// :
+// "vvv"

@@ -47,3 +47,7 @@ const userProfileSlice = createSlice({
 export const { logoutUser } = userProfileSlice.actions;
 
 export default userProfileSlice.reducer;
+
+
+
+

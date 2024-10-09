@@ -45,13 +45,20 @@
 }
 
 .form-group select,
-.form-group input {
+.form-group .input-field {
   padding: 10px;
   font-size: 16px;
+  font-family: "AlpinoRegular";
+  font-weight: 421;
   border: 1px solid #e8e8e8;
   border-radius: 10px;
   outline: none;
 }
+
+#bank{
+  font-family: "AlpinoRegular";
+}
+
 select:required:invalid {
   color: #979797;
   font-family: "AlpinoRegular";
