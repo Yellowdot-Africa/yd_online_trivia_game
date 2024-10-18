@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import LogoIcon from "../../assets/Icons/cup-broken.svg";
 import HomeIcon from "../../assets/Icons/home-icon.png";
 import "../HomePage/HomePage.css";
-
+import { updateBalance , setWalletBalance } from "../../features/wallet/walletSlice";
 import { useNavigate } from "react-router-dom";
 import TriviaCategories from "../../Components/TriviaCategories";
 import NavigationIcons from "../../Components/NavigationIcons";
@@ -14,10 +14,16 @@ import Footer from "../../Components/Footer";
 
 const HomePage = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
   const experiencePoints = useSelector(
     (state) => state.wallet.experiencePoints
   );
+console.log(walletBalance)
+  // useEffect(() => {
+  //   dispatch(setWalletBalance());
+  // }, [dispatch]);
+
   const handleSeeAccount = () => {
     navigate("/account");
   };
@@ -33,6 +39,7 @@ const HomePage = () => {
                   Account Balance
                 </p>
                 <p className="amount">NGN{walletBalance}</p>
+
                 <p className="xpoint"></p>
               </div>
             </div>

@@ -214,16 +214,8 @@ const LoginForm = ({ isLoginOpen }) => {
 
 export default LoginForm;
 
-// {username: "vvv", email: "vvvvw@gggg.com", msisdn: "000000000001", password: "vvv"}
-// email
-// :
-// "vvvvw@gggg.com"
-// msisdn
-// :
-// "000000000001"
-// password
-// :
-// "vvv"
-// username
-// :
-// "vvv"
+
+
+
+
+

@@ -18,7 +18,7 @@ const UserProfile = () => {
   const [editedPhoneNumber, setEditedPhoneNumber] = useState(msisdn || '');
   const [editedEmail, setEditedEmail] = useState(email || '');
   const [isInputEdited, setIsInputEdited] = useState(false);
-  const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false); // Logout modal state
+  const [isLogoutModalVisible, setIsLogoutModalVisible] = useState(false);
 
   const firstLetter = username ? username.charAt(0).toUpperCase() : '';
 

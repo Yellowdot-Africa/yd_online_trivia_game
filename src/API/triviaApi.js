@@ -1,28 +1,62 @@
-// import axios from 'axios';
+import axios from "axios";
 
-// const TRIVIA_BASE_URL = 'https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser';
+export const getUserQuestions = async (packId, gameId, language, token) => {
+  try {
+    const response = await axios.post(
+      "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/QuestionPack/GetUserQuestions",
+      {
+        packId,
+        gameId,
+        language,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    console.log("Pack ID:", packId);
+    console.log("Game ID:", gameId);
+    console.log("Language:", language);
 
-// export const getQuestionsForUser = async (categoryID, gameID, language = 'english', token) => {
-//     console.log("Token:", token);
-//     console.log("Category ID:", categoryID);
-//   try {
-//     const response = await axios.get(
-//       `${TRIVIA_BASE_URL}?categoryID=${categoryID}&gameID=${gameID}&language=english`,
-//       {
-//         // params: { categoryID, gameID, language },
-//         headers: {
-//             Authorization: `Bearer ${token}`
-//           }
-//       }
-//     );
-//     return response.data;
+    console.log("API Response:", response.data.data);
 
-//   } catch (error) {
-//     // console.error("Failed to fetch questions", error);
-//     // throw error;
-//     throw error.response ? error.response.data : new Error("Failed to fetch questions");
+    if (
+      response.data.statusCode === "999" &&
+      response.data.statusMessage === "RequestOk"
+    ) {
+      return response.data.data;
+    } else {
+      console.error("Error fetching questions:", response.data.message);
+      return [];
+    }
+  } catch (error) {
+    console.error("API call failed:", error);
+    return [];
+  }
+};
 
-//   }
-// };
+export const submitPackAnswer = async (packId, gameId, answers, token) => {
+ try {
+    const response = await axios.post(
+    "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitPackAnswer",
+    {
+      questionPackID: packId,
+      gameID: gameId,
+      answers,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+  console.log("Submit Response:", response.data);
 
+  return response.data;
+} catch (error) {
+    console.error("Error submitting answers:", error);
+    return null;
+  }
 
+};

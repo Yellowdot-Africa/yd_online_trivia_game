@@ -4,7 +4,10 @@ import TrophyCup from "../../assets/Icons/TrophyCup.png";
 import CustomButton from "../../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchQuestions } from "../../features/questions/questionSlice";
+// import { fetchQuestions } from "../../features/questions/questionSlice";
+import { fetchUserQuestions } from "../../features/questions/questionSlice";
+
+
 
 const GettingStarted = () => {
 
@@ -25,7 +28,7 @@ const GettingStarted = () => {
 
   useEffect(() => {
     if (selectedCategory && selectedGames) {
-      dispatch(fetchQuestions());
+      dispatch(fetchUserQuestions());
     }
   }, [selectedCategory, selectedGames, dispatch]);
 

@@ -20,6 +20,11 @@ const QuestionInfo = () => {
   const category = categories.find((cat) => cat.id === selectedCategory);
 
 
+  useEffect(() => {
+    // console.log(selectedPack); 
+  }, [selectedPack]);
+
+
   const handleCategorySelect = (id) => {
     setCategoryID(id);
   };
@@ -47,19 +52,13 @@ const handleLetGoBtn = () => {
     backgroundColor: inputValue ? "#cac9cc" : "#973CF2",
   };
 
+ 
+
   const getQuestionCountText = (pack) => {
-    switch (pack) {
-      case "two":
-        return "You have 2 questions. Are you ready?";
-      case "five":
-        return "You have 5 questions. Are you ready?";
-      case "ten":
-        return "You have 10 questions. Are you ready?";
-      case "twenty":
-        return "You have 20 questions. Are you ready?";
-      default:
-        return "You have X questions. Are you ready?";
+    if (pack?.questionsCount) {
+      return `You have ${pack.questionsCount} questions. Are you ready?`;
     }
+    return "You have X questions. Are you ready?";
   };
 
   return (

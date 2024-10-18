@@ -99,7 +99,7 @@ const PinPage = () => {
       console.log("klbjbk,hkhkuhjugjyghh");
       console.log("my balance before withdraw", updatedBalance);
       if (withdrawResponse.status === 200) {
-        const updatedBalance = withdrawResponse.data.data;
+        const updatedBalance = withdrawResponse.data.data.walletBalance;
 
         dispatch(setWalletBalance(updatedBalance));
         console.log("my balance after withdraw", updatedBalance);

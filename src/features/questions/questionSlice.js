@@ -1,32 +1,31 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const fetchQuestions = createAsyncThunk(
-  "questions/fetchQuestions",
-  async (_, thunkAPI) => {
+export const fetchUserQuestions = createAsyncThunk(
+  "questions/fetchUserQuestions",
+  async ({ packId }, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.jwt;
     const categoryID = state.categories.selectedCategory;
-    const gameID = state.categories.selectedGame;
+    const gameId = state.categories.selectedGame;
     const language = state.categories.selectedLanguage;
 
-    console.log(
-      "Fetching questions with categoryID:",
-      categoryID,
-      "and gameID:",
-      gameID
-    );
-
+    console.log("Calling getUserQuestions with:", {
+      packId,
+      gameId,
+      language,
+      token,
+    });
     try {
-      const response = await axios.get(
-        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Questions/GetQuestionsForUser`,
+      const response = await axios.post(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/QuestionPack/GetUserQuestions`,
 
         {
-          params: {
-            categoryID,
-            gameID,
-            language,
-          },
+          packId,
+          gameId,
+          language,
+        },
+        {
           headers: {
             Accept: "*/*",
             "Content-Type": "application/json",
@@ -34,7 +33,45 @@ export const fetchQuestions = createAsyncThunk(
           },
         }
       );
+
       console.log("API Response:", response);
+
+      // getUserQuestions(packId, gameId, language, token);
+      return response.data.data;
+    } catch (error) {
+      const errorMessage =
+        error.response?.data?.message ||
+        error.message ||
+        "Unknown error occurred";
+      return thunkAPI.rejectWithValue({ message: errorMessage });
+    }
+    // return rejectWithValue(error.message);
+    // }
+  }
+);
+
+export const submitAnswer = createAsyncThunk(
+  "questions/submitAnswer",
+  async ({ questionPackID, gameID, answers }, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.jwt;
+
+    try {
+      const response = await axios.post(
+        `https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Answers/SubmitPackAnswer`,
+        {
+          questionPackID,
+          gameID,
+          answers,
+        },
+        {
+          headers: {
+            Accept: "*/*",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       return response.data;
     } catch (error) {
@@ -53,7 +90,7 @@ const questionSlice = createSlice({
     questions: [],
     answers: [],
     currentQuestionIndex: 0,
-    loading: true,
+    loading: false,
     error: null,
     selectedCategoryID: null,
     selectedGameID: null,
@@ -68,24 +105,58 @@ const questionSlice = createSlice({
       state.selectedCategoryID = action.payload.categoryID;
       state.selectedGameID = action.payload.gameID;
     },
+    setQuestions(state, action) {
+      if (action.payload && action.payload.length > 0) {
+        state.questions = action.payload;
+      } else {
+        state.error = "No questions available";
+      }
+    },
+    setError(state, action) {
+      state.error = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchQuestions.pending, (state) => {
+      .addCase(fetchUserQuestions.pending, (state) => {
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchQuestions.fulfilled, (state, action) => {
-        state.questions = action.payload.data || [];
-        state.answers =
-          action.payload.data[state.currentQuestionIndex]?.answers || [];
+      .addCase(fetchUserQuestions.fulfilled, (state, action) => {
         state.loading = false;
+        // state.questions = action.payload;
+        const questions = action.payload ? action.payload : [];
+        if (questions.length > 0) {
+          state.questions = questions;
+          state.answers = questions[state.currentQuestionIndex]?.answers || [];
+        } else {
+          state.questions = [];
+          state.answers = [];
+          state.error = "No questions found";
+        }
+        console.log("Payload Data:", action.payload);
+
+        // state.questions = action.payload.data || [];
+        // state.answers =
+        //   action.payload.data[state.currentQuestionIndex]?.answers || [];
+        // state.loading = false;
       })
-      .addCase(fetchQuestions.rejected, (state, action) => {
+      .addCase(fetchUserQuestions.rejected, (state, action) => {
         state.loading = false;
-        state.error =
-          action.payload?.message ||
-          "An error occurred while fetching questions";
+        state.error = action.payload?.message || "Something went wrong";
+      })
+
+      .addCase(submitAnswer.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(submitAnswer.fulfilled, (state, action) => {
+        state.loading = false;
+        console.log("Answer Submitted: ", action.payload);
+      })
+      .addCase(submitAnswer.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload?.message || "Failed to submit answer";
       });
   },
 });
@@ -94,3 +165,4 @@ export const { setCurrentQuestionIndex, setCategoryAndGame } =
   questionSlice.actions;
 
 export default questionSlice.reducer;
+

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { parsePhoneNumberFromString } from 'libphonenumber-js';
 import { useNavigate } from 'react-router-dom';
 import { signup } from "../features/auth/authSlice";
 import { Circles } from 'react-loader-spinner'; 
@@ -29,9 +30,17 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
   };
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().email('Invalid email').required('Please input your email'),
+    email: Yup.string().email('Invalid email')
+    .test('is-valid-email', 'Please use a valid email provider', value => {
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      return emailRegex.test(value);
+    })
+    .required('Please input your email'),
     msisdn: Yup.string()
-      .matches(/^\d{7,14}$/, 'Invalid phone number format')
+    .test('valid-phone', 'Invalid phone number', (value) => {
+      const phoneNumber = parsePhoneNumberFromString(value, 'NG'); 
+      return phoneNumber && phoneNumber.isValid();
+    })
       .required('Please input your phone number'),
     username: Yup.string().required('Please input your username'),
     password: Yup.string().required('Please input your password'),
