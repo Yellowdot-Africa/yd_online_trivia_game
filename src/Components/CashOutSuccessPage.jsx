@@ -2,6 +2,7 @@ import React , { useEffect }from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector,useDispatch } from "react-redux"; 
 import Check from "../assets/Icons/check.png";
+import { setWalletBalance } from "../features/wallet/walletSlice"; 
 import "../Styles/CashOutSuccess.css";
 
 const CashOutSuccessPage = () => {
@@ -12,21 +13,17 @@ const CashOutSuccessPage = () => {
     const walletBalance = useSelector((state) => state.wallet.walletBalance);
 
     const recipientName = location.state?.recipientName || userName;  
+    const updatedBalance = location.state?.updatedBalance;
 
     const isSendingToSelf = recipientName === userName;
 
 
-    const handleGoHome = ()=>{
+    const handleGoHome = async ()=>{
+     
         navigate("/home");
     }
 
-    // useEffect(() => {
-    //   const fetchBalance = async () => {
-    //     const response = await fetchWalletBalance();
-    //     dispatch(setWalletBalance(response.data.data));
-    //   };
-    //   fetchBalance();
-    // }, [dispatch]);
+   
     
   return (
     <>

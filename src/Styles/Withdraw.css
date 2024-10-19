@@ -69,6 +69,27 @@ select:required:invalid {
   text-align: left;
 }
 
+.bank-list {
+  background: white; 
+  border: 1px solid #ccc;
+  border-radius: 4px; 
+
+  overflow-y: auto; 
+}
+
+.bank-list-item {
+  padding: 10px; 
+  cursor: pointer; 
+list-style: square;
+  
+
+}
+
+.bank-list-item:hover {
+  background: #f0f0f0; 
+}
+
+
 .withdrawal-info{
   display: flex;
   align-items: center;

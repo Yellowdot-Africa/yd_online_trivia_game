@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
   const username = useSelector((state) => state.auth.username);
-  const email = useSelector((state) => state.auth.username);
-  const msisdn = useSelector((state) => state.auth.username);
+  const email = useSelector((state) => state.auth.email);
+  const msisdn = useSelector((state) => state.auth.msisdn);
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedUsername, setEditedUsername] = useState(username || '');

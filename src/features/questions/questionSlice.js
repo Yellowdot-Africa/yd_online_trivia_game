@@ -161,8 +161,13 @@ const questionSlice = createSlice({
   },
 });
 
-export const { setCurrentQuestionIndex, setCategoryAndGame } =
+export const { setCurrentQuestionIndex, setCategoryAndGame, setQuestions } =
   questionSlice.actions;
 
 export default questionSlice.reducer;
+
+
+
+
+
 

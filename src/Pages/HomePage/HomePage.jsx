@@ -1,28 +1,55 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import LogoIcon from "../../assets/Icons/cup-broken.svg";
 import HomeIcon from "../../assets/Icons/home-icon.png";
 import "../HomePage/HomePage.css";
-import { updateBalance , setWalletBalance } from "../../features/wallet/walletSlice";
+import {
+  updateBalance,
+  setWalletBalance,
+} from "../../features/wallet/walletSlice";
 import { useNavigate } from "react-router-dom";
 import TriviaCategories from "../../Components/TriviaCategories";
 import NavigationIcons from "../../Components/NavigationIcons";
 import Ad from "../../Components/Ad";
 import Contact from "../../Components/Contact";
 import Footer from "../../Components/Footer";
+import axios from "axios";
 
 const HomePage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
-  const experiencePoints = useSelector(
-    (state) => state.wallet.experiencePoints
-  );
-console.log(walletBalance)
+  const token = useSelector((state) => state.auth.jwt);
+
   // useEffect(() => {
   //   dispatch(setWalletBalance());
   // }, [dispatch]);
+
+  useEffect(() => {
+    const fetchWalletBalance = async () => {
+      try {
+        const response = await axios.get(
+          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/GetUserWalletBalance",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        if (response.status === 200) {
+          const balance = response.data.data;
+          console.log("API Response:", response.data);
+
+          dispatch(setWalletBalance(balance));
+        }
+      } catch (error) {
+        console.error("Error fetching wallet balance:", error);
+      }
+    };
+
+    fetchWalletBalance();
+  }, [dispatch, token]);
 
   const handleSeeAccount = () => {
     navigate("/account");

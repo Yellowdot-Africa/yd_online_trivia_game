@@ -20,9 +20,16 @@ const LoginForm = ({ isLoginOpen }) => {
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // const initialValues = {
+  //   loginMethod: "" ? "email" : "phone",
+  //   username: "",
+  //   password: "",
+  // };
+
   const initialValues = {
-    loginMethod: "" ? "email" : "phone",
-    username: "",
+    loginMethod: "phone", // or some condition to set this
+    phoneNumber: "", // This should be defined
+    email: "",
     password: "",
   };
 
@@ -30,29 +37,33 @@ const LoginForm = ({ isLoginOpen }) => {
     loginMethod: Yup.string().required("Login method is required"),
     phoneNumber: Yup.string()
       .matches(/^\d{7,14}$/, "Please input a valid phone number")
+      // .matches(/^(0|)\d{9,13}$/, "Please input a valid phone number")
+
       .nullable(),
     email: Yup.string().email("Please input a valid email address").nullable(),
     password: Yup.string().required("Please input your password"),
   });
 
-  const formatPhoneNumber = (phoneNumber) => {
-    if (phoneNumber.startsWith("234")) {
-      return "0" + phoneNumber.slice(3);
-    }
 
-    if (phoneNumber.startsWith("0")) {
-      return phoneNumber;
-    }
+  // const formatPhoneNumber = (phoneNumber) => {
+  //   if (phoneNumber.startsWith("234")) {
+  //     return "0" + phoneNumber.slice(3);
+  //   }
 
-    return phoneNumber;
-  };
+  //   if (phoneNumber.startsWith("0")) {
+  //     return phoneNumber;
+  //   }
+
+  //   // return phoneNumber;
+  //   return "0" + phoneNumber;
+  // };
 
   const handleSubmit = (values) => {
     const { loginMethod, phoneNumber, email, password } = values;
     const username =
-      // loginMethod === "phone" ? phoneNumber : email;
-      loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
-
+      loginMethod === "phone" ? phoneNumber : email;
+      // loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
+    // setSubmitting(true);
     dispatch(login({ username, password }))
       .then((action) => {
         if (login.fulfilled.match(action)) {
@@ -60,6 +71,8 @@ const LoginForm = ({ isLoginOpen }) => {
           localStorage.setItem("jwt", token);
           dispatch(setWalletBalance(action.payload.walletBalance));
           navigate("/loading");
+        } else {
+          setErrorText("Login failed. Please try again.");
         }
       })
       //     .catch((error) => {
@@ -101,7 +114,7 @@ const LoginForm = ({ isLoginOpen }) => {
           <Form className={`login-form ${isLoginOpen ? "open" : ""}`}>
             {values.loginMethod === "phone" && (
               <>
-                <PhoneInput
+                {/* <PhoneInput
                   country={"ng"}
                   className="phoen-input"
                   value={values.phoneNumber}
@@ -115,9 +128,17 @@ const LoginForm = ({ isLoginOpen }) => {
                     required: true,
                     autoFocus: true,
                   }}
+                /> */}
+                <Field
+                  type="tel"
+                  name="phoneNumber"
+                  placeholder="Phone Number"
+                  autoComplete="username"
+                  value={values.phoneNumber}
+
+                  onChange={handleChange}
                 />
 
-               
                 <ErrorMessage
                   name="phoneNumber"
                   component="p"
@@ -213,9 +234,3 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
-
-
-
-
-
-

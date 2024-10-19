@@ -40,7 +40,7 @@ const Footer = () => {
                   <Link to="./home">Home</Link>
                 </li>
                 <li>
-                  <Link to="./leaderboard">leaderboard</Link>
+                  <Link to="./leaderboard">Leaderboard</Link>
                 </li>
                 <li>
                   <Link to="./popularCategories">Categories</Link>
@@ -63,12 +63,12 @@ const Footer = () => {
                 <li>
                   <Link to="./terms-and-conditions">Terms of Service</Link>
                 </li>
-                <li>
+                {/* <li>
                   <Link>Privacy Policy</Link>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <Link>Cookie Policy</Link>
-                </li>
+                </li> */}
                 <li>
                   <Link>Copyright Policy</Link>
                 </li>

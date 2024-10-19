@@ -104,7 +104,7 @@ const SignUpForm = ({ isSignUpOpen, navigateToLogin }) => {
               onBlur={() => setMsisdnFocus(false)}
             />
             <ErrorMessage name="msisdn" component="p" className="error-text" />
-            {msisdnFocus && <p className="inputt-textt">Please input your MSISDN</p>}
+            {msisdnFocus && <p className="inputt-textt">Please input your Phone Number</p>}
 
             <Field
               type="text"

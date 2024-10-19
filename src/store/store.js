@@ -27,7 +27,9 @@ const store = configureStore({
     game: gameReducer,
   },
   preloadedState,
+
 });
+
 
 store.subscribe(() => {
   saveState({

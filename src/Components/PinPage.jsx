@@ -95,30 +95,21 @@ const PinPage = () => {
           },
         }
       );
-      console.log("withdrawResponse", withdrawResponse);
-      console.log("klbjbk,hkhkuhjugjyghh");
-      console.log("my balance before withdraw", updatedBalance);
+      // console.log("withdrawResponse", withdrawResponse);
+      // console.log("klbjbk,hkhkuhjugjyghh");
+      // console.log("my balance before withdraw", updatedBalance);
       if (withdrawResponse.status === 200) {
-        const updatedBalance = withdrawResponse.data.data.walletBalance;
-
-        dispatch(setWalletBalance(updatedBalance));
-        console.log("my balance after withdraw", updatedBalance);
-
-        // dispatch(setWalletBalance(walletBalance));
+   
 
         dispatch(
           setDepositResponse("Wallet updated successfully with the payment!")
         );
-        console.log("my balance after withdraw", updatedBalance);
+        // console.log("my balance after withdraw", updatedBalance);
       } else {
         console.error("Withdrawal failed: ", response.data.message);
         setErrorMessage("Withdraw failed. Try again.");
       }
-      // if (withdrawResponse.status === 200) {
-      //   navigate("/cashout-success");
-      // } else {
-      //   setErrorMessage("Withdraw failed. Try again.");
-      // }
+     
     } catch (error) {
       setErrorMessage("Error processing withdrawal. Try again.");
     }

@@ -64,6 +64,8 @@ export const signup = createAsyncThunk(
   }
 );
 
+
+
 const initialState = {
   userID: null,
   userType: null,
@@ -73,6 +75,7 @@ const initialState = {
   walletBalance: null,
   hasTransactionPIN: false,
   tokenExpiry: null,
+
   jwt: localStorage.getItem("jwt") || null,
   isLoading: false,
   isAuthenticated: !!localStorage.getItem("jwt"),
@@ -89,9 +92,9 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(login.pending, (state) => {
-        state.isLoading = true;
+        state.isLoading = false;
         state.loginError = null;
-        state.status = "loading";
+        state.status;
       })
       .addCase(login.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -147,6 +150,7 @@ const authSlice = createSlice({
 });
 
 export default authSlice.reducer;
+
 
 
 
