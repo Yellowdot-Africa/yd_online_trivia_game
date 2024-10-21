@@ -10,6 +10,8 @@ import questionsReducer from '../features/questions/questionSlice';
 import walletReducer from "../features/wallet/walletSlice";
 import gameReducer from "../features/Game/gameSlice";
 import { loadState, saveState } from '../utils/localStorageUtils'; 
+
+
 const preloadedState = loadState();
 
 
@@ -27,6 +29,10 @@ const store = configureStore({
     game: gameReducer,
   },
   preloadedState,
+  middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware({
+    serializableCheck: false, 
+  }),
 
 });
 
