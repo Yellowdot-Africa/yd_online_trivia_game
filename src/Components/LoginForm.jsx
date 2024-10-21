@@ -27,8 +27,8 @@ const LoginForm = ({ isLoginOpen }) => {
   // };
 
   const initialValues = {
-    loginMethod: "phone", // or some condition to set this
-    phoneNumber: "", // This should be defined
+    loginMethod: "phone", 
+    phoneNumber: "", 
     email: "",
     password: "",
   };

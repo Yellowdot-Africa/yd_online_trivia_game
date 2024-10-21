@@ -11,6 +11,7 @@ import { updateBalance } from "../../features/wallet/walletSlice";
 import { Circles } from "react-loader-spinner";
 import PopUpModal from "../../Components/PopUpModal";
 
+
 const QuestionPack = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -23,15 +24,17 @@ const QuestionPack = () => {
 
   const token = useSelector((state) => state.auth.jwt);
 
+
   const [walletError, setWalletError] = useState(null);
   const walletBalance = useSelector((state) => state.wallet.walletBalance);
   console.log("Wallet Balance:", walletBalance);
 
-  const { selectedCategory, selectedGame, selectedLanguage } = useSelector(
+  const { categories, selectedCategory, selectedGame, selectedLanguage } = useSelector(
     (state) => state.categories
   );
   // const { questions } = useSelector((state) => state.questions);
   // const [inputValue, setInputValue] = useState("");
+  const category = categories.find((cat) => cat.id === selectedCategory);
 
   useEffect(() => {
     const loadQuestionPacks = async () => {
@@ -43,7 +46,7 @@ const QuestionPack = () => {
         );
         setQuestionPacks(packs.data);
       } catch (error) {
-        setError("Failed to fetch question packs.");
+        setError("No Questions Available.");
       } finally {
         setLoading(false);
       }
@@ -89,28 +92,27 @@ const QuestionPack = () => {
 
     localStorage.setItem("selectedPack", JSON.stringify(pack));
     setSelectedPack(pack);
+    console.log("Selected Pack:", pack);
   };
 
   const handleGoBack = () => {
     navigate(-1);
   };
 
-  const handleBegin = () => {
-    if (selectedPack && !debited) {
-      const newBalance = walletBalance - selectedPack.amount;
 
-      dispatch(updateBalance(-selectedPack.amount));
-      setDebited(true);
 
+  const handleBegin = async () => {
+    if (selectedPack) {
+     
       navigate("/question-loading", {
         state: {
           selectedPack,
           selectedCategory,
+         
         },
       });
     }
   };
-
   const isBalanceSufficient = (amount) => {
     return walletBalance >= amount;
   };
@@ -124,7 +126,7 @@ const QuestionPack = () => {
     fontWeight: "500",
     padding: "0",
     width: "100%",
-    marginTop: "245px",
+    marginTop: "130px",
     // backgroundColor: inputValue ? "#cac9cc" : "#973CF2",
     backgroundColor: selectedPack ? "#973CF2" : "#cac9cc",
   };
@@ -151,7 +153,7 @@ const QuestionPack = () => {
           </div>
 
           <p className="question-text">
-            Select your <span className="span"> Football </span> Trivia question
+            Select your <span className="span"> {category?.name} </span> Trivia question
             pack
           </p>
         </div>
@@ -199,7 +201,6 @@ const QuestionPack = () => {
 };
 
 export default QuestionPack;
-
 
 
 

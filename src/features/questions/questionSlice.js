@@ -52,7 +52,7 @@ export const fetchUserQuestions = createAsyncThunk(
 
 export const submitAnswer = createAsyncThunk(
   "questions/submitAnswer",
-  async ({ questionPackID, gameID, answers }, thunkAPI) => {
+  async ({ questionPackID, gameID, gameReference, answers }, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.jwt;
 
@@ -62,6 +62,7 @@ export const submitAnswer = createAsyncThunk(
         {
           questionPackID,
           gameID,
+          gameReference: gameReference,
           answers,
         },
         {
@@ -134,7 +135,6 @@ const questionSlice = createSlice({
           state.answers = [];
           state.error = "No questions found";
         }
-        console.log("Payload Data:", action.payload);
 
         // state.questions = action.payload.data || [];
         // state.answers =
@@ -165,8 +165,6 @@ export const { setCurrentQuestionIndex, setCategoryAndGame, setQuestions } =
   questionSlice.actions;
 
 export default questionSlice.reducer;
-
-
 
 
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Logo from "../../assets/Icons/Frame-cup.png";
 import Congrat from "../../assets/Icons/congrat.png";
 import Right from "../../assets/Icons/icon-cancel.png";
@@ -8,7 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import EndGameModal from "../../Components/EndGameModal";
 import Trophy from "../../assets/Images/gold-trophy.png";
 import "../../Pages/ResultPage/ResultPage.css";
+import {
 
+  fetchWalletBalance
+} from "../../features/wallet/walletSlice";
 
 
 const ResultPage = () => {
@@ -19,9 +22,13 @@ const ResultPage = () => {
   const { selectedPack } = location.state || {}; 
 
   const navigate = useNavigate();
-  const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.jwt);
 
-  const { correctAnswers, wrongAnswers, balance } = location.state || {};
+  const walletBalance = useSelector((state) => state.wallet.walletBalance);
+  console.log("Wallet balance before navigation:", walletBalance);
+
+  const { correctAnswers, wrongAnswers,  balance } = location.state || {};
 
   const handleQuit = () => {
     setScreenBgColor("#1F82F2"); 
@@ -29,8 +36,19 @@ const ResultPage = () => {
   };
 
   const handleEndGame = () => {
+    console.log("Wallet balance before navigation:", walletBalance);
+
     navigate("/home");
   };
+
+  
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchWalletBalance(token)); 
+    }
+        console.log("Wallet balance in Redux:", walletBalance);
+
+  }, [dispatch, token]);
 
   return (
     <>
@@ -74,6 +92,8 @@ const ResultPage = () => {
             exceed 70% correct.
           </p>
         </div>
+
+    
         <button
           className="replay-button"
           onClick={() => {
@@ -105,6 +125,7 @@ const ResultPage = () => {
 };
 
 export default ResultPage;
+
 
 
 

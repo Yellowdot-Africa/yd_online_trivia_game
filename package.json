@@ -27,6 +27,7 @@
     "react-toastify": "^10.0.5",
     "redux-persist": "^6.0.0",
     "reselect": "^5.1.1",
+    "uuid": "^10.0.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {

@@ -6,6 +6,7 @@ import "../HomePage/HomePage.css";
 import {
   updateBalance,
   setWalletBalance,
+  fetchWalletBalance
 } from "../../features/wallet/walletSlice";
 import { useNavigate } from "react-router-dom";
 import TriviaCategories from "../../Components/TriviaCategories";
@@ -13,7 +14,7 @@ import NavigationIcons from "../../Components/NavigationIcons";
 import Ad from "../../Components/Ad";
 import Contact from "../../Components/Contact";
 import Footer from "../../Components/Footer";
-import axios from "axios";
+// import axios from "axios";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -26,30 +27,39 @@ const HomePage = () => {
   // }, [dispatch]);
 
   useEffect(() => {
-    const fetchWalletBalance = async () => {
-      try {
-        const response = await axios.get(
-          "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/GetUserWalletBalance",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-
-        if (response.status === 200) {
-          const balance = response.data.data;
-          console.log("API Response:", response.data);
-
-          dispatch(setWalletBalance(balance));
-        }
-      } catch (error) {
-        console.error("Error fetching wallet balance:", error);
-      }
-    };
-
-    fetchWalletBalance();
+    if (token) {
+      dispatch(fetchWalletBalance(token)); 
+    }
   }, [dispatch, token]);
+
+  // useEffect(() => {
+  //   const fetchWalletBalance = async () => {
+  //     if (!token) return; // Prevent fetch if token is not available
+     
+  //     try {
+  //       const response = await axios.get(
+  //         "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Wallets/GetUserWalletBalance",
+  //         {
+  //           headers: {
+  //             Authorization: `Bearer ${token}`,
+  //           },
+  //         }
+  //       );
+
+  //       if (response.status === 200) {
+  //         const balance = response.data.data;
+  //         console.log("API Response:", response.data);
+  //         console.log("Wallet balance after navigation:", balance);
+
+  //         dispatch(setWalletBalance(balance));
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching wallet balance:", error);
+  //     }
+  //   };
+
+  //   fetchWalletBalance();
+  // }, [dispatch, token]);
 
   const handleSeeAccount = () => {
     navigate("/account");
