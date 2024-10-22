@@ -10,6 +10,11 @@ import CloseIcon from "../assets/Icons/close-iccon.svg";
 import LoginForm from "../Components/LoginForm";
 import SignUpForm from "../Components/SignUpForm";
 import LogoCup from "../assets/Icons/logoicon.svg";
+import History from "../assets/Images/History1.png";
+import Movie from "../assets/Images/Movie.png";
+import Politics from "../assets/Images/Politics.png";
+import Sports from "../assets/Images/Sports.png";
+
 import Login from "../assets/Icons/login.svg";
 import SignUp from "../assets/Icons/sign-in.svg";
 import TC from "../assets/Icons/Pen.png";
@@ -21,6 +26,8 @@ const PopularCategories = () => {
   const [isImageOpen, setImageOpen] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
+  const categoriesImages = [History, Movie, Politics, Sports];
+
   const { categories, isLoading, error } = useSelector(
     (state) => state.categories
   );
@@ -29,38 +36,40 @@ const PopularCategories = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
-  if (isLoading) {
-    return (
-      <div className="category-spinner-container">
-        <Circles color="#D9D9D9" height={30} width={30} />
-      </div>
-    );
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className="category-spinner-container">
+  //       <Circles color="#D9D9D9" height={30} width={30} />
+  //     </div>
+  //   );
+  // }
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // if (error) {
+  //   return <div>Error: {error}</div>;
+  // }
 
   const toggleImage = () => {
     setImageOpen(!isImageOpen);
-    setShowLogin(true);
-    setShowSignup(false);
+    // setShowLogin(true);
+    // setShowSignup(false);
   };
 
   const closeMenu = () => {
     setImageOpen(false);
-    setShowLogin(false);
-    setShowSignup(false);
+    // setShowLogin(false);
+    // setShowSignup(false);
   };
 
   const toggleLoginForm = () => {
-    setShowLogin(!showLogin);
+    // setShowLogin(!showLogin);
     setShowSignup(false);
+    setShowLogin(true);
   };
 
   const toggleSignupForm = () => {
-    setShowSignup(!showSignup);
+    // setShowSignup(!showSignup);
     setShowLogin(false);
+    setShowSignup(true);
   };
 
   const navigateToLogin = () => {
@@ -91,13 +100,15 @@ const PopularCategories = () => {
 
         <div className="categoryy-grid">
           {Array.isArray(categories) &&
-            categories.map((category) => (
+            // categories.map((category) => (
+            categories.slice(0, 4).map((category, index) => (
               <div
                 key={category.id}
                 className={`category-item ${category.name.toLowerCase()}`}
               >
                 <img
-                  src={`data:image/png;base64,${category.logo}`}
+                  // src={`data:image/png;base64,${category.logo}`}
+                  src={categoriesImages[index]}
                   alt={category.name}
                   className="category-logo-img"
                   onClick={handleImageClick}
@@ -116,6 +127,19 @@ const PopularCategories = () => {
               </div>
             ))}
         </div>
+
+        {isLoading && (
+          <div className="category-spinner-container">
+            <Circles color="#D9D9D9" height={30} width={30} />
+          </div>
+        )}
+        {error && (
+          <div className="error-message">
+            <p>
+              Unable to load categories from the server. Please try again later.
+            </p>
+          </div>
+        )}
       </div>
 
       {isImageOpen && (
@@ -142,7 +166,7 @@ const PopularCategories = () => {
                 {showLogin && <LoginForm isLoginOpen={true} />}
               </div>
 
-              <li className="menu-itemm" onClick={toggleSignupForm}>
+              <li className="menu-item" onClick={toggleSignupForm}>
                 <div className="form-container">
                   <img src={SignUp} alt="signup" />
                   Signup

@@ -18,7 +18,7 @@ const HeroSection = () => {
   const [showOverlay, setShowOverlay] = useState(false);
   const [showText, setShowText] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
   const [showSignup, setShowSignup] = useState(false);
   const [animationStage, setAnimationStage] = useState(1);
 
@@ -54,24 +54,27 @@ const HeroSection = () => {
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
-    setShowLogin(true);
-    setShowSignup(false);
+    // setShowLogin(true);
+    // setShowSignup(false);
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setShowLogin(false);
-    setShowSignup(false);
+    // setShowLogin(false);
+    // setShowSignup(false);
   };
 
   const toggleLoginForm = () => {
-    setShowLogin(!showLogin);
+    // setShowLogin(!showLogin);
     setShowSignup(false);
+    setShowLogin(true);
   };
 
   const toggleSignupForm = () => {
-    setShowSignup(!showSignup);
+    // setShowSignup(!showSignup);
     setShowLogin(false);
+    setShowSignup(true);
+
   };
 
   const navigateToLogin = () => {
@@ -172,7 +175,7 @@ const HeroSection = () => {
                 )}
               </div>
             </ul>
-
+           
             <div className="additional-content">
               <p>
                 <a href="/terms" className="content-links">

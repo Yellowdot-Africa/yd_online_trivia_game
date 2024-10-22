@@ -56,3 +56,15 @@
   margin-top: 48px;
   margin-bottom: 133px;
 }
+
+
+
+.go-back-icont{
+  position: absolute; 
+  top: 20px; 
+  left: 20px; 
+  cursor: pointer; 
+  background-color: white;
+  border-radius: 50px;
+ 
+}

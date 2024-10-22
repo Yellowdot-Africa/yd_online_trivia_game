@@ -2,12 +2,17 @@ import { useState, useEffect } from "react";
 import Logo from "../../assets/Icons/logoicon.svg";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../../Pages/Questions/QuestionsScreen.css";
+import { useSelector } from "react-redux";
+import { subscribeToPack} from "../../API/questionPackApi";
+
+
 
 const CountdownPage = () => {
   const [countdown, setCountdown] = useState(3);
   const navigate = useNavigate();
   const location = useLocation();
   const { selectedPack, selectedCategoryName, selectedCategoryImage } = location.state || {};
+  const token = useSelector((state) => state.auth.jwt);
 
 
 
@@ -18,16 +23,31 @@ const CountdownPage = () => {
 
     if (countdown === 0) {
       clearInterval(countdownInterval);
+      console.log("Token being used for subscription:", token);
+
+      subscribeToPack(selectedPack.questionPackId, token)
+
+      .then((response) => {
+        console.log("Subscription successful:", response);
+
+
+
       navigate("/questions" , { state:
-         { selectedPack },
+         { selectedPack ,
          selectedCategoryName,
          selectedCategoryImage,
-        
+         
+      }
         });
-    }
-
+    })
+    .catch((error) => {
+      console.error("Error during subscription:", error);
+      // Handle error, maybe show an error message or retry
+    });
+}
     return () => clearInterval(countdownInterval);
-  }, [countdown, navigate, selectedPack]);
+  // }, [countdown, navigate, selectedPack]);
+}, [countdown, token, navigate, selectedPack, selectedCategoryName, selectedCategoryImage]);
 
 
 

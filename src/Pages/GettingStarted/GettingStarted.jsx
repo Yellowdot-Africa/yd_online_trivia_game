@@ -4,18 +4,15 @@ import TrophyCup from "../../assets/Icons/TrophyCup.png";
 import CustomButton from "../../Components/CustomButton";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Prev from "../../assets/Icons/chevron-left.png";
 // import { fetchQuestions } from "../../features/questions/questionSlice";
 import { fetchUserQuestions } from "../../features/questions/questionSlice";
 
-
-
 const GettingStarted = () => {
-
   const dispatch = useDispatch();
   const { categories, selectedCategory, selectedGames, games } = useSelector(
     (state) => state.categories
   );
-
 
   const [inputValue, setInputValue] = useState("");
   const [loading, setLoading] = useState(false);
@@ -25,14 +22,11 @@ const GettingStarted = () => {
 
   const { gameID } = useSelector((state) => state.game);
 
-
   useEffect(() => {
     if (selectedCategory && selectedGames) {
       dispatch(fetchUserQuestions());
     }
   }, [selectedCategory, selectedGames, dispatch]);
-
-
 
   const btnText = "Begin";
   const buttonStyle = {
@@ -49,11 +43,17 @@ const GettingStarted = () => {
   const handleQuestionPack = () => {
     navigate("/question-pack");
   };
-
+  const handleGoBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
       <div className="getting-started-container">
+        <div className="go-back-icont">
+          <img className="back" src={Prev} alt="prev" onClick={handleGoBack} />
+        </div>
+
         <div className="trophy-img">
           <img src={TrophyCup} alt="trophy" />
         </div>
@@ -78,7 +78,3 @@ const GettingStarted = () => {
 };
 
 export default GettingStarted;
-
-
-
-

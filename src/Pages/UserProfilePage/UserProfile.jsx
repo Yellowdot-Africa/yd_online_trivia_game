@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUserProfile, logoutUser } from '../../features/userProfile/userProfileSlice';
+import { fetchUserProfile, fetchUserByIdProfile, logoutUser , updateUserProfile } from '../../features/userProfile/userProfileSlice';
 import '../../Pages/UserProfilePage/UserProfile.css';
 import Prev from '../../assets/Icons/chevron-left.png';
 import Edit from '../../assets/Icons/editpic.png';
@@ -12,6 +12,12 @@ const UserProfile = () => {
   const username = useSelector((state) => state.auth.username);
   const email = useSelector((state) => state.auth.email);
   const msisdn = useSelector((state) => state.auth.msisdn);
+  const userID = useSelector((state) => state.auth.userID);
+  const authToken = useSelector(state => state.auth.jwt);
+  const isLoading = useSelector((state) => state.userProfile.isLoading);
+  const error = useSelector((state) => state.userProfile.error);
+  const userStats = useSelector((state) => state.userProfile.userStats);
+  const userProfile = useSelector((state) => state.userProfile.userProfile);
 
   const [isEditMode, setIsEditMode] = useState(false);
   const [editedUsername, setEditedUsername] = useState(username || '');
@@ -25,17 +31,26 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const userID = useSelector((state) => state.auth.userID);
-  const authToken = useSelector(state => state.auth.jwt);
-  const isLoading = useSelector((state) => state.userProfile.isLoading);
-  const error = useSelector((state) => state.userProfile.error);
-  const userStats = useSelector((state) => state.userProfile.userStats);
+  
+  // useEffect(() => {
+  //   if (userID && authToken) {
+  //     dispatch(fetchUserProfile({ userID, token: authToken }));
+  //   }
+  // }, [dispatch, userID, authToken]);
 
   useEffect(() => {
     if (userID && authToken) {
-      dispatch(fetchUserProfile({ userID, token: authToken }));
+      dispatch(fetchUserByIdProfile(userID))
     }
   }, [dispatch, userID, authToken]);
+
+  useEffect(() => {
+    if (userProfile) {
+      setEditedUsername(userProfile.username);
+      setEditedPhoneNumber(userProfile.msisdn);
+      setEditedEmail(userProfile.email);
+    }
+  }, [userProfile]);
 
   const handleEditClick = () => {
     setIsEditMode(true);
@@ -46,9 +61,22 @@ const UserProfile = () => {
     navigate(-1); 
   };
 
+  // const handleSaveClick = () => {
+  //   setIsEditMode(false);
+  // };
+
   const handleSaveClick = () => {
+    dispatch(updateUserProfile({
+      id: userID,
+      username: editedUsername,
+      email: editedEmail,
+      msisdn: editedPhoneNumber,
+      // password: '',
+    }));
     setIsEditMode(false);
   };
+
+  
 
   const handleInputChange = (setter) => (e) => {
     setter(e.target.value);
@@ -65,6 +93,10 @@ const UserProfile = () => {
 
   const handleLogoutConfirm = () => {
     dispatch(logoutUser()); 
+    localStorage.removeItem('authToken'); 
+    localStorage.removeItem('userProfile'); 
+
+
     navigate('/'); 
   };
 
@@ -137,9 +169,14 @@ const UserProfile = () => {
             <div className="user-info">
               {/* <p className="phone-number">
                 <img src={Phone} alt="phone" /> {editedPhoneNumber}
-              </p> */}
-              {/* <p className="phone-number">{editedEmail}</p> */}
-              <p className="user-name">{editedUsername}</p>
+              </p>
+              <p className="phone-number">{editedEmail}</p>
+              <p className="user-name">{editedUsername}</p> */}
+               <p className="phone-number">
+                <img src={Phone} alt="phone" /> {userProfile?.msisdn}
+              </p>
+              <p className="phone-number">{userProfile?.email}</p>
+              <p className="user-name">{userProfile?.username}</p>
             </div>
           </div>
         </div>
@@ -202,7 +239,6 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-
 
 
 
