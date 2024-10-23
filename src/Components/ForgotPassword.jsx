@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import Prev from "../assets/Icons/chevron-left.png";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"; 
@@ -15,6 +16,18 @@ const ForgotPassword = () => {
   const navigate = useNavigate(); 
   const token = useSelector((state) => state.auth.jwt);
 
+
+
+  useEffect(() => {
+    if (errorMessage || successMessage) {
+      const timer = setTimeout(() => {
+        setErrorMessage("");
+        setSuccessMessage("");
+      }, 2000); 
+
+      return () => clearTimeout(timer);
+    }
+  }, [errorMessage, successMessage]);
 
 
   const handleResetRequest = async (values) => {
@@ -75,16 +88,17 @@ const ForgotPassword = () => {
   });
 
 
-  const handleInputChange = () => {
-    setSuccessMessage(""); 
+
+
+  const handleGoBack = () => {
+    navigate(-1);
   };
-
-
- 
 
 
   return (
     <div className="forgot-password-form">
+    <img className="back-btn-btn" src={Prev} alt="prev" onClick={handleGoBack} />
+
          {errorMessage && <div className="errorr-message">{errorMessage}</div>}
       {successMessage && <div className="successs-message">{successMessage}</div>}
 
@@ -102,10 +116,7 @@ const ForgotPassword = () => {
               type="text"
               name="emailOrPhone"
               placeholder="Email or Phone"
-              onChange={(e) => {
-                handleInputChange();
-                return e.target.value;
-              }}
+            
             />
             <ErrorMessage name="emailOrPhone" component="p" className="error-input-text"/>
             <button type="submit" className="req-btn">Request Reset Code</button>
@@ -149,7 +160,5 @@ const ForgotPassword = () => {
 };
 
 export default ForgotPassword;
-
-
 
 

@@ -135,6 +135,7 @@ const UserProfile = () => {
               id="phonenumber"
               placeholder="Phone Number"
               className="input-field"
+              readOnly={true}
               value={editedPhoneNumber}
               onChange={handleInputChange(setEditedPhoneNumber)}
             />
@@ -144,6 +145,7 @@ const UserProfile = () => {
               className="input-field"
               id="email"
               placeholder="Email"
+              readOnly={true}
               value={editedEmail}
               onChange={handleInputChange(setEditedEmail)}
             />
