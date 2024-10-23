@@ -74,7 +74,6 @@ const HeroSection = () => {
     // setShowSignup(!showSignup);
     setShowLogin(false);
     setShowSignup(true);
-
   };
 
   const navigateToLogin = () => {
@@ -148,45 +147,48 @@ const HeroSection = () => {
                 onClick={closeMenu}
               />
             </div>
+            {isMenuOpen && (
+              <>
+                <ul className="menu-list">
+                  <li className="menu-item" onClick={toggleLoginForm}>
+                    <div className="form-container">
+                      <img src={Login} alt="login" />
+                      Login
+                    </div>
+                  </li>
+                  <div className={`login-div ${showLogin ? "" : "hidden"}`}>
+                    {showLogin && <LoginForm isLoginOpen={true} />}
+                  </div>
 
-            <ul className="menu-list">
-              <li className="menu-item" onClick={toggleLoginForm}>
-                <div className="form-container">
-                  <img src={Login} alt="login" />
-                  Login
-                </div>
-              </li>
-              <div className={`login-div ${showLogin ? "" : "hidden"}`}>
-                {showLogin && <LoginForm isLoginOpen={true} />}
-              </div>
+                  <li className="menu-item" onClick={toggleSignupForm}>
+                    <div className="form-container">
+                      <img src={SignUp} alt="signup" />
+                      Signup
+                    </div>
+                  </li>
+                  <div className={`signup-div ${showSignup ? "" : "hidden"}`}>
+                    {showSignup && (
+                      <SignUpForm
+                        isSignUpOpen={true}
+                        navigateToLogin={navigateToLogin}
+                      />
+                    )}
+                  </div>
+                </ul>
 
-              <li className="menu-item" onClick={toggleSignupForm}>
-                <div className="form-container">
-                  <img src={SignUp} alt="signup" />
-                  Signup
+                <div className="additional-content">
+                  <p>
+                    <a href="/terms" className="content-links">
+                      <img src={TC} alt="tc" />
+                      T's&C's
+                    </a>
+                    <a href="/faq" className="content-links">
+                      <img src={FAQ} alt="" /> FAQs
+                    </a>
+                  </p>
                 </div>
-              </li>
-              <div className={`signup-div ${showSignup ? "" : "hidden"}`}>
-                {showSignup && (
-                  <SignUpForm
-                    isSignUpOpen={true}
-                    navigateToLogin={navigateToLogin}
-                  />
-                )}
-              </div>
-            </ul>
-           
-            <div className="additional-content">
-              <p>
-                <a href="/terms" className="content-links">
-                  <img src={TC} alt="tc" />
-                  T's&C's
-                </a>
-                <a href="/faq" className="content-links">
-                  <img src={FAQ} alt="" /> FAQs
-                </a>
-              </p>
-            </div>
+              </>
+            )}
           </div>
         </div>
       </div>
@@ -195,11 +197,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-
-
-
-
-
-
-

@@ -31,18 +31,15 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
-  // useEffect(() => {
-  //   if (userID && authToken) {
-  //     dispatch(fetchUserProfile({ userID, token: authToken }));
-  //   }
-  // }, [dispatch, userID, authToken]);
+
 
   useEffect(() => {
     if (userID && authToken) {
-      dispatch(fetchUserByIdProfile(userID))
+      dispatch(fetchUserProfile({ userID, token: authToken }));
+      dispatch(fetchUserByIdProfile(userID));
     }
   }, [dispatch, userID, authToken]);
+  
 
   useEffect(() => {
     if (userProfile) {

@@ -28,6 +28,7 @@ const PinPage = () => {
   const dispatch = useDispatch();
   const [pin, setPin] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); 
   const [confirmPin, setConfirmPin] = useState("");
   const [isConfirmMode, setConfirmMode] = useState(false);
   const [isPinVerified, setIsPinVerified] = useState(false);
@@ -103,7 +104,9 @@ const PinPage = () => {
 
         dispatch(
           setDepositResponse("Wallet updated successfully with the payment!")
-        );
+          
+          );
+          setSuccessMessage("Withdrawal successful!"); 
         // console.log("my balance after withdraw", updatedBalance);
       } else {
         console.error("Withdrawal failed: ", response.data.message);
@@ -140,6 +143,7 @@ const PinPage = () => {
             setErrorMessage("");
             setConfirmMode(false);
             setPin("");
+            setSuccessMessage("Withdrawal successful!"); 
           } else {
             setErrorMessage(
               response.data.message || "Failed to create PIN. Try again."
@@ -226,6 +230,8 @@ const PinPage = () => {
               : "Create a four-digit PIN for secure transactions."}
           </p>
           {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {successMessage && <p className="success">{successMessage}</p>} {/* Display success message */}
+
           <FourDigitInput value={pin} />
         </div>
         <div className="keypad">

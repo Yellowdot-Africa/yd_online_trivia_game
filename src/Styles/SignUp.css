@@ -26,7 +26,9 @@
   padding-top: 25px;
   position: absolute;
   top: 50%;
-  right: 65px;
+  right: 56px;
+  transition: all 0.9s ease-out ;
+
 }
 
 .signup-form input {
@@ -141,7 +143,7 @@
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -495px;
+    left: -549px;
   }
 
   .signup-form button {
@@ -251,7 +253,7 @@
     padding-top: 25px;
     position: absolute;
     top: 50%;
-    left: -768px;
+    left: -810px;
   }
 
   .signup-form button {
@@ -276,4 +278,40 @@
 }
 
 
+
+
+@media screen and (min-width: 1501px) {
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start ;
+    justify-content: center;
+    padding-top: 25px;
+    position: absolute;
+    top: 50%;
+    left: -960px;
+    transition: all 0.9s ease-out ;
+
+  }
+
+  .signup-form button {
+    width: 118px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #54349f66;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 26px;
+    margin-left: -2px;
+  }
+
+  .signup-form input{
+    width: 50vw;
+  }
+}
 

@@ -19,6 +19,9 @@ const LoginForm = ({ isLoginOpen }) => {
   const [errorText, setErrorText] = useState(null);
   const [isPasswordTyped, setIsPasswordTyped] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
+  const [msisdnFocus, setMsisdnFocus] = useState(false);
+  const [passwordFocus, setPasswordFocus] = useState(false);
 
   // const initialValues = {
   //   loginMethod: "" ? "email" : "phone",
@@ -27,8 +30,8 @@ const LoginForm = ({ isLoginOpen }) => {
   // };
 
   const initialValues = {
-    loginMethod: "phone", 
-    phoneNumber: "", 
+    loginMethod: "phone",
+    phoneNumber: "",
     email: "",
     password: "",
   };
@@ -44,7 +47,6 @@ const LoginForm = ({ isLoginOpen }) => {
     password: Yup.string().required("Please input your password"),
   });
 
-
   // const formatPhoneNumber = (phoneNumber) => {
   //   if (phoneNumber.startsWith("234")) {
   //     return "0" + phoneNumber.slice(3);
@@ -59,10 +61,10 @@ const LoginForm = ({ isLoginOpen }) => {
   // };
 
   const handleSubmit = (values) => {
+    setIsButtonClicked(true);
     const { loginMethod, phoneNumber, email, password } = values;
-    const username =
-      loginMethod === "phone" ? phoneNumber : email;
-      // loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
+    const username = loginMethod === "phone" ? phoneNumber : email;
+    // loginMethod === "phone" ? formatPhoneNumber(phoneNumber) : email;
     // setSubmitting(true);
     dispatch(login({ username, password }))
       .then((action) => {
@@ -135,15 +137,17 @@ const LoginForm = ({ isLoginOpen }) => {
                   placeholder="Phone Number"
                   autoComplete="username"
                   value={values.phoneNumber}
-
                   onChange={handleChange}
                 />
 
                 <ErrorMessage
                   name="phoneNumber"
                   component="p"
-                  className="error-input-text"
+                  className="error-input-textt"
                 />
+                {msisdnFocus && (
+                  <p className="inputt-textt">Please input your Phone Number</p>
+                )}
               </>
             )}
             {values.loginMethod === "email" && (
@@ -159,8 +163,11 @@ const LoginForm = ({ isLoginOpen }) => {
                 <ErrorMessage
                   name="email"
                   component="p"
-                  className="error-input-text"
+                  className="error-input-textt"
                 />
+                {/* {emailFocus && (
+                  <p className="inputt-textt">Please input your email</p>
+                )} */}
               </>
             )}
             <div className="password-input-container">
@@ -182,9 +189,11 @@ const LoginForm = ({ isLoginOpen }) => {
             <ErrorMessage
               name="password"
               component="p"
-              className="error-input-text"
+              className="error-input-textt"
             />
-
+            {passwordFocus && (
+              <p className="inputt-textt">Please input your password</p>
+            )}
             <button
               type="submit"
               disabled={status === "loading"}
@@ -199,8 +208,9 @@ const LoginForm = ({ isLoginOpen }) => {
               )}
             </button>
             <br />
-
-            {loginError && <p className="error-input-text">{loginError}</p>}
+            {isButtonClicked && loginError && (
+              <p className="error-input-text">{loginError}</p>
+            )}
             <div className="login-method-selector">
               {values.loginMethod === "phone" ? (
                 <a
@@ -234,3 +244,6 @@ const LoginForm = ({ isLoginOpen }) => {
 };
 
 export default LoginForm;
+
+
+

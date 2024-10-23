@@ -32,6 +32,8 @@ import PaymentSuccessPage from "../Components/PaymentSuccessPage";
 import ForgotPassword from "./ForgotPassword";
 import TermsAndConditions from "../Components/TermsAndConditions";
 import FaqPage from "../Components/FaqPage";
+import ProtectedRoute from "../Components/ProtectedRoute";
+
 
 
 const router = createBrowserRouter([
@@ -47,9 +49,17 @@ const router = createBrowserRouter([
     path: "/loading",
     element: <LoadingPage />,
   },
+  // {
+  //   path: "/home",
+  //   element: <HomePage />,
+  // },
   {
     path: "/home",
-    element: <HomePage />,
+    element: (
+      <ProtectedRoute>
+        <HomePage />
+      </ProtectedRoute>
+    ), 
   },
   {
     path: "/login-category",
@@ -59,83 +69,219 @@ const router = createBrowserRouter([
     path: "/forgot-password",
     element: <ForgotPassword />,
   },
+  // {
+  //   path: "/user-profile",
+  //   element: <UserProfile />,
+  // },
   {
     path: "/user-profile",
-    element: <UserProfile />,
+    element: (
+      <ProtectedRoute>
+        <UserProfile />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/popularcategories",
+  //   element: <PopularCategories />,
+  // },
   {
     path: "/popularcategories",
-    element: <PopularCategories />,
+    element: (
+      <ProtectedRoute>
+        <PopularCategories />
+      </ProtectedRoute>
+    ),
   },
+  // {
+  //   path: "/trivia-categories",
+  //   element: <TriviaCategories />,
+  // },
   {
     path: "/trivia-categories",
-    element: <TriviaCategories />,
+    element: (
+      <ProtectedRoute>
+        <TriviaCategories />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/leaderboard",
+  //   element: <Leaderboard />,
+  // },
   {
     path: "/leaderboard",
-    element: <Leaderboard />,
+    element: (
+      <ProtectedRoute>
+        <Leaderboard />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/settings",
+  //   element: <Settings />,
+  // },
   {
     path: "/settings",
-    element: <Settings />,
+    element: (
+      <ProtectedRoute>
+        <Settings />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/account",
+  //   element: <Account />,
+  // },
   {
     path: "/account",
-    element: <Account />,
+    element: (
+      <ProtectedRoute>
+        <Account />
+      </ProtectedRoute>
+    ), 
   },
   {
     path: "/withdrawmodal",
     element: <WithdrawalModal />,
   },
+  // {
+  //   path: "/withdraw",
+  //   element: <Withdraw/>,
+  // },
   {
     path: "/withdraw",
-    element: <Withdraw/>,
+    element: (
+      <ProtectedRoute>
+        <Withdraw />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/pin-page",
+  //   element: <PinPage />,
+  // },
   {
     path: "/pin-page",
-    element: <PinPage />,
+    element: (
+      <ProtectedRoute>
+        <PinPage />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/deposit",
+  //   element: <Deposit />,
+  // },
   {
     path: "/deposit",
-    element: <Deposit />,
+    element: (
+      <ProtectedRoute>
+        <Deposit />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/payment-success",
+  //   element: <PaymentSuccessPage />,
+  // },
   {
     path: "/payment-success",
-    element: <PaymentSuccessPage />,
+    element: (
+      <ProtectedRoute>
+        <PaymentSuccessPage />
+      </ProtectedRoute>
+    ), 
   },
 
+  // {
+  //   path: "/cashout",
+  //   element: <CashOutSuccessPage />,
+  // },
   {
     path: "/cashout",
-    element: <CashOutSuccessPage />,
+    element: (
+      <ProtectedRoute>
+        <CashOutSuccessPage />
+      </ProtectedRoute>
+    ), 
   },
-  {
-    path: "/getting-started",
-    element: <GettingStarted />,
-  },
+  // {
+  //   path: "/getting-started",
+  //   element: <GettingStarted />,
+  // },
   {
     path: "/question-pack",
-    element: <QuestionPack />,
+    element: (
+      <ProtectedRoute>
+        <QuestionPack />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/question-pack",
+  //   element: <QuestionPack />,
+  // },
+  {
+    path: "/getting-started",
+    element: (
+      <ProtectedRoute>
+        <GettingStarted />
+      </ProtectedRoute>
+    ), 
+  },
+  // {
+  //   path: "/question-loading",
+  //   element: <CountdownPage />,
+  // },
   {
     path: "/question-loading",
-    element: <CountdownPage />,
+    element: (
+      <ProtectedRoute>
+        <CountdownPage />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/questions",
+  //   element: <QuestionInfo  />,
+  // },
   {
     path: "/questions",
-    element: <QuestionInfo  />,
+    element: (
+      <ProtectedRoute>
+        <QuestionInfo />
+      </ProtectedRoute>
+    ), 
   },
+  // {
+  //   path: "/question-screen",
+  //   element: <QuestionScreen />,
+  // },
   {
     path: "/question-screen",
-    element: <QuestionScreen />,
+    element: (
+      <ProtectedRoute>
+        <QuestionScreen />
+      </ProtectedRoute>
+    ), 
   },
   
   {
     path: "/ad",
     element: <Ad />,
   },
+  // {
+  //   path: "/result-page",
+  //   element: <ResultPage />,
+  // },
   {
     path: "/result-page",
-    element: <ResultPage />,
+    element: (
+      <ProtectedRoute>
+        <ResultPage />
+      </ProtectedRoute>
+    ), 
   },
   {
     path: "/faqs",

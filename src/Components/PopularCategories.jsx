@@ -134,9 +134,9 @@ const PopularCategories = () => {
           </div>
         )}
         {error && (
-          <div className="error-message">
+          <div className="errrorr-message">
             <p>
-              Unable to load categories from the server. Please try again later.
+            Oops! Something went wrong on our end. Please try again later.
             </p>
           </div>
         )}

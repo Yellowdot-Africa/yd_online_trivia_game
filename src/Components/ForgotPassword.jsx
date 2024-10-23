@@ -75,7 +75,9 @@ const ForgotPassword = () => {
   });
 
 
- 
+  const handleInputChange = () => {
+    setSuccessMessage(""); 
+  };
 
 
  
@@ -94,15 +96,19 @@ const ForgotPassword = () => {
           onSubmit={handleResetRequest}
         >
           <Form>
-          <h2>Forgot Password</h2>
+          <h2 >Forgot Password</h2>
 
             <Field
               type="text"
               name="emailOrPhone"
               placeholder="Email or Phone"
+              onChange={(e) => {
+                handleInputChange();
+                return e.target.value;
+              }}
             />
             <ErrorMessage name="emailOrPhone" component="p" className="error-input-text"/>
-            <button type="submit">Request Reset Code</button>
+            <button type="submit" className="req-btn">Request Reset Code</button>
           </Form>
         </Formik>
       ) : (
