@@ -33,8 +33,8 @@ const ForgotPassword = () => {
   const handleResetRequest = async (values) => {
     try {
       await axios.post(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/ResetPasswordRequest",
-        { emailOrPhone: values.emailOrPhone },
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/ForgotPasswordRequest",
+        { email: values.emailOrPhone },
         {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -52,11 +52,11 @@ const ForgotPassword = () => {
 
   const handleResetPassword = async (values) => {
     try {
-      await axios.put(
-        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/ResetPassword",
+      await axios.post(
+        "https://onlinetriviaapi.ydplatform.com:2023/api/YellowDotTrivia/Authorization/CompleteForgotPasswordReset",
         {
-          newPassord: values.newPassword,
           resetCode: values.resetCode,
+          newPassword: values.newPassword,
         },
         {
             headers: {

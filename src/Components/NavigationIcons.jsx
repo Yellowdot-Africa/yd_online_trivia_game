@@ -12,18 +12,29 @@ const NavigationIcons = ({bgColor, opacity}) => {
   const location = useLocation();
   const gameId = useSelector((state) => state.game.gameId);
 
+  // useEffect(() => {
+  //   const path = location.pathname;
+  //   if (path.includes("leaderboard/:gameId")) {
+  //     setActive("leaderboard");
+  //   } else if (path.includes("settings")) {
+  //     setActive("settings");
+  //   } else {
+  //     setActive("home");
+  //   }
+  // }, [location.pathname]);
+
   useEffect(() => {
     const path = location.pathname;
-    if (path.includes("leaderboard/:gameId")) {
+
+    // Updated path checks with dynamic gameId
+    if (path.startsWith("/leaderboard")) {
       setActive("leaderboard");
-    } else if (path.includes("settings")) {
+    } else if (path.startsWith("/settings")) {
       setActive("settings");
     } else {
       setActive("home");
     }
   }, [location.pathname]);
-
- 
 
 
   const handleIconClick = (route, name) => {
@@ -71,6 +82,4 @@ const NavigationIcons = ({bgColor, opacity}) => {
 };
 
 export default NavigationIcons;
-
-
 
